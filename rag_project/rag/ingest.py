@@ -4,6 +4,11 @@ import pdfplumber
 from PIL import Image
 import pytesseract
 
+try:
+    import fitz
+except Exception:  # pragma: no cover
+    fitz = None
+
 
 def extract_text_from_pdf(path: str) -> str:
     pages = extract_pdf_pages(path)
@@ -13,20 +18,37 @@ def extract_text_from_pdf(path: str) -> str:
 def extract_pdf_pages(path: str):
     """Retorna lista de (page_number, text) para preservar paginação do PDF."""
     pages = []
+    if fitz is not None:
+        try:
+            with fitz.open(path) as pdf:
+                extracted_pages = [
+                    (page_number, page.get_text())
+                    for page_number, page in enumerate(pdf, start=1)
+                    if page.get_text().strip()
+                ]
+            if extracted_pages:
+                return extracted_pages
+        except Exception:
+            pass
+
     try:
         with pdfplumber.open(path) as pdf:
+            extracted_pages = []
             for page_number, page in enumerate(pdf.pages, start=1):
                 text = page.extract_text()
                 if text:
-                    pages.append((page_number, text))
-                else:
-                    try:
-                        pil = page.to_image(resolution=150).original
-                        ocr = pytesseract.image_to_string(pil, lang='por+eng')
-                        if ocr.strip():
-                            pages.append((page_number, ocr))
-                    except Exception:
-                        pass
+                    extracted_pages.append((page_number, text))
+            if extracted_pages:
+                return extracted_pages
+
+            for page_number, page in enumerate(pdf.pages, start=1):
+                try:
+                    pil = page.to_image(resolution=150).original
+                    ocr = pytesseract.image_to_string(pil, lang='por+eng')
+                    if ocr.strip():
+                        pages.append((page_number, ocr))
+                except Exception:
+                    pass
     except Exception:
         try:
             img = Image.open(path)

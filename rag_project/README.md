@@ -8,6 +8,10 @@ Este projeto implementa um pipeline simples para aplicar a metodologia descrita 
 - Geração de embeddings com `sentence-transformers` e indexação com `faiss`.
 - Recuperação semântica e síntese (opcional) via API OpenAI.
 
+Para não manter embeddings e índice FAISS na memória local, também é possível usar
+Vector Store + File Search hospedados pela OpenAI. Esse recurso é cobrado pela API,
+separadamente da assinatura do ChatGPT.
+
 ## Instalação
 
 Recomenda-se criar um virtualenv e instalar as dependências:
@@ -37,6 +41,23 @@ python run_query.py --index indexed --question "Como cada país define competên
 ```
 
 Para obter uma síntese gerada por um LLM, exporte `OPENAI_API_KEY` no ambiente ou passe `--openai_key`.
+
+## Vector Store hospedado
+
+Depois de gerar o dataset, envie o arquivo inglês para a OpenAI:
+
+```bash
+python openai_vector_store.py upload --file ../corpus/dataset_output/dataset_english.jsonl
+```
+
+Guarde o `vector_store_id` retornado e consulte sem carregar FAISS:
+
+```bash
+python run_query.py --vector_store_id SEU_VECTOR_STORE_ID --question "Como cada país define competências digitais?"
+```
+
+O dataset original continua local para preservar a fonte, e o dataset inglês é usado
+como base de análise e busca hospedada.
 
 ## Observações
 
