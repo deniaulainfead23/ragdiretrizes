@@ -60,18 +60,25 @@ def save_cached_answer(index_folder: str, question: str, answer: str, top_k: int
 
 
 def rag_query(index_folder: str, question: str, top_k: int = 5, openai_api_key: str = None):
+    print('[1/4] Recebendo pergunta...')
+    print(f'[2/4] Carregando índice local em {index_folder}...')
     idx = Indexer()
     idx.load(index_folder)
+    print(f'[2/4] Índice carregado. Buscando {top_k} trechos relevantes...')
     hits = idx.query(question, top_k=top_k)
     snippets = [h['metadata'] for h in hits]
+    print(f'[3/4] Encontrados {len(snippets)} trechos relevantes.')
     context = "\n\n---\n\n".join([f"Source: {s.get('source')}\nText:\n{s.get('text')[:1000]}" for s in snippets])
     prompt = f"Responda a pergunta usando apenas as evidências listadas abaixo. Retorne uma síntese curta e liste as fontes utilizadas.\n\nEVIDÊNCIAS:\n{context}\n\nPERGUNTA: {question}\n\nRESPOSTA:"
 
     cached = get_cached_answer(index_folder, question, top_k=top_k)
     if cached is not None:
+        print('[3/4] Resposta recuperada do cache.')
+        print('[4/4] Gerando resposta...')
         return cached
 
     if openai_api_key:
+        print('[4/4] Gerando resposta com OpenAI...')
         openai.api_key = openai_api_key
         resp = openai.ChatCompletion.create(
             model="gpt-4o-mini",
@@ -89,4 +96,5 @@ def rag_query(index_folder: str, question: str, top_k: int = 5, openai_api_key: 
         "prompt": prompt[:4000],
         "cache_status": "miss"
     }
+    print('[4/4] Gerando resposta local fallback...')
     return json.dumps(out, ensure_ascii=False, indent=2)

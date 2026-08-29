@@ -7,6 +7,8 @@ from pathlib import Path
 from dotenv import load_dotenv
 from openai import OpenAI
 
+from rag_project.vector_backend import write_vector_backend_manifest
+
 
 DEFAULT_MODEL = 'gpt-4o-mini'
 MANIFEST_PATH = Path(__file__).resolve().parent / '.openai_vector_stores.json'
@@ -47,12 +49,21 @@ def sync_dataset(file_path: str, dataset_name: str, existing_id: str | None = No
         'file': str(Path(file_path)),
     }
     MANIFEST_PATH.write_text(json.dumps(manifest, ensure_ascii=False, indent=2), encoding='utf-8')
+    write_vector_backend_manifest({
+        'backend': 'openai',
+        'vector_store_id': vector_store_id,
+        'model': DEFAULT_MODEL,
+        'index_folder': str(Path(file_path).parent),
+        'updated_at': __import__('datetime').datetime.utcnow().isoformat(timespec='seconds') + 'Z',
+    })
     print(f'{dataset_name}: vector_store_id={vector_store_id}')
     print(f'Manifesto local: {MANIFEST_PATH}')
     return vector_store_id
 
 
 def cloud_rag_query(vector_store_id: str, question: str, api_key: str | None = None, model: str = DEFAULT_MODEL) -> str:
+    print('[1/4] Recebendo pergunta...')
+    print(f'[2/4] Buscando documentos no Vector Store {vector_store_id}...')
     client = OpenAI(api_key=api_key or os.environ.get('OPENAI_API_KEY'))
     response = client.responses.create(
         model=model,
@@ -67,6 +78,8 @@ def cloud_rag_query(vector_store_id: str, question: str, api_key: str | None = N
             'max_num_results': 8,
         }],
     )
+    print('[3/4] Encontrados trechos relevantes para a consulta.')
+    print('[4/4] Gerando resposta...')
     return response.output_text
 
 

@@ -1,0 +1,43 @@
+version: 2.0
+lowercase: true
+strip_accents: true
+remove_punctuation: true
+remove_page_numbers: true
+split_on_whitespace: true
+preserve_hyphenated_terms: false
+min_token_length: 2
+allow_bigram_detection: true
+stopwords:
+  language:
+    - the
+    - a
+    - an
+    - and
+    - or
+    - of
+    - to
+    - in
+    - for
+    - on
+    - with
+    - as
+    - by
+    - is
+    - are
+    - be
+    - this
+    - that
+  documental:
+    - sobre
+    - todos
+    - documento
+    - currículo
+    - curriculo
+    - educação
+    - educacao
+    - país
+    - pais
+    - área
+    - area
+    - capítulo
+    - capitulo

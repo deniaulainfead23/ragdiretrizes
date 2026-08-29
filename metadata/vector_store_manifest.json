@@ -1,0 +1,8 @@
+{
+  "backend": "openai",
+  "description": "Manifesto do backend vetorial do projeto. Mantém o backend principal e o vector_store_id rastreado por execução.",
+  "vector_store_id": null,
+  "model": "gpt-4o-mini",
+  "index_folder": "indexed",
+  "updated_at": null
+}

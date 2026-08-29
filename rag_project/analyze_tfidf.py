@@ -27,12 +27,18 @@ STOP_WORDS = {
 
 def load_records(path: Path, text_field: str) -> list[dict]:
     records = []
+    fallback_fields = [text_field, 'english_text', 'source_text']
     with path.open(encoding='utf-8') as handle:
         for line in handle:
             if not line.strip():
                 continue
             record = json.loads(line)
-            text = (record.get(text_field) or record.get('source_text') or '').strip()
+            text = ''
+            for field in fallback_fields:
+                candidate = (record.get(field) or '').strip()
+                if candidate:
+                    text = candidate
+                    break
             if text:
                 record['_text'] = text
                 records.append(record)
@@ -173,51 +179,78 @@ def analyze(input_path: str, output_dir: str, text_field: str = 'english_text', 
         values = document_matrix[row_index].toarray().ravel()
         for term_index in np.flatnonzero(values):
             document_rows.append({'document': document_name, 'country': records[row_index].get('country', ''), 'term': terms[term_index], 'tfidf': round(float(values[term_index]), 8)})
-    write_rows(output / 'document_tfidf.csv', ['document', 'country', 'term', 'tfidf'], document_rows)
-    write_rows(output / 'document_top_terms.csv', ['group', 'rank', 'term', 'tfidf'], top_terms(document_matrix, document_names, terms, top_n))
+    write_rows(output / 'lexical_document_tfidf.csv', ['document', 'country', 'term', 'tfidf'], document_rows)
+    write_rows(output / 'lexical_document_top_terms.csv', ['group', 'rank', 'term', 'tfidf'], top_terms(document_matrix, document_names, terms, top_n))
 
     grouped_texts = defaultdict(list)
     for record in records:
         grouped_texts[group_name(record)].append(record['_text'])
     group_names = sorted(grouped_texts)
-    group_matrix = vectorizer.transform(['\n'.join(grouped_texts[name]) for name in group_names])
-    group_rows = []
-    for row in top_terms(group_matrix, group_names, terms, top_n):
-        group_rows.append(row)
-    write_rows(output / 'group_tfidf.csv', ['group', 'rank', 'term', 'tfidf'], group_rows)
-    write_rows(output / 'group_frequency.csv', ['group', 'rank', 'term', 'frequency'], frequency_rows(records))
+    country_group_names = [name for name in group_names if name not in {'UNESCO', 'PISA/OECD'}]
+    country_group_matrix = vectorizer.transform(['\n'.join(grouped_texts[name]) for name in country_group_names])
+    country_group_rows = []
+    for row in top_terms(country_group_matrix, country_group_names, terms, top_n):
+        country_group_rows.append(row)
+    write_rows(output / 'lexical_group_tfidf.csv', ['group', 'rank', 'term', 'tfidf'], country_group_rows)
+    write_rows(output / 'lexical_group_frequency.csv', ['group', 'rank', 'term', 'frequency'], frequency_rows(records))
 
-    similarity = cosine_similarity(group_matrix)
-    write_rows(output / 'group_similarity.csv', ['group_a', 'group_b', 'similarity'], [
-        {'group_a': group_names[i], 'group_b': group_names[j], 'similarity': round(float(similarity[i, j]), 8)}
-        for i in range(len(group_names)) for j in range(i + 1, len(group_names))
+    country_similarity = cosine_similarity(country_group_matrix)
+    write_rows(output / 'lexical_group_similarity.csv', ['group_a', 'group_b', 'similarity'], [
+        {'group_a': country_group_names[i], 'group_b': country_group_names[j], 'similarity': round(float(country_similarity[i, j]), 8)}
+        for i in range(len(country_group_names)) for j in range(i + 1, len(country_group_names))
     ])
-    with (output / 'group_similarity_matrix.csv').open('w', encoding='utf-8', newline='') as handle:
+    with (output / 'lexical_group_similarity_matrix.csv').open('w', encoding='utf-8', newline='') as handle:
         writer = csv.writer(handle)
-        writer.writerow(['group'] + group_names)
-        for name, row in zip(group_names, similarity):
+        writer.writerow(['group'] + country_group_names)
+        for name, row in zip(country_group_names, country_similarity):
             writer.writerow([name] + [round(float(value), 8) for value in row])
 
-    if 'brasil' in group_names and 'UNESCO' in group_names:
-        brazil_index = group_names.index('brasil')
+    full_group_matrix = vectorizer.transform(['\n'.join(grouped_texts[name]) for name in group_names])
+    full_similarity = cosine_similarity(full_group_matrix)
+
+    if 'brasil' in country_group_names and 'UNESCO' in group_names:
         unesco_index = group_names.index('UNESCO')
         ranking = []
-        for index, name in enumerate(group_names):
-            if name not in {'UNESCO', 'PISA/OECD', 'brasil'}:
-                ranking.append({'country': name, 'similarity_to_unesco': round(float(similarity[index, unesco_index]), 8), 'similarity_to_brazil': round(float(similarity[index, brazil_index]), 8)})
-        ranking.append({'country': 'brasil', 'similarity_to_unesco': round(float(similarity[brazil_index, unesco_index]), 8), 'similarity_to_brazil': 1.0})
+        for index, name in enumerate(country_group_names):
+            country_index = group_names.index(name)
+            ranking.append({'country': name, 'similarity_to_unesco': round(float(full_similarity[country_index, unesco_index]), 8), 'similarity_to_brazil': round(float(country_similarity[index, country_group_names.index('brasil')]), 8)})
         ranking.sort(key=lambda row: row['similarity_to_unesco'], reverse=True)
-        write_rows(output / 'country_similarity_ranking.csv', ['country', 'similarity_to_unesco', 'similarity_to_brazil'], ranking)
-    write_pisa_comparison(output, group_names, similarity, Path('corpus/pisa/pisa_2022_selection.csv'))
+        write_rows(output / 'lexical_country_similarity_ranking.csv', ['country', 'similarity_to_unesco', 'similarity_to_brazil'], ranking)
+        reference_rows = [
+            {'country': name, 'similarity_to_unesco': round(float(full_similarity[group_names.index(name), unesco_index]), 8)}
+            for name in country_group_names
+        ]
+        write_rows(output / 'country_unesco_reference.csv', ['country', 'similarity_to_unesco'], reference_rows)
+    write_pisa_comparison(output, group_names, full_similarity, Path('corpus/pisa/pisa_2022_selection.csv'))
     plot_pisa_comparison(output)
 
-    country_rows = [row for row in group_rows if row['group'] != 'UNESCO']
-    plot_top_terms(country_rows, output / 'top_terms_groups.png')
-    plot_heatmap(similarity, group_names, output / 'group_similarity_heatmap.png')
+    country_rows = [row for row in country_group_rows if row['group'] != 'UNESCO']
+    plot_top_terms(country_rows, output / 'lexical_top_terms_groups.png')
+    plot_heatmap(country_similarity, country_group_names, output / 'lexical_group_similarity_heatmap.png')
+
+    legacy_aliases = {
+        'lexical_document_tfidf.csv': 'document_tfidf.csv',
+        'lexical_document_top_terms.csv': 'document_top_terms.csv',
+        'lexical_group_tfidf.csv': 'group_tfidf.csv',
+        'lexical_group_frequency.csv': 'group_frequency.csv',
+        'lexical_group_similarity.csv': 'group_similarity.csv',
+        'lexical_group_similarity_matrix.csv': 'group_similarity_matrix.csv',
+        'lexical_country_similarity_ranking.csv': 'country_similarity_ranking.csv',
+        'lexical_top_terms_groups.png': 'top_terms_groups.png',
+        'lexical_group_similarity_heatmap.png': 'group_similarity_heatmap.png',
+    }
+    for lexical_name, legacy_name in legacy_aliases.items():
+        source = output / lexical_name
+        target = output / legacy_name
+        if source.exists() and source != target:
+            target.write_bytes(source.read_bytes())
+
     summary = {
         'input': str(input_path), 'text_field': text_field, 'documents': len(records),
         'groups': group_names, 'vocabulary_size': len(terms),
         'unesco_included': 'UNESCO' in group_names,
+        'analysis_mode': 'exploratory_lexical',
+        'method_note': 'TF-IDF e similaridade são exploratórios e não equivalem a avaliação documental nem a alinhamento curricular.',
     }
     (output / 'analysis_summary.json').write_text(json.dumps(summary, ensure_ascii=False, indent=2), encoding='utf-8')
     print(json.dumps(summary, ensure_ascii=False, indent=2))
