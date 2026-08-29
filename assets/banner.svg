@@ -1,0 +1,30 @@
+<svg width="1200" height="360" viewBox="0 0 1200 360" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1200" y2="360" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#140811"/>
+      <stop offset="0.32" stop-color="#3A102D"/>
+      <stop offset="0.68" stop-color="#8E2F68"/>
+      <stop offset="1" stop-color="#E8A9CA"/>
+    </linearGradient>
+    <linearGradient id="metal" x1="170" y1="64" x2="995" y2="292" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFF2FA"/>
+      <stop offset="0.23" stop-color="#EEC1D9"/>
+      <stop offset="0.47" stop-color="#B85D91"/>
+      <stop offset="0.72" stop-color="#F7D5E6"/>
+      <stop offset="1" stop-color="#9B3E73"/>
+    </linearGradient>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="7" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+  <rect width="1200" height="360" rx="28" fill="url(#bg)"/>
+  <circle cx="1050" cy="90" r="150" fill="#F5C9DF" fill-opacity="0.10"/>
+  <circle cx="1090" cy="320" r="220" fill="#6B204E" fill-opacity="0.28"/>
+  <path d="M0 300C190 250 280 352 495 308C690 269 791 181 995 201C1084 210 1148 237 1200 260V360H0V300Z" fill="#FFFFFF" fill-opacity="0.045"/>
+  <text x="78" y="105" font-family="Segoe UI, Arial, sans-serif" font-size="24" font-weight="600" letter-spacing="4" fill="#F4C6DE">PESQUISA • EDUCAÇÃO • TECNOLOGIA</text>
+  <text x="76" y="190" font-family="Segoe UI, Arial, sans-serif" font-size="66" font-weight="800" fill="url(#metal)" filter="url(#glow)">RAG DIRETRIZES</text>
+  <text x="80" y="240" font-family="Segoe UI, Arial, sans-serif" font-size="26" font-weight="500" fill="#FFF5FA">Análise comparativa de diretrizes internacionais da Educação</text>
+  <text x="80" y="283" font-family="Segoe UI, Arial, sans-serif" font-size="21" fill="#F0C8DB">Python • RAG • PLN • Educação Comparada • Humanidades Digitais</text>
+  <rect x="78" y="307" width="440" height="3" rx="1.5" fill="url(#metal)"/>
+</svg>
