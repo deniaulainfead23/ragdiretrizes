@@ -477,3 +477,62 @@ Este projeto combina análise documental, educação comparada, processamento de
 A principal contribuição do projeto é permitir uma leitura estruturada dos currículos, comparando não apenas a presença de temas digitais, mas também a forma com que cada país concebe a formação do cidadão, a responsabilidade social, a cidadania global e a preparação para o futuro.
 
 A UNESCO funciona como eixo internacional de referência; os countries nacionais funcionam como casos comparativos; e o sistema RAG atua como mecanismo de recuperação de evidências estruturadas para respaldar a análise.
+
+---
+
+## 17. Atualização metodológica: PISA, tradução integral e mineração de textos
+
+### 17.1 Papel do PISA 2022
+
+O PISA 2022 é utilizado prioritariamente como critério de seleção e caracterização dos países, conforme o Quadro 2 desta dissertação. Ele não é tratado como currículo nem como medida direta de qualidade das políticas de Computação. O documento PISA foi organizado em grupo externo `PISA/OECD`, separado dos países e da UNESCO.
+
+Essa distinção é necessária porque a UNESCO e o PISA cumprem funções diferentes. A UNESCO fornece uma linha de base normativa e formativa relacionada à cidadania global, ética, inclusão, direitos humanos e responsabilidade social. O PISA fornece dados comparativos de desempenho e contexto internacional. Os currículos nacionais constituem o objeto principal da análise.
+
+É metodologicamente possível investigar se países com maiores escores no PISA apresentam também maior proximidade textual com a UNESCO. Essa relação deve ser apresentada como associação exploratória, nunca como causalidade. O desempenho no PISA não demonstra que um currículo produziu determinado resultado, e a similaridade textual não mede implementação, aprendizagem ou qualidade pedagógica.
+
+### 17.2 Tradução integral e cache
+
+O dataset original preserva os textos-fonte. O dataset em inglês é produzido por tradução em blocos de 6.000 caracteres por meio da API da OpenAI. Cada bloco recebe uma chave hash e é armazenado em `translation_cache.json`. A execução pode ser interrompida e retomada sem repetir blocos já traduzidos.
+
+Para a análise final, todos os blocos de cada documento devem estar presentes. Caso existam falhas de API, o documento deve ser marcado como incompleto ou fallback, e essa situação deve ser registrada no relatório. Não se deve chamar de tradução integral uma base que contenha apenas amostras traduzidas.
+
+### 17.3 Mineração de textos ampliada
+
+Além do TF-IDF e da similaridade cosseno, o pipeline produz frequência absoluta de termos, termos mais relevantes por documento e grupo, matriz de similaridade, heatmap e ranking de proximidade com UNESCO e Brasil. O cruzamento com o arquivo `corpus/pisa/pisa_2022_selection.csv` permite construir uma tabela exploratória PISA-UNESCO.
+
+Os resultados devem ser interpretados em quatro níveis: recorrência lexical, distintividade estatística, proximidade textual e significado curricular. Somente a leitura documental contextualizada permite passar do padrão lexical para uma afirmação sobre concepções de formação.
+
+### 17.4 Ajustes necessários na dissertação
+
+Na versão final do texto, recomenda-se:
+
+- substituir afirmações como “os melhores países do PISA possuem os melhores currículos” por formulações de associação exploratória;
+- informar que o PISA foi critério de seleção, e não variável dependente ou evidência de causalidade;
+- separar explicitamente UNESCO, PISA/OECD e documentos curriculares nacionais;
+- informar quantidade de documentos por país e por grupo externo;
+- descrever parâmetros do TF-IDF, stopwords, n-gramas, frequência mínima e vocabulário;
+- informar se a tradução foi integral, por blocos, ou baseada em amostras;
+- conferir manualmente termos técnicos traduzidos e documentos com OCR;
+- confrontar cada padrão quantitativo com documentos e trechos recuperados pelo RAG;
+- apresentar as limitações de comparabilidade entre países, idiomas, quantidade documental e participação no PISA.
+
+O detalhamento operacional desta atualização está disponível em [docs/ETAPA_TFIDF.md](docs/ETAPA_TFIDF.md).
+
+---
+
+## 18. Princípios de Computação Aplicada às Humanidades Digitais
+
+As decisões computacionais desta pesquisa permanecem subordinadas às perguntas das Humanidades e à interpretação contextual dos documentos. O projeto adota os seguintes princípios:
+
+1. **Pergunta antes do método:** cada técnica responde a uma pergunta observável.
+2. **Unidade de análise explícita:** documento, país, UNESCO e PISA/OECD são diferenciados.
+3. **Construção responsável da base:** fontes, metadados, inclusão, exclusão, ausências e proveniência são registrados.
+4. **Exploração antes da inferência:** frequência, TF-IDF, visualização e similaridade descrevem padrões.
+5. **Associação não é causalidade:** relações entre PISA, vocabulário e UNESCO não são efeitos causais demonstrados.
+6. **Validade quantitativa e humanística:** métricas, erros, conferência documental e contexto são analisados conjuntamente.
+7. **Comparação contextualizada:** similaridade não equivale a equivalência curricular, implementação ou aprendizagem.
+8. **Reprodutibilidade:** scripts, parâmetros, versões, cache e decisões de tratamento são documentados.
+9. **Automação responsável:** OpenAI e RAG apoiam tradução, recuperação e síntese, mas não substituem a análise da pesquisadora.
+10. **Comunicação da incerteza:** falhas, dados ausentes, OCR e limitações de tradução são explicitados.
+
+Toda afirmação derivada de um procedimento computacional deverá indicar sua unidade de análise, seu parâmetro, sua limitação e a evidência documental correspondente.

@@ -56,6 +56,23 @@ Guarde o `vector_store_id` retornado e consulte sem carregar FAISS:
 python run_query.py --vector_store_id SEU_VECTOR_STORE_ID --question "Como cada país define competências digitais?"
 ```
 
+Para consultar as 15 perguntas em lote usando o Vector Store e reaproveitar respostas já pagas:
+
+```bash
+python run_batch.py --questions questions.txt --out responses_cloud.jsonl \
+	--vector_store_id SEU_VECTOR_STORE_ID
+```
+
+Para hospedar os dois datasets e guardar os IDs localmente para reutilização:
+
+```bash
+python openai_vector_store.py sync --english-vector-store-id SEU_ID_INGLES
+```
+
+Na primeira execução, o dataset original será enviado e o dataset inglês reutilizará
+o ID informado. Execuções seguintes reutilizam o manifesto `.openai_vector_stores.json`
+e não recriam os Vector Stores.
+
 O dataset original continua local para preservar a fonte, e o dataset inglês é usado
 como base de análise e busca hospedada.
 

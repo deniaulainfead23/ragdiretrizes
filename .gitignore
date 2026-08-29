@@ -14,6 +14,7 @@ __pycache__/
 # Local RAG indexes and caches
 .cache/
 rag_project/.cache/
+rag_project/.openai_vector_stores.json
 rag_project/indexed*/
 rag_project/**/checkpoint.json
 rag_project/**/*.faiss

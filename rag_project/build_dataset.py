@@ -1,7 +1,9 @@
 from __future__ import annotations
 
 import argparse
+import hashlib
 import json
+import os
 import re
 from pathlib import Path
 from typing import Iterator, Optional
@@ -10,6 +12,11 @@ try:
     from openai import OpenAI
 except Exception:  # pragma: no cover
     OpenAI = None
+
+try:
+    from dotenv import load_dotenv
+except Exception:  # pragma: no cover
+    load_dotenv = None
 
 INVALID_FILE_TOKENS = (
     'falha',
@@ -75,7 +82,12 @@ def iter_valid_documents(corpus_root: Path) -> Iterator[tuple[str, Path]]:
 
 
 def dataset_group_for_folder(folder_name: str) -> str:
-    return 'unesco' if folder_name.strip().lower() == 'unesco' else 'country'
+    normalized = folder_name.strip().lower()
+    if normalized == 'unesco':
+        return 'unesco'
+    if normalized == 'pisa':
+        return 'pisa'
+    return 'country'
 
 
 def detect_primary_language(text: str) -> str:
@@ -105,10 +117,11 @@ def make_dataset_record(country: str, source_path: Path, corpus_root: Path, sour
         'document_type': '',
         'theme': '',
         'unesco_reference': 'yes' if dataset_group == 'unesco' else 'no',
+        'pisa_reference': 'yes' if dataset_group == 'pisa' else 'no',
     }
 
 
-def translate_to_english(client: OpenAI, text: str, max_chars: int = 7000) -> str:
+def translate_to_english(client: OpenAI, text: str, max_chars: int = 6000) -> str:
     if not text or not text.strip():
         return ''
     snippet = text[:max_chars]
@@ -130,7 +143,24 @@ def translate_to_english(client: OpenAI, text: str, max_chars: int = 7000) -> st
     return response.choices[0].message.content.strip()
 
 
-def write_dataset_stream(corpus_root: Path, output_path: Path, use_openai_translation: bool = False, openai_api_key: Optional[str] = None, dataset_group: str = 'country'):
+def translate_document_in_chunks(client: OpenAI, text: str, cache: dict, cache_path: Optional[Path] = None, chunk_chars: int = 6000) -> str:
+    chunks = [text[start:start + chunk_chars] for start in range(0, len(text), chunk_chars)]
+    translated_chunks = []
+    for chunk_index, chunk in enumerate(chunks):
+        cache_key = hashlib.sha256(f'v2:{chunk_index}:{chunk}'.encode('utf-8')).hexdigest()
+        translated = cache.get(cache_key)
+        if translated is None:
+            translated = translate_to_english(client, chunk, max_chars=chunk_chars)
+            cache[cache_key] = translated
+            if cache_path:
+                cache_path.write_text(json.dumps(cache, ensure_ascii=False), encoding='utf-8')
+        else:
+            print(f'[translation-cache] bloco {chunk_index + 1}/{len(chunks)}')
+        translated_chunks.append(translated)
+    return '\n\n'.join(translated_chunks)
+
+
+def write_dataset_stream(corpus_root: Path, output_path: Path, use_openai_translation: bool = False, openai_api_key: Optional[str] = None, dataset_group: str = 'country', translation_cache_path: Optional[Path] = None):
     client = None
     if use_openai_translation and openai_api_key:
         if OpenAI is None:
@@ -138,6 +168,12 @@ def write_dataset_stream(corpus_root: Path, output_path: Path, use_openai_transl
         client = OpenAI(api_key=openai_api_key)
 
     count = 0
+    translation_cache = {}
+    if translation_cache_path and translation_cache_path.exists():
+        try:
+            translation_cache = json.loads(translation_cache_path.read_text(encoding='utf-8'))
+        except json.JSONDecodeError:
+            translation_cache = {}
     with output_path.open('w', encoding='utf-8') as handle:
         for country, source_path in iter_valid_documents(corpus_root):
             source_text = extract_text_from_file(source_path)
@@ -146,7 +182,7 @@ def write_dataset_stream(corpus_root: Path, output_path: Path, use_openai_transl
             translated_text = source_text
             if use_openai_translation and client is not None:
                 try:
-                    translated_text = translate_to_english(client, source_text)
+                    translated_text = translate_document_in_chunks(client, source_text, translation_cache, translation_cache_path)
                 except Exception as exc:  # pragma: no cover
                     print(f'Warning: translation failed for {source_path.name}: {exc}')
                     translated_text = source_text
@@ -165,13 +201,14 @@ def build_bilingual_datasets(corpus_root: str, output_dir: str, openai_api_key: 
 
     original_path = out_dir / 'dataset_original.jsonl'
     english_path = out_dir / 'dataset_english.jsonl'
+    translation_cache_path = out_dir / 'translation_cache.json'
 
     # 1) original dataset: keep source text untouched
     write_dataset_stream(root, original_path, use_openai_translation=False, openai_api_key=None, dataset_group='country')
 
     # 2) english dataset: same documents but translated for analysis
     if use_openai_translation and openai_api_key:
-        write_dataset_stream(root, english_path, use_openai_translation=True, openai_api_key=openai_api_key, dataset_group='country')
+        write_dataset_stream(root, english_path, use_openai_translation=True, openai_api_key=openai_api_key, dataset_group='country', translation_cache_path=translation_cache_path)
     else:
         # if translation is not requested, english file remains a copy of original text to keep structure consistent
         write_dataset_stream(root, english_path, use_openai_translation=False, openai_api_key=None, dataset_group='country')
@@ -188,6 +225,10 @@ if __name__ == '__main__':
     parser.add_argument('--openai_key', default=None, help='Chave OpenAI para tradução e upload de arquivos')
     parser.add_argument('--translate', action='store_true', help='Traduz os documentos para inglês via OpenAI')
     args = parser.parse_args()
+
+    if not args.openai_key and load_dotenv is not None:
+        load_dotenv(Path(__file__).resolve().parent / '.env')
+        args.openai_key = os.environ.get('OPENAI_API_KEY')
 
     build_bilingual_datasets(
         corpus_root=args.corpus,

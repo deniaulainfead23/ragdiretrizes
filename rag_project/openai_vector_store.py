@@ -9,6 +9,7 @@ from openai import OpenAI
 
 
 DEFAULT_MODEL = 'gpt-4o-mini'
+MANIFEST_PATH = Path(__file__).resolve().parent / '.openai_vector_stores.json'
 
 
 def upload_dataset(file_path: str, vector_store_name: str, api_key: str | None = None) -> str:
@@ -27,6 +28,28 @@ def upload_dataset(file_path: str, vector_store_name: str, api_key: str | None =
     print(f'Arquivo indexado: {uploaded.id}')
     print(f'vector_store_id={vector_store.id}')
     return vector_store.id
+
+
+def sync_dataset(file_path: str, dataset_name: str, existing_id: str | None = None, api_key: str | None = None) -> str:
+    manifest = {}
+    if MANIFEST_PATH.exists():
+        try:
+            manifest = json.loads(MANIFEST_PATH.read_text(encoding='utf-8'))
+        except json.JSONDecodeError:
+            manifest = {}
+
+    vector_store_id = existing_id or manifest.get(dataset_name, {}).get('vector_store_id')
+    if not vector_store_id:
+        vector_store_id = upload_dataset(file_path, f'ragdiretrizes-{dataset_name}', api_key)
+
+    manifest[dataset_name] = {
+        'vector_store_id': vector_store_id,
+        'file': str(Path(file_path)),
+    }
+    MANIFEST_PATH.write_text(json.dumps(manifest, ensure_ascii=False, indent=2), encoding='utf-8')
+    print(f'{dataset_name}: vector_store_id={vector_store_id}')
+    print(f'Manifesto local: {MANIFEST_PATH}')
+    return vector_store_id
 
 
 def cloud_rag_query(vector_store_id: str, question: str, api_key: str | None = None, model: str = DEFAULT_MODEL) -> str:
@@ -61,12 +84,20 @@ def main() -> None:
     query_parser.add_argument('--vector_store_id', required=True)
     query_parser.add_argument('--question', required=True)
     query_parser.add_argument('--openai_key', default=None)
+    sync_parser = subparsers.add_parser('sync', help='Hospeda os datasets e reutiliza IDs já registrados')
+    sync_parser.add_argument('--original', default='../corpus/dataset_output/dataset_original.jsonl')
+    sync_parser.add_argument('--english', default='../corpus/dataset_output/dataset_english.jsonl')
+    sync_parser.add_argument('--english-vector-store-id', default=None, help='ID inglês já criado anteriormente')
+    sync_parser.add_argument('--openai_key', default=None)
     args = parser.parse_args()
 
     if args.command == 'upload':
         upload_dataset(args.file, args.name, args.openai_key)
-    else:
+    elif args.command == 'query':
         print(cloud_rag_query(args.vector_store_id, args.question, args.openai_key))
+    else:
+        sync_dataset(args.original, 'original', api_key=args.openai_key)
+        sync_dataset(args.english, 'english', existing_id=args.english_vector_store_id, api_key=args.openai_key)
 
 
 if __name__ == '__main__':

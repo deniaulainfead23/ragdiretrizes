@@ -5,6 +5,7 @@ spacy
 sentence-transformers
 faiss-cpu
 scikit-learn
+matplotlib
 nltk
 python-dotenv
 openai
