@@ -157,6 +157,23 @@ A tendência observada nos currículos mais recentes é a integração de ambas 
 
 ---
 
+## 11. Como os documentos curriculares abordam inteligência artificial, preocupações éticas com IA e automação?
+
+Os documentos curriculares abordam a inteligência artificial (IA) indicando sua importância no contexto educacional e as habilidades necessárias para lidar com tecnologias digitais emergentes. Destacam que a IA deve ser utilizada de forma ética e segura, promovendo competências na gestão de dados e no pensamento computacional, que são cada vez mais essenciais no século XXI.
+
+### Preocupações Éticas com IA
+As preocupações éticas em relação à IA incluem debates sobre:
+- **Privacidade e uso de dados**: Compreensão de como dados pessoais são coletados, armazenados e utilizados
+- **Impactos sociais e econômicos**: Discussão sobre automação no mercado de trabalho e suas consequências
+- **Aplicações de IA**: Análise crítica de tecnologias como reconhecimento facial e sistemas de decisão automatizados
+
+Os estudantes são incentivados a discutir criticamente tais temas, desenvolvendo uma compreensão abrangente das implicações de diferentes aplicações de IA.
+
+### Atualização Curricular e IA Emergente
+A atualização das matrizes curriculares em 2025 adicionou descritores emergentes focados em IA, enfatizando a necessidade de compreender os fundamentos das tecnologias digitais, incluindo suas implicações éticas e sociais. Assim, o currículo visa preparar os alunos para um futuro onde a automação e a IA desempenharão papéis cada vez mais significativos.
+
+---
+
 ## Metodologia
 
 Este conjunto de consultas foi executado utilizando um sistema RAG baseado em recuperação de evidências documentais. O backend utiliza OpenAI Vector Store, com embedding semântico de corpus curricular em múltiplos idiomas. As consultas foram formuladas segundo princípios de:
@@ -168,13 +185,15 @@ Este conjunto de consultas foi executado utilizando um sistema RAG baseado em re
 
 ## Validação
 
-- ✅ Todos os 10 temas cobertos com sucesso
+- ✅ Todos os 11 temas cobertos com sucesso (incluindo pergunta adicional sobre IA)
 - ✅ Cache de respostas funcional (segunda execução mais rápida)
 - ✅ Backend resolution automático (OpenAI preferido, FAISS fallback)
 - ✅ Progress messages operacionais em 4 etapas
 - ✅ 21 testes unitários passando
+- ✅ Pergunta sobre IA, ética e automação validada em corpus atualizado
 
 ---
 
 **Arquivo gerado para:** Seção de Resultados - Validação do Sistema RAG  
-**Formato:** Markdown estruturado para citação e integração em dissertação
+**Formato:** Markdown estruturado para citação e integração em dissertação  
+**Atualização:** Pergunta 11 adicionada cobrindo IA e preocupações éticas emergentes
