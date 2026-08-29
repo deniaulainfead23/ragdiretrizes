@@ -1,0 +1,4 @@
+Falha ao baixar de fonte oficial.
+URL: https://www.hm.ee/sites/default/files/digipadevuse_mudel_2016veebiuus.pdf
+Erro: HTTP Error 404: Not Found
+Observação: PDF oficial Ministério da Educação/Estônia — modelo de competência digital; substitui 2014 quando PDF específico não foi localizado

@@ -1,0 +1,4 @@
+FALHA: brasil_bncc-computacao_anexo-parecer-cneceb-2_2022.pdf: RemoteDisconnected('Remote end closed connection without response')
+FALHA: brasil_parecer-cne-ceb-2_bncc-computacao_2022.pdf: RemoteDisconnected('Remote end closed connection without response')
+FALHA: brasil_resolucao-cne-ceb-1_bncc-computacao_2022.pdf: RemoteDisconnected('Remote end closed connection without response')
+FALHA: brasil_bncc_educacao-basica-completa_2018.pdf: <HTTPError 403: 'Forbidden'>

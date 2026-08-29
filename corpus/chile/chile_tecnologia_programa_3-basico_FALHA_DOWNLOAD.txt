@@ -1,0 +1,4 @@
+Falha ao baixar de fonte oficial.
+URL: https://www.curriculumnacional.cl/614/articles-20732_programa.pdf
+Erro: <urlopen error timed out>
+Observação: PDF oficial Curriculum Nacional/MINEDUC — Tecnologia, 3º básico

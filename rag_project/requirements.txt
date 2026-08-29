@@ -1,0 +1,10 @@
+pdfplumber
+pytesseract
+Pillow
+spacy
+sentence-transformers
+faiss-cpu
+scikit-learn
+nltk
+python-dotenv
+openai

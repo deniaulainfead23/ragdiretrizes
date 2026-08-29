@@ -1,0 +1,10 @@
+OK: brasil_bncc_educacao-infantil-ensino-fundamental_2018.pdf <- https://basenacionalcomum.mec.gov.br/images/BNCC_EI_EF_110518_versaofinal_site.pdf (3058960 bytes)
+OK: brasil_bncc_educacao-basica_completa_2018.pdf <- https://basenacionalcomum.mec.gov.br/images/BNCC_EI_EF_110518_versaofinal_site.pdf (3058960 bytes)
+FALHA: brasil_bncc-computacao_complemento-bncc_2022.pdf; registrado em brasil_bncc-computacao_complemento-bncc_2022_indisponivel.txt
+FALHA: brasil_parecer-cne-ceb-2_bncc-computacao_2022.pdf; registrado em brasil_parecer-cne-ceb-2_bncc-computacao_2022_indisponivel.txt
+FALHA: brasil_resolucao-cne-ceb-1_bncc-computacao_2022.pdf; registrado em brasil_resolucao-cne-ceb-1_bncc-computacao_2022_indisponivel.txt
+FALHA: brasil_guia-educacao-digital-midiatica_2025.pdf; registrado em brasil_guia-educacao-digital-midiatica_2025_indisponivel.txt
+FALHA: brasil_matriz-saberes-digitais-docentes_2024.pdf; registrado em brasil_matriz-saberes-digitais-docentes_2024_indisponivel.txt
+FALHA: brasil_resolucao-cne-ceb-2_diretrizes-dispositivos-digitais-educacao-digital-midiatica_2025.pdf; registrado em brasil_resolucao-cne-ceb-2_diretrizes-dispositivos-digitais-educacao-digital-midiatica_2025_indisponivel.txt
+OK: brasil_curriculo-referencia-tecnologia-computacao-cieb_2018.pdf <- https://cieb.net.br/wp-content/uploads/2018/10/BNCC-e-cultura-digital.pdf (948770 bytes)
+OK: brasil_guia-complemento-computacao-bncc_2023.pdf <- https://observatorio.movimentopelabase.org.br/wp-content/uploads/2023/11/guiacomplementodacomputacaobnccnaeducacaobasica.pdf (192742 bytes)

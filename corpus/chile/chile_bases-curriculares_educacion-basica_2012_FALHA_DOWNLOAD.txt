@@ -1,0 +1,4 @@
+Falha ao baixar de fonte oficial.
+URL: https://www.curriculumnacional.cl/614/articles-346789_recurso_pdf.pdf
+Erro: <urlopen error timed out>
+Observação: PDF oficial Curriculum Nacional/MINEDUC — Bases Curriculares Educação Básica, referência para tecnologia/informática

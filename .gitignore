@@ -1,0 +1,23 @@
+# Secrets and local configuration
+.env
+.env.*
+!.env.example
+
+# Python local files
+__pycache__/
+**/__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+
+# Local RAG indexes and caches
+.cache/
+rag_project/.cache/
+rag_project/indexed*/
+rag_project/**/checkpoint.json
+rag_project/**/*.faiss
+rag_project/**/metadatas.json
+
+# Generated datasets and analysis outputs
+corpus/dataset_output/
+corpus/analysis_output/
