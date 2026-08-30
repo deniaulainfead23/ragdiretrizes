@@ -1,0 +1,31 @@
+cff-version: 1.2.0
+message: "If you use this dataset, please cite it using the metadata below."
+title: "Comparative Dataset of Computing, Digital Education and Digital Citizenship Curricula in Basic Education"
+type: dataset
+authors:
+  - family-names: "Moraes"
+    given-names: "Denise"
+version: "1.0.0"
+date-released: "2026-08-29"
+license: "CC-BY-4.0"
+repository-code: "https://github.com/deniaulainfead23/ragdiretrizes"
+abstract: >-
+  Comparative dataset derived from official curriculum documents related to
+  Computing, Digital Education, Computational Thinking and Digital Citizenship
+  in Basic Education. The dataset includes bibliographic and provenance
+  metadata, lexical indicators, similarity matrices and validated documentary
+  evidence. Original third-party curriculum documents are referenced by their
+  official sources and checksums and are not redistributed unless permitted by
+  their licensing conditions.
+keywords:
+  - digital education
+  - computational thinking
+  - computing education
+  - digital citizenship
+  - comparative education
+  - curriculum
+  - natural language processing
+  - digital humanities
+  - retrieval-augmented generation
+# Preencher após reservar o DOI no Zenodo:
+# doi: "10.5281/zenodo.XXXXXXXX"
