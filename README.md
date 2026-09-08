@@ -86,7 +86,7 @@ A implementação atual está organizada em fases metodológicas e passa por um 
 > A análise lexical não substitui a leitura documental nem a interpretação crítica do pesquisador.
 
 - O TF-IDF e a similaridade textual são usados como ferramentas exploratórias.
-- A UNESCO é tratada como referência documental internacional, não como país comparado no bloco principal.
+- O corpus principal contém 22 países. UNESCO e PISA/OCDE são referências internacionais e não entram na contagem de países nem no bloco comparativo nacional.
 - Os resultados computacionais devem ser lidos como pistas de vocabulário e proximidade textual, e não como prova de equivalência curricular.
 - A recuperação semântica e o RAG devem retornar evidências vinculadas a documento, país, fonte e categoria analítica.
 

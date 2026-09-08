@@ -31,8 +31,8 @@ def normalize_country_name(folder_name: str) -> str:
         'suica': 'Suíça',
         'taiwan': 'Taiwan',
         'uruguai': 'Uruguai',
-        'unesco': 'UNESCO',
-        'pisa': 'PISA',
+        'unesco': 'UNESCO_REFERENCE',
+        'pisa': 'PISA_OECD_REFERENCE',
     }
     return mapping.get(folder_name.strip().lower(), folder_name.strip().title())
 
@@ -51,7 +51,6 @@ def docid_prefix(country: str) -> str:
         'Hong Kong': 'HK',
         'Irlanda': 'IE',
         'Japão': 'JP',
-        'Marrocos': 'MA',
         'Nova Zelândia': 'NZ',
         'Quênia': 'KE',
         'Reino Unido': 'UK',
@@ -60,8 +59,8 @@ def docid_prefix(country: str) -> str:
         'Suíça': 'CH',
         'Taiwan': 'TW',
         'Uruguai': 'UY',
-        'UNESCO': 'UN',
-        'PISA': 'PISA',
+        'UNESCO_REFERENCE': 'UN',
+        'PISA_OECD_REFERENCE': 'PISA',
     }
     return aliases.get(country, country[:2].upper())
 

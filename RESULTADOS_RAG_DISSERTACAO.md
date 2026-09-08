@@ -3,7 +3,7 @@
 
 **Data:** 29 de agosto de 2026  
 **Backend:** OpenAI Vector Store (vs_6a923591310c8191b7b465ec6f891515)  
-**Corpus:** 91 documentos curriculares de 23 países/regiões  
+**Corpus:** documentos curriculares de 22 países, com UNESCO e PISA/OCDE tratados separadamente como referências internacionais
 **Framework:** Computing and Digital Education + UNESCO GCED 2015  
 **Modo de Análise:** Evidence Retrieval (Recuperação de Evidências)
 

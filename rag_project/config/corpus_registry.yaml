@@ -1,6 +1,16 @@
 corpus_version: "3.0"
 total_countries: 22
 
+benchmark_sources:
+  - source_id: UNESCO
+    name: UNESCO
+    source_type: international_reference
+    include_in_country_count: false
+  - source_id: PISA_OECD
+    name: PISA/OCDE
+    source_type: international_reference
+    include_in_country_count: false
+
 excluded_countries:
   - country: marrocos
     reason: documento oficial não validado
