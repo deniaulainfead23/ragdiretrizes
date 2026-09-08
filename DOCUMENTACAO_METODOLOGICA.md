@@ -42,6 +42,33 @@ Essas três dimensões se articulam para construir um quadro comparativo que per
 
 A análise comparativa também demanda atenção à linguagem e aos termos utilizados nos documentos. Em diferentes sistemas educacionais, a mesma ideia pode aparecer como “digital literacy”, “digital citizenship”, “computational thinking”, “media literacy”, “ethical use of technology”, “data literacy”, ou “responsible digital participation”. O problema não está apenas na tradução desses termos, mas na forma como cada currículo os integra na prática pedagógica e na cultura escolar. Por isso, a tradução para o inglês e a padronização dos termos são etapas importantes da pesquisa, especialmente quando se trabalha com análise semântica e RAG.
 
+## 7.4 Regra metodológica da análise lexical e do backend vetorial
+
+A fase atual do projeto define com clareza a separação entre análise documental, análise lexical exploratória e recuperação semântica. Essa separação é essencial para manter o rigor da investigação.
+
+Primeiro, a análise lexical, baseada em TF-IDF e similaridade cosseno, é tratada como ferramenta esclarecedora da distribuição do vocabulário e dos padrões textuais entre os documentos. Ela não é usada como prova de alinhamento curricular, qualidade do currículo, adequação pedagógica ou equivalência substantiva entre países.
+
+Segundo, a UNESCO é tratada como referência documental internacional e não como país do conjunto comparativo principal. Em outras palavras, a comparação com a UNESCO funciona como linha de base contextual, não como ranking entre pares curriculares.
+
+Terceiro, a arquitetura de recuperação semântica adota como principal backend o OpenAI Vector Store, mantendo o FAISS local apenas como fallback ou ambiente de teste. Essa decisão reduz a carga de memória local, melhora rastreabilidade e está em consonância com o desenho metodológico da pesquisa.
+
+Quarto, a matriz de evidências e a rastreabilidade por documento continuam sendo indispensáveis para garantir que qualquer inferência seja sustentada por fontes específicas, com país, documento, categoria, dimensão e origem documental preservados.
+
+## 8. Estado final da evolução do projeto
+
+Ao longo das fases de evolução, o projeto consolidou a seguinte arquitetura:
+
+- corpus organizado por país e documentos oficiais;
+- bibliographic matrix e manifestos de rastreabilidade;
+- framework UNESCO e regras de processamento;
+- análise lexical exploratória em formato explícito;
+- backend vetorial com switch entre OpenAI e local;
+- matriz de evidências documental;
+- relatório de sensibilidade do pipeline;
+- documentação final alinhada à metodologia e ao desenho científico do trabalho.
+
+Essa configuração permite que a pesquisa avance com rigor metodológico, sem misturar evidência documental, análise lexical e recuperação semântica como se fossem equivalentes. O uso combinado desses componentes é complementar e depende da leitura crítica do pesquisador para produzir interpretações válidas.
+
 Do ponto de vista acadêmico, a Educação Comparada oferece à pesquisa uma base para sair da escala nacional e compreender as políticas curriculares como fenômeno transnacional. As políticas de educação digital não surgem isoladas de tendências globais; elas dialogam com agendas internacionais, com recomendações de organismos multilaterais, com desafios econômicos e com expectativas de formação de cidadãos críticos, criativos e capazes de atuar em sociedades digitais complexas. Essa interação entre escala nacional e internacional é central para o estudo, porque mostra que os currículos são, ao mesmo tempo, locais e globais.
 
 Assim, a pesquisa não pretende apenas catalogar competências digitais em diferentes países, mas compreender como cada sistema educativo interpreta a relação entre tecnologia, cidadania, ética e futuro. Nesse sentido, a Educação Comparada não é apenas um método de comparação; ela é uma forma de leitura crítica das políticas educacionais e de valorização dos contextos históricos e culturais em que essas políticas são produzidas.

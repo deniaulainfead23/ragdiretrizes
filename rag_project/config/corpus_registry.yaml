@@ -1,0 +1,163 @@
+corpus_version: "3.0"
+total_countries: 22
+
+benchmark_sources:
+  - source_id: UNESCO
+    name: UNESCO
+    source_type: international_reference
+    include_in_country_count: false
+  - source_id: PISA_OECD
+    name: PISA/OCDE
+    source_type: international_reference
+    include_in_country_count: false
+
+excluded_countries:
+  - country: marrocos
+    reason: documento oficial não validado
+    include_in_analysis: false
+
+countries:
+  - country_code: ZA
+    country: africa-do-sul
+    continent: africa
+    include_in_analysis: true
+    documents:
+      - document_id: AF-ZA-01
+        file: africa-do-sul_caps_computer-applications-technology_grades-10-12.pdf
+        role: primary
+        validation_status: validated
+      - document_id: AF-ZA-02
+        file: africa-do-sul_caps_information-technology_grades-10-12.pdf
+        role: primary
+        validation_status: validated
+  - country_code: AU
+    country: australia
+    continent: oceania
+    include_in_analysis: true
+    documents:
+      - document_id: OC-AU-01
+        file: australia_digital-technologies-v9_sequence-achievement_2022.pdf
+        role: primary
+        validation_status: validated
+      - document_id: OC-AU-02
+        file: australia_digital-technologies-v9_sequence-content_2022.pdf
+        role: complementary
+        validation_status: validated
+  - country_code: BR
+    country: brasil
+    continent: americas
+    include_in_analysis: true
+    documents: []
+  - country_code: CA
+    country: canada
+    continent: americas
+    include_in_analysis: true
+    documents: []
+  - country_code: CL
+    country: chile
+    continent: americas
+    include_in_analysis: true
+    documents: []
+  - country_code: CN
+    country: china
+    continent: asia
+    include_in_analysis: true
+    documents:
+      - document_id: AS-CN-01
+        file: china_information_technology_curriculum_standard_2022.pdf
+        role: primary
+        extraction_method: ocr
+        validation_status: pending_review
+      - document_id: AS-CN-02
+        file: china_compulsory_education_curriculum_plan_2022.pdf
+        role: complementary
+        extraction_method: ocr
+        validation_status: pending_review
+  - country_code: KR
+    country: coreia-do-sul
+    continent: asia
+    include_in_analysis: true
+    documents: []
+  - country_code: EE
+    country: estonia
+    continent: europe
+    include_in_analysis: true
+    documents:
+      - document_id: EU-EE-01
+        file: estonia_national_curriculum_basic_schools_2026.pdf
+        role: primary
+        validation_status: validated
+      - document_id: EU-EE-02
+        file: estonia_informatics_appendix_10_2023.pdf
+        role: primary
+        validation_status: validated
+  - country_code: US
+    country: eua
+    continent: americas
+    include_in_analysis: true
+    documents: []
+  - country_code: FI
+    country: finlandia
+    continent: europe
+    include_in_analysis: true
+    documents: []
+  - country_code: GH
+    country: gana
+    continent: africa
+    include_in_analysis: true
+    documents: []
+  - country_code: HK
+    country: hong-kong
+    continent: asia
+    include_in_analysis: true
+    documents: []
+  - country_code: IE
+    country: irlanda
+    continent: europe
+    include_in_analysis: true
+    documents: []
+  - country_code: JP
+    country: japao
+    continent: asia
+    include_in_analysis: true
+    documents: []
+  - country_code: NZ
+    country: nova-zelandia
+    continent: oceania
+    include_in_analysis: true
+    documents: []
+  - country_code: KE
+    country: quenia
+    continent: africa
+    include_in_analysis: true
+    documents: []
+  - country_code: GB
+    country: reino-unido
+    continent: europe
+    include_in_analysis: true
+    documents: []
+  - country_code: RW
+    country: ruanda
+    continent: africa
+    include_in_analysis: true
+    documents: []
+  - country_code: SG
+    country: singapura
+    continent: asia
+    include_in_analysis: true
+    documents: []
+  - country_code: CH
+    country: suica
+    continent: europe
+    include_in_analysis: true
+    documents: []
+  - country_code: TW
+    country: taiwan
+    continent: asia
+    include_in_analysis: true
+    documents: []
+  - country_code: UY
+    country: uruguai
+    continent: americas
+    include_in_analysis: true
+    documents: []

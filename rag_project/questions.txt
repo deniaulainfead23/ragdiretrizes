@@ -1,3 +1,8 @@
+# LEGACY QUESTION LIST
+# This file is retained only for backward compatibility.
+# The active, versioned and methodological question catalog is in rag_project/questions/questions.yaml.
+# Do not use this list for new research execution because it includes ranking-style prompts.
+
 1. Como cada país define competências digitais?
 2. De que forma o pensamento computacional é incorporado ao currículo?
 3. Quais documentos enfatizam cidadania digital, ética e letramento midiático?
@@ -13,3 +18,5 @@
 13. Quais eixos curriculares são mais recorrentes entre os países comparados?
 14. Como os currículos relacionam computação, dados, ética e direitos digitais?
 15. Em que medida o perfil do futuro aparece como cidadão crítico, colaborativo e responsável digitalmente?
+
+# Deprecated by methodology: these prompts are not valid for the new evidence-oriented retrieval pipeline.

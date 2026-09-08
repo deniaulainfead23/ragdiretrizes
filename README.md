@@ -60,14 +60,35 @@ Segmentação dos documentos
         ↓
 Embeddings / representação textual
         ↓
-Indexação vetorial
+Indexação vetorial (OpenAI Vector Store como principal; FAISS local como fallback)
         ↓
-RAG
+RAG rastreável
         ↓
-Consulta, comparação e análise
+Consulta, comparação e análise documental + lexical
 ```
 
 Também são exploradas técnicas complementares de análise textual, como **TF-IDF**, frequência de termos, similaridade textual, mineração de texto e classificação temática.
+
+## Estado atual do projeto
+
+A implementação atual está organizada em fases metodológicas e passa por um pipeline em que cada camada tem papel específico:
+
+- Análise documental e bibliográfica: organização do corpus, metadados e rastreabilidade;
+- Frameworks e regras de processamento: definição dos eixos de análise, stopwords e entidades excluídas;
+- Análise lexical exploratória: TF-IDF, similaridade textual e gráficos de apoio;
+- Backend vetorial: `openai` como backend principal e `local` como fallback;
+- Matriz de evidências: rastreio de indicadores por documento, país e dimensão;
+- Sensibilidade do pipeline: verificação de consistência dos resultados obtidos;
+- RAG rastreável: recuperação semântica com evidência documental e metadata associada.
+
+## Regras metodológicas do projeto
+
+> A análise lexical não substitui a leitura documental nem a interpretação crítica do pesquisador.
+
+- O TF-IDF e a similaridade textual são usados como ferramentas exploratórias.
+- O corpus principal contém 22 países. UNESCO e PISA/OCDE são referências internacionais e não entram na contagem de países nem no bloco comparativo nacional.
+- Os resultados computacionais devem ser lidos como pistas de vocabulário e proximidade textual, e não como prova de equivalência curricular.
+- A recuperação semântica e o RAG devem retornar evidências vinculadas a documento, país, fonte e categoria analítica.
 
 ## Tecnologias
 

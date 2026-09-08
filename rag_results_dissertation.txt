@@ -1,0 +1,11 @@
+═══════════════════════════════════════════════════════════════════════════════
+                        RAG QUERY RESULTS FOR DISSERTATION
+                    Evidence-Based Retrieval on Digital Competencies
+═══════════════════════════════════════════════════════════════════════════════
+
+Query Set: 10 Evidence-Retrieval Queries
+Date: 2026-08-29
+Backend: OpenAI Vector Store (vs_6a923591310c8191b7b465ec6f891515)
+Framework: Computing and Digital Education + UNESCO GCED
+
+───────────────────────────────────────────────────────────────────────────────

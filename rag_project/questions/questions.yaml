@@ -1,0 +1,149 @@
+questions_version: 2.0
+questions:
+  - question_id: Q01
+    title: Competências de Computação e Educação Digital
+    question_text: Como cada país define e organiza as competências de Computação e Educação Digital em seus documentos curriculares?
+    question_type: evidence_retrieval
+    analysis_stage: retrieval
+    framework: COMPUTING_AND_DIGITAL_EDUCATION
+    category_id: C01
+    target_scope: country
+    target_country: null
+    required_metadata:
+      - document_id
+      - country
+      - document_title
+      - page_start
+      - page_end
+      - chunk_id
+      - source_text
+    expected_output:
+      - evidence_text
+      - source
+      - semantic_score
+      - matched_terms
+      - evidence_classification
+    evidence_rule: Recuperar trechos curriculares que expressem competências, objetivos ou habilidades diretamente relacionadas a computação e educação digital.
+    exclusion_rule: Não considerar trechos que apenas mencionem tecnologia de forma institucional, sem objetivo curricular ou formação estudantil.
+    allow_cross_country_comparison: true
+    requires_validated_evidence: false
+    notes: Pergunta de recuperação documental para mapeamento curricular sem ranking.
+    version: 2.0
+
+  - question_id: Q06
+    title: Dimensão cognitiva UNESCO
+    question_text: Quais evidências curriculares estão relacionadas à dimensão cognitiva da Educação para a Cidadania Global da UNESCO, especialmente pensamento crítico, compreensão de questões locais e globais, interdependência e resolução de problemas?
+    question_type: evidence_retrieval
+    analysis_stage: retrieval
+    framework: UNESCO_GCED_2015
+    category_id: F01
+    target_scope: country
+    target_country: null
+    required_metadata:
+      - document_id
+      - country
+      - document_title
+      - page_start
+      - page_end
+      - chunk_id
+      - source_text
+    expected_output:
+      - evidence_text
+      - source
+      - semantic_score
+      - matched_terms
+      - evidence_classification
+    evidence_rule: Recuperar eixos cognitivos da UNESCO quando o trecho explicitamente menciona pensamento crítico, análise, investigação, interdependência ou resolução de problemas em contexto curricular.
+    exclusion_rule: Excluir menções de global ou tecnologia isoladas sem contexto cognitivo, curricular ou formativo.
+    allow_cross_country_comparison: false
+    requires_validated_evidence: false
+    notes: Evidência documental para categoria F01.
+    version: 2.0
+
+  - question_id: Q16
+    title: Evidências explícitas por dimensão UNESCO
+    question_text: Quais dimensões do framework UNESCO apresentam evidências explícitas nos documentos de cada país?
+    question_type: validated_comparison
+    analysis_stage: comparison
+    framework: UNESCO_GCED_2015
+    category_id: F01
+    target_scope: multi_country
+    target_country: null
+    required_metadata:
+      - document_id
+      - country
+      - document_title
+      - page_start
+      - page_end
+      - chunk_id
+      - source_text
+    expected_output:
+      - country
+      - category_id
+      - evidence_count
+      - validation_status
+    evidence_rule: Comparar somente as evidências que foram previamente recuperadas e validadas.
+    exclusion_rule: Não comparar resultados de recuperação não validados ou sem metadata mínima.
+    allow_cross_country_comparison: true
+    requires_validated_evidence: true
+    notes: Comparação validada, nunca ranking automático.
+    version: 2.0
+
+  - question_id: Q18
+    title: Dimensões não detectadas
+    question_text: Quais dimensões do framework UNESCO não foram detectadas nos documentos analisados, considerando que ausência de recuperação não implica necessariamente ausência conceitual?
+    question_type: validated_comparison
+    analysis_stage: comparison
+    framework: UNESCO_GCED_2015
+    category_id: F01
+    target_scope: multi_country
+    target_country: null
+    required_metadata:
+      - document_id
+      - country
+      - document_title
+      - page_start
+      - page_end
+      - chunk_id
+      - source_text
+    expected_output:
+      - country
+      - category_id
+      - status
+      - notes
+    evidence_rule: Em caso de ausência de evidência, registrar not_detected ou inconclusive, nunca absent automático.
+    exclusion_rule: Não declarar ausência conceitual quando a recuperação foi insuficiente.
+    allow_cross_country_comparison: true
+    requires_validated_evidence: true
+    notes: A ausência de evidência recuperada não é ausência conceitual.
+    version: 2.0
+
+  - question_id: Q22
+    title: Brasil e dimensões UNESCO
+    question_text: Quais competências e habilidades dos documentos brasileiros apresentam correspondência com as dimensões cognitiva, socioemocional e comportamental da Educação para a Cidadania Global da UNESCO?
+    question_type: evidence_retrieval
+    analysis_stage: retrieval
+    framework: UNESCO_GCED_2015
+    category_id: F01
+    target_scope: country
+    target_country: brasil
+    required_metadata:
+      - document_id
+      - country
+      - document_title
+      - page_start
+      - page_end
+      - chunk_id
+      - source_text
+    expected_output:
+      - evidence_text
+      - source
+      - semantic_score
+      - matched_terms
+      - evidence_classification
+    evidence_rule: Recuperar evidências em documentos brasileiros vinculados a cidadania global, ética, solidariedade, participação e pensamento crítico.
+    exclusion_rule: Não classificar como evidência trechos apenas taxonômicos ou administrativos sem relação com competências do estudante.
+    allow_cross_country_comparison: false
+    requires_validated_evidence: false
+    notes: Pergunta orientada ao caso focal Brasil.
+    version: 2.0
