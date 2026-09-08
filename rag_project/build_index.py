@@ -14,6 +14,7 @@ from pathlib import Path
 from rag.ingest import iter_corpus_documents
 from rag.indexer import Indexer
 from rag.preprocess import chunk_text, normalize_text
+from rag_project.corpus_registry import load_registry, registered_documents
 
 EMBEDDING_BATCH_SIZE = 16
 
@@ -109,6 +110,8 @@ def build_document_metadata(rel_path: str, chunk_id: int, page_number: int | str
 def build(corpus_dir: str, out_dir: str, chunk_size: int = 1200, overlap: int = 200, max_chunks_per_doc: int | None = None, max_documents: int | None = None, embedding_batch_size: int = EMBEDDING_BATCH_SIZE, verbose: bool = False):
     root = Path(corpus_dir)
     out = Path(out_dir)
+    registry = load_registry()
+    registered = {(entry["country"], document["file"]): (entry, document) for entry, document in registered_documents(registry)}
     checkpoint_path = out / "checkpoint.json"
     checkpoint = load_checkpoint(checkpoint_path)
     processed = set(checkpoint.get("processed_documents", []))
@@ -126,8 +129,11 @@ def build(corpus_dir: str, out_dir: str, chunk_size: int = 1200, overlap: int = 
             failed = set()
 
     total_documents = 0
-    for _ in iter_corpus_documents(str(root)):
-        total_documents += 1
+    for rel_path, *_ in iter_corpus_documents(str(root)):
+        country = Path(rel_path).parts[0] if Path(rel_path).parts else ""
+        filename = Path(rel_path).name
+        if (country, filename) in registered:
+            total_documents += 1
 
     if verbose:
         print(f"Ingesting corpus from {root}... Total de documentos encontrados: {total_documents}")
@@ -143,6 +149,12 @@ def build(corpus_dir: str, out_dir: str, chunk_size: int = 1200, overlap: int = 
     doc_start_total = time.time()
 
     for doc_index, (rel_path, file_path, text, ext) in enumerate(iter_corpus_documents(str(root)), start=1):
+        country_folder = Path(rel_path).parts[0] if Path(rel_path).parts else ""
+        filename = Path(rel_path).name
+        registry_item = registered.get((country_folder, filename))
+        if registry_item is None:
+            continue
+        country_entry, document = registry_item
         if max_documents is not None and processed_count >= max_documents:
             break
         if rel_path in processed or rel_path in failed:
@@ -172,7 +184,9 @@ def build(corpus_dir: str, out_dir: str, chunk_size: int = 1200, overlap: int = 
                         if max_chunks_per_doc is not None and chunk_count >= max_chunks_per_doc:
                             break
                         batch_texts.append(chunk)
-                        batch_metas.append(build_document_metadata(rel_path, chunk_index, page_number, chunk))
+                        metadata = build_document_metadata(rel_path, chunk_index, page_number, chunk)
+                        metadata.update({"country_code": country_entry["country"], "document_id": document["document_id"], "document_role": document["role"], "validation_status": document["validation_status"], "corpus_version": registry["corpus_version"]})
+                        batch_metas.append(metadata)
                         chunk_count += 1
                         if len(batch_texts) >= embedding_batch_size:
                             idx.add_batch(batch_texts, batch_metas, batch_size=min(embedding_batch_size, len(batch_texts)))
@@ -186,7 +200,9 @@ def build(corpus_dir: str, out_dir: str, chunk_size: int = 1200, overlap: int = 
                     if max_chunks_per_doc is not None and chunk_count >= max_chunks_per_doc:
                         break
                     batch_texts.append(chunk)
-                    batch_metas.append(build_document_metadata(rel_path, chunk_index, "", chunk))
+                    metadata = build_document_metadata(rel_path, chunk_index, "", chunk)
+                    metadata.update({"country_code": country_entry["country"], "document_id": document["document_id"], "document_role": document["role"], "validation_status": document["validation_status"], "corpus_version": registry["corpus_version"]})
+                    batch_metas.append(metadata)
                     chunk_count += 1
                     if len(batch_texts) >= embedding_batch_size:
                         idx.add_batch(batch_texts, batch_metas, batch_size=min(embedding_batch_size, len(batch_texts)))

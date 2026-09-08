@@ -9,3 +9,5 @@ matplotlib
 nltk
 python-dotenv
 openai
+PyYAML
+openpyxl

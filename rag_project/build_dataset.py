@@ -8,6 +8,8 @@ import re
 from pathlib import Path
 from typing import Iterator, Optional
 
+from rag_project.corpus_registry import EXCLUDED_COUNTRIES, load_registry, registered_documents
+
 try:
     from openai import OpenAI
 except Exception:  # pragma: no cover
@@ -70,15 +72,16 @@ def extract_text_from_file(path: Path) -> str:
             return ''
 
 
-def iter_valid_documents(corpus_root: Path) -> Iterator[tuple[str, Path]]:
+def iter_valid_documents(corpus_root: Path, registry: dict | None = None) -> Iterator[tuple[str, Path, dict, dict]]:
     if not corpus_root.exists():
         return
-    for child in sorted(corpus_root.iterdir()):
-        if not child.is_dir():
+    registry = registry or load_registry()
+    for country_entry, document in registered_documents(registry):
+        if country_entry["country"] in EXCLUDED_COUNTRIES:
             continue
-        for file in sorted(child.iterdir()):
-            if is_valid_file(file):
-                yield child.name, file
+        file_path = corpus_root / country_entry["country"] / document["file"]
+        if is_valid_file(file_path):
+            yield country_entry["country"], file_path, country_entry, document
 
 
 def dataset_group_for_folder(folder_name: str) -> str:
@@ -175,7 +178,7 @@ def write_dataset_stream(corpus_root: Path, output_path: Path, use_openai_transl
         except json.JSONDecodeError:
             translation_cache = {}
     with output_path.open('w', encoding='utf-8') as handle:
-        for country, source_path in iter_valid_documents(corpus_root):
+        for country, source_path, country_entry, document in iter_valid_documents(corpus_root):
             source_text = extract_text_from_file(source_path)
             if not source_text.strip():
                 continue
@@ -188,6 +191,14 @@ def write_dataset_stream(corpus_root: Path, output_path: Path, use_openai_transl
                     translated_text = source_text
             record_group = dataset_group_for_folder(country)
             record = make_dataset_record(country, source_path, corpus_root, source_text, translated_text, record_group)
+            record.update({
+                'country_code': country_entry['country_code'],
+                'continent': country_entry['continent'],
+                'document_id': document['document_id'],
+                'document_role': document['role'],
+                'validation_status': document['validation_status'],
+                'corpus_version': '3.0',
+            })
             handle.write(json.dumps(record, ensure_ascii=False) + '\n')
             count += 1
             print(f'[{record_group}] {count}: {country} / {source_path.name}')

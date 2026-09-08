@@ -52,17 +52,23 @@ class Indexer:
         with open(meta_path, "r", encoding="utf-8") as f:
             self.metadatas = json.load(f)
 
-    def query(self, query_text: str, top_k: int = 5):
+    def query(self, query_text: str, top_k: int = 5, country: str | None = None, document_ids: set[str] | None = None):
         if self.index.ntotal == 0:
             return []
         q_emb = self.model.encode([query_text], convert_to_numpy=True)
         q_emb = np.asarray(q_emb, dtype=np.float32)
         faiss.normalize_L2(q_emb)
-        scores, ids = self.index.search(q_emb, min(top_k, self.index.ntotal))
+        scores, ids = self.index.search(q_emb, self.index.ntotal)
         results = []
         for score, idx in zip(scores[0], ids[0]):
             if idx < 0 or idx >= len(self.metadatas):
                 continue
             meta = self.metadatas[idx]
+            if country and str(meta.get("country", "")).strip().lower() != country.strip().lower():
+                continue
+            if document_ids and meta.get("document_id") not in document_ids:
+                continue
             results.append({"score": float(score), "metadata": meta})
+            if len(results) >= top_k:
+                break
         return results
