@@ -1,0 +1,130 @@
+question_id,question_text,country,response,evidence_ids,validation_status
+Q01,Como cada país define e organiza as competências de Computação e Educação Digital em seus documentos curriculares?,brasil,"```json
+{
+  ""question_id"": ""Q01"",
+  ""country"": ""brasil"",
+  ""response"": ""O Brasil organiza as competências de Computação e Educação Digital em seus documentos curriculares por meio de diretrizes estabelecidas na Base Nacional Comum Curricular (BNCC) e na Política Nacional de Educação Digital (PNED). A BNCC propõe a inclusão de conteúdos relacionados à Computação desde os anos iniciais, abrangendo aspectos como pensamento computacional e cultura digital, enquanto a PNED delineia eixos estruturantes como inclusão digital e educação digital escolar."",
+  ""evidence_ids"": [
+    {
+      ""document_id"": ""DISC-B08B0A5C-03__brasil_bncc_educacao-basica_completa_2018.pdf"",
+      ""document"": ""BNCC Educação Básica 2018"",
+      ""page"": 1,
+      ""original_excerpt"": ""A BNCC propõe a superação da fragmentação radicalmente disciplinar do conhecimento, o estímulo à sua aplicação na vida real, a importância do contexto para dar sentido ao que se aprende e o protagonismo do estudante em sua aprendizagem..."",
+      ""classification"": ""Base Nacional Comum Curricular"",
+      ""validation_status"": ""validada""
+    },
+    {
+      ""document_id"": ""DISC-B08B0A5C-08__brasil_guia-educacao-digital-midiatica_2025.pdf"",
+      ""document"": ""Guia Educação Digital e Midiática 2025"",
+      ""page"": 4,
+      ""original_excerpt"": ""A PNED, instituída em 2023, organiza suas ações em quatro eixos principais: I – Inclusão Digital; II – Educação Digital Escolar; III – Capacitação e Especialização Digital; e IV – Pesquisa e Desenvolvimento (P&D) em Tecnologias da Informação e Comunicação (TICs)."",
+      ""classification"": ""Política Nacional de Educação Digital"",
+      ""validation_status"": ""validada""
+    },
+    {
+      ""document_id"": ""DISC-B08B0A5C-12__brasil_parecer-cne-ceb-2_bncc-computacao_2022.pdf"",
+      ""document"": ""Parecer CNE sobre BNCC Computação 2022"",
+      ""page"": 5,
+      ""original_excerpt"": ""A área é organizada em 3 (três) eixos: 1. Pensamento Computacional; 2. Mundo Digital; 3. Cultura Digital..."",
+      ""classification"": ""Diretrizes de Ensino"",
+      ""validation_status"": ""validada""
+    }
+  ],
+  ""evidence_classification"": ""Curricular"",
+  ""validation_status"": ""validada""
+}
+```",,candidate
+Q06,"Quais evidências curriculares estão relacionadas à dimensão cognitiva da Educação para a Cidadania Global da UNESCO, especialmente pensamento crítico, compreensão de questões locais e globais, interdependência e resolução de problemas?",brasil,"```json
+{
+  ""question_id"": ""Q06"",
+  ""country"": ""brasil"",
+  ""response"": ""As evidências curriculares relacionadas à dimensão cognitiva da Educação para a Cidadania Global da UNESCO incluem competências que visam desenvolver o pensamento crítico, a compreensão de questões locais e globais, a interdependência e a resolução de problemas através de práticas educacionais específicas e reflexões sobre contextos sociopolíticos e culturais."",
+  ""evidence_ids"": [
+    {
+      ""document_id"": ""DISC-B08B0A5C-03__brasil_bncc_educacao-basica_completa_2018.pdf"",
+      ""documento"": ""brasil_bncc_educacao-basica_completa_2018.pdf"",
+      ""página"": 12,
+      ""trecho_original"": ""requer o desenvolvimento de competências para aprender a aprender, saber lidar com a informação cada vez mais disponível, atuar com discernimento e responsabilidade nos contextos das culturas digitais, aplicar conhecimentos para resolver problemas, ter autonomia para tomar decisões."",
+      ""classificação"": ""Evidência de prática curricular"",
+      ""validation_status"": ""confirmada""
+    },
+    {
+      ""document_id"": ""DISC-B08B0A5C-04__brasil_bncc_educacao-infantil-ensino-fundamental_2018.pdf"",
+      ""documento"": ""brasil_bncc_educacao-infantil-ensino-fundamental_2018.pdf"",
+      ""página"": 64,
+      ""trecho_original"": ""A BNCC define dez competências gerais comuns às etapas da Educação Básica, as quais expressam os direitos de aprendizagem dos estudantes: [...] exercitar a curiosidade intelectual e recorrer à abordagem própria das ciências, incluindo a investigação, a reflexão, a análise crítica."",
+      ""classificação"": ""Evidência de prática curricular"",
+      ""validation_status"": ""confirmada""
+    },
+    {
+      ""document_id"": ""DISC-B08B0A5C-13__brasil_parecer-cne-cp-15_bncc_2017.pdf"",
+      ""documento"": ""brasil_parecer-cne-cp-15_bncc_2017.pdf"",
+      ""página"": 10,
+      ""trecho_original"": ""consultando temas e discussões na esfera pública, envolvendo o entendimento de diversas perspectivas e o desenvolvimento de ações coletivas para a solução de problemas."",
+      ""classificação"": ""Evidência de prática curricular"",
+      ""validation_status"": ""confirmada""
+    }
+  ],
+  ""evidence_classification"": ""curricular"",
+  ""validation_status"": ""confirmada""
+}
+```",,candidate
+Q22,"Quais competências e habilidades dos documentos brasileiros apresentam correspondência com as dimensões cognitiva, socioemocional e comportamental da Educação para a Cidadania Global da UNESCO?",brasil,"```json
+{
+  ""question_id"": ""Q22"",
+  ""country"": ""brasil"",
+  ""response"": {
+    ""competências"": [
+      {
+        ""dimensão"": ""cognitiva"",
+        ""habilidades"": [
+          ""Valer-se dos conhecimentos sobre o mundo físico, social, cultural e digital"",
+          ""Investigar causas, elaborar e testar hipóteses""
+        ]
+      },
+      {
+        ""dimensão"": ""socioemocional"",
+        ""habilidades"": [
+          ""Exercitar a empatia e o respeito ao outro"",
+          ""Agir com responsabilidade e autonomia""
+        ]
+      },
+      {
+        ""dimensão"": ""comportamental"",
+        ""habilidades"": [
+          ""Tomar decisões com princípios éticos"",
+          ""Promover a participação cidadã e a inclusão""
+        ]
+      }
+    ]
+  },
+  ""evidence_ids"": [
+    {
+      ""document_id"": ""DISC-B08B0A5C-03__brasil_bncc_educacao-basica_completa_2018.pdf"",
+      ""documento"": ""BASE NACIONAL COMUM CURRICULAR"",
+      ""página"": 154,
+      ""trecho_original"": ""Competência é definida como a mobilização de conhecimentos, habilidades, atitudes e valores para resolver demandas complexas da vida cotidiana."",
+      ""classificação"": ""Evidência"",
+      ""validation_status"": ""validado""
+    },
+    {
+      ""document_id"": ""DISC-B08B0A5C-13__brasil_parecer-cne-cp-15_bncc_2017.pdf"",
+      ""documento"": ""PARECER CNE"",
+      ""página"": 8,
+      ""trecho_original"": ""Exercitar a empatia, o diálogo, a resolução de conflitos de forma harmônica e a cooperação."",
+      ""classificação"": ""Evidência"",
+      ""validation_status"": ""validado""
+    },
+    {
+      ""document_id"": ""DISC-B08B0A5C-18__brasil_resolucao-cne-ceb-2_diretrizes-dispositivos-digitais-educacao-digital-midiatica_2025.pdf"",
+      ""documento"": ""DIRETRIZES EDUCAÇÃO DIGITAL"",
+      ""página"": 28,
+      ""trecho_original"": ""A cidadania digital deve ser considerada como dimensão estruturante das competências e habilidades relacionadas à educação digital."",
+      ""classificação"": ""Evidência"",
+      ""validation_status"": ""validado""
+    }
+  ],
+  ""evidence_classification"": ""relevante"",
+  ""validation_status"": ""validado""
+}
+```",,candidate

@@ -56,12 +56,15 @@ Guarde o `vector_store_id` retornado e consulte sem carregar FAISS:
 python run_query.py --vector_store_id SEU_VECTOR_STORE_ID --question "Como cada país define competências digitais?"
 ```
 
-Para consultar as 15 perguntas em lote usando o Vector Store e reaproveitar respostas já pagas:
+Para consultar as perguntas estruturadas do catálogo YAML em lote usando o Vector Store:
 
 ```bash
-python run_batch.py --questions questions.txt --out responses_cloud.jsonl \
-	--vector_store_id SEU_VECTOR_STORE_ID
+python run_batch.py --out responses_cloud.jsonl \
+    --vector_store_id SEU_VECTOR_STORE_ID --backend openai
 ```
+
+O catálogo ativo está em `rag_project/questions/questions.yaml`. O antigo
+`questions.txt` foi preservado em `historico-versoes/` apenas para consulta histórica.
 
 Para hospedar os dois datasets e guardar os IDs localmente para reutilização:
 

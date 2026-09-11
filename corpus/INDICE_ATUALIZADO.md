@@ -2,7 +2,7 @@
 
 Gerado em: 2026-07-11T12:44:12.155990Z
 
-Estrutura: uma subpasta por país. PDFs oficiais baixados quando disponíveis; arquivos `*_FALHA_DOWNLOAD.txt` ou `*_INDISPONIVEL.txt` documentam bloqueios/ausência de PDF público.
+Estrutura: uma subpasta por país. Apenas fontes físicas disponíveis permanecem no corpus ativo.
 
 ## africa-do-sul
 
@@ -16,9 +16,6 @@ Estrutura: uma subpasta por país. PDFs oficiais baixados quando disponíveis; a
 
 ## brasil
 
-- `brasil/brasil_bncc-computacao_anexo-parecer-cneceb-2-2022_FALHA_DOWNLOAD.txt` (observação/falha, 270 bytes)
-- `brasil/brasil_bncc_educacao-infantil-ensino-fundamental_2017_FALHA_DOWNLOAD.txt` (observação/falha, 179 bytes)
-- `brasil/brasil_resolucao-cne-cp-2_2017_FALHA_DOWNLOAD.txt` (observação/falha, 228 bytes)
 
 ## canada
 
@@ -29,11 +26,6 @@ Estrutura: uma subpasta por país. PDFs oficiais baixados quando disponíveis; a
 
 ## chile
 
-- `chile/chile_bases-curriculares_educacion-basica_2012_FALHA_DOWNLOAD.txt` (observação/falha, 279 bytes)
-- `chile/chile_tecnologia_programa_3-basico_FALHA_DOWNLOAD.txt` (observação/falha, 219 bytes)
-- `chile/chile_tecnologia_programa_4-basico_FALHA_DOWNLOAD.txt` (observação/falha, 219 bytes)
-- `chile/chile_tecnologia_programa_5-basico_FALHA_DOWNLOAD.txt` (observação/falha, 219 bytes)
-- `chile/chile_tecnologia_programa_6-basico_FALHA_DOWNLOAD.txt` (observação/falha, 219 bytes)
 
 ## coreia-do-sul
 
@@ -42,7 +34,6 @@ Estrutura: uma subpasta por país. PDFs oficiais baixados quando disponíveis; a
 
 ## estonia
 
-- `estonia/estonia_digital-competence-model_2016_FALHA_DOWNLOAD.txt` (observação/falha, 300 bytes)
 
 ## eua
 
@@ -73,7 +64,6 @@ Estrutura: uma subpasta por país. PDFs oficiais baixados quando disponíveis; a
 
 ## marrocos
 
-- `marrocos/marrocos_referentiel-competences-numeriques_2021_INDISPONIVEL.txt` (observação/falha, 231 bytes)
 
 ## nova-zelandia
 
@@ -92,19 +82,16 @@ Estrutura: uma subpasta por país. PDFs oficiais baixados quando disponíveis; a
 
 ## ruanda
 
-- `ruanda/ruanda_ict-in-education-policy_2016_INDISPONIVEL.txt` (observação/falha, 220 bytes)
 - `ruanda/ruanda_ict-syllabus.pdf` (PDF — válido, 793144 bytes)
 
 ## singapura
 
-- `singapura/singapura_computer-applications-syllabus_archive-2019_FALHA_DOWNLOAD.txt` (observação/falha, 260 bytes)
 - `singapura/singapura_g3-computing-syllabus_2024.pdf` (PDF — válido, 794379 bytes)
 - `singapura/singapura_h2-computing-syllabus.pdf` (PDF — válido, 559470 bytes)
 - `singapura/singapura_o-level-computing-syllabus_2021.pdf` (PDF — válido, 775121 bytes)
 
 ## suica
 
-- `suica/suica_lehrplan21_medien-und-informatik_web_INDISPONIVEL.txt` (observação/falha, 167 bytes)
 
 ## taiwan
 

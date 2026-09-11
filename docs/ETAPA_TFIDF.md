@@ -20,7 +20,7 @@ A entrada é o arquivo `corpus/dataset_output/dataset_english.jsonl`. Cada regis
 São utilizadas duas unidades de análise:
 
 1. documento: permite identificar os termos mais relevantes de cada fonte;
-2. grupo: agrega os documentos de cada país e os seis documentos UNESCO para comparação internacional.
+2. grupo: agrega os documentos de cada país e os seis documentos UNESCO para comparação internacional. UNESCO e PISA/OCDE são grupos de referência, não países.
 
 A agregação por país não significa que todos os países tenham o mesmo número de documentos. Essa diferença deve ser registrada como limitação e considerada na interpretação dos resultados.
 
@@ -74,7 +74,7 @@ $$
 
 Valores próximos de 1 indicam maior proximidade lexical na representação utilizada. Valores próximos de 0 indicam vocabulários mais distintos. A medida não prova equivalência curricular nem relação causal; ela indica proximidade textual sob os parâmetros definidos.
 
-A UNESCO é mantida como grupo separado e pode ser comparada individualmente com cada país. O ranking de proximidade com UNESCO deve ser interpretado junto com os trechos recuperados pelo RAG e com a análise documental.
+A UNESCO é mantida como grupo de referência separado e pode ser comparada individualmente com cada país. Ela não entra na matriz de similaridade entre países. O ranking de proximidade com UNESCO deve ser interpretado junto com os trechos recuperados pelo RAG e com a análise documental.
 
 ## 6. Arquivos de saída
 

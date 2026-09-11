@@ -1,0 +1,68 @@
+question_id,question_text,country,response,evidence_ids,validation_status
+Q01,Como cada país define e organiza as competências de Computação e Educação Digital em seus documentos curriculares?,japao,"```json
+{
+  ""question_id"": ""Q01"",
+  ""country"": ""japao"",
+  ""response"": ""O Japão organiza as competências de Computação e Educação Digital em seus documentos curriculares de forma a desenvolver habilidades de programação, manipulação de dados e pensamento crítico, enfatizando a importância da colaboração e uso ético da tecnologia."",
+  ""evidence_ids"": [
+    {
+      ""document_id"": ""DISC-D70D1055-02__japao_high-school-information-commentary_2022.pdf"",
+      ""document"": ""DISC-D70D1055-02__japao_high-school-information-commentary_2022.pdf"",
+      ""page"": 21,
+      ""original_text"": ""情報技術を適切かつ効果的に活用する力を全ての生徒に育む共通必履修科目。"",
+      ""classification"": ""Currículo"",
+      ""validation_status"": ""confirmado""
+    },
+    {
+      ""document_id"": ""DISC-D70D1055-02__japao_high-school-information-commentary_2022.pdf"",
+      ""document"": ""DISC-D70D1055-02__japao_high-school-information-commentary_2022.pdf"",
+      ""page"": 50,
+      ""original_text"": ""適切な根拠を効果的に用いるとともに，相手の反論を想定し論理の展開を考える。"",
+      ""classification"": ""Currículo"",
+      ""validation_status"": ""confirmado""
+    },
+    {
+      ""document_id"": ""DISC-D70D1055-01__japao_high-school-curriculum-guidelines_2022.pdf"",
+      ""document"": ""DISC-D70D1055-01__japao_high-school-curriculum-guidelines_2022.pdf"",
+      ""page"": 6,
+      ""original_text"": ""情報社会の問題を主体的に発見し明確化し，解決策を考える活動を取り入れるもの。"",
+      ""classification"": ""Currículo"",
+      ""validation_status"": ""confirmado""
+    }
+  ],
+  ""evidence_classification"": ""Currículo"",
+  ""validation_status"": ""confirmado""
+}
+```",,candidate
+Q06,"Quais evidências curriculares estão relacionadas à dimensão cognitiva da Educação para a Cidadania Global da UNESCO, especialmente pensamento crítico, compreensão de questões locais e globais, interdependência e resolução de problemas?",japao,"```json
+{
+  ""question_id"": ""Q06"",
+  ""country"": ""japao"",
+  ""response"": ""As evidências curriculares relacionadas à dimensão cognitiva da Educação para a Cidadania Global da UNESCO incluem o desenvolvimento de pensamento crítico, compreensão de questões locais e globais, interdependência e resolução de problemas. Os alunos são incentivados a estudar a história e a interrelação entre eventos e contextos globais, utilizando habilidades de análise e expressão para abordar problemas contemporâneos."",
+  ""evidence_ids"": [
+    {
+      ""document_id"": ""DISC-D70D1055-01__japao_high-school-curriculum-guidelines_2022.pdf"",
+      ""page"": 71,
+      ""original_excerpt"": ""諸事象の来歴や変化に着目して，主題を設定し，身の回りの諸事象と世界の歴史との関連性を考察し，表現すること。"",
+      ""classification"": ""Evidência Curricular"",
+      ""validation_status"": ""Validada""
+    },
+    {
+      ""document_id"": ""DISC-D70D1055-01__japao_high-school-curriculum-guidelines_2022.pdf"",
+      ""page"": 34,
+      ""original_excerpt"": ""実社会との関わりを考えるための読書の意義と効用について理解を深めること。"",
+      ""classification"": ""Evidência Curricular"",
+      ""validation_status"": ""Validada""
+    },
+    {
+      ""document_id"": ""DISC-D70D1055-01__japao_high-school-curriculum-guidelines_2022.pdf"",
+      ""page"": 176,
+      ""original_excerpt"": ""社会的な話題に関する論題についての複数の論証文や英文資料などを読んで，論点を整理する。"",
+      ""classification"": ""Evidência Curricular"",
+      ""validation_status"": ""Validada""
+    }
+  ],
+  ""evidence_classification"": ""Evidência Curricular"",
+  ""validation_status"": ""Tudo validado""
+}
+```",,candidate

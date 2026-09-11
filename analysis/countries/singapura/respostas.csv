@@ -1,0 +1,55 @@
+question_id,question_text,country,response,evidence_ids,validation_status
+Q01,Como cada país define e organiza as competências de Computação e Educação Digital em seus documentos curriculares?,singapura,"```json
+{
+  ""question_id"": ""Q01"",
+  ""country"": ""singapura"",
+  ""response"": ""Singapura define e organiza as competências de Computação e Educação Digital em seus documentos curriculares em três dimensões principais: 'Computador como Ciência', 'Computador como Ferramenta', e 'Computador na Sociedade'. Essas dimensões abordam aspectos técnicos, práticos e éticos da computação. O 'Pensamento Computacional' é um dos focos centrais da educação em computação, visando desenvolver habilidades de resolução de problemas através de métodos sistemáticos e algoritmos."",
+  ""evidence_ids"": [
+    {
+      ""document_id"": ""X1Hkx66epmXoUTQvWg7BwV"",
+      ""documento"": ""DISC-FA172EFD-02__denitradu_olevelcomputingteach.pdf"",
+      ""pagina"": 1,
+      ""trecho_original"": ""A estrutura da educação em computação compreende três dimensões: Computador como Ciência, Computador como Ferramenta, Computador na Sociedade."",
+      ""classificacao"": ""informativa"",
+      ""validation_status"": ""validada""
+    },
+    {
+      ""document_id"": ""X1Hkx66epmXoUTQvWg7BwV"",
+      ""documento"": ""DISC-FA172EFD-02__denitradu_olevelcomputingteach.pdf"",
+      ""pagina"": 1,
+      ""trecho_original"": ""O pensamento computacional é um processo de pensamento que envolve raciocínio formal, pensamento lógico e algorítmico, e a reformulação de um problema para que uma solução baseada em computador seja viável."",
+      ""classificacao"": ""informativa"",
+      ""validation_status"": ""validada""
+    }
+  ],
+  ""evidence_classification"": ""informativa"",
+  ""validation_status"": ""validada""
+}
+```",,candidate
+Q06,"Quais evidências curriculares estão relacionadas à dimensão cognitiva da Educação para a Cidadania Global da UNESCO, especialmente pensamento crítico, compreensão de questões locais e globais, interdependência e resolução de problemas?",singapura,"```json
+{
+  ""question_id"": ""Q06"",
+  ""country"": ""singapura"",
+  ""response"": ""As evidências curriculares relacionadas à dimensão cognitiva da Educação para a Cidadania Global da UNESCO em Singapura incluem o desenvolvimento do pensamento crítico e computacional, que facilita a análise de problemas e a busca de soluções. Os alunos são ensinados a usar raciocínio lógico e algorítmico, promovendo a compreensão de questões locais e globais e a interdependência ao discutir tópicos como proteção de dados e ética no ciberespaço."",
+  ""evidence_ids"": [
+    {
+      ""document_id"": ""DISC-FA172EFD-02__denitradu_olevelcomputingteach.pdf"",
+      ""document"": ""DISC-FA172EFD-02__denitradu_olevelcomputingteach.pdf"",
+      ""page"": 4,
+      ""original_snippet"": ""O pensamento computacional desenvolve as habilidades dos alunos na resolução de problemas por meio do pensamento algorítmico e do design."",
+      ""classification"": ""curricular"",
+      ""validation_status"": ""validado""
+    },
+    {
+      ""document_id"": ""DISC-FA172EFD-02__denitradu_olevelcomputingteach.pdf"",
+      ""document"": ""DISC-FA172EFD-02__denitradu_olevelcomputingteach.pdf"",
+      ""page"": 18,
+      ""original_snippet"": ""1.1d: O aluno é capaz de discutir questões que afetam a cultura, o desenvolvimento socioeconômico, a governança, o futuro e a identidade de Singapura, e usar evidências para apoiar seus pontos de vista."",
+      ""classification"": ""curricular"",
+      ""validation_status"": ""validado""
+    }
+  ],
+  ""evidence_classification"": ""curricular"",
+  ""validation_status"": ""validado""
+}
+```",,candidate

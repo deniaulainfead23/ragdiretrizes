@@ -23,6 +23,7 @@ STOP_WORDS = {
     'des', 'les', 'une', 'dans', 'pour', 'sur', 'avec', 'est',
     'del', 'los', 'las', 'una', 'para', 'por', 'con', 'que',
 }
+EXCLUDED_COUNTRY_GROUPS = {'marrocos'}
 
 
 def load_records(path: Path, text_field: str) -> list[dict]:
@@ -53,6 +54,10 @@ def group_name(record: dict) -> str:
     if record.get('dataset_group') == 'pisa':
         return 'PISA/OECD'
     return record.get('country') or 'Sem país'
+
+
+def is_excluded_country(name: str) -> bool:
+    return normalized_country_name(name) in EXCLUDED_COUNTRY_GROUPS
 
 
 def normalized_country_name(value: str) -> str:
@@ -129,10 +134,12 @@ def write_pisa_comparison(output: Path, group_names: list[str], similarity: np.n
         return
     pisa_rows = list(csv.DictReader(pisa_path.open(encoding='utf-8', newline='')))
     unesco_index = group_names.index('UNESCO')
-    similarity_by_group = {normalized_country_name(name): float(similarity[index, unesco_index]) for index, name in enumerate(group_names) if name not in {'UNESCO', 'PISA/OECD'}}
+    similarity_by_group = {normalized_country_name(name): float(similarity[index, unesco_index]) for index, name in enumerate(group_names) if name not in {'UNESCO', 'PISA/OECD'} and not is_excluded_country(name)}
     rows = []
     for row in pisa_rows:
         country = row['country']
+        if is_excluded_country(country):
+            continue
         group = normalized_country_name(country)
         rows.append({
             'country': country,
@@ -164,7 +171,7 @@ def plot_pisa_comparison(output: Path) -> None:
 
 
 def analyze(input_path: str, output_dir: str, text_field: str = 'english_text', top_n: int = 20) -> None:
-    records = load_records(Path(input_path), text_field)
+    records = [record for record in load_records(Path(input_path), text_field) if not is_excluded_country(record.get('country', ''))]
     output = Path(output_dir)
     output.mkdir(parents=True, exist_ok=True)
 
@@ -186,7 +193,7 @@ def analyze(input_path: str, output_dir: str, text_field: str = 'english_text', 
     for record in records:
         grouped_texts[group_name(record)].append(record['_text'])
     group_names = sorted(grouped_texts)
-    country_group_names = [name for name in group_names if name not in {'UNESCO', 'PISA/OECD'}]
+    country_group_names = [name for name in group_names if name not in {'UNESCO', 'PISA/OECD'} and not is_excluded_country(name)]
     country_group_matrix = vectorizer.transform(['\n'.join(grouped_texts[name]) for name in country_group_names])
     country_group_rows = []
     for row in top_terms(country_group_matrix, country_group_names, terms, top_n):
@@ -248,6 +255,8 @@ def analyze(input_path: str, output_dir: str, text_field: str = 'english_text', 
     summary = {
         'input': str(input_path), 'text_field': text_field, 'documents': len(records),
         'groups': group_names, 'vocabulary_size': len(terms),
+        'country_groups': country_group_names,
+        'benchmark_groups': [name for name in group_names if name not in country_group_names],
         'unesco_included': 'UNESCO' in group_names,
         'analysis_mode': 'exploratory_lexical',
         'method_note': 'TF-IDF e similaridade são exploratórios e não equivalem a avaliação documental nem a alinhamento curricular.',

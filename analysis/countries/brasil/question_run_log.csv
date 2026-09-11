@@ -1,0 +1,4 @@
+run_id,question_id,country,timestamp,framework,category_id,question_version,status,number_of_hits
+brasil-Q01-20260908T140757Z,Q01,brasil,2026-09-08T14:07:57.143886+00:00,COMPUTING_AND_DIGITAL_EDUCATION,C01,2.0,executed,3
+brasil-Q06-20260908T140804Z,Q06,brasil,2026-09-08T14:08:04.951638+00:00,UNESCO_GCED_2015,F01,2.0,executed,3
+brasil-Q22-20260908T140814Z,Q22,brasil,2026-09-08T14:08:14.147344+00:00,UNESCO_GCED_2015,F01,2.0,executed,3

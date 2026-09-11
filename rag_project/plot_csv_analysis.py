@@ -10,6 +10,8 @@ matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 import numpy as np
 
+EXCLUDED_COUNTRIES = {'marrocos'}
+
 
 def read_rows(path: Path) -> list[dict]:
     with path.open(encoding='utf-8', newline='') as handle:
@@ -22,6 +24,8 @@ def plot_brazil_comparison(rows: list[dict], output: Path) -> None:
         if (row['group_a'] == 'brasil' or row['group_b'] == 'brasil')
         and row['group_a'] != 'UNESCO'
         and row['group_b'] != 'UNESCO'
+        and row['group_a'] not in EXCLUDED_COUNTRIES
+        and row['group_b'] not in EXCLUDED_COUNTRIES
     ]
     values = []
     for row in rows:
@@ -44,7 +48,7 @@ def plot_brazil_unesco(rows: list[dict], output: Path) -> None:
     if reference_path.exists():
         reference_rows = read_rows(reference_path)
         if reference_rows:
-            values = [(row['country'], float(row['similarity_to_unesco'])) for row in reference_rows if row['country'] != 'UNESCO']
+            values = [(row['country'], float(row['similarity_to_unesco'])) for row in reference_rows if row['country'] != 'UNESCO' and row['country'] not in EXCLUDED_COUNTRIES]
             values.sort(key=lambda item: item[1], reverse=True)
             labels, scores = zip(*values)
             fig, axis = plt.subplots(figsize=(11, 7))
@@ -63,6 +67,8 @@ def plot_brazil_unesco(rows: list[dict], output: Path) -> None:
         if row['group_a'] == 'UNESCO' or row['group_b'] == 'UNESCO':
             other = row['group_b'] if row['group_a'] == 'UNESCO' else row['group_a']
             if other not in {'PISA/OECD', 'UNESCO'}:
+                if other in EXCLUDED_COUNTRIES:
+                    continue
                 values.append((other, float(row['similarity'])))
     values.sort(key=lambda item: item[1], reverse=True)
     if not values:

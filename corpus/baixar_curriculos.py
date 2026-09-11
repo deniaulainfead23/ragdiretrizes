@@ -35,9 +35,6 @@ items = [
     # Estônia
     ('estonia','estonia_digital-competence-model_2016.pdf','https://www.hm.ee/sites/default/files/digipadevuse_mudel_2016veebiuus.pdf','PDF oficial Ministério da Educação/Estônia — modelo de competência digital; substitui 2014 quando PDF específico não foi localizado'),
 
-    # Suíça
-    ('suica','suica_lehrplan21_medien-und-informatik_web_INDISPONIVEL.txt',None,'O módulo Medien und Informatik do Lehrplan 21 está publicado em portal oficial interativo; não foi localizado PDF oficial único de download direto para o módulo.'),
-
     # Finlândia
     ('finlandia','finlandia_new-national-core-curriculum-basic-education_2016.pdf','https://www.oph.fi/sites/default/files/documents/new-national-core-curriculum-for-basic-education.pdf','PDF oficial Finnish National Agency for Education — síntese do currículo 2016, inclui ICT competence/programming'),
 
@@ -75,9 +72,6 @@ items = [
     ('nova-zelandia','nova-zelandia_dt-implementation-support-tool_2020.pdf','https://storage.googleapis.com/media.dthm4kaiako.ac.nz/resources/100/DT_implementation_support_tool_2020.pdf','PDF oficial/suporte NZ Ministry of Education/TKI — Digital Technologies implementation support 2020'),
     ('nova-zelandia','nova-zelandia_now-underway-dt-implementation_2020.pdf','https://technologyonline.tki.org.nz/content/download/38601/196869/file/Now%20underway%20DT%20implementation.pdf','PDF oficial Technology Online/TKI — Now underway DT implementation support'),
 
-    # Marrocos
-    ('marrocos','marrocos_referentiel-competences-numeriques_2021_INDISPONIVEL.txt',None,'Não foi localizado PDF oficial público no domínio men.gov.ma com o título exato Référentiel de compétences numériques (MEN, 2021). O site oficial aponta para estratégia de recursos digitais, mas sem PDF único acessível.'),
-
     # África do Sul
     ('africa-do-sul','africa-do-sul_caps_computer-applications-technology_grades-10-12.pdf','https://www.education.gov.za/LinkClick.aspx?fileticket=ncRLjcM3K7Q%3D&tabid=2030&portalid=0&mid=7875&forcedownload=true','PDF oficial DBE South Africa — CAPS Computer Applications Technology Grades 10–12'),
     ('africa-do-sul','africa-do-sul_caps_information-technology_grades-10-12.pdf','https://www.education.gov.za/Portals/0/Documents/Publications/CAPS%20Commnets/FET/INFORMATION%20TECHNOLOGY%20GRADES%2010%20-%2012%20EDITED.PDF?ver=2018-08-29-154512-793','PDF oficial DBE South Africa — CAPS Information Technology Grades 10–12'),
@@ -88,7 +82,6 @@ items = [
 
     # Ruanda
     ('ruanda','ruanda_ict-syllabus.pdf','https://elearning.reb.rw/pluginfile.php/15466/mod_folder/content/0/ICT%20SYLLABUS.pdf?forcedownload=1','PDF oficial REB e-learning — ICT Syllabus'),
-    ('ruanda','ruanda_ict-in-education-policy_2016_INDISPONIVEL.txt',None,'A política ICT in Education Policy (2016) é referenciada em páginas oficiais/REB, mas não foi localizado PDF público direto no domínio REB; foi baixado o ICT Syllabus oficial como documento curricular relacionado.'),
 
     # Gana
     ('gana','gana_computing-common-core-programme-curriculum_2023.pdf','https://nacca.gov.gh/wp-content/uploads/2023/06/COMPUTING.pdf','PDF oficial NaCCA Ghana — Computing Common Core Programme curriculum'),

@@ -1,0 +1,3 @@
+run_id,question_id,country,timestamp,framework,category_id,question_version,status,number_of_hits
+chile-Q01-20260908T140951Z,Q01,chile,2026-09-08T14:09:51.861270+00:00,COMPUTING_AND_DIGITAL_EDUCATION,C01,2.0,executed,2
+chile-Q06-20260908T140959Z,Q06,chile,2026-09-08T14:09:59.955279+00:00,UNESCO_GCED_2015,F01,2.0,executed,3

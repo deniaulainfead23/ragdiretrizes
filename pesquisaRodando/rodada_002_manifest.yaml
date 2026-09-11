@@ -1,0 +1,140 @@
+rodada_id: rodada-002
+status: em_reconciliacao
+created_at: "2026-09-10"
+updated_at: "2026-09-11T03:06:31+00:00"
+branch: correcao-pipeline-rag
+base_commit: "67992bd"
+corpus_version: "3.0"
+questions_version: "2.0"
+backend: openai
+vector_store_id: "vs_6a9ffe25f61c8191b2fc02a86b44d404"
+model: gpt-4o-mini
+vector_store_manifest: metadata/vector_store_manifest.json
+identity_status: pendente_de_confirmacao
+identity_notes:
+  - O Vector Store precisa ser confirmado como construido a partir do corpus v3.0 atual.
+  - Resultados existentes nao serao tratados como finais ate reconciliar sua proveniencia.
+  - O working tree contem alteracoes pendentes e artefatos de rodadas anteriores.
+history:
+  - timestamp: "2026-09-10T22:37:17-03:00"
+    event: auditoria_de_reconciliacao
+    result: artefatos_locais_confirmados; G01_e_G02_permanecem_pendentes
+    note: Nenhum processo local pesado foi executado; a proveniencia do Vector Store ainda requer confirmacao remota.
+  - timestamp: "2026-09-10T22:38:40-03:00"
+    event: auditoria_do_registry_do_corpus
+    result: 6_validated; 78_review_required; 2_pending_review
+    note: O registry oficial nao declara a maior parte dos arquivos fisicos; nenhum document_id foi atribuido automaticamente e G02 permanece bloqueado.
+  - timestamp: "2026-09-10T22:42:48-03:00"
+    event: curadoria_inicial_brasil
+    result: 20_documentos_identificados; 20_pending_review
+    note: IDs, caminhos e hashes foram reconciliados com a matriz bibliografica; nenhum documento foi promovido a validated.
+  - timestamp: "2026-09-10T22:46:15-03:00"
+    event: curadoria_inicial_chile
+    result: 5_documentos_identificados; 5_pending_review
+    note: IDs, caminhos e hashes foram reconciliados com as matrizes bibliografica e do corpus; nenhum documento foi promovido a validated.
+  - timestamp: "2026-09-11T01:48:09+00:00"
+    event: curadoria_inicial_coreia_do_sul
+    result: 1_documento_identificado; 1_pending_review
+    note: ID, caminho e hash foram reconciliados com as matrizes bibliografica e do corpus; o white paper permanece como fonte complementar pendente de validacao.
+  - timestamp: "2026-09-11T01:50:01+00:00"
+    event: curadoria_inicial_estados_unidos
+    result: 1_documento_identificado; 1_pending_review
+    note: ID, caminho e hash foram reconciliados com as matrizes bibliografica e do corpus; o framework permanece como fonte principal pendente de validacao.
+  - timestamp: "2026-09-11T01:55:10+00:00"
+    event: curadoria_inicial_finlandia
+    result: 1_documento_identificado; 1_pending_review
+    note: ID, caminho e hash foram reconciliados com as matrizes bibliografica e do corpus; o curriculo permanece como fonte principal pendente de validacao.
+  - timestamp: "2026-09-11T01:57:04+00:00"
+    event: curadoria_inicial_gana
+    result: 2_documentos_identificados; 2_pending_review
+    note: IDs, caminhos e hashes foram reconciliados com as matrizes bibliografica e do corpus; os curriculos permanecem como fontes principais pendentes de validacao.
+  - timestamp: "2026-09-11T02:05:48+00:00"
+    event: curadoria_inicial_hong_kong
+    result: 2_documentos_identificados; 2_pending_review
+    note: IDs, caminhos e hashes foram reconciliados com as matrizes bibliografica e do corpus; os curriculos permanecem como fontes principais pendentes de validacao.
+  - timestamp: "2026-09-11T02:09:40+00:00"
+    event: curadoria_inicial_irlanda
+    result: 1_documento_identificado; 1_pending_review
+    note: ID, caminho e hash foram reconciliados com as matrizes bibliografica e do corpus; o curriculo permanece como fonte principal pendente de validacao.
+  - timestamp: "2026-09-11T00:00:00-04:00"
+    event: curadoria_inicial_canada
+    result: 4_documentos_identificados; 4_pending_review
+    note: IDs, caminhos e hashes foram reconciliados com as matrizes bibliografica e do corpus; nenhum documento foi promovido a validated.
+  - timestamp: "2026-09-11T02:23:51+00:00"
+    event: curadoria_em_lote_paises_restantes
+    result: 9_paises; 34_documentos_identificados; 34_pending_review
+    note: Japao, Nova Zelandia, Quenia, Reino Unido, Ruanda, Singapura, Suica, Taiwan e Uruguai foram reconciliados com as matrizes e o corpus; nenhum documento foi promovido a validated.
+  - timestamp: "2026-09-11T02:27:37+00:00"
+    event: auditoria_estrutural_do_registry
+    result: 79_documentos; 6_validated; 73_pending_review; sem_ids_duplicados
+    note: A contagem foi confirmada pela lista completa de IDs; nenhum pais ativo permanece com documents vazio.
+  - timestamp: "2026-09-11T02:29:41+00:00"
+    event: triagem_textual_documentos_pendentes
+    result: 73_documentos; 100_porcento_com_matriz_bibliografica_e_corpus; sem_divergencias_textuais_de_hash
+    note: A triagem nao abriu documentos nem calculou hashes; a revisao manual permanece necessaria, estimada em 12_a_14_horas.
+  - timestamp: "2026-09-11T02:39:12+00:00"
+    event: auditoria_de_proveniencia_dos_metadados
+    result: divergencia_source_verified; matriz_bibliografica_false; corpus_manifest_true
+    note: A matriz bibliografica marca 72 fontes curriculares como false, enquanto o manifesto do corpus marca 86 linhas como true; a fonte de verdade precisa ser definida antes de promover documentos.
+  - timestamp: "2026-09-11T02:46:49+00:00"
+    event: correcao_do_gerador_de_manifesto
+    result: source_verified_unificado_por_infer_source_confidence
+    note: build_corpus_manifest deixou de gravar true incondicionalmente e passou a reutilizar a mesma regra da matriz bibliografica; CSVs existentes ainda nao foram regenerados.
+  - timestamp: "2026-09-11T02:51:33+00:00"
+    event: regeneracao_dos_manifests
+    result: 86_registros_em_cada_csv; source_verified_unificado_72_false_14_true
+    note: Os manifests foram regenerados pelo gerador corrigido; a contagem inclui 86 linhas de dados mais o cabecalho e os 73 documentos do registry continuam pending_review.
+  - timestamp: "2026-09-11T02:58:56+00:00"
+    event: reconciliacao_final_do_corpus
+    result: 79_documentos_no_escopo; 6_validated; 73_pending_review; zero_review_required
+    note: O auditor passou a excluir UNESCO e PISA de forma case_insensitive; a reconciliacao nacional nao inclui benchmarks nem excecoes nao declaradas.
+  - timestamp: "2026-09-11T03:00:49+00:00"
+    event: atualizacao_do_status_g02
+    result: g02_partially_reconciled
+    note: Estrutura, caminhos, IDs e metadados foram reconciliados; a validacao semantica dos 73 documentos pending_review continua pendente.
+  - timestamp: "2026-09-11T03:06:31+00:00"
+    event: atualizacao_dos_gates_de_datasets_e_evidencias
+    result: g03_e_g05_partially_reconciled
+    note: Existem hashes parciais, logs e CSVs consolidados; datasets finais e validacao completa das evidencias ainda nao estao comprovados.
+questions_executed:
+  - Q01
+  - Q06
+  - Q22
+benchmark_sources:
+  - UNESCO
+  - PISA_OECD
+countries_in_scope: 22
+excluded_countries:
+  - marrocos
+source_registries:
+  corpus_registry: rag_project/config/corpus_registry.yaml
+  questions_catalog: rag_project/questions/questions.yaml
+  bibliographic_matrix: metadata/bibliographic_matrix.csv
+planned_gates:
+  - id: G01
+    name: identidade_da_rodada
+    status: pending
+  - id: G02
+    name: corpus_e_metadados
+    status: partially_reconciled
+  - id: G03
+    name: datasets_e_hashes
+    status: partially_reconciled
+  - id: G04
+    name: backend_e_execucao_rag
+    status: pending
+  - id: G05
+    name: consolidacao_e_validacao_de_evidencias
+    status: partially_reconciled
+  - id: G06
+    name: workbook_e_analises
+    status: pending
+  - id: G07
+    name: publicacao_e_reprodutibilidade
+    status: pending
+outputs:
+  consolidated_answers: analysis/consolidado/respostas_consolidadas.csv
+  consolidated_evidence: analysis/consolidado/evidencias_consolidadas.csv
+  workbook: analysis/02_perguntas_respostas.xlsx
+  validation_logs: analysis/countries/*/question_run_log.csv
+  zenodo_package: zenodo_package

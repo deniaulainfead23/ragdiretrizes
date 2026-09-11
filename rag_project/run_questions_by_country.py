@@ -6,6 +6,8 @@ import json
 from datetime import datetime, timezone
 from pathlib import Path
 
+from dotenv import load_dotenv
+
 from rag_project.question_catalog import get_questions
 from rag_project.corpus_registry import get_country, load_registry, registered_documents
 from rag_project.rag.query import rag_query
@@ -93,6 +95,7 @@ def _parse_response(response: str) -> dict:
 
 
 def main() -> None:
+    load_dotenv(Path(__file__).resolve().parent / '.env')
     parser = argparse.ArgumentParser(description='Executa o plano de perguntas por país, em versão estruturada e compatível com o legado.')
     parser.add_argument('--country', required=True, help='País para executar as perguntas de recuperação documental')
     parser.add_argument('--out', default=None, help='Diretório de saída; padrão analysis/countries/<country>')
@@ -104,7 +107,7 @@ def main() -> None:
 
     output_dir = args.out or str(Path('analysis') / 'countries' / args.country)
     plan = run_question_plan(args.country, output_dir, args.index, args.openai_key, args.vector_store_id, args.backend)
-    print(json.dumps({'country': args.country, 'questions': len(plan), 'output_dir': str(Path(args.out))}, ensure_ascii=False, indent=2))
+    print(json.dumps({'country': args.country, 'questions': len(plan), 'output_dir': output_dir}, ensure_ascii=False, indent=2))
 
 
 if __name__ == '__main__':

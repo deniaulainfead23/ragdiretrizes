@@ -1,0 +1,22 @@
+# LEGACY QUESTION LIST
+# This file is retained only for backward compatibility.
+# The active, versioned and methodological question catalog is in rag_project/questions/questions.yaml.
+# Do not use this list for new research execution because it includes ranking-style prompts.
+
+1. Como cada país define competências digitais?
+2. De que forma o pensamento computacional é incorporado ao currículo de cada país?
+3. Quais documentos enfatizam cidadania digital, ética e letramento midiático, identifique os paises?
+4. Como os currículos (identifique o país) dialogam com os referenciais da UNESCO para o perfil do cidadão global?
+5. Quais países têm maior alinhamento com as competências do século XXI e a cidadania digital?
+6. Como os currículos(identifique o país)  tratam colaboração, criatividade e resolução de problemas?
+7. Quais documentos(identifique o país)  destacam inteligência artificial, ética digital e segurança online?
+8. Como a inclusão digital e a equidade aparecem nas diretrizes curriculares?
+9. Há diferenças entre países com ênfase técnica e países com ênfase sociocultural no uso das tecnologias?
+10. Como os currículos(identifique o país)  articulam pensamento crítico, letramento midiático e participação democrática?
+11. Quais países estão mais próximos do perfil do cidadão global proposto pela UNESCO?
+12. Como a formação docente para educação digital é tratada nos documentos analisados?
+13. Quais eixos curriculares são mais recorrentes entre os países comparados?
+14. Como os currículos(identifique o país)  relacionam computação, dados, ética e direitos digitais?
+15. Em que medida o perfil do futuro aparece como cidadão crítico, colaborativo e responsável digitalmente(identifique o país) ?
+
+# Deprecated by methodology: these prompts are not valid for the new evidence-oriented retrieval pipeline.

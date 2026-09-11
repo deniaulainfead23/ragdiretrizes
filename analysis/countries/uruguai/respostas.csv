@@ -1,0 +1,69 @@
+question_id,question_text,country,response,evidence_ids,validation_status
+Q01,Como cada país define e organiza as competências de Computação e Educação Digital em seus documentos curriculares?,uruguai,"```json
+{
+  ""question_id"": ""Q01"",
+  ""country"": ""uruguai"",
+  ""response"": ""Uruguai organiza as competências de Computação e Educação Digital por meio do Plan CEIBAL e das diretrizes curriculares que promovem habilidades de comunicação, pensamento crítico e uso responsável da tecnologia. As competências são estruturadas para permitir que os alunos selecionem, analisem e apresentem informações digitalmente, estimulando tanto o aprendizado individual quanto o trabalho em grupo."",
+  ""evidence_ids"": [
+    {
+      ""document_id"": ""DISC-4733A12C-03__uruguai_tecnologias-digitales_2023.pdf"",
+      ""documento"": ""DISC-4733A12C-03__uruguai_tecnologias-digitales_2023.pdf"",
+      ""página"": 10,
+      ""trecho_original"": ""CE2. Planifica, evalúa, crea y adapta soluciones tecnológicas con software o hardware, de forma individual o grupal, con el fin de resolver problemas considerando el impacto en la comunidad y el ambiente."",
+      ""classificação"": ""competências específicas"",
+      ""validation_status"": ""validado""
+    },
+    {
+      ""document_id"": ""DISC-4733A12C-01__uruguai_en-el-camino-del-plan-ceibal_2009.pdf"",
+      ""documento"": ""DISC-4733A12C-01__uruguai_en-el-camino-del-plan-ceibal_2009.pdf"",
+      ""página"": 156,
+      ""trecho_original"": ""Las expectativas que han acompañado desde un principio la implementación de este Plan CEIBAL se han expresado de diferentes formas... procesos culturales que se habilitan a partir de esta innovación"",
+      ""classificação"": ""contexto histórico"",
+      ""validation_status"": ""validado""
+    }
+  ],
+  ""evidence_classification"": ""competências de Computação e Educação Digital"",
+  ""validation_status"": ""validado""
+}
+```",,candidate
+Q06,"Quais evidências curriculares estão relacionadas à dimensão cognitiva da Educação para a Cidadania Global da UNESCO, especialmente pensamento crítico, compreensão de questões locais e globais, interdependência e resolução de problemas?",uruguai,"```json
+{
+  ""question_id"": ""Q06"",
+  ""country"": ""uruguai"",
+  ""response"": [
+    {
+      ""document_id"": ""DISC-4733A12C-03__uruguai_tecnologias-digitales_2023.pdf"",
+      ""page"": 1,
+      ""original_excerpt"": ""Contribuye al desarrollo de las competencias generales del MCN: Pensamiento crítico, Pensamiento computacional, Ciudadanía local, global y digital."",
+      ""classification"": ""curricular evidence"",
+      ""validation_status"": ""valid""
+    },
+    {
+      ""document_id"": ""DISC-4733A12C-03__uruguai_tecnologias-digitales_2023.pdf"",
+      ""page"": 1,
+      ""original_excerpt"": ""CE1. Selecciona, analiza y resignifica la información y sus formas de representación, haciendo uso de las tecnologías o dispositivos digitales, mediante el trabajo grupal e individual para expresarse o desarrollar el espíritu crítico y reflexivo."",
+      ""classification"": ""curricular evidence"",
+      ""validation_status"": ""valid""
+    },
+    {
+      ""document_id"": ""DISC-4733A12C-02__uruguai_plan-ceibal-in-uruguay.pdf"",
+      ""page"": 1,
+      ""original_excerpt"": ""El uso de las TIC en la educación podría ser adoptado como un indicador adicional para medir la calidad de la educación en el marco del Índice de Desarrollo Humano."",
+      ""classification"": ""curricular evidence"",
+      ""validation_status"": ""valid""
+    }
+  ],
+  ""evidence_ids"": [
+    {
+      ""document_id"": ""DISC-4733A12C-03__uruguai_tecnologias-digitales_2023.pdf"",
+      ""page"": 1
+    },
+    {
+      ""document_id"": ""DISC-4733A12C-02__uruguai_plan-ceibal-in-uruguay.pdf"",
+      ""page"": 1
+    }
+  ],
+  ""evidence_classification"": ""curricular evidence"",
+  ""validation_status"": ""validated""
+}
+```",,candidate

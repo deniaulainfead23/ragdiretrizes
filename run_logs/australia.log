@@ -1,0 +1,14 @@
+Traceback (most recent call last):
+  File "C:\Users\morae\AppData\Local\Programs\Python\Python310\lib\runpy.py", line 196, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "C:\Users\morae\AppData\Local\Programs\Python\Python310\lib\runpy.py", line 86, in _run_code
+    exec(code, run_globals)
+  File "C:\MestradoEstudoRag\ragdiretrizes\rag_project\run_questions_by_country.py", line 114, in <module>
+    main()
+  File "C:\MestradoEstudoRag\ragdiretrizes\rag_project\run_questions_by_country.py", line 109, in main
+    plan = run_question_plan(args.country, output_dir, args.index, args.openai_key, args.vector_store_id, args.backend)
+  File "C:\MestradoEstudoRag\ragdiretrizes\rag_project\run_questions_by_country.py", line 48, in run_question_plan
+    out_dir.mkdir(parents=True, exist_ok=True)
+  File "C:\Users\morae\AppData\Local\Programs\Python\Python310\lib\pathlib.py", line 1175, in mkdir
+    self._accessor.mkdir(self, mode)
+OSError: [WinError 123] A sintaxe do nome do arquivo, do nome do diretório ou do rótulo do volume está incorreta: 'analysis\\countries\\australia\r'

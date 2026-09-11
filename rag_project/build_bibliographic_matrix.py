@@ -228,6 +228,7 @@ def build_corpus_manifest(corpus_root: str | Path, output_dir: str | Path | None
         country = normalize_country_name(file_path.parent.name)
         relative_path = file_path.relative_to(root).as_posix()
         sha256 = compute_sha256(file_path)
+        _, source_verified = infer_source_confidence(file_path.name, relative_path)
         rows.append({
             'document_id': f"{docid_prefix(country)}_{file_path.name[:10].upper()}",
             'country': country,
@@ -237,7 +238,7 @@ def build_corpus_manifest(corpus_root: str | Path, output_dir: str | Path | None
             'size_bytes': str(file_path.stat().st_size),
             'status': 'available',
             'document_type': infer_document_type(file_path.name),
-            'source_verified': 'true',
+            'source_verified': 'true' if source_verified else 'false',
         })
 
     output_path = Path(output_dir) if output_dir is not None else root.parent / 'metadata'

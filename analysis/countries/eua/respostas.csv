@@ -1,0 +1,58 @@
+question_id,question_text,country,response,evidence_ids,validation_status
+Q01,Como cada país define e organiza as competências de Computação e Educação Digital em seus documentos curriculares?,eua,"```json
+{
+  ""question_id"": ""Q01"",
+  ""country"": ""eua"",
+  ""response"": ""Os Estados Unidos definem e organizam as competências de Computação e Educação Digital no K–12 Computer Science Framework, que enfatiza a importância do pensamento computacional como uma habilidade essencial para todos os alunos, e não apenas para os cientistas da computação."",
+  ""evidence_ids"": [
+    {
+      ""document_id"": ""DISC-F97E2F85-01__eua_k12-computer-science-framework_2016.pdf"",
+      ""page"": 70,
+      ""original_text"": ""Computational thinking is a fundamental skill for everyone, not just for computer scientists."",
+      ""classification"": ""definição"",
+      ""validation_status"": ""confirmado""
+    },
+    {
+      ""document_id"": ""DISC-F97E2F85-01__eua_k12-computer-science-framework_2016.pdf"",
+      ""page"": 68,
+      ""original_text"": ""Computational thinking refers to the thought processes involved in expressing solutions as computational steps or algorithms that can be carried out by a computer."",
+      ""classification"": ""definição"",
+      ""validation_status"": ""confirmado""
+    },
+    {
+      ""document_id"": ""DISC-F97E2F85-01__eua_k12-computer-science-framework_2016.pdf"",
+      ""page"": 71,
+      ""original_text"": ""The framework is grounded in the belief that computer science offers unique opportunities for developing computational thinking."",
+      ""classification"": ""fundamentação"",
+      ""validation_status"": ""confirmado""
+    }
+  ],
+  ""evidence_classification"": ""o framework educacional"",
+  ""validation_status"": ""confirmado""
+}
+```",,candidate
+Q06,"Quais evidências curriculares estão relacionadas à dimensão cognitiva da Educação para a Cidadania Global da UNESCO, especialmente pensamento crítico, compreensão de questões locais e globais, interdependência e resolução de problemas?",eua,"```json
+{
+  ""question_id"": ""Q06"",
+  ""country"": ""eua"",
+  ""response"": ""As evidências curriculares relacionadas à dimensão cognitiva da Educação para a Cidadania Global da UNESCO incluem práticas que promovem o pensamento crítico, a compreensão de questões locais e globais, a interdependência e a resolução de problemas através do ensino de ciência da computação. Os alunos são encorajados a discutir eventos atuais e a promover suas necessidades como usuários finais diversos durante o processo de design."",
+  ""evidence_ids"": [
+    {
+      ""document_id"": ""DISC-F97E2F85-01__eua_k12-computer-science-framework_2016.pdf"",
+      ""pagina"": 70,
+      ""trecho_original"": ""Course activities could include critical discussion of current events that demonstrate the pervasiveness of computing and the ways these events connect to the relevant concepts and practices in the framework."",
+      ""classificacao"": ""evidência curricular"",
+      ""validation_status"": ""validado""
+    },
+    {
+      ""document_id"": ""DISC-F97E2F85-01__eua_k12-computer-science-framework_2016.pdf"",
+      ""pagina"": 79,
+      ""trecho_original"": ""Students should be able to evaluate existing abstractions to determine which should be incorporated into designs and how they should be incorporated."",
+      ""classificacao"": ""evidência curricular"",
+      ""validation_status"": ""validado""
+    }
+  ],
+  ""evidence_classification"": ""curricular"",
+  ""validation_status"": ""validado""
+}
+```",,candidate

@@ -199,7 +199,8 @@ def write_dataset_stream(corpus_root: Path, output_path: Path, use_openai_transl
                 'validation_status': document['validation_status'],
                 'corpus_version': '3.0',
             })
-            handle.write(json.dumps(record, ensure_ascii=False) + '\n')
+            # Escape Unicode line separators so each JSON object remains one JSONL line.
+            handle.write(json.dumps(record, ensure_ascii=True) + '\n')
             count += 1
             print(f'[{record_group}] {count}: {country} / {source_path.name}')
     print(f'Dataset saved: {output_path} ({count} records)')
