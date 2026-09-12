@@ -3,6 +3,7 @@ from __future__ import annotations
 import argparse
 import csv
 import json
+import re
 from datetime import datetime, timezone
 from pathlib import Path
 
@@ -14,7 +15,9 @@ from rag_project.rag.query import rag_query
 from rag_project.vector_backend import resolve_backend
 from rag_project.openai_vector_store import cloud_rag_query
 
-PROMPT_VERSION = "rag-country-v3.1"
+ROOT = Path(__file__).resolve().parents[1]
+DOCUMENT_CATALOG = ROOT / 'metadata' / 'documentos.csv'
+PROMPT_VERSION = "rag-country-v3.2"
 
 
 def build_country_question_plan(country: str, question_id: str | None = None) -> list[dict]:
@@ -42,24 +45,90 @@ def build_country_question_plan(country: str, question_id: str | None = None) ->
     return selected
 
 
+def _load_document_catalog() -> dict[str, dict[str, str]]:
+    if not DOCUMENT_CATALOG.exists():
+        return {}
+    with DOCUMENT_CATALOG.open('r', encoding='utf-8-sig', newline='') as handle:
+        return {
+            row['document_id'].strip(): row
+            for row in csv.DictReader(handle)
+            if row.get('document_id')
+        }
+
+
+def _normalize_document_id(raw_value: object, known_ids: set[str]) -> str:
+    """Converte nomes de arquivo retornados pelo File Search para o document_id canônico."""
+    value = str(raw_value or '').strip()
+    if not value:
+        return ''
+    if value in known_ids:
+        return value
+
+    # Upload usa: DOCUMENT_ID__arquivo.md
+    prefix = value.split('__', 1)[0].strip()
+    if prefix in known_ids:
+        return prefix
+
+    # Fallback para respostas que devolvam somente um nome de arquivo.
+    stem = Path(value).stem
+    if stem in known_ids:
+        return stem
+
+    return prefix or stem or value
+
+
+def _safe_id_part(value: object) -> str:
+    text = re.sub(r'[^A-Za-z0-9]+', '_', str(value or '').strip().upper()).strip('_')
+    return text or 'NA'
+
+
+def _page_for_id(value: object) -> str:
+    text = str(value or '').strip()
+    if text.isdigit():
+        return f'P{int(text):04d}'
+    return _safe_id_part(text) if text else 'PNA'
+
+
+def _candidate_status(value: object, has_evidence: bool) -> str:
+    """O modelo nunca valida cientificamente a própria saída; validação final é humana."""
+    status = str(value or '').strip().lower()
+    if not has_evidence or status in {'inconclusive', 'insufficient', 'not_detected'}:
+        return 'inconclusive'
+    return 'candidate'
+
+
 def _structured_question_text(item: dict, country: str) -> str:
     return (
         f"{item['question_text']}\n\n"
-        "Regras de saída: responda SOMENTE em JSON válido, sem bloco Markdown. "
+        "Regras metodológicas obrigatórias: responda SOMENTE em JSON válido, sem Markdown. "
         "Use as chaves question_id, country, response, evidences e validation_status. "
-        "evidences deve ser uma lista de objetos contendo evidence_id, document_id, "
-        "document_title, page_start, page_end, chunk_id, source_text, semantic_score, "
-        "evidence_classification e validation_status. Preserve o trecho no idioma original. "
-        "Não invente página, documento, chunk_id ou evidência. Se a recuperação for insuficiente, "
-        "registre validation_status como inconclusive. "
+        "A resposta deve conter SOMENTE afirmações sustentadas diretamente pelas evidências recuperadas; "
+        "não acrescente temas por conhecimento geral, inferência ou expectativa curricular. "
+        "Se as evidências forem insuficientes para uma afirmação, omita-a. "
+        "evidences deve ser uma lista de objetos com document_id, document_title, page_start, page_end, "
+        "chunk_id, source_language, source_text, translated_text_pt, translation_status, semantic_score, "
+        "evidence_classification e validation_status. "
+        "source_text deve preservar literalmente o trecho recuperado no idioma original. "
+        "translated_text_pt deve traduzir SOMENTE esse trecho para português quando o original não estiver em português; "
+        "quando já estiver em português, repita o trecho e use translation_status='not_needed'. "
+        "Para tradução realizada, use translation_status='translated'. "
+        "Não traduza, resuma ou reescreva o corpus inteiro. "
+        "Não invente página, documento, chunk_id, idioma ou evidência. "
+        "Não use 'validated': validation_status deve ser 'candidate' quando houver suporte recuperado ou "
+        "'inconclusive' quando a recuperação não sustentar uma resposta segura. "
+        "document_id deve representar o identificador canônico do documento, sem sufixo de nome de arquivo. "
         f"question_id={item['question_id']}; country={country}; "
         f"analysis_framework={item['framework']}; category_id={item['category_id']}."
     )
 
 
 def _parse_response(response: str) -> dict:
+    text = str(response or '').strip()
+    if text.startswith('```'):
+        text = re.sub(r'^```(?:json)?\s*', '', text, flags=re.IGNORECASE)
+        text = re.sub(r'\s*```$', '', text)
     try:
-        value = json.loads(response)
+        value = json.loads(text)
         return value if isinstance(value, dict) else {}
     except (TypeError, json.JSONDecodeError):
         return {}
@@ -90,6 +159,8 @@ def run_question_plan(
 
     documents = list(registered_documents(registry, country))
     document_ids = [document['document_id'] for _, document in documents]
+    catalog = _load_document_catalog()
+    known_ids = set(catalog)
 
     out_dir = Path(output_dir)
     out_dir.mkdir(parents=True, exist_ok=True)
@@ -100,7 +171,8 @@ def run_question_plan(
 
     run_timestamp = datetime.now(timezone.utc)
     run_stamp = run_timestamp.strftime('%Y%m%dT%H%M%SZ')
-    run_id = f"RUN_{country.upper().replace('-', '_')}_{run_stamp}"
+    country_id = _safe_id_part(country)
+    run_id = f"RUN_{country_id}_{run_stamp}"
 
     run_entries: list[dict] = []
     response_rows: list[dict] = []
@@ -108,10 +180,10 @@ def run_question_plan(
 
     for item in plan:
         question_run_id = f"{run_id}_{item['question_id']}"
-        response_id = f"RESP_{country.upper().replace('-', '_')}_{item['question_id']}_{run_stamp}"
+        response_id = f"RESP_{country_id}_{item['question_id']}_{run_stamp}"
 
         if resolved_backend == 'openai':
-            # IMPORTANTE: o filtro do Vector Store é exclusivamente por país.
+            # O filtro do Vector Store é exclusivamente por país.
             # item['framework'] é framework analítico da pergunta, não framework_source do documento.
             response = cloud_rag_query(
                 vector_store_id,
@@ -145,11 +217,43 @@ def run_question_plan(
         for position, evidence in enumerate(evidences, start=1):
             if not isinstance(evidence, dict):
                 continue
-            evidence_id = str(
-                evidence.get('evidence_id')
-                or f"EVID_{country.upper().replace('-', '_')}_{item['question_id']}_{position:03d}_{run_stamp}"
+
+            document_id = _normalize_document_id(
+                evidence.get('document_id') or evidence.get('documento') or evidence.get('filename'),
+                known_ids,
+            )
+            page_start = evidence.get('page_start') or evidence.get('page', '')
+            page_end = evidence.get('page_end') or evidence.get('page', '') or page_start
+            canonical_chunk_id = evidence.get('chunk_id', '')
+            if not canonical_chunk_id and document_id and str(page_start).isdigit():
+                canonical_chunk_id = f"{document_id}_p{int(page_start):04d}_c001"
+
+            evidence_id = (
+                f"EVID_{country_id}_{item['question_id']}_"
+                f"{_safe_id_part(document_id)}_{_page_for_id(page_start)}_{position:03d}"
             )
             evidence_ids.append(evidence_id)
+
+            metadata = catalog.get(document_id, {})
+            source_language = (
+                str(metadata.get('language') or '').strip()
+                or str(evidence.get('source_language') or '').strip()
+            )
+            source_text = evidence.get('source_text') or evidence.get('trecho_original', '')
+            translated_text_pt = (
+                evidence.get('translated_text_pt')
+                or evidence.get('translated_text')
+                or ''
+            )
+            translation_status = str(evidence.get('translation_status') or '').strip()
+            if source_language.lower() in {'pt', 'pt-br', 'por', 'portuguese', 'português'}:
+                translated_text_pt = translated_text_pt or source_text
+                translation_status = translation_status or 'not_needed'
+            elif translated_text_pt:
+                translation_status = translation_status or 'translated'
+            else:
+                translation_status = translation_status or 'not_provided'
+
             evidence_rows.append({
                 'evidence_id': evidence_id,
                 'run_id': run_id,
@@ -159,29 +263,29 @@ def run_question_plan(
                 'category_id': item['category_id'],
                 'framework': item['framework'],
                 'country': country,
-                'document_id': evidence.get('document_id', ''),
+                'document_id': document_id,
                 'document_title': evidence.get('document_title') or evidence.get('documento', ''),
-                'page_start': evidence.get('page_start') or evidence.get('page', ''),
-                'page_end': evidence.get('page_end') or evidence.get('page', ''),
-                'chunk_id': evidence.get('chunk_id', ''),
-                'source_text': evidence.get('source_text') or evidence.get('trecho_original', ''),
-                'translated_text': evidence.get('translated_text', ''),
+                'page_start': page_start,
+                'page_end': page_end,
+                'chunk_id': canonical_chunk_id,
+                'source_language': source_language,
+                'source_text': source_text,
+                'translated_text_pt': translated_text_pt,
+                'translation_status': translation_status,
                 'semantic_score': evidence.get('semantic_score', ''),
                 'evidence_classification': evidence.get('evidence_classification') or evidence.get('classification', ''),
-                'validation_status': evidence.get('validation_status', 'candidate'),
+                'validation_status': _candidate_status(evidence.get('validation_status'), bool(source_text)),
                 'review_notes': '',
             })
-
-        if not evidence_ids:
-            legacy_ids = parsed.get('evidence_ids', [])
-            if isinstance(legacy_ids, list):
-                evidence_ids = [str(value) for value in legacy_ids]
 
         response_text = parsed.get('response', '') if parsed else ''
         if not response_text:
             response_text = response
 
-        validation_status = parsed.get('validation_status', 'candidate') if parsed else 'unparsed'
+        response_status = _candidate_status(
+            parsed.get('validation_status') if parsed else '',
+            bool(evidence_ids),
+        )
         response_rows.append({
             'response_id': response_id,
             'run_id': run_id,
@@ -197,7 +301,7 @@ def run_question_plan(
             'question_version': item['version'],
             'prompt_version': PROMPT_VERSION,
             'run_date': run_timestamp.isoformat(),
-            'validation_status': validation_status,
+            'validation_status': response_status,
             'review_notes': '',
         })
 
@@ -228,8 +332,9 @@ def run_question_plan(
         [
             'evidence_id', 'run_id', 'question_run_id', 'response_id', 'question_id',
             'category_id', 'framework', 'country', 'document_id', 'document_title',
-            'page_start', 'page_end', 'chunk_id', 'source_text', 'translated_text',
-            'semantic_score', 'evidence_classification', 'validation_status', 'review_notes',
+            'page_start', 'page_end', 'chunk_id', 'source_language', 'source_text',
+            'translated_text_pt', 'translation_status', 'semantic_score',
+            'evidence_classification', 'validation_status', 'review_notes',
         ],
     )
     _write_csv(
