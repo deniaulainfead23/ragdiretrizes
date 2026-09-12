@@ -46,6 +46,15 @@ def add_row(rows, path, document_id, source_scope, framework_source,
     rel = path.relative_to(CORPUS).as_posix()
     audit = audit or {}
     group = str(audit.get("grupo_analitico", "UNAUDITED"))
+    if group == "UNAUDITED" and path.suffix.lower() in {".html", ".htm"}:
+       group = "Grupo A"
+    audit = {
+        **audit,
+        "status": "HTML_MACHINE_READABLE",
+        "paginas": 1,
+        "paginas_problematicas": 0,
+        "percentual_problematico": 0,
+    }
     rag_status, action = status_for_group(group)
     rows.append({
         "document_id": document_id,

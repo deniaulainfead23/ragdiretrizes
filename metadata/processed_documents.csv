@@ -1,0 +1,87 @@
+﻿document_id,status,processed_path,pages_extracted,notes
+PISA_001,ready,corpus/processed/OECD_PISA/PISA_001.md,491,
+UNESCO_001,ready,corpus/processed/UNESCO/UNESCO_001.md,231,
+UNESCO_002,ready,corpus/processed/UNESCO/UNESCO_002.md,70,
+UNESCO_003,ready,corpus/processed/UNESCO/UNESCO_003.md,71,
+UNESCO_004,ready,corpus/processed/UNESCO/UNESCO_004.md,161,
+UNESCO_005,ready,corpus/processed/UNESCO/UNESCO_005.md,84,
+UNESCO_006,ready,corpus/processed/UNESCO/UNESCO_006.md,189,
+AF-ZA-01,ready,corpus/processed/africa-do-sul/AF-ZA-01.md,62,
+AF-ZA-02,ready,corpus/processed/africa-do-sul/AF-ZA-02.md,59,
+OC-AU-01,ready,corpus/processed/australia/OC-AU-01.md,4,
+OC-AU-02,ready,corpus/processed/australia/OC-AU-02.md,4,
+BR_001,ready,corpus/processed/brasil/BR_001.md,72,Layout complexo
+BR_002,ready,corpus/processed/brasil/BR_002.md,72,Layout complexo
+BR_003,ready,corpus/processed/brasil/BR_003.md,577,Layout complexo
+BR_004,ready,corpus/processed/brasil/BR_004.md,577,Layout complexo
+BR_005,ready,corpus/processed/brasil/BR_005.md,76,
+BR_006,ready,corpus/processed/brasil/BR_006.md,34,
+BR_007,ready,corpus/processed/brasil/BR_007.md,11,Layout complexo
+BR_008,ready,corpus/processed/brasil/BR_008.md,55,
+BR_009,ready,corpus/processed/brasil/BR_009.md,36,
+BR_010,ready_with_structural_warning,corpus/processed/brasil/BR_010.md,29,Aviso estrutural
+BR_011,ready,corpus/processed/brasil/BR_011.md,13,
+BR_012,ready,corpus/processed/brasil/BR_012.md,34,Layout complexo
+BR_013,ready,corpus/processed/brasil/BR_013.md,58,Layout complexo
+BR_014,ready,corpus/processed/brasil/BR_014.md,15,Layout complexo
+BR_015,ready,corpus/processed/brasil/BR_015.md,7,
+BR_016,ready_with_structural_warning,corpus/processed/brasil/BR_016.md,29,Aviso estrutural
+BR_017,ready,corpus/processed/brasil/BR_017.md,1,Layout complexo
+BR_018,ready,corpus/processed/brasil/BR_018.md,13,
+BR_019,ready,corpus/processed/brasil/BR_019.md,12,Layout complexo
+BR_020,ready,corpus/processed/brasil/BR_020.md,1,
+CA_001,ready,corpus/processed/canada/CA_001.md,4,
+CA_002,ready,corpus/processed/canada/CA_002.md,4,
+CA_003,ready,corpus/processed/canada/CA_003.md,40,
+CA_004,ready,corpus/processed/canada/CA_004.md,1,
+CL_001,ready,corpus/processed/chile/CL_001.md,166,
+CL_002,ready,corpus/processed/chile/CL_002.md,397,
+CL_003,ready,corpus/processed/chile/CL_003.md,318,Layout complexo
+CL_004,ready,corpus/processed/chile/CL_004.md,345,Layout complexo
+CL_005,ready,corpus/processed/chile/CL_005.md,35,
+AS-CN-01,blocked_ocr,,0,OCR obrigatório antes da indexação.
+AS-CN-02,blocked_ocr,,0,OCR obrigatório antes da indexação.
+KR_001,ready,corpus/processed/coreia-do-sul/KR_001.md,318,Layout complexo
+EU-EE-01,ready,corpus/processed/estonia/EU-EE-01.md,18,
+EU-EE-02,ready,corpus/processed/estonia/EU-EE-02.md,10,
+US_001,ready,corpus/processed/eua/US_001.md,285,Layout complexo
+FI_001,ready,corpus/processed/finlandia/FI_001.md,2,
+GH_001,ready,corpus/processed/gana/GH_001.md,95,
+GH_002,ready,corpus/processed/gana/GH_002.md,76,
+HK_001,ready,corpus/processed/hong-kong/HK_001.md,223,Layout complexo
+HK_002,ready,corpus/processed/hong-kong/HK_002.md,130,Layout complexo
+IE_001,ready,corpus/processed/irlanda/IE_001.md,34,
+JP_001,ready,corpus/processed/japao/JP_001.md,601,Layout complexo
+JP_002,ready,corpus/processed/japao/JP_002.md,195,Layout complexo
+NZ_001,ready,corpus/processed/nova-zelandia/NZ_001.md,16,
+NZ_002,ready,corpus/processed/nova-zelandia/NZ_002.md,2,
+KE_001,ready,corpus/processed/quenia/KE_001.md,145,
+KE_002,ready,corpus/processed/quenia/KE_002.md,25,
+UK_001,ready,corpus/processed/reino-unido/UK_001.md,2,
+UK_002,ready,corpus/processed/reino-unido/UK_002.md,3,
+RW_001,ready,corpus/processed/ruanda/RW_001.md,49,
+SG_001,ready,corpus/processed/singapura/SG_001.md,19,
+SG_002,ready,corpus/processed/singapura/SG_002.md,28,
+SG_003,ready,corpus/processed/singapura/SG_003.md,4,
+SG_004,ready,corpus/processed/singapura/SG_004.md,8,
+SG_005,ready,corpus/processed/singapura/SG_005.md,4,
+SG_006,ready,corpus/processed/singapura/SG_006.md,5,
+SG_007,ready,corpus/processed/singapura/SG_007.md,42,
+SG_008,ready,corpus/processed/singapura/SG_008.md,42,
+SG_009,ready,corpus/processed/singapura/SG_009.md,91,
+SG_010,ready,corpus/processed/singapura/SG_010.md,91,
+SG_011,ready,corpus/processed/singapura/SG_011.md,10,
+SG_012,ready,corpus/processed/singapura/SG_012.md,34,
+SG_013,ready,corpus/processed/singapura/SG_013.md,8,
+SG_014,ready,corpus/processed/singapura/SG_014.md,69,
+SG_015,blocked_ocr,,0,OCR obrigatório antes da indexação.
+SG_016,ready,corpus/processed/singapura/SG_016.md,34,
+SG_017,ready,corpus/processed/singapura/SG_017.md,28,
+SG_018,ready,corpus/processed/singapura/SG_018.md,51,
+CH_001,ready,corpus/processed/suica/CH_001.md,7,
+CH_002,ready,corpus/processed/suica/CH_002.md,9,
+CH_003,ready,corpus/processed/suica/CH_003.md,19,
+TW_001,ready,corpus/processed/taiwan/TW_001.md,52,
+UY_001,ready,corpus/processed/uruguai/UY_001.md,316,Layout complexo
+UY_002,ready,corpus/processed/uruguai/UY_002.md,315,Layout complexo
+UY_003,ready,corpus/processed/uruguai/UY_003.md,16,
