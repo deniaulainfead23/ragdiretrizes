@@ -14,14 +14,16 @@ from rag_project.rag.query import rag_query
 from rag_project.vector_backend import resolve_backend
 from rag_project.openai_vector_store import cloud_rag_query
 
-PROMPT_VERSION = "rag-country-v3"
+PROMPT_VERSION = "rag-country-v3.1"
 
 
-def build_country_question_plan(country: str) -> list[dict]:
+def build_country_question_plan(country: str, question_id: str | None = None) -> list[dict]:
     questions = get_questions()
     selected = []
     for q in questions:
         if q.get('question_type') != 'evidence_retrieval':
+            continue
+        if question_id and q.get('question_id') != question_id:
             continue
         if q.get('target_country') in {None, country, country.lower()}:
             selected.append({
@@ -35,6 +37,8 @@ def build_country_question_plan(country: str) -> list[dict]:
                 'category_id': q['category_id'],
                 'version': q['version'],
             })
+    if question_id and not selected:
+        raise ValueError(f'Pergunta não encontrada ou não aplicável ao país: {question_id}')
     return selected
 
 
@@ -48,7 +52,8 @@ def _structured_question_text(item: dict, country: str) -> str:
         "evidence_classification e validation_status. Preserve o trecho no idioma original. "
         "Não invente página, documento, chunk_id ou evidência. Se a recuperação for insuficiente, "
         "registre validation_status como inconclusive. "
-        f"question_id={item['question_id']}; country={country}; category_id={item['category_id']}."
+        f"question_id={item['question_id']}; country={country}; "
+        f"analysis_framework={item['framework']}; category_id={item['category_id']}."
     )
 
 
@@ -75,8 +80,9 @@ def run_question_plan(
     openai_api_key: str | None = None,
     vector_store_id: str | None = None,
     backend: str | None = None,
+    question_id: str | None = None,
 ) -> list[dict]:
-    plan = build_country_question_plan(country)
+    plan = build_country_question_plan(country, question_id=question_id)
     registry = load_registry()
     country_entry = get_country(registry, country)
     if not country_entry or not country_entry.get('include_in_analysis'):
@@ -105,13 +111,15 @@ def run_question_plan(
         response_id = f"RESP_{country.upper().replace('-', '_')}_{item['question_id']}_{run_stamp}"
 
         if resolved_backend == 'openai':
+            # IMPORTANTE: o filtro do Vector Store é exclusivamente por país.
+            # item['framework'] é framework analítico da pergunta, não framework_source do documento.
             response = cloud_rag_query(
                 vector_store_id,
                 _structured_question_text(item, country),
                 openai_api_key,
                 question_id=item['question_id'],
                 country=country,
-                framework=item['framework'],
+                framework='',
                 category_id=item['category_id'],
             )
         else:
@@ -137,7 +145,10 @@ def run_question_plan(
         for position, evidence in enumerate(evidences, start=1):
             if not isinstance(evidence, dict):
                 continue
-            evidence_id = str(evidence.get('evidence_id') or f"EVID_{country.upper().replace('-', '_')}_{item['question_id']}_{position:03d}_{run_stamp}")
+            evidence_id = str(
+                evidence.get('evidence_id')
+                or f"EVID_{country.upper().replace('-', '_')}_{item['question_id']}_{position:03d}_{run_stamp}"
+            )
             evidence_ids.append(evidence_id)
             evidence_rows.append({
                 'evidence_id': evidence_id,
@@ -245,6 +256,7 @@ def main() -> None:
     parser.add_argument('--openai_key', default=None, help='Chave OpenAI opcional')
     parser.add_argument('--vector_store_id', default=None, help='ID do OpenAI Vector Store')
     parser.add_argument('--backend', default=None, choices=['openai', 'local'], help='Backend de recuperação')
+    parser.add_argument('--question_id', default=None, help='Executa apenas uma pergunta, por exemplo Q01')
     args = parser.parse_args()
 
     output_dir = args.out or str(Path('analysis') / 'countries' / args.country)
@@ -255,10 +267,12 @@ def main() -> None:
         args.openai_key,
         args.vector_store_id,
         args.backend,
+        question_id=args.question_id,
     )
     print(json.dumps({
         'country': args.country,
         'questions': len(plan),
+        'question_ids': [item['question_id'] for item in plan],
         'output_dir': output_dir,
         'datasets': ['question_run_log.csv', 'evidencias.csv', 'respostas.csv'],
     }, ensure_ascii=False, indent=2))
