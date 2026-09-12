@@ -56,13 +56,11 @@ def _locate_page(source_text: str, document_id: str, idx: dict[str, list[dict]])
 
     rows = idx[document_id]
 
-    # 1) correspondência direta após normalização forte
     for r in rows:
         hay = _norm(r.get("source_text", ""))
         if needle in hay or (hay and hay in needle):
             return r.get("page_start", ""), r.get("page_end", ""), r.get("chunk_id", ""), "exact_normalized"
 
-    # 2) âncoras de início/fim, tolerando que o trecho tenha vindo de mais de uma página
     tokens = needle.split()
     if len(tokens) >= 8:
         first = " ".join(tokens[:8])
@@ -85,7 +83,6 @@ def _locate_page(source_text: str, document_id: str, idx: dict[str, list[dict]])
         if last_hit:
             return last_hit.get("page_start", ""), last_hit.get("page_end", ""), last_hit.get("chunk_id", ""), "anchor_end"
 
-    # 3) comparação aproximada. Só aceita correspondência conservadora para evitar página falsa.
     best = None
     for r in rows:
         hay = _norm(r.get("source_text", ""))
@@ -99,7 +96,6 @@ def _locate_page(source_text: str, document_id: str, idx: dict[str, list[dict]])
 
     if best is not None:
         score, r, overlap, seq = best
-        # Evidências longas exigem boa cobertura de termos; trechos curtos exigem similaridade mais alta.
         threshold = 0.72 if len(tokens) >= 20 else 0.82
         if score >= threshold and (overlap >= 0.60 or seq >= 0.78):
             return r.get("page_start", ""), r.get("page_end", ""), r.get("chunk_id", ""), f"fuzzy:{score:.3f}"
@@ -107,21 +103,69 @@ def _locate_page(source_text: str, document_id: str, idx: dict[str, list[dict]])
     return "", "", "", "not_found"
 
 
+def _escape_control_chars_inside_strings(s: str) -> str:
+    """Escapa controles literais ilegais dentro de strings JSON sem alterar o conteúdo semântico."""
+    out: list[str] = []
+    in_string = False
+    escaped = False
+    for ch in s:
+        if in_string:
+            if escaped:
+                out.append(ch)
+                escaped = False
+                continue
+            if ch == "\\":
+                out.append(ch)
+                escaped = True
+                continue
+            if ch == '"':
+                out.append(ch)
+                in_string = False
+                continue
+            code = ord(ch)
+            if code < 0x20:
+                if ch == "\n":
+                    out.append("\\n")
+                elif ch == "\r":
+                    out.append("\\r")
+                elif ch == "\t":
+                    out.append("\\t")
+                else:
+                    out.append(f"\\u{code:04x}")
+                continue
+            out.append(ch)
+        else:
+            out.append(ch)
+            if ch == '"':
+                in_string = True
+                escaped = False
+    return "".join(out)
+
+
 def _extract_embedded_json(text: object) -> dict:
-    """Aceita JSON válido e também saídas quase-JSON com None/True/False do Python."""
+    """Aceita JSON válido, JSON com controles literais e saídas quase-JSON com None/True/False."""
     s = str(text or "").strip()
     if not s.startswith("{"):
         return {}
-    try:
-        obj = json.loads(s)
-        return obj if isinstance(obj, dict) else {}
-    except json.JSONDecodeError:
-        pass
-    try:
-        obj = ast.literal_eval(s)
-        return obj if isinstance(obj, dict) else {}
-    except (ValueError, SyntaxError):
-        return {}
+
+    attempts = [s, _escape_control_chars_inside_strings(s)]
+    for candidate in attempts:
+        try:
+            obj = json.loads(candidate)
+            if isinstance(obj, dict):
+                return obj
+        except json.JSONDecodeError:
+            pass
+
+    for candidate in attempts:
+        try:
+            obj = ast.literal_eval(candidate)
+            if isinstance(obj, dict):
+                return obj
+        except (ValueError, SyntaxError):
+            pass
+
+    return {}
 
 
 def _ensure_text_columns(df: pd.DataFrame, columns: list[str]) -> pd.DataFrame:
@@ -153,7 +197,6 @@ def repair(run_dir: Path, content_jsonl: Path) -> None:
         r = _ensure_text_columns(r, ["evidence_ids", "response", "validation_status", "review_notes"])
         e = _ensure_text_columns(e, ["review_notes", "source_text", "document_id", "question_id", "chunk_id"])
 
-        # A) recuperar evidências que ficaram embutidas no campo response quando o parser falhou
         for ridx, rr in r.iterrows():
             qid = str(rr.get("question_id", ""))
             current = e[e["question_id"].astype(str).eq(qid)] if not e.empty else pd.DataFrame()
@@ -208,7 +251,11 @@ def repair(run_dir: Path, content_jsonl: Path) -> None:
                 })
 
             if new_rows:
-                e = pd.concat([e, pd.DataFrame(new_rows)], ignore_index=True)
+                new_df = pd.DataFrame(new_rows)
+                if e.empty:
+                    e = new_df
+                else:
+                    e = pd.concat([e, new_df], ignore_index=True)
                 e = _ensure_text_columns(e, ["review_notes", "source_text", "document_id", "question_id", "chunk_id"])
                 r.at[ridx, "evidence_ids"] = "; ".join(ids)
                 inner_response = str(obj.get("response") or "").strip()
@@ -221,7 +268,6 @@ def repair(run_dir: Path, content_jsonl: Path) -> None:
                     r.at[ridx, "review_notes"] = "embedded_json_recovered_but_response_empty"
                 log_rows.append({"country": country_dir.name, "question_id": qid, "action": "recover_embedded_evidences", "details": f"{len(new_rows)} evidencias"})
 
-        # B) completar páginas ausentes a partir do dataset conteudos.jsonl
         if not e.empty:
             for eidx, er in e.iterrows():
                 ps = er.get("page_start")
