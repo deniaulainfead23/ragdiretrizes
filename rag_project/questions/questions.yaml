@@ -1,8 +1,8 @@
-questions_version: 2.0
+questions_version: 3.0
 questions:
   - question_id: Q01
     title: Competências de Computação e Educação Digital
-    question_text: Como cada país define e organiza as competências de Computação e Educação Digital em seus documentos curriculares?
+    question_text: Como o país define e organiza as competências de Computação e Educação Digital em seus documentos curriculares?
     question_type: evidence_retrieval
     analysis_stage: retrieval
     framework: COMPUTING_AND_DIGITAL_EDUCATION
@@ -18,25 +18,150 @@ questions:
       - chunk_id
       - source_text
     expected_output:
+      - evidence_id
       - evidence_text
       - source
       - semantic_score
-      - matched_terms
       - evidence_classification
-    evidence_rule: Recuperar trechos curriculares que expressem competências, objetivos ou habilidades diretamente relacionadas a computação e educação digital.
-    exclusion_rule: Não considerar trechos que apenas mencionem tecnologia de forma institucional, sem objetivo curricular ou formação estudantil.
-    allow_cross_country_comparison: true
+      - validation_status
+    evidence_rule: Recuperar trechos que expressem competências, objetivos, habilidades ou organização curricular diretamente relacionados à Computação e à Educação Digital.
+    exclusion_rule: Excluir menções genéricas a tecnologia sem objetivo curricular, competência discente ou organização formativa.
+    allow_cross_country_comparison: false
     requires_validated_evidence: false
-    notes: Pergunta de recuperação documental para mapeamento curricular sem ranking.
-    version: 2.0
+    notes: Pergunta de recuperação documental aplicada por país.
+    version: 3.0
+
+  - question_id: Q02
+    title: Pensamento Computacional
+    question_text: Como o Pensamento Computacional é definido, desenvolvido ou incorporado ao currículo do país?
+    question_type: evidence_retrieval
+    analysis_stage: retrieval
+    framework: COMPUTING_AND_DIGITAL_EDUCATION
+    category_id: C02
+    target_scope: country
+    target_country: null
+    required_metadata:
+      - document_id
+      - country
+      - document_title
+      - page_start
+      - page_end
+      - chunk_id
+      - source_text
+    expected_output:
+      - evidence_id
+      - evidence_text
+      - source
+      - semantic_score
+      - evidence_classification
+      - validation_status
+    evidence_rule: Recuperar trechos que tratem explicitamente de pensamento computacional, decomposição, abstração, algoritmos, reconhecimento de padrões, modelagem ou resolução computacional de problemas.
+    exclusion_rule: Excluir uso isolado de programação ou dispositivos quando não houver relação com processos de pensamento ou resolução de problemas.
+    allow_cross_country_comparison: false
+    requires_validated_evidence: false
+    notes: Pergunta de recuperação documental aplicada por país.
+    version: 3.0
+
+  - question_id: Q03
+    title: Cidadania digital, ética e letramento midiático
+    question_text: Como os documentos abordam cidadania digital, ética digital e letramento midiático?
+    question_type: evidence_retrieval
+    analysis_stage: retrieval
+    framework: COMPUTING_AND_DIGITAL_EDUCATION
+    category_id: C03
+    target_scope: country
+    target_country: null
+    required_metadata:
+      - document_id
+      - country
+      - document_title
+      - page_start
+      - page_end
+      - chunk_id
+      - source_text
+    expected_output:
+      - evidence_id
+      - evidence_text
+      - source
+      - semantic_score
+      - evidence_classification
+      - validation_status
+    evidence_rule: Recuperar trechos sobre cidadania digital, ética, comportamento responsável, direitos e deveres digitais, letramento midiático, avaliação crítica de informação ou participação em ambientes digitais.
+    exclusion_rule: Excluir trechos puramente técnicos de uso de ferramentas sem dimensão ética, cidadã ou midiática.
+    allow_cross_country_comparison: false
+    requires_validated_evidence: false
+    notes: Pergunta de recuperação documental aplicada por país.
+    version: 3.0
+
+  - question_id: Q04
+    title: Convergência com UNESCO e OECD/PISA
+    question_text: Que evidências apresentam convergência com princípios ou dimensões presentes nos referenciais UNESCO e OECD/PISA?
+    question_type: evidence_retrieval
+    analysis_stage: retrieval
+    framework: OECD_PISA
+    category_id: C04
+    target_scope: country
+    target_country: null
+    required_metadata:
+      - document_id
+      - country
+      - document_title
+      - page_start
+      - page_end
+      - chunk_id
+      - source_text
+    expected_output:
+      - evidence_id
+      - evidence_text
+      - source
+      - semantic_score
+      - evidence_classification
+      - validation_status
+    evidence_rule: Recuperar evidências curriculares que possam ser relacionadas de forma explícita e justificável a competências, princípios ou dimensões presentes nos referenciais UNESCO e OECD/PISA.
+    exclusion_rule: Não inferir alinhamento apenas por semelhança lexical vaga; exigir conteúdo curricular semanticamente compatível e registrar a evidência fonte.
+    allow_cross_country_comparison: false
+    requires_validated_evidence: false
+    notes: Pergunta de recuperação documental aplicada por país.
+    version: 3.0
+
+  - question_id: Q05
+    title: Competências do século XXI
+    question_text: Quais competências associadas ao século XXI aparecem nos documentos curriculares?
+    question_type: evidence_retrieval
+    analysis_stage: retrieval
+    framework: COMPUTING_AND_DIGITAL_EDUCATION
+    category_id: C05
+    target_scope: country
+    target_country: null
+    required_metadata:
+      - document_id
+      - country
+      - document_title
+      - page_start
+      - page_end
+      - chunk_id
+      - source_text
+    expected_output:
+      - evidence_id
+      - evidence_text
+      - source
+      - semantic_score
+      - evidence_classification
+      - validation_status
+    evidence_rule: Recuperar trechos relacionados a competências como comunicação, colaboração, criatividade, pensamento crítico, resolução de problemas, autonomia, aprendizagem contínua e competência digital.
+    exclusion_rule: Excluir listas genéricas sem vínculo com objetivos, competências ou práticas educacionais.
+    allow_cross_country_comparison: false
+    requires_validated_evidence: false
+    notes: Pergunta de recuperação documental aplicada por país.
+    version: 3.0
 
   - question_id: Q06
-    title: Dimensão cognitiva UNESCO
-    question_text: Quais evidências curriculares estão relacionadas à dimensão cognitiva da Educação para a Cidadania Global da UNESCO, especialmente pensamento crítico, compreensão de questões locais e globais, interdependência e resolução de problemas?
+    title: Colaboração, criatividade e resolução de problemas
+    question_text: Como colaboração, criatividade e resolução de problemas são incorporadas às competências e práticas curriculares?
     question_type: evidence_retrieval
     analysis_stage: retrieval
-    framework: UNESCO_GCED_2015
-    category_id: F01
+    framework: COMPUTING_AND_DIGITAL_EDUCATION
+    category_id: C06
     target_scope: country
     target_country: null
     required_metadata:
@@ -48,54 +173,243 @@ questions:
       - chunk_id
       - source_text
     expected_output:
+      - evidence_id
       - evidence_text
       - source
       - semantic_score
-      - matched_terms
       - evidence_classification
-    evidence_rule: Recuperar eixos cognitivos da UNESCO quando o trecho explicitamente menciona pensamento crítico, análise, investigação, interdependência ou resolução de problemas em contexto curricular.
-    exclusion_rule: Excluir menções de global ou tecnologia isoladas sem contexto cognitivo, curricular ou formativo.
-    allow_cross_country_comparison: false
-    requires_validated_evidence: false
-    notes: Evidência documental para categoria F01.
-    version: 2.0
-
-  - question_id: Q16
-    title: Evidências explícitas por dimensão UNESCO
-    question_text: Quais dimensões do framework UNESCO apresentam evidências explícitas nos documentos de cada país?
-    question_type: validated_comparison
-    analysis_stage: comparison
-    framework: UNESCO_GCED_2015
-    category_id: F01
-    target_scope: multi_country
-    target_country: null
-    required_metadata:
-      - document_id
-      - country
-      - document_title
-      - page_start
-      - page_end
-      - chunk_id
-      - source_text
-    expected_output:
-      - country
-      - category_id
-      - evidence_count
       - validation_status
-    evidence_rule: Comparar somente as evidências que foram previamente recuperadas e validadas.
-    exclusion_rule: Não comparar resultados de recuperação não validados ou sem metadata mínima.
-    allow_cross_country_comparison: true
-    requires_validated_evidence: true
-    notes: Comparação validada, nunca ranking automático.
-    version: 2.0
+    evidence_rule: Recuperar trechos que apresentem colaboração, criatividade ou resolução de problemas como objetivo, competência, prática pedagógica ou resultado de aprendizagem.
+    exclusion_rule: Excluir menções circunstanciais sem função curricular ou formativa.
+    allow_cross_country_comparison: false
+    requires_validated_evidence: false
+    notes: Pergunta de recuperação documental aplicada por país.
+    version: 3.0
 
-  - question_id: Q18
-    title: Dimensões não detectadas
-    question_text: Quais dimensões do framework UNESCO não foram detectadas nos documentos analisados, considerando que ausência de recuperação não implica necessariamente ausência conceitual?
+  - question_id: Q07
+    title: IA, ética, privacidade e segurança
+    question_text: Como os documentos abordam Inteligência Artificial, ética, privacidade, segurança e uso responsável das tecnologias digitais?
+    question_type: evidence_retrieval
+    analysis_stage: retrieval
+    framework: COMPUTING_AND_DIGITAL_EDUCATION
+    category_id: C07
+    target_scope: country
+    target_country: null
+    required_metadata:
+      - document_id
+      - country
+      - document_title
+      - page_start
+      - page_end
+      - chunk_id
+      - source_text
+    expected_output:
+      - evidence_id
+      - evidence_text
+      - source
+      - semantic_score
+      - evidence_classification
+      - validation_status
+    evidence_rule: Recuperar trechos sobre IA, algoritmos, dados, privacidade, proteção de dados, cibersegurança, segurança digital, ética tecnológica ou uso responsável.
+    exclusion_rule: Excluir simples referências a softwares, plataformas ou infraestrutura sem dimensão de IA, ética, privacidade ou segurança.
+    allow_cross_country_comparison: false
+    requires_validated_evidence: false
+    notes: Pergunta de recuperação documental aplicada por país.
+    version: 3.0
+
+  - question_id: Q08
+    title: Inclusão, acessibilidade e equidade digital
+    question_text: Como inclusão, acessibilidade e equidade digital são tratadas nos documentos?
+    question_type: evidence_retrieval
+    analysis_stage: retrieval
+    framework: COMPUTING_AND_DIGITAL_EDUCATION
+    category_id: C08
+    target_scope: country
+    target_country: null
+    required_metadata:
+      - document_id
+      - country
+      - document_title
+      - page_start
+      - page_end
+      - chunk_id
+      - source_text
+    expected_output:
+      - evidence_id
+      - evidence_text
+      - source
+      - semantic_score
+      - evidence_classification
+      - validation_status
+    evidence_rule: Recuperar trechos sobre inclusão digital, acessibilidade, equidade, redução de desigualdades, participação de grupos vulneráveis ou acesso justo a recursos e oportunidades digitais.
+    exclusion_rule: Excluir menções administrativas a acesso ou infraestrutura sem relação com inclusão, acessibilidade ou equidade educacional.
+    allow_cross_country_comparison: false
+    requires_validated_evidence: false
+    notes: Pergunta de recuperação documental aplicada por país.
+    version: 3.0
+
+  - question_id: Q09
+    title: Dimensão técnica e sociocultural
+    question_text: Que equilíbrio existe entre dimensões técnicas da Computação e dimensões sociais, culturais, éticas e humanas da Educação Digital?
+    question_type: evidence_retrieval
+    analysis_stage: retrieval
+    framework: COMPUTING_AND_DIGITAL_EDUCATION
+    category_id: C09
+    target_scope: country
+    target_country: null
+    required_metadata:
+      - document_id
+      - country
+      - document_title
+      - page_start
+      - page_end
+      - chunk_id
+      - source_text
+    expected_output:
+      - evidence_id
+      - evidence_text
+      - source
+      - semantic_score
+      - evidence_classification
+      - validation_status
+    evidence_rule: Recuperar evidências de objetivos e competências técnicas e também de dimensões sociais, culturais, éticas ou humanas, permitindo caracterizar sua coexistência no currículo.
+    exclusion_rule: Não transformar a recuperação em ranking; registrar evidências para cada dimensão e deixar a síntese comparativa para etapa posterior.
+    allow_cross_country_comparison: false
+    requires_validated_evidence: false
+    notes: Pergunta de recuperação documental aplicada por país.
+    version: 3.0
+
+  - question_id: Q10
+    title: Pensamento crítico, autonomia e participação
+    question_text: Como pensamento crítico, autonomia e participação social são promovidos no currículo relacionado à Computação e Educação Digital?
+    question_type: evidence_retrieval
+    analysis_stage: retrieval
+    framework: COMPUTING_AND_DIGITAL_EDUCATION
+    category_id: C10
+    target_scope: country
+    target_country: null
+    required_metadata:
+      - document_id
+      - country
+      - document_title
+      - page_start
+      - page_end
+      - chunk_id
+      - source_text
+    expected_output:
+      - evidence_id
+      - evidence_text
+      - source
+      - semantic_score
+      - evidence_classification
+      - validation_status
+    evidence_rule: Recuperar trechos em que pensamento crítico, autonomia, tomada de decisão, participação, agência ou envolvimento social aparecem como objetivos ou competências.
+    exclusion_rule: Excluir menções genéricas a participação em atividades sem dimensão crítica, autônoma ou social.
+    allow_cross_country_comparison: false
+    requires_validated_evidence: false
+    notes: Pergunta de recuperação documental aplicada por país.
+    version: 3.0
+
+  - question_id: Q11
+    title: Cidadania Global
+    question_text: Que elementos relacionados à cidadania global aparecem nos documentos curriculares?
+    question_type: evidence_retrieval
+    analysis_stage: retrieval
+    framework: UNESCO_GCED_2015
+    category_id: C11
+    target_scope: country
+    target_country: null
+    required_metadata:
+      - document_id
+      - country
+      - document_title
+      - page_start
+      - page_end
+      - chunk_id
+      - source_text
+    expected_output:
+      - evidence_id
+      - evidence_text
+      - source
+      - semantic_score
+      - evidence_classification
+      - validation_status
+    evidence_rule: Recuperar evidências relacionadas às dimensões cognitiva, socioemocional e comportamental da Educação para a Cidadania Global, incluindo interdependência, diversidade, solidariedade, pensamento crítico e participação responsável.
+    exclusion_rule: Excluir ocorrências de termos como global, internacional ou cidadania sem conteúdo formativo compatível com o framework.
+    allow_cross_country_comparison: false
+    requires_validated_evidence: false
+    notes: Pergunta de recuperação documental aplicada por país.
+    version: 3.0
+
+  - question_id: Q12
+    title: Formação e desenvolvimento docente
+    question_text: Como a formação, atuação ou desenvolvimento profissional docente para Computação e Educação Digital são abordados?
+    question_type: evidence_retrieval
+    analysis_stage: retrieval
+    framework: COMPUTING_AND_DIGITAL_EDUCATION
+    category_id: C12
+    target_scope: country
+    target_country: null
+    required_metadata:
+      - document_id
+      - country
+      - document_title
+      - page_start
+      - page_end
+      - chunk_id
+      - source_text
+    expected_output:
+      - evidence_id
+      - evidence_text
+      - source
+      - semantic_score
+      - evidence_classification
+      - validation_status
+    evidence_rule: Recuperar trechos sobre formação inicial ou continuada, competências docentes, desenvolvimento profissional, apoio pedagógico, preparação ou papel do professor em Computação e Educação Digital.
+    exclusion_rule: Excluir referências administrativas a professores que não tratem de formação, competências, desenvolvimento ou atuação pedagógica.
+    allow_cross_country_comparison: false
+    requires_validated_evidence: false
+    notes: Pergunta de recuperação documental aplicada por país.
+    version: 3.0
+
+  - question_id: Q13
+    title: Eixos recorrentes no país
+    question_text: Quais eixos, conceitos e competências aparecem de forma recorrente nos documentos analisados do país?
+    question_type: evidence_retrieval
+    analysis_stage: retrieval
+    framework: COMPUTING_AND_DIGITAL_EDUCATION
+    category_id: C13
+    target_scope: country
+    target_country: null
+    required_metadata:
+      - document_id
+      - country
+      - document_title
+      - page_start
+      - page_end
+      - chunk_id
+      - source_text
+    expected_output:
+      - evidence_id
+      - evidence_text
+      - source
+      - semantic_score
+      - evidence_classification
+      - validation_status
+    evidence_rule: Recuperar evidências repetidas ou convergentes entre documentos do mesmo país, mantendo referência documental e página para cada eixo identificado.
+    exclusion_rule: Não declarar recorrência com base em uma única evidência; exigir ocorrência em mais de um trecho ou documento quando o corpus do país permitir.
+    allow_cross_country_comparison: false
+    requires_validated_evidence: false
+    notes: Pergunta de recuperação documental aplicada por país.
+    version: 3.0
+
+  - question_id: Q14
+    title: Comparação internacional validada
+    question_text: Quais convergências, diferenças, lacunas de evidência e padrões recorrentes podem ser identificados entre os países a partir das evidências previamente recuperadas e validadas?
     question_type: validated_comparison
     analysis_stage: comparison
-    framework: UNESCO_GCED_2015
-    category_id: F01
+    framework: COMPUTING_AND_DIGITAL_EDUCATION
+    category_id: C14
     target_scope: multi_country
     target_country: null
     required_metadata:
@@ -107,43 +421,15 @@ questions:
       - chunk_id
       - source_text
     expected_output:
-      - country
-      - category_id
-      - status
-      - notes
-    evidence_rule: Em caso de ausência de evidência, registrar not_detected ou inconclusive, nunca absent automático.
-    exclusion_rule: Não declarar ausência conceitual quando a recuperação foi insuficiente.
-    allow_cross_country_comparison: true
-    requires_validated_evidence: true
-    notes: A ausência de evidência recuperada não é ausência conceitual.
-    version: 2.0
-
-  - question_id: Q22
-    title: Brasil e dimensões UNESCO
-    question_text: Quais competências e habilidades dos documentos brasileiros apresentam correspondência com as dimensões cognitiva, socioemocional e comportamental da Educação para a Cidadania Global da UNESCO?
-    question_type: evidence_retrieval
-    analysis_stage: retrieval
-    framework: UNESCO_GCED_2015
-    category_id: F01
-    target_scope: country
-    target_country: brasil
-    required_metadata:
-      - document_id
-      - country
-      - document_title
-      - page_start
-      - page_end
-      - chunk_id
-      - source_text
-    expected_output:
+      - evidence_id
       - evidence_text
       - source
       - semantic_score
-      - matched_terms
       - evidence_classification
-    evidence_rule: Recuperar evidências em documentos brasileiros vinculados a cidadania global, ética, solidariedade, participação e pensamento crítico.
-    exclusion_rule: Não classificar como evidência trechos apenas taxonômicos ou administrativos sem relação com competências do estudante.
-    allow_cross_country_comparison: false
-    requires_validated_evidence: false
-    notes: Pergunta orientada ao caso focal Brasil.
-    version: 2.0
+      - validation_status
+    evidence_rule: Comparar somente evidências previamente recuperadas e validadas, preservando question_id, country, document_id, page_start, page_end e evidence_id.
+    exclusion_rule: Não produzir rankings automáticos nem interpretar ausência de recuperação como ausência conceitual; usar not_detected ou inconclusive quando apropriado.
+    allow_cross_country_comparison: true
+    requires_validated_evidence: true
+    notes: Comparação internacional somente após validação das evidências.
+    version: 3.0
