@@ -1,1 +1,0 @@
-Preparação do pipeline RAG em andamento.
