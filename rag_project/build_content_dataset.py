@@ -43,6 +43,20 @@ def split_pages(text: str) -> list[tuple[int, str]]:
     return pages
 
 
+def serialize_jsonl_record(record: dict) -> str:
+    """Serializa um registro em uma única linha física de JSONL.
+
+    U+2028 e U+2029 são separadores Unicode que `str.splitlines()` trata como
+    quebra de linha. Escapá-los evita que consumidores de JSONL que usam
+    `splitlines()` fragmentem um objeto JSON válido no meio de `source_text`.
+    """
+    return (
+        json.dumps(record, ensure_ascii=False)
+        .replace("\u2028", "\\u2028")
+        .replace("\u2029", "\\u2029")
+    )
+
+
 def validate_jsonl(path: Path) -> tuple[int, int, int, int]:
     """Valida cada linha JSONL e retorna registros, documentos, IDs únicos e textos vazios."""
     record_count = 0
@@ -128,7 +142,7 @@ def main(output: str | None = None) -> None:
                         "source_path": document.get("source_path", ""),
                         "processed_path": item.get("processed_path", ""),
                     }
-                    handle.write(json.dumps(record, ensure_ascii=False) + "\n")
+                    handle.write(serialize_jsonl_record(record) + "\n")
                     record_count += 1
 
         validated_records, validated_documents, unique_ids, empty_texts = validate_jsonl(temp_path)
@@ -139,6 +153,17 @@ def main(output: str | None = None) -> None:
         if validated_documents != document_count:
             raise ValueError(
                 f"Documentos divergentes após validação: processados={document_count}, validados={validated_documents}"
+            )
+
+        # Validação adicional compatível com consumidores que usam str.splitlines().
+        splitline_records = [
+            json.loads(line)
+            for line in temp_path.read_text(encoding="utf-8").splitlines()
+            if line.strip()
+        ]
+        if len(splitline_records) != record_count:
+            raise ValueError(
+                f"JSONL incompatível com splitlines(): esperado={record_count}, obtido={len(splitline_records)}"
             )
 
         temp_path.replace(output_path)
@@ -153,6 +178,7 @@ def main(output: str | None = None) -> None:
     print(f"content_id únicos: {unique_ids}")
     print(f"Textos vazios: {empty_texts}")
     print("Validação JSONL: OK")
+    print("Compatibilidade splitlines(): OK")
 
 
 if __name__ == "__main__":
