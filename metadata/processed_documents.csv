@@ -39,8 +39,8 @@ CL_002,ready,corpus/processed/chile/CL_002.md,397,
 CL_003,ready,corpus/processed/chile/CL_003.md,318,Layout complexo
 CL_004,ready,corpus/processed/chile/CL_004.md,345,Layout complexo
 CL_005,ready,corpus/processed/chile/CL_005.md,35,
-AS-CN-01,blocked_ocr,,0,OCR obrigatório antes da indexação.
-AS-CN-02,blocked_ocr,,0,OCR obrigatório antes da indexação.
+AS-CN-01,ready_ocr,corpus/processed_ocr/AS-CN-01.md,0,OCR validado
+AS-CN-02,ready_ocr_with_page_exception,corpus/processed_ocr/AS-CN-02.md,0,OCR validado; página 7 em branco
 KR_001,ready,corpus/processed/coreia-do-sul/KR_001.md,318,Layout complexo
 EU-EE-01,ready,corpus/processed/estonia/EU-EE-01.md,18,
 EU-EE-02,ready,corpus/processed/estonia/EU-EE-02.md,10,
@@ -74,7 +74,7 @@ SG_011,ready,corpus/processed/singapura/SG_011.md,10,
 SG_012,ready,corpus/processed/singapura/SG_012.md,34,
 SG_013,ready,corpus/processed/singapura/SG_013.md,8,
 SG_014,ready,corpus/processed/singapura/SG_014.md,69,
-SG_015,blocked_ocr,,0,OCR obrigatório antes da indexação.
+SG_015,ready_ocr,corpus/processed_ocr/SG_015.md,0,OCR validado
 SG_016,ready,corpus/processed/singapura/SG_016.md,34,
 SG_017,ready,corpus/processed/singapura/SG_017.md,28,
 SG_018,ready,corpus/processed/singapura/SG_018.md,51,
