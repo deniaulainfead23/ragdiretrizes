@@ -81,6 +81,32 @@ A implementação atual está organizada em fases metodológicas e passa por um 
 - Sensibilidade do pipeline: verificação de consistência dos resultados obtidos;
 - RAG rastreável: recuperação semântica com evidência documental e metadata associada.
 
+## Auditoria, validação e reprodutibilidade
+
+A curadoria do corpus possui uma camada específica de auditoria para permitir comprovação e repetição do processo.
+
+Principais artefatos:
+
+- `OCR_Seletivo_Corpus_RAG.ipynb` — notebook histórico do OCR seletivo aplicado aos documentos bloqueados;
+- `Auditoria_Reutilizavel_Corpus_RAG.ipynb` — notebook Colab consolidado para repetir auditoria, OCR, revisão por página e validação do JSONL;
+- `rag_project/audit_corpus.py` — auditoria automatizada e reutilizável do catálogo, textos processados e dataset de conteúdo;
+- `docs/PROTOCOLO_VALIDACAO_TEXTOS.md` — método passo a passo para validação textual orientada por exceções e reutilização por outros pesquisadores.
+
+Execução local:
+
+```bash
+python -m rag_project.audit_corpus --all
+```
+
+Relatórios esperados:
+
+```text
+analysis/audit/audit_summary.json
+analysis/audit/processed_page_audit.csv
+```
+
+O protocolo preserva os documentos originais, mantém `document_id` e páginas, aplica OCR apenas quando necessário, registra páginas suspeitas para revisão humana e valida a estrutura dos dados antes da indexação vetorial.
+
 ## Regras metodológicas do projeto
 
 > A análise lexical não substitui a leitura documental nem a interpretação crítica do pesquisador.
@@ -89,6 +115,8 @@ A implementação atual está organizada em fases metodológicas e passa por um 
 - O corpus principal contém 22 países. UNESCO e PISA/OCDE são referências internacionais e não entram na contagem de países nem no bloco comparativo nacional.
 - Os resultados computacionais devem ser lidos como pistas de vocabulário e proximidade textual, e não como prova de equivalência curricular.
 - A recuperação semântica e o RAG devem retornar evidências vinculadas a documento, país, fonte e categoria analítica.
+- Páginas marcadas como vazias, curtas ou de baixa qualidade devem ser revisadas visualmente antes da liberação.
+- A ausência de recuperação semântica não deve ser interpretada automaticamente como ausência conceitual no documento.
 
 ## Tecnologias
 
@@ -100,8 +128,9 @@ A implementação atual está organizada em fases metodológicas e passa por um 
 | Análise lexical | TF-IDF e frequência de termos |
 | Dados | Pandas e estruturas tabulares |
 | Corpus | documentos curriculares oficiais |
+| Auditoria textual | PyMuPDF, Tesseract OCR, validação por página e revisão humana |
 | Pesquisa | análise documental e Educação Comparada |
-| Ambiente | VS Code e GitHub |
+| Ambiente | VS Code, Google Colab e GitHub |
 
 ## Estrutura planejada
 
@@ -110,7 +139,9 @@ ragdiretrizes/
 │
 ├── assets/             # identidade visual do projeto
 ├── corpus/             # documentos curriculares
-├── rag_project/        # implementação do sistema RAG
+├── rag_project/        # implementação do sistema RAG e auditoria
+├── analysis/           # relatórios e resultados de auditoria/análise
+├── docs/               # documentação metodológica e protocolos
 ├── resultados/         # tabelas e resultados de análise
 ├── traducoes/          # versões de apoio em português
 ├── notebooks/          # experimentos e análises
