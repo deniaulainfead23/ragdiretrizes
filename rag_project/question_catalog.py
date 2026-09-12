@@ -19,7 +19,10 @@ def load_questions() -> list[dict]:
 
 
 def get_questions() -> list[dict]:
-    return load_questions()
+    questions = load_questions()
+    for question in questions:
+        validate_question(question)
+    return questions
 
 
 def get_question_by_id(question_id: str) -> dict | None:
@@ -54,26 +57,43 @@ def validate_question(question: dict) -> None:
         raise ValueError(f'Question missing required keys: {missing}')
 
     if question['question_type'] == 'evidence_retrieval':
-        required_fields = {'document_id', 'country', 'document_title', 'page_start', 'page_end', 'chunk_id', 'source_text'}
+        required_fields = {
+            'document_id', 'country', 'document_title', 'page_start',
+            'page_end', 'chunk_id', 'source_text'
+        }
         if not required_fields.issubset(set(question.get('required_metadata', []))):
-            raise ValueError(f"Question {question['question_id']} does not declare required evidence metadata")
+            raise ValueError(
+                f"Question {question['question_id']} does not declare required evidence metadata"
+            )
 
     if question['analysis_stage'] == 'comparison' and question.get('requires_validated_evidence') is not True:
-        raise ValueError(f"Question {question['question_id']} is a comparison question but requires_validated_evidence is not true")
+        raise ValueError(
+            f"Question {question['question_id']} is a comparison question but requires_validated_evidence is not true"
+        )
 
     if question['question_type'] == 'validated_comparison' and question.get('requires_validated_evidence') is not True:
-        raise ValueError(f"Question {question['question_id']} invalid validated comparison configuration")
+        raise ValueError(
+            f"Question {question['question_id']} invalid validated comparison configuration"
+        )
 
-    if 'maior alinhamento' in question.get('question_text', '').lower() or 'mais próximo' in question.get('question_text', '').lower() or 'melhor' in question.get('question_text', '').lower():
-        raise ValueError(f"Question {question['question_id']} is a ranking-style question and is not allowed in the retrieval-oriented catalog")
-
-    if question['question_type'] == 'evidence_retrieval':
-        text = question.get('question_text', '').lower()
-        assert 'maior' not in text and 'melhor' not in text and 'mais próximo' not in text
+    text = question.get('question_text', '').lower()
+    if 'maior alinhamento' in text or 'mais próximo' in text or 'melhor' in text:
+        raise ValueError(
+            f"Question {question['question_id']} is a ranking-style question and is not allowed"
+        )
 
     if question.get('analysis_stage') == 'comparison' and not question.get('allow_cross_country_comparison', False):
-        raise ValueError(f"Question {question['question_id']} comparison should allow cross-country comparison")
+        raise ValueError(
+            f"Question {question['question_id']} comparison should allow cross-country comparison"
+        )
 
-    allowed_frameworks = {'COMPUTING_AND_DIGITAL_EDUCATION', 'UNESCO_GCED_2015', 'UNESCO_FUTURES_2021'}
+    allowed_frameworks = {
+        'COMPUTING_AND_DIGITAL_EDUCATION',
+        'UNESCO_GCED_2015',
+        'UNESCO_FUTURES_2021',
+        'OECD_PISA',
+    }
     if question.get('framework') not in allowed_frameworks:
-        raise ValueError(f"Question {question['question_id']} has invalid framework name: {question.get('framework')}")
+        raise ValueError(
+            f"Question {question['question_id']} has invalid framework name: {question.get('framework')}"
+        )
