@@ -43,9 +43,44 @@ def split_pages(text: str) -> list[tuple[int, str]]:
     return pages
 
 
+def validate_jsonl(path: Path) -> tuple[int, int, int, int]:
+    """Valida cada linha JSONL e retorna registros, documentos, IDs únicos e textos vazios."""
+    record_count = 0
+    document_ids: set[str] = set()
+    content_ids: set[str] = set()
+    empty_texts = 0
+
+    with path.open("r", encoding="utf-8") as handle:
+        for line_number, line in enumerate(handle, start=1):
+            if not line.strip():
+                continue
+            try:
+                record = json.loads(line)
+            except json.JSONDecodeError as exc:
+                raise ValueError(
+                    f"JSONL inválido na linha {line_number}: {exc.msg} "
+                    f"(coluna {exc.colno})"
+                ) from exc
+
+            record_count += 1
+            document_ids.add(str(record.get("document_id", "")))
+            content_id = str(record.get("content_id", ""))
+            if not content_id:
+                raise ValueError(f"Registro sem content_id na linha {line_number}")
+            if content_id in content_ids:
+                raise ValueError(f"content_id duplicado: {content_id}")
+            content_ids.add(content_id)
+
+            if not str(record.get("source_text", "")).strip():
+                empty_texts += 1
+
+    return record_count, len(document_ids), len(content_ids), empty_texts
+
+
 def main(output: str | None = None) -> None:
     output_path = Path(output) if output else DEFAULT_OUTPUT
     output_path.parent.mkdir(parents=True, exist_ok=True)
+    temp_path = output_path.with_suffix(output_path.suffix + ".tmp")
 
     docs = {row["document_id"]: row for row in read_csv(DOCUMENTS)}
     processed = read_csv(PROCESSED)
@@ -53,51 +88,71 @@ def main(output: str | None = None) -> None:
     record_count = 0
     document_count = 0
 
-    with output_path.open("w", encoding="utf-8") as handle:
-        for item in processed:
-            if item.get("status") not in ALLOWED_STATUSES:
-                continue
+    try:
+        with temp_path.open("w", encoding="utf-8", newline="\n") as handle:
+            for item in processed:
+                if item.get("status") not in ALLOWED_STATUSES:
+                    continue
 
-            document_id = item["document_id"]
-            document = docs.get(document_id)
-            if not document:
-                raise ValueError(f"Documento não encontrado no catálogo: {document_id}")
+                document_id = item["document_id"]
+                document = docs.get(document_id)
+                if not document:
+                    raise ValueError(f"Documento não encontrado no catálogo: {document_id}")
 
-            source = ROOT / item["processed_path"]
-            if not source.is_file():
-                raise FileNotFoundError(f"Arquivo processado não encontrado: {source}")
+                source = ROOT / item["processed_path"]
+                if not source.is_file():
+                    raise FileNotFoundError(f"Arquivo processado não encontrado: {source}")
 
-            pages = split_pages(source.read_text(encoding="utf-8", errors="ignore"))
-            document_count += 1
+                pages = split_pages(source.read_text(encoding="utf-8", errors="ignore"))
+                document_count += 1
 
-            for page_number, page_text in pages:
-                chunk_id = f"{document_id}_p{page_number:04d}_c001"
-                record = {
-                    "content_id": chunk_id,
-                    "chunk_id": chunk_id,
-                    "document_id": document_id,
-                    "country": document.get("country", ""),
-                    "source_scope": document.get("source_scope", ""),
-                    "framework_source": document.get("framework_source", ""),
-                    "document_title": document.get("title", ""),
-                    "year": document.get("year", ""),
-                    "language": document.get("language", ""),
-                    "page_start": page_number,
-                    "page_end": page_number,
-                    "source_text": page_text,
-                    "char_count": len(page_text),
-                    "token_estimate": max(1, round(len(page_text) / 4)),
-                    "audit_group": document.get("audit_group", ""),
-                    "processing_status": item.get("status", ""),
-                    "source_path": document.get("source_path", ""),
-                    "processed_path": item.get("processed_path", ""),
-                }
-                handle.write(json.dumps(record, ensure_ascii=False) + "\n")
-                record_count += 1
+                for page_number, page_text in pages:
+                    chunk_id = f"{document_id}_p{page_number:04d}_c001"
+                    record = {
+                        "content_id": chunk_id,
+                        "chunk_id": chunk_id,
+                        "document_id": document_id,
+                        "country": document.get("country", ""),
+                        "source_scope": document.get("source_scope", ""),
+                        "framework_source": document.get("framework_source", ""),
+                        "document_title": document.get("title", ""),
+                        "year": document.get("year", ""),
+                        "language": document.get("language", ""),
+                        "page_start": page_number,
+                        "page_end": page_number,
+                        "source_text": page_text,
+                        "char_count": len(page_text),
+                        "token_estimate": max(1, round(len(page_text) / 4)),
+                        "audit_group": document.get("audit_group", ""),
+                        "processing_status": item.get("status", ""),
+                        "source_path": document.get("source_path", ""),
+                        "processed_path": item.get("processed_path", ""),
+                    }
+                    handle.write(json.dumps(record, ensure_ascii=False) + "\n")
+                    record_count += 1
+
+        validated_records, validated_documents, unique_ids, empty_texts = validate_jsonl(temp_path)
+        if validated_records != record_count:
+            raise ValueError(
+                f"Contagem divergente após validação: escrito={record_count}, validado={validated_records}"
+            )
+        if validated_documents != document_count:
+            raise ValueError(
+                f"Documentos divergentes após validação: processados={document_count}, validados={validated_documents}"
+            )
+
+        temp_path.replace(output_path)
+    except Exception:
+        if temp_path.exists():
+            temp_path.unlink()
+        raise
 
     print(f"Dataset de conteúdo salvo: {output_path}")
     print(f"Documentos incluídos: {document_count}")
     print(f"Registros/páginas: {record_count}")
+    print(f"content_id únicos: {unique_ids}")
+    print(f"Textos vazios: {empty_texts}")
+    print("Validação JSONL: OK")
 
 
 if __name__ == "__main__":
