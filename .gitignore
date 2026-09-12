@@ -23,3 +23,6 @@ rag_project/**/metadatas.json
 # Generated datasets and analysis outputs
 corpus/dataset_output/
 corpus/analysis_output/
+
+# Documentos processados derivados do corpus
+corpus/processed/
