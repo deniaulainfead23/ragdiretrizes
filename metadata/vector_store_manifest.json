@@ -1,7 +1,7 @@
 {
   "backend": "openai",
-  "vector_store_id": "vs_6a9ffe25f61c8191b2fc02a86b44d404",
+  "vector_store_id": "vs_6aa4d08cc1948191bc425516c4087b85",
   "model": "gpt-4o-mini",
-  "index_folder": "corpus",
-  "updated_at": "2026-09-08T12:40:40Z"
+  "index_folder": "corpus/processed + corpus/processed_ocr",
+  "updated_at": "2026-09-12T04:22:00+00:00"
 }
