@@ -200,10 +200,23 @@ def repair(run_dir: Path, content_jsonl: Path) -> None:
         for ridx, rr in r.iterrows():
             qid = str(rr.get("question_id", ""))
             current = e[e["question_id"].astype(str).eq(qid)] if not e.empty else pd.DataFrame()
+            obj = _extract_embedded_json(rr.get("response", ""))
+            if obj:
+                inner_response = str(obj.get("response") or "").strip()
+                if inner_response:
+                    r.at[ridx, "response"] = inner_response
+                    r.at[ridx, "validation_status"] = "candidate"
+                    r.at[ridx, "review_notes"] = "response_unwrapped_from_embedded_json"
+                    log_rows.append({"country": country_dir.name, "question_id": qid, "action": "unwrap_response", "details": "response extraida do JSON embutido"})
+                elif not current.empty:
+                    r.at[ridx, "response"] = ""
+                    r.at[ridx, "validation_status"] = "inconclusive"
+                    r.at[ridx, "review_notes"] = "embedded_json_response_empty; evidencias_preservadas"
+                    log_rows.append({"country": country_dir.name, "question_id": qid, "action": "flag_empty_embedded_response", "details": "JSON embutido sem texto em response"})
+
             if not current.empty:
                 continue
 
-            obj = _extract_embedded_json(rr.get("response", ""))
             evs = obj.get("evidences", []) if obj else []
             if not isinstance(evs, list) or not evs:
                 continue

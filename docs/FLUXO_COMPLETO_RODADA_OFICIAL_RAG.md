@@ -318,6 +318,26 @@ Ao final da reparação permaneceram três respostas `inconclusive`.
 
 Dois casos não possuíam evidência recuperada suficiente e um caso possuía evidências, mas ainda assim foi considerado insuficiente para uma resposta afirmativa.
 
+### Incidente registrado: Brasil Q04
+
+Na auditoria da matriz visual, a célula do Brasil em Q04 apresentou o objeto JSON
+completo no lugar de uma síntese textual. A origem foi confirmada em
+`analysis/official_run_20260912/brasil/respostas.csv`: o campo `response` continha
+um JSON embutido com `response: ""` e uma evidência válida. Portanto, não houve
+deslocamento de coluna na montagem da matriz; o exportador reproduziu uma resposta
+estruturada que não havia sido normalizada.
+
+O reparador foi ajustado para desembrulhar respostas JSON mesmo quando o arquivo de
+evidências já possui registros para a pergunta. Quando o texto interno está vazio,
+o caso passa a ser marcado como `inconclusive` e recebe a anotação
+`embedded_json_response_empty`, preservando a evidência para revisão humana. O
+teste de regressão correspondente está em
+`tests/test_consolidate_country_responses.py`.
+
+Para Q04, a resposta textual deve ser preenchida somente após conferência da
+evidência original. A matriz e o arquivo de comparação devem ser regenerados a
+partir da resposta revisada, sem editar apenas a célula visual.
+
 Regra metodológica:
 
 > `inconclusive` significa insuficiência de evidência recuperada para responder à pergunta. Não significa que o conceito esteja ausente no currículo, no documento ou no país.

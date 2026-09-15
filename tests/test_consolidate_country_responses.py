@@ -2,6 +2,7 @@ import csv
 import json
 
 from rag_project.consolidate_country_responses import consolidate
+from rag_project.repair_official_run import repair
 
 
 def test_consolidate_preserves_original_excerpt(tmp_path):
@@ -31,3 +32,38 @@ def test_consolidate_preserves_original_excerpt(tmp_path):
         rows = list(csv.DictReader(handle))
 
     assert rows[0]['original_text'] == 'Trecho original recuperado.'
+
+
+def test_repair_flags_empty_embedded_response_with_existing_evidence(tmp_path):
+    run_dir = tmp_path / 'official_run' / 'brasil'
+    run_dir.mkdir(parents=True)
+    payload = {
+        'question_id': 'Q04',
+        'country': 'brasil',
+        'response': '',
+        'evidences': [{'document_id': 'BR_003', 'source_text': 'Trecho recuperado.'}],
+    }
+    with (run_dir / 'respostas.csv').open('w', encoding='utf-8', newline='') as handle:
+        writer = csv.DictWriter(handle, fieldnames=['question_id', 'response', 'validation_status', 'review_notes'])
+        writer.writeheader()
+        writer.writerow({
+            'question_id': 'Q04',
+            'response': json.dumps(payload),
+            'validation_status': 'candidate',
+            'review_notes': '',
+        })
+    with (run_dir / 'evidencias.csv').open('w', encoding='utf-8', newline='') as handle:
+        writer = csv.DictWriter(handle, fieldnames=['question_id', 'document_id', 'page_start', 'source_text'])
+        writer.writeheader()
+        writer.writerow({'question_id': 'Q04', 'document_id': 'BR_003', 'page_start': '15', 'source_text': 'Trecho recuperado.'})
+
+    content_path = tmp_path / 'conteudos.jsonl'
+    content_path.write_text('', encoding='utf-8')
+    repair(run_dir.parent, content_path)
+
+    with (run_dir / 'respostas.csv').open('r', encoding='utf-8-sig', newline='') as handle:
+        row = next(csv.DictReader(handle))
+
+    assert row['response'] == ''
+    assert row['validation_status'] == 'inconclusive'
+    assert 'embedded_json_response_empty' in row['review_notes']
