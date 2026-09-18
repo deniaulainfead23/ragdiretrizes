@@ -118,6 +118,12 @@ O protocolo preserva os documentos originais, mantém `document_id` e páginas, 
 - Páginas marcadas como vazias, curtas ou de baixa qualidade devem ser revisadas visualmente antes da liberação.
 - A ausência de recuperação semântica não deve ser interpretada automaticamente como ausência conceitual no documento.
 
+## Protocolo de análise dos resultados
+
+A rodada oficial foi fechada em duas camadas: Q01 a Q13 para recuperação de evidências por país e Q14 para comparação internacional baseada nas respostas nacionais já validadas. O resultado técnico registra 286 respostas, três respostas inconclusivas e 13 comparações temáticas. A etapa seguinte é a validação semântica e a interpretação comparativa, não uma nova geração automática de conclusões.
+
+O protocolo completo está em [docs/PROTOCOLO_ANALISE_RESULTADOS.md](docs/PROTOCOLO_ANALISE_RESULTADOS.md). Ele define a relação entre objetivos, perguntas, evidências e produtos analíticos, além das regras para não confundir frequência lexical, similaridade textual ou ausência de recuperação com competência curricular comprovada.
+
 ## Tecnologias
 
 | Área | Tecnologias e métodos |
@@ -128,7 +134,7 @@ O protocolo preserva os documentos originais, mantém `document_id` e páginas, 
 | Análise lexical | TF-IDF e frequência de termos |
 | Dados | Pandas e estruturas tabulares |
 | Corpus | documentos curriculares oficiais |
-| Auditoria textual | PyMuPDF, Tesseract OCR, validação por página e revisão humana |
+| Auditoria textual | PyMuPDF, PaddleOCR seletivo, validação por página e revisão humana |
 | Pesquisa | análise documental e Educação Comparada |
 | Ambiente | VS Code, Google Colab e GitHub |
 
