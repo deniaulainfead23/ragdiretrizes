@@ -1,0 +1,17 @@
+{
+  "document_id": "INT-UNESCO-UIS-DLGF-2018",
+  "title": "A Global Framework of Reference on Digital Literacy Skills for Indicator 4.4.2",
+  "authors": ["Nancy Law", "David Woo", "Jimmy de la Torre", "Gary Wong"],
+  "institution": "UNESCO Institute for Statistics",
+  "year": 2018,
+  "document_type": "international_reference_framework_information_paper",
+  "document_function": "analytical_reference_digital_literacy",
+  "geographic_scope": "international",
+  "comparative_corpus": false,
+  "rag_country_unit": false,
+  "framework_id": "UNESCO_DLGF_2018",
+  "license": "CC BY-SA 3.0 IGO",
+  "expected_filename": "ip51-global-framework-reference-digital-literacy-skills-2018-en.pdf",
+  "sha256": "8dfa1b083b0cc5dd7f634c4218f6217aed87d8e42c39ba6954998dcc5e6e632d",
+  "notes": "Referencial principal para competências/letramento digital. Não substitui UNESCO_GCED_2015 e não constitui benchmark de qualidade curricular."
+}
