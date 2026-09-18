@@ -101,8 +101,8 @@ python -m rag_project.audit_corpus --all
 Relatórios esperados:
 
 ```text
-analysis/audit/audit_summary.json
-analysis/audit/processed_page_audit.csv
+dados_derivados/analysis/audit/audit_summary.json
+dados_derivados/analysis/audit/processed_page_audit.csv
 ```
 
 O protocolo preserva os documentos originais, mantém `document_id` e páginas, aplica OCR apenas quando necessário, registra páginas suspeitas para revisão humana e valida a estrutura dos dados antes da indexação vetorial.
@@ -132,15 +132,31 @@ O protocolo preserva os documentos originais, mantém `document_id` e páginas, 
 | Pesquisa | análise documental e Educação Comparada |
 | Ambiente | VS Code, Google Colab e GitHub |
 
+## Organização dos dados
+
+Os dados seguem três camadas físicas, preservando os documentos de origem e a reprodutibilidade do pipeline:
+
+```text
+dados_brutos/corpus/                  # documentos originais e manifestos de origem
+dados_intermediarios/metadata/        # catálogos e manifestos de processamento
+dados_intermediarios/processed*/      # OCR e textos preparados
+dados_intermediarios/datasets/        # datasets JSONL gerados
+dados_intermediarios/analise_lexical/ # saídas de TF-IDF e indicadores
+dados_derivados/analysis/             # respostas RAG, matrizes e relatórios finais
+```
+
+As pastas legadas `corpus/`, `metadata/`, `data/` e `analysis/` permanecem como aliases locais de compatibilidade para comandos e notebooks já existentes.
+
 ## Estrutura planejada
 
 ```text
 ragdiretrizes/
 │
 ├── assets/             # identidade visual do projeto
-├── corpus/             # documentos curriculares
+├── dados_brutos/       # documentos curriculares originais
+├── dados_intermediarios/ # dados processados e metadados
+├── dados_derivados/    # análises e resultados reproduzíveis
 ├── rag_project/        # implementação do sistema RAG e auditoria
-├── analysis/           # relatórios e resultados de auditoria/análise
 ├── docs/               # documentação metodológica e protocolos
 ├── resultados/         # tabelas e resultados de análise
 ├── traducoes/          # versões de apoio em português

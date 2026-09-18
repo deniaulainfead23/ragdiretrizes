@@ -26,11 +26,12 @@ from collections import Counter
 from dataclasses import dataclass, asdict
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parents[1]
-DOCUMENTS = ROOT / "metadata" / "documentos.csv"
-PROCESSED = ROOT / "metadata" / "processed_documents.csv"
-CONTENT_JSONL = ROOT / "data" / "conteudos.jsonl"
-DEFAULT_REPORT_DIR = ROOT / "analysis" / "audit"
+from rag_project.paths import ANALYSIS_DIR, INTERMEDIATE_DATA_DIR, METADATA_DIR, ROOT
+
+DOCUMENTS = METADATA_DIR / "documentos.csv"
+PROCESSED = METADATA_DIR / "processed_documents.csv"
+CONTENT_JSONL = INTERMEDIATE_DATA_DIR / "data" / "conteudos.jsonl"
+DEFAULT_REPORT_DIR = ANALYSIS_DIR / "audit"
 
 PAGE_RE = re.compile(r"(?m)^## PAGE\s+(\d+)\s*$")
 ALLOWED_PROCESSED_STATUSES = {
@@ -259,7 +260,7 @@ def main() -> None:
     if not any([args.catalog, args.processed, args.jsonl, args.all]):
         args.all = True
 
-    report_dir = Path(args.report_dir)
+    report_dir = Path(args.report_dir).resolve()
     payload: dict[str, dict] = {}
     if args.all or args.catalog:
         payload["catalog"] = audit_catalog()

@@ -9,6 +9,7 @@ from pathlib import Path
 from typing import Iterator, Optional
 
 from rag_project.corpus_registry import EXCLUDED_COUNTRIES, load_registry, registered_documents
+from rag_project.paths import CORPUS_DIR, DATASET_DIR
 
 try:
     from openai import OpenAI
@@ -232,8 +233,8 @@ def build_bilingual_datasets(corpus_root: str, output_dir: str, openai_api_key: 
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='Gera dataset em idioma original e em inglês sem carregar todo o corpus na memória.')
-    parser.add_argument('--corpus', default='corpus', help='Pasta do corpus principal')
-    parser.add_argument('--out', default='corpus/dataset_output', help='Diretório para salvar os datasets')
+    parser.add_argument('--corpus', default=str(CORPUS_DIR), help='Pasta do corpus principal')
+    parser.add_argument('--out', default=str(DATASET_DIR), help='Diretório para salvar os datasets')
     parser.add_argument('--openai_key', default=None, help='Chave OpenAI para tradução e upload de arquivos')
     parser.add_argument('--translate', action='store_true', help='Traduz os documentos para inglês via OpenAI')
     args = parser.parse_args()

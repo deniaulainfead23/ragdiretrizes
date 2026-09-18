@@ -5,10 +5,12 @@ from pathlib import Path
 
 import yaml
 
+from rag_project.paths import CORPUS_DIR
+
 
 EXCLUDED_COUNTRIES = {"marrocos"}
 REGISTRY_PATH = Path(__file__).resolve().parent / "config" / "corpus_registry.yaml"
-CORPUS_PATH = REGISTRY_PATH.parents[2] / "corpus"
+CORPUS_PATH = CORPUS_DIR
 ELIGIBLE_EXTENSIONS = {".pdf", ".html", ".htm", ".txt"}
 INVALID_FILE_TOKENS = {
     "falha",
