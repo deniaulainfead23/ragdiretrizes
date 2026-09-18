@@ -10,7 +10,7 @@ ROOT = Path(__file__).resolve().parents[1]
 
 BASE = (
     ROOT
-    / "analysis"
+    / "dados_derivados"
     / "official_run_20260912"
     / "comparison"
 )

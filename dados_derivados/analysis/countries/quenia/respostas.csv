@@ -1,0 +1,63 @@
+question_id,question_text,country,response,evidence_ids,validation_status
+Q01,Como cada país define e organiza as competências de Computação e Educação Digital em seus documentos curriculares?,quenia,"```json
+{
+  ""question_id"": ""Q01"",
+  ""country"": ""quenia"",
+  ""response"": ""No Quênia, as competências de Computação e Educação Digital estão integradas no currículo básico, enfatizando a alfabetização digital como uma habilidade fundamental para os cidadãos. O currículo orienta que a alfabetização digital deve ser aplicada em todas as áreas de aprendizado, promovendo uma abordagem holística à educação."",
+  ""evidence_ids"": [
+    {
+      ""document_id"": ""DISC-84D1FDCE-01__quenia_basic-education-curriculum-framework_2017.pdf"",
+      ""documento"": ""DISC-84D1FDCE-01__quenia_basic-education-curriculum-framework_2017.pdf"",
+      ""página"": 108,
+      ""trecho_original"": ""Apply digital literacy skills for communication, learning and enjoyment."",
+      ""classificação"": ""currículo"",
+      ""validation_status"": ""validado""
+    },
+    {
+      ""document_id"": ""DISC-84D1FDCE-02__quenia_standards-digital-content-course-materials_cbc_2018.pdf"",
+      ""documento"": ""DISC-84D1FDCE-02__quenia_standards-digital-content-course-materials_cbc_2018.pdf"",
+      ""página"": 22,
+      ""trecho_original"": ""Core Competencies for CBC: Digital Literacy"",
+      ""classificação"": ""competências"",
+      ""validation_status"": ""validado""
+    }
+  ],
+  ""evidence_classification"": ""documento curricular"",
+  ""validation_status"": ""validação completa""
+}
+```",,candidate
+Q06,"Quais evidências curriculares estão relacionadas à dimensão cognitiva da Educação para a Cidadania Global da UNESCO, especialmente pensamento crítico, compreensão de questões locais e globais, interdependência e resolução de problemas?",quenia,"```json
+{
+  ""question_id"": ""Q06"",
+  ""country"": ""quenia"",
+  ""response"": ""As evidências curriculares relacionadas à dimensão cognitiva da Educação para a Cidadania Global da UNESCO incluem o desenvolvimento de habilidades de pensamento crítico e resolução de problemas, bem como a compreensão de questões locais e globais através de aprendizagem baseada em investigação e ênfase em valores. Além disso, as diretrizes curriculares enfatizam a importância da educação para a cidadania global, abordando questões contemporâneas relevantes."",
+  ""evidence_ids"": [
+    {
+      ""document_id"": ""DISC-84D1FDCE-02__quenia_standards-digital-content-course-materials_cbc_2018"",
+      ""documento"": ""quenia_standards-digital-content-course-materials_cbc_2018.pdf"",
+      ""página"": 24,
+      ""trecho_original"": ""Global Citizenship; Peace Education, Integrity, ethnic and racial relations, social cohesion, patriotism and good governance, child’s rights and, child care and protection"",
+      ""classificação"": ""Evidência curricular sobre cidadania global"",
+      ""validation_status"": ""validado""
+    },
+    {
+      ""document_id"": ""DISC-84D1FDCE-01__quenia_basic-education-curriculum-framework_2017"",
+      ""documento"": ""quenia_basic-education-curriculum-framework_2017.pdf"",
+      ""página"": 131,
+      ""trecho_original"": ""The acquisition of values and psychosocial competencies will avert the behavioural and values crisis in the country. To enhance the acquisition of core competencies, learners will engage in non-formal and informal activities in school and in the community."",
+      ""classificação"": ""Evidência sobre competências e valores"",
+      ""validation_status"": ""validado""
+    },
+    {
+      ""document_id"": ""DISC-84D1FDCE-01__quenia_basic-education-curriculum-framework_2017"",
+      ""documento"": ""quenia_basic-education-curriculum-framework_2017.pdf"",
+      ""página"": 29,
+      ""trecho_original"": ""Apply creativity and critical thinking skills in problem solving."",
+      ""classificação"": ""Evidência sobre pensamento crítico"",
+      ""validation_status"": ""validado""
+    }
+  ],
+  ""evidence_classification"": ""curricular"",
+  ""validation_status"": ""validado""
+}
+```",,candidate

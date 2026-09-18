@@ -1,0 +1,68 @@
+question_id,question_text,country,response,evidence_ids,validation_status
+Q01,Como cada país define e organiza as competências de Computação e Educação Digital em seus documentos curriculares?,australia,"```json
+{
+  ""question_id"": ""Q01"",
+  ""country"": ""australia"",
+  ""response"": ""Na Austrália, as competências em Computação e Educação Digital são definidas e organizadas através do currículo nacional, que inclui uma sequência de conteúdos para as tecnologias digitais. As competências são abordadas em diferentes níveis de ensino, de Fundações até o 10º ano, e incluem o reconhecimento de sistemas digitais, representação de dados, design de algoritmos, gestão e análise de dados, além de aspectos de privacidade e segurança."",
+  ""evidence_ids"": [
+    {
+      ""document_id"": ""OC-AU-01__australia_digital-technologies-v9_sequence-achievement_2022.pdf"",
+      ""page"": 4,
+      ""original_excerpt"": ""By the end of Year 6 students explain how people design products, services and environments to meet the needs of communities, including sustainability. They process data and show how digital systems represent data."",
+      ""classification"": ""Descrição das competências"",
+      ""validation_status"": ""confirmado""
+    },
+    {
+      ""document_id"": ""OC-AU-02__australia_digital-technologies-v9_sequence-content_2022.pdf"",
+      ""page"": 3,
+      ""original_excerpt"": ""investigate how data is transmitted & secured in wired & wireless networks including the internet"",
+      ""classification"": ""Conteúdo curricular"",
+      ""validation_status"": ""confirmado""
+    }
+  ],
+  ""evidence_classification"": ""documentos curriculares"",
+  ""validation_status"": ""validado""
+}
+```",,candidate
+Q06,"Quais evidências curriculares estão relacionadas à dimensão cognitiva da Educação para a Cidadania Global da UNESCO, especialmente pensamento crítico, compreensão de questões locais e globais, interdependência e resolução de problemas?",australia,"```json
+{
+  ""question_id"": ""Q06"",
+  ""country"": ""australia"",
+  ""response"": [
+    {
+      ""document_id"": ""OC-AU-01__australia_digital-technologies-v9_sequence-achievement_2022.pdf"",
+      ""document"": ""OC-AU-01__australia_digital-technologies-v9_sequence-achievement_2022.pdf"",
+      ""page"": 4,
+      ""original_excerpt"": ""By the end of Year 6 students develop and modify digital solutions, and define problems and evaluate solutions using user stories and design criteria. They process data and show how digital systems represent data. Students design algorithms involving complex branching and iteration and implement them as visual programs including variables."",
+      ""classification"": ""educativo"",
+      ""validation_status"": ""confirmado""
+    },
+    {
+      ""document_id"": ""OC-AU-02__australia_digital-technologies-v9_sequence-content_2022.pdf"",
+      ""document"": ""OC-AU-02__australia_digital-technologies-v9_sequence-content_2022.pdf"",
+      ""page"": 5,
+      ""original_excerpt"": ""define & decompose real-world problems with design criteria & by creating user stories."",
+      ""classification"": ""educativo"",
+      ""validation_status"": ""confirmado""
+    },
+    {
+      ""document_id"": ""OC-AU-02__australia_digital-technologies-v9_sequence-content_2022.pdf"",
+      ""document"": ""OC-AU-02__australia_digital-technologies-v9_sequence-content_2022.pdf"",
+      ""page"": 5,
+      ""original_excerpt"": ""evaluate existing & student solutions against the design criteria, user stories & possible future impact."",
+      ""classification"": ""educativo"",
+      ""validation_status"": ""confirmado""
+    }
+  ],
+  ""evidence_ids"": [
+    {
+      ""document_id"": ""OC-AU-01__australia_digital-technologies-v9_sequence-achievement_2022.pdf""
+    },
+    {
+      ""document_id"": ""OC-AU-02__australia_digital-technologies-v9_sequence-content_2022.pdf""
+    }
+  ],
+  ""evidence_classification"": ""curricular"",
+  ""validation_status"": ""validado""
+}
+```",,candidate

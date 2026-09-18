@@ -6,10 +6,11 @@ import json
 import re
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parents[1]
-DOCUMENTS = ROOT / "metadata" / "documentos.csv"
-PROCESSED = ROOT / "metadata" / "processed_documents.csv"
-DEFAULT_OUTPUT = ROOT / "data" / "conteudos.jsonl"
+from rag_project.paths import DATASET_DIR, METADATA_DIR, INTERMEDIATE_DATA_DIR
+
+DOCUMENTS = METADATA_DIR / "documentos.csv"
+PROCESSED = METADATA_DIR / "processed_documents.csv"
+DEFAULT_OUTPUT = INTERMEDIATE_DATA_DIR / "data" / "conteudos.jsonl"
 
 ALLOWED_STATUSES = {
     "ready",

@@ -13,10 +13,11 @@ from rag_project.question_catalog import get_questions
 from rag_project.corpus_registry import get_country, load_registry, registered_documents
 from rag_project.rag.query import rag_query
 from rag_project.vector_backend import resolve_backend
+from rag_project.paths import ANALYSIS_DIR, METADATA_DIR
 from rag_project.openai_vector_store import cloud_rag_query
 
 ROOT = Path(__file__).resolve().parents[1]
-DOCUMENT_CATALOG = ROOT / 'metadata' / 'documentos.csv'
+DOCUMENT_CATALOG = METADATA_DIR / 'documentos.csv'
 PROMPT_VERSION = "rag-country-v3.2"
 
 
@@ -356,15 +357,15 @@ def main() -> None:
         description='Executa perguntas de recuperação por país e gera datasets identificados de evidências e respostas.'
     )
     parser.add_argument('--country', required=True, help='País para executar as perguntas')
-    parser.add_argument('--out', default=None, help='Diretório de saída; padrão analysis/countries/<country>')
+    parser.add_argument('--out', default=None, help='Diretório de saída; padrão dados_derivados/analysis/countries/<country>')
     parser.add_argument('--index', default='indexed', help='Pasta do índice local')
     parser.add_argument('--openai_key', default=None, help='Chave OpenAI opcional')
-    parser.add_argument('--vector_store_id', default=None, help='ID do OpenAI Vector Store')
+    parser.add_argument('--vector_store_id', '--vector-store-id', dest='vector_store_id', default=None, help='ID do OpenAI Vector Store')
     parser.add_argument('--backend', default=None, choices=['openai', 'local'], help='Backend de recuperação')
-    parser.add_argument('--question_id', default=None, help='Executa apenas uma pergunta, por exemplo Q01')
+    parser.add_argument('--question_id', '--question-id', dest='question_id', default=None, help='Executa apenas uma pergunta, por exemplo Q01')
     args = parser.parse_args()
 
-    output_dir = args.out or str(Path('analysis') / 'countries' / args.country)
+    output_dir = args.out or str(ANALYSIS_DIR / 'countries' / args.country)
     plan = run_question_plan(
         args.country,
         output_dir,

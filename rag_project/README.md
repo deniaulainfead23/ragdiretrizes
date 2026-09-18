@@ -2,7 +2,7 @@
 
 Este projeto implementa um pipeline simples para aplicar a metodologia descrita em `contexto.md`:
 
-- Ingestão de documentos (PDFs e textos) a partir da pasta `corpus/`.
+- Ingestão de documentos (PDFs e textos) a partir da pasta `../dados_brutos/corpus/`.
 - Extração de texto com `pdfplumber` e OCR (`pytesseract`) quando necessário.
 - Pré-processamento e segmentação em chunks.
 - Geração de embeddings com `sentence-transformers` e indexação com `faiss`.
@@ -47,7 +47,7 @@ Para obter uma síntese gerada por um LLM, exporte `OPENAI_API_KEY` no ambiente 
 Depois de gerar o dataset, envie o arquivo inglês para a OpenAI:
 
 ```bash
-python openai_vector_store.py upload --file ../corpus/dataset_output/dataset_english.jsonl
+python openai_vector_store.py upload --file ../dados_intermediarios/datasets/dataset_english.jsonl
 ```
 
 Guarde o `vector_store_id` retornado e consulte sem carregar FAISS:

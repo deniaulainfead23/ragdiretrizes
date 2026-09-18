@@ -56,7 +56,7 @@ def main() -> None:
     parser = argparse.ArgumentParser(description="Audita arquivos físicos contra o registry do corpus.")
     parser.add_argument("--corpus", default="corpus")
     parser.add_argument("--registry", default="rag_project/config/corpus_registry.yaml")
-    parser.add_argument("--out", default="analysis/consolidado/reconciliacao_corpus.csv")
+    parser.add_argument("--out", default="dados_derivados/analysis/consolidado/reconciliacao_corpus.csv")
     args = parser.parse_args()
 
     rows = build_reconciliation(Path(args.corpus), Path(args.registry))

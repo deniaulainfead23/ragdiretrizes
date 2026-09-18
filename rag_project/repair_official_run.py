@@ -9,12 +9,13 @@ import unicodedata
 from datetime import datetime, timezone
 from difflib import SequenceMatcher
 from pathlib import Path
+from rag_project.paths import INTERMEDIATE_DATA_DIR
 
 import pandas as pd
 
 ROOT = Path(__file__).resolve().parents[1]
-DEFAULT_RUN = ROOT / "analysis" / "official_run_20260912"
-CONTENT_JSONL = ROOT / "data" / "conteudos.jsonl"
+DEFAULT_RUN = ROOT / "dados_derivados" / "analysis" / "official_run_20260912"
+CONTENT_JSONL = INTERMEDIATE_DATA_DIR / "data" / "conteudos.jsonl"
 
 
 def _norm(text: object) -> str:

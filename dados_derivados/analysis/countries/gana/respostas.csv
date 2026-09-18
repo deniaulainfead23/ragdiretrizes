@@ -1,0 +1,68 @@
+question_id,question_text,country,response,evidence_ids,validation_status
+Q01,Como cada país define e organiza as competências de Computação e Educação Digital em seus documentos curriculares?,gana,"```json
+{
+  ""question_id"": ""Q01"",
+  ""country"": ""Gana"",
+  ""response"": ""Gana organiza as competências de Computação e Educação Digital em seus documentos curriculares através de padrões de conteúdos e indicadores específicos que enfatizam a prática de habilidades digitais, como a utilização de ferramentas tecnológicas, a literatura digital, e a colaboração. O currículo prioriza competência digital, criatividade, inovação e comunicação, preparando os alunos para resolver problemas e aplicar conhecimentos no cotidiano."",
+  ""evidence_ids"": [
+    {
+      ""document_id"": ""DISC-C1510646-02__gana_computing-primary-b4-b6_2019.pdf"",
+      ""pagina"": 34,
+      ""trecho_original"": ""1. Creativity and innovation 2. Communication and collaboration 3. Cultural identity and global citizenship 4. Personal development and leadership 5. Digital literacy."",
+      ""classificacao"": ""Informativa"",
+      ""validation_status"": ""Confirmado""
+    },
+    {
+      ""document_id"": ""DISC-C1510646-01__gana_computing-common-core-programme-curriculum_2023.pdf"",
+      ""pagina"": 59,
+      ""trecho_original"": ""Creativity and Innovation promote the development of entrepreneurial skills in learners through their ability to think of new ways of solving problems and developing technologies for addressing the problem at hand."",
+      ""classificacao"": ""Informativa"",
+      ""validation_status"": ""Confirmado""
+    },
+    {
+      ""document_id"": ""DISC-C1510646-01__gana_computing-common-core-programme-curriculum_2023.pdf"",
+      ""pagina"": 26,
+      ""trecho_original"": ""The Computing Curriculum is organised into strands, sub-strands, content standards, indicators and exemplars."",
+      ""classificacao"": ""Informativa"",
+      ""validation_status"": ""Confirmado""
+    }
+  ],
+  ""evidence_classification"": ""Informativa"",
+  ""validation_status"": ""Confirmado""
+}
+```",,candidate
+Q06,"Quais evidências curriculares estão relacionadas à dimensão cognitiva da Educação para a Cidadania Global da UNESCO, especialmente pensamento crítico, compreensão de questões locais e globais, interdependência e resolução de problemas?",gana,"```json
+{
+  ""question_id"": ""Q06"",
+  ""country"": ""Gana"",
+  ""response"": ""As evidências curriculares relacionadas à dimensão cognitiva da Educação para a Cidadania Global da UNESCO incluem competências como pensamento crítico, resolução de problemas, e compreensão de questões locais e globais."",
+  ""evidence_ids"": [
+    {
+      ""document_id"": ""DISC-C1510646-02__gana_computing-primary-b4-b6_2019.pdf"",
+      ""document"": ""DISC-C1510646-02__gana_computing-primary-b4-b6_2019.pdf"",
+      ""page"": 1,
+      ""original_excerpt"": ""CRITICAL THINKING AND PROBLEM SOLVING This skill develops learners’ cognitive and reasoning abilities to enable them analyse and solve problems."",
+      ""classification"": ""Evidência curricular"",
+      ""validation_status"": ""Confirmada""
+    },
+    {
+      ""document_id"": ""DISC-C1510646-01__gana_computing-common-core-programme-curriculum_2023.pdf"",
+      ""document"": ""DISC-C1510646-01__gana_computing-common-core-programme-curriculum_2023.pdf"",
+      ""page"": 3,
+      ""original_excerpt"": ""Cultural Identity and Global Citizenship. This competence involves developing learners to put country and service foremost through an understanding of what it means to be active citizens."",
+      ""classification"": ""Evidência curricular"",
+      ""validation_status"": ""Confirmada""
+    },
+    {
+      ""document_id"": ""DISC-C1510646-01__gana_computing-common-core-programme-curriculum_2023.pdf"",
+      ""document"": ""DISC-C1510646-01__gana_computing-common-core-programme-curriculum_2023.pdf"",
+      ""page"": 3,
+      ""original_excerpt"": ""Learners build skills to critically identify and analyse cultural and global trends that enable them to contribute to the global community."",
+      ""classification"": ""Evidência curricular"",
+      ""validation_status"": ""Confirmada""
+    }
+  ],
+  ""evidence_classification"": ""Evidência curricular confirmada"",
+  ""validation_status"": ""Completa""
+}
+```",,candidate

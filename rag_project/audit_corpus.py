@@ -250,9 +250,9 @@ def write_summary(report_dir: Path, payload: dict) -> Path:
 
 def main() -> None:
     parser = argparse.ArgumentParser(description="Auditoria reprodutível do corpus RAG")
-    parser.add_argument("--catalog", action="store_true", help="Audita metadata/documentos.csv")
+    parser.add_argument("--catalog", action="store_true", help="Audita dados_intermediarios/metadata/documentos.csv")
     parser.add_argument("--processed", action="store_true", help="Audita textos processados por página")
-    parser.add_argument("--jsonl", action="store_true", help="Audita data/conteudos.jsonl")
+    parser.add_argument("--jsonl", action="store_true", help="Audita dados_intermediarios/data/conteudos.jsonl")
     parser.add_argument("--all", action="store_true", help="Executa todas as auditorias")
     parser.add_argument("--report-dir", default=str(DEFAULT_REPORT_DIR))
     args = parser.parse_args()

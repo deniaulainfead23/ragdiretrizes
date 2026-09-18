@@ -15,13 +15,14 @@ from dotenv import load_dotenv
 from openai import OpenAI
 
 from rag_project.vector_backend import write_vector_backend_manifest
+from rag_project.paths import METADATA_DIR
 
 
 DEFAULT_MODEL = "gpt-4o-mini"
 ROOT = Path(__file__).resolve().parents[1]
 MANIFEST_PATH = Path(__file__).resolve().parent / ".openai_vector_stores.json"
-DOCUMENT_CATALOG_PATH = ROOT / "metadata" / "documentos.csv"
-PROCESSED_MANIFEST_PATH = ROOT / "metadata" / "processed_documents.csv"
+DOCUMENT_CATALOG_PATH = METADATA_DIR / "documentos.csv"
+PROCESSED_MANIFEST_PATH = METADATA_DIR / "processed_documents.csv"
 
 ALLOWED_PROCESSED_STATUSES = {
     "ready",
@@ -249,7 +250,7 @@ def sync_processed_corpus(
         "backend": "openai",
         "vector_store_id": vector_store_id,
         "model": DEFAULT_MODEL,
-        "index_folder": "corpus/processed + corpus/processed_ocr",
+        "index_folder": "dados_intermediarios/processed + dados_intermediarios/processed_ocr",
         "updated_at": datetime.now(timezone.utc).isoformat(timespec="seconds"),
     })
 
@@ -394,8 +395,8 @@ def main() -> None:
         "sync",
         help="Fluxo legado de datasets JSONL.",
     )
-    sync_parser.add_argument("--original", default="../corpus/dataset_output/dataset_original.jsonl")
-    sync_parser.add_argument("--english", default="../corpus/dataset_output/dataset_english.jsonl")
+    sync_parser.add_argument("--original", default="dados_intermediarios/datasets/dataset_original.jsonl")
+    sync_parser.add_argument("--english", default="dados_intermediarios/datasets/dataset_english.jsonl")
     sync_parser.add_argument("--english-vector-store-id", default=None)
     sync_parser.add_argument("--openai_key", default=None)
     sync_parser.add_argument("--replace", action="store_true")

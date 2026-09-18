@@ -3,12 +3,12 @@ import csv
 import pandas as pd
 
 from rag_project.rag.ingest import extract_pdf_pages
+from rag_project.paths import CORPUS_DIR, METADATA_DIR, PROCESSED_DIR
 
-ROOT = Path(__file__).resolve().parents[1]
-CORPUS = ROOT / "corpus"
-CATALOG = ROOT / "metadata" / "documentos.csv"
-OUTPUT_DIR = ROOT / "corpus" / "processed"
-MANIFEST = ROOT / "metadata" / "processed_documents.csv"
+CORPUS = CORPUS_DIR
+CATALOG = METADATA_DIR / "documentos.csv"
+OUTPUT_DIR = PROCESSED_DIR
+MANIFEST = METADATA_DIR / "processed_documents.csv"
 
 
 def text_pages(path: Path):

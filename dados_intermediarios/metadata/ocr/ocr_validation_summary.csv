@@ -1,0 +1,4 @@
+﻿document_id,total_pages,pages_ok,pages_low_text,pages_low_quality,pages_empty,total_chars,percent_pages_ok,ocr_validation_status
+AS-CN-01,74,74,0,0,0,44323,100.0,READY_FOR_REVIEW
+AS-CN-02,23,21,1,0,1,9807,91.3,READY_WITH_PAGE_EXCEPTION
+SG_015,13,13,0,0,0,8023,100.0,READY_FOR_REVIEW

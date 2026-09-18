@@ -6,10 +6,10 @@ no texto de origem e extraindo uma janela de contexto (concordância / KWIC).
 
 Uso:
   python extrai_trechos_tfidf.py \
-      --tfidf corpus/analysis_output/group_tfidf.csv \
-      --dataset corpus/dataset_output/dataset_english.jsonl \
+    --tfidf dados_intermediarios/analise_lexical/group_tfidf.csv \
+    --dataset dados_intermediarios/datasets/dataset_english.jsonl \
       --field english_text \
-      --out corpus/analysis_output/evidencias_tfidf.csv \
+    --out dados_intermediarios/analise_lexical/evidencias_tfidf.csv \
       --top 10 --janela 160
 
 Observações:
@@ -90,10 +90,10 @@ def find_snippet(term: str, docs: list[tuple[str, str]], janela: int):
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument('--tfidf', default='corpus/analysis_output/group_tfidf.csv')
-    ap.add_argument('--dataset', default='corpus/dataset_output/dataset_english.jsonl')
+    ap.add_argument('--tfidf', default='dados_intermediarios/analise_lexical/group_tfidf.csv')
+    ap.add_argument('--dataset', default='dados_intermediarios/datasets/dataset_english.jsonl')
     ap.add_argument('--field', default='english_text', choices=['english_text', 'source_text'])
-    ap.add_argument('--out', default='corpus/analysis_output/evidencias_tfidf.csv')
+    ap.add_argument('--out', default='dados_intermediarios/analise_lexical/evidencias_tfidf.csv')
     ap.add_argument('--top', type=int, default=10, help='quantos termos por grupo (por rank)')
     ap.add_argument('--janela', type=int, default=160, help='caracteres de contexto ao redor do termo')
     args = ap.parse_args()

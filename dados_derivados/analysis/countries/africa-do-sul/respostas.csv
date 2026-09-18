@@ -1,0 +1,60 @@
+question_id,question_text,country,response,evidence_ids,validation_status
+Q01,Como cada país define e organiza as competências de Computação e Educação Digital em seus documentos curriculares?,africa-do-sul,"```json
+{
+    ""question_id"": ""Q01"",
+    ""country"": ""africa-do-sul"",
+    ""response"": ""Na África do Sul, as competências em Computação e Educação Digital são definidas em documentos curriculares como o 'CAPS (Curriculum and Assessment Policy Statement) para Tecnologia da Informação'. Os alunos são expostos a tópicos que incluem princípios de engenharia de software, desenvolvimento de soluções, programação em alta nível, e gerenciamento de dados. O currículo enfatiza a resolução de problemas, o desenvolvimento de software, e a utilização de tecnologias de comunicação digitais."",
+    ""evidence_ids"": [
+        {
+            ""document_id"": ""AF-ZA-02__africa-do-sul_caps_information-technology_grades-10-12.pdf"",
+            ""page"": 29,
+            ""original_text"": ""Use testing and debugging techniques and methods... Planning techniques using any appropriate tools."",
+            ""classification"": ""Competências"",
+            ""validation_status"": ""Validado""
+        },
+        {
+            ""document_id"": ""AF-ZA-02__africa-do-sul_caps_information-technology_grades-10-12.pdf"",
+            ""page"": 22,
+            ""original_text"": ""Describe electronic communication... E-mail as a form of e-communication."",
+            ""classification"": ""Competências"",
+            ""validation_status"": ""Validado""
+        },
+        {
+            ""document_id"": ""AF-ZA-02__africa-do-sul_caps_information-technology_grades-10-12.pdf"",
+            ""page"": 31,
+            ""original_text"": ""Application Development using a high-level programming language... Apply generic algorithms as part of the solution."",
+            ""classification"": ""Competências"",
+            ""validation_status"": ""Validado""
+        }
+    ],
+    ""evidence_classification"": ""Competências Curriculares"",
+    ""validation_status"": ""Validado""
+}
+```",,candidate
+Q06,"Quais evidências curriculares estão relacionadas à dimensão cognitiva da Educação para a Cidadania Global da UNESCO, especialmente pensamento crítico, compreensão de questões locais e globais, interdependência e resolução de problemas?",africa-do-sul,"```json
+{
+  ""question_id"": ""Q06"",
+  ""country"": ""africa-do-sul"",
+  ""response"": ""As evidências curriculares relacionadas à dimensão cognitiva da Educação para a Cidadania Global da UNESCO incluem práticas de pensamento crítico, compreensão de questões locais e globais, interdependência e resolução de problemas. O currículo Sul-Africano promove a aprendizagem ativa e crítica, proporcionando aos alunos habilidades essenciais para a resolução de problemas e tomada de decisões."",
+  ""evidence_ids"": [
+    {
+      ""document_id"": ""AF-ZA-03"",
+      ""document"": ""africa-do-sul_caps_information-technology_grades-10-12.pdf"",
+      ""page"": 3,
+      ""original_snippet"": ""Active and critical learning: encouraging an active and critical approach to learning, rather than rote and uncritical learning of given truths; ... identify and solve problems and make decisions using critical and creative thinking."",
+      ""classification"": ""curricular"",
+      ""validation_status"": ""validated""
+    },
+    {
+      ""document_id"": ""AF-ZA-03"",
+      ""document"": ""africa-do-sul_caps_information-technology_grades-10-12.pdf"",
+      ""page"": 3,
+      ""original_snippet"": ""knowledge in local contexts, while being sensitive to global imperatives."",
+      ""classification"": ""curricular"",
+      ""validation_status"": ""validated""
+    }
+  ],
+  ""evidence_classification"": ""curricular"",
+  ""validation_status"": ""validated""
+}
+```",,candidate

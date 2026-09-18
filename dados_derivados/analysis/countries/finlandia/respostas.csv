@@ -1,0 +1,60 @@
+question_id,question_text,country,response,evidence_ids,validation_status
+Q01,Como cada país define e organiza as competências de Computação e Educação Digital em seus documentos curriculares?,finlandia,"```json
+{
+  ""question_id"": ""Q01"",
+  ""country"": ""finlandia"",
+  ""response"": ""A Finlândia organiza as competências de Computação e Educação Digital através de um currículo nacional que enfatiza áreas transversais de competência, incluindo competência em TIC. O currículo reforça a integração entre disciplinas e o aprendizado colaborativo, promovendo interações significativas e a educação multiletrada."",
+  ""evidence_ids"": [
+    {
+      ""document_id"": ""DISC-C4B8BEF6-01__finlandia_new-national-core-curriculum-basic-education_2016.pdf"",
+      ""document"": ""DISC-C4B8BEF6-01__finlandia_new-national-core-curriculum-basic-education_2016.pdf"",
+      ""page"": ""2"",
+      ""original_excerpt"": ""The core curriculum describes seven transversal competence areas. These epitomise the aims of education and reflect the competences needed in all spheres of life. Competence is constructed of knowledge, skills, values and will. The transversal competences are... ICT competence..."",
+      ""classification"": ""currículo nacional"",
+      ""validation_status"": ""validado""
+    },
+    {
+      ""document_id"": ""DISC-C4B8BEF6-01__finlandia_new-national-core-curriculum-basic-education_2016.pdf"",
+      ""document"": ""DISC-C4B8BEF6-01__finlandia_new-national-core-curriculum-basic-education_2016.pdf"",
+      ""page"": ""1"",
+      ""original_excerpt"": ""Multidisciplinary learning modules are tools for integrating learning and for increasing the dialogue between different subjects."",
+      ""classification"": ""módulos de aprendizagem multidisciplinares"",
+      ""validation_status"": ""validado""
+    }
+  ],
+  ""evidence_classification"": ""currículo e competências"",
+  ""validation_status"": ""validado""
+}
+```",,candidate
+Q06,"Quais evidências curriculares estão relacionadas à dimensão cognitiva da Educação para a Cidadania Global da UNESCO, especialmente pensamento crítico, compreensão de questões locais e globais, interdependência e resolução de problemas?",finlandia,"```json
+{
+  ""question_id"": ""Q06"",
+  ""country"": ""finlandia"",
+  ""response"": ""As evidências curriculares relacionadas à dimensão cognitiva da Educação para a Cidadania Global incluem o desenvolvimento do pensamento crítico, compreensão de questões locais e globais, interdependência e resolução de problemas. O currículo enfatiza a importância de um ambiente de aprendizado versátil, o diálogo entre disciplinas e a participação ativa dos alunos, promovendo competências transversais como pensamento e aprendizado, competência cultural, e participação na construção de um futuro sustentável."",
+  ""evidence_ids"": [
+    {
+      ""document_id"": ""DISC-C4B8BEF6-01__finlandia_new-national-core-curriculum-basic-education_2016.pdf"",
+      ""page"": 1,
+      ""original_text"": ""The core curriculum describes seven transversal competence areas. These epitomise the aims of education and reflect the competences needed in all spheres of life. Competence is constructed of knowledge, skills, values and will."",
+      ""classification"": ""Evidência curricular"",
+      ""validation_status"": ""Validada""
+    },
+    {
+      ""document_id"": ""DISC-C4B8BEF6-01__finlandia_new-national-core-curriculum-basic-education_2016.pdf"",
+      ""page"": 2,
+      ""original_text"": ""Multidisciplinary learning modules are tools for integrating learning and for increasing the dialogue between different subjects."",
+      ""classification"": ""Evidência curricular"",
+      ""validation_status"": ""Validada""
+    },
+    {
+      ""document_id"": ""DISC-C4B8BEF6-01__finlandia_new-national-core-curriculum-basic-education_2016.pdf"",
+      ""page"": 1,
+      ""original_text"": ""The aim is that pupils will understand the relationship and interdependencies between different learning contents."",
+      ""classification"": ""Evidência curricular"",
+      ""validation_status"": ""Validada""
+    }
+  ],
+  ""evidence_classification"": ""Curricular"",
+  ""validation_status"": ""Validada""
+}
+```",,candidate

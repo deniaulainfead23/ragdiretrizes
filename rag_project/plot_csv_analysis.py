@@ -117,6 +117,6 @@ def generate(input_dir: str) -> None:
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='Gera gráficos a partir dos CSVs de análise.')
-    parser.add_argument('--input', default='corpus/analysis_output')
+    parser.add_argument('--input', default='dados_intermediarios/analise_lexical')
     args = parser.parse_args()
     generate(args.input)

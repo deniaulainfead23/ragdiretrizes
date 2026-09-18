@@ -85,8 +85,8 @@ def create_matrix(input_path: Path, output_path: Path) -> None:
 
 def main() -> None:
     parser = argparse.ArgumentParser(description='Gera uma matriz visual das respostas por país e pergunta.')
-    parser.add_argument('--input', default='analysis/consolidado/respostas_consolidadas.csv')
-    parser.add_argument('--output', default='analysis/consolidado/matriz_perguntas_paises.png')
+    parser.add_argument('--input', default='dados_derivados/analysis/consolidado/respostas_consolidadas.csv')
+    parser.add_argument('--output', default='dados_derivados/analysis/consolidado/matriz_perguntas_paises.png')
     args = parser.parse_args()
     create_matrix(Path(args.input), Path(args.output))
     print(args.output)

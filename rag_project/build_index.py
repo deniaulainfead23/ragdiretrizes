@@ -1,4 +1,4 @@
-"""Script para construir o índice vetorial a partir da pasta `corpus/`.
+"""Script para construir o índice vetorial a partir de `dados_brutos/corpus/`.
 
 Uso:
     python build_index.py --corpus ../corpus --out indexed
@@ -38,7 +38,6 @@ def infer_country_from_path(rel_path: str) -> str:
             "hong-kong": "Hong Kong",
             "irlanda": "Irlanda",
             "japao": "Japão",
-            "marrocos": "Marrocos",
             "nova-zelandia": "Nova Zelândia",
             "quenia": "Quênia",
             "reino-unido": "Reino Unido",

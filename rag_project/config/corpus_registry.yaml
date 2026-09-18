@@ -515,4 +515,4 @@ countries:
         file: uruguai_tecnologias-digitales_2023.pdf
         role: primary
         validation_status: pending_review
-        metadata_source: metadata/bibliographic_matrix.csv
+        metadata_source: dados_intermediarios/metadata/bibliographic_matrix.csv

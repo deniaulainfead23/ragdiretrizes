@@ -5,7 +5,7 @@ from pathlib import Path
 import pandas as pd
 
 ROOT = Path(__file__).resolve().parents[1]
-DEFAULT_RUN = ROOT / "analysis" / "official_run_20260912"
+DEFAULT_RUN = ROOT / "dados_derivados" / "analysis" / "official_run_20260912"
 
 COUNTRIES = [
     "africa-do-sul","australia","brasil","canada","chile","china",

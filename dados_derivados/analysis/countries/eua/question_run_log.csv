@@ -1,0 +1,3 @@
+run_id,question_id,country,timestamp,framework,category_id,question_version,status,number_of_hits
+eua-Q01-20260908T141238Z,Q01,eua,2026-09-08T14:12:38.901658+00:00,COMPUTING_AND_DIGITAL_EDUCATION,C01,2.0,executed,3
+eua-Q06-20260908T141245Z,Q06,eua,2026-09-08T14:12:45.835556+00:00,UNESCO_GCED_2015,F01,2.0,executed,2

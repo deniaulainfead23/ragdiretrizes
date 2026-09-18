@@ -1,0 +1,92 @@
+question_id,question_text,country,response,evidence_ids,validation_status
+Q01,Como cada país define e organiza as competências de Computação e Educação Digital em seus documentos curriculares?,irlanda,"```json
+{
+  ""question_id"": ""Q01"",
+  ""country"": ""irlanda"",
+  ""response"": ""Na Irlanda, as competências de Computação e Educação Digital são definidas e organizadas no currículo do Leaving Certificate. O currículo enfatiza o desenvolvimento de habilidades-chave, como pensamento crítico e criativo, comunicação e colaboração. Os alunos são incentivados a trabalhar em projetos colaborativos, desenvolver habilidades para resolver problemas e aplicar conhecimento em situações práticas. As competências são estruturadas em estratos que incluem conceitos principais como abstração, algoritmos, sistemas computacionais, dados e avaliação."",
+  ""evidence_ids"": [
+    {
+      ""document_id"": ""DISC-F5A6B3FE-01__irlanda_computer-science-curriculum-specification_2018.pdf"",
+      ""documento"": ""Curriculum Specification for Leaving Certificate Computer Science"",
+      ""página"": 20,
+      ""trecho_original"": ""Students are encouraged to develop the knowledge, skills, attitudes, and values that will enable them to become independent learners..."",
+      ""classificação"": ""Documentação Curricular"",
+      ""validation_status"": ""Validado""
+    },
+    {
+      ""document_id"": ""DISC-F5A6B3FE-01__irlanda_computer-science-curriculum-specification_2018.pdf"",
+      ""documento"": ""Curriculum Specification for Leaving Certificate Computer Science"",
+      ""página"": 12,
+      ""trecho_original"": ""The key skills of information processing; being personally effective; communicating; critical and creative thinking and working with others..."",
+      ""classificação"": ""Documentação Curricular"",
+      ""validation_status"": ""Validado""
+    },
+    {
+      ""document_id"": ""DISC-F5A6B3FE-01__irlanda_computer-science-curriculum-specification_2018.pdf"",
+      ""documento"": ""Curriculum Specification for Leaving Certificate Computer Science"",
+      ""página"": 21,
+      ""trecho_original"": ""The practices and principles of computer science describe the behaviours and ways of thinking..."",
+      ""classificação"": ""Documentação Curricular"",
+      ""validation_status"": ""Validado""
+    }
+  ],
+  ""evidence_classification"": ""Documentação Curricular"",
+  ""validation_status"": ""Validado""
+}
+```",,candidate
+Q06,"Quais evidências curriculares estão relacionadas à dimensão cognitiva da Educação para a Cidadania Global da UNESCO, especialmente pensamento crítico, compreensão de questões locais e globais, interdependência e resolução de problemas?",irlanda,"```json
+{
+  ""question_id"": ""Q06"",
+  ""country"": ""Irlanda"",
+  ""response"": {
+    ""pensamento_critico"": {
+      ""description"": ""O pensamento crítico é desenvolvido através da identificação, análise e desconstrução de problemas para explorar opções e resolver desafios."",
+      ""evidence"": ""Apart from computational thinking, students reflect critically on the forms of thinking and values that shape their own perceptions.""
+    },
+    ""compreensao"": {
+      ""description"": ""A compreensão de questões locais e globais é fomentada por meio da exploração do impacto das tecnologias nas sociedades e culturas."",
+      ""evidence"": ""Students will explore the role that adaptive technology can play in the lives of people with special needs.""
+    },
+    ""interdependencia"": {
+      ""description"": ""A interdependência é enfatizada ao discutir como a tecnologia influencia a vida pessoal e social."",
+      ""evidence"": ""Discuss the complex relationship between computing technologies and society including issues of ethics.""
+    },
+    ""resolucao_de_problemas"": {
+      ""description"": ""A resolução de problemas envolve a aplicação de habilidades de pensamento computacional para formular e avaliar soluções."",
+      ""evidence"": ""Use computational thinking to analyse problems, and to design, develop and evaluate solutions.""
+    }
+  },
+  ""evidence_ids"": [
+    {
+      ""document_id"": ""DISC-F5A6B3FE-01__irlanda_computer-science-curriculum-specification_2018.pdf"",
+      ""page"": 4,
+      ""original_excerpt"": ""Critical and creative thinking... and reach conclusions..."",
+      ""classification"": ""Relevant"",
+      ""validation_status"": ""Valid""
+    },
+    {
+      ""document_id"": ""DISC-F5A6B3FE-01__irlanda_computer-science-curriculum-specification_2018.pdf"",
+      ""page"": 5,
+      ""original_excerpt"": ""Students will explore the role that adaptive technology can play..."",
+      ""classification"": ""Relevant"",
+      ""validation_status"": ""Valid""
+    },
+    {
+      ""document_id"": ""DISC-F5A6B3FE-01__irlanda_computer-science-curriculum-specification_2018.pdf"",
+      ""page"": 6,
+      ""original_excerpt"": ""Discuss the complex relationship between computing technologies and society..."",
+      ""classification"": ""Relevant"",
+      ""validation_status"": ""Valid""
+    },
+    {
+      ""document_id"": ""DISC-F5A6B3FE-01__irlanda_computer-science-curriculum-specification_2018.pdf"",
+      ""page"": 4,
+      ""original_excerpt"": ""Use computational thinking to analyse problems..."",
+      ""classification"": ""Relevant"",
+      ""validation_status"": ""Valid""
+    }
+  ],
+  ""evidence_classification"": ""Relevant"",
+  ""validation_status"": ""Validated""
+}
+```",,candidate

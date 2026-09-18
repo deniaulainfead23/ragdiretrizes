@@ -1,0 +1,2 @@
+run_id,question_run_id,response_id,question_id,country,timestamp,framework,category_id,question_version,prompt_version,backend,status,number_of_evidences
+RUN_ESTONIA_20260912T042553Z,RUN_ESTONIA_20260912T042553Z_Q01,RESP_ESTONIA_Q01_20260912T042553Z,Q01,estonia,2026-09-12T04:26:06.454681+00:00,COMPUTING_AND_DIGITAL_EDUCATION,C01,3.0,rag-country-v3.1,openai,executed,2

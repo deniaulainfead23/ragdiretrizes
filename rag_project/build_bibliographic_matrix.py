@@ -22,7 +22,6 @@ def normalize_country_name(folder_name: str) -> str:
         'hong-kong': 'Hong Kong',
         'irlanda': 'Irlanda',
         'japao': 'Japão',
-        'marrocos': 'Marrocos',
         'nova-zelandia': 'Nova Zelândia',
         'quenia': 'Quênia',
         'reino-unido': 'Reino Unido',

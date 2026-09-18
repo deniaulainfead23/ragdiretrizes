@@ -4,9 +4,9 @@ import os
 
 from dotenv import load_dotenv
 
-from rag.query import rag_query
+from rag_project.rag.query import rag_query
 from rag_project.vector_backend import resolve_backend
-from openai_vector_store import cloud_rag_query
+from rag_project.openai_vector_store import cloud_rag_query
 
 
 def main(index_folder: str, question: str, openai_key: str = None, vector_store_id: str = None, backend: str | None = None):

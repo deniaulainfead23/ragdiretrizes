@@ -228,7 +228,7 @@ def analyze(input_path: str, output_dir: str, text_field: str = 'english_text', 
             for name in country_group_names
         ]
         write_rows(output / 'country_unesco_reference.csv', ['country', 'similarity_to_unesco'], reference_rows)
-    write_pisa_comparison(output, group_names, full_similarity, Path('corpus/pisa/pisa_2022_selection.csv'))
+    write_pisa_comparison(output, group_names, full_similarity, Path('dados_brutos/corpus/pisa/pisa_2022_selection.csv'))
     plot_pisa_comparison(output)
 
     country_rows = [row for row in country_group_rows if row['group'] != 'UNESCO']
@@ -267,8 +267,8 @@ def analyze(input_path: str, output_dir: str, text_field: str = 'english_text', 
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='Gera TF-IDF, similaridade e gráficos do dataset JSONL.')
-    parser.add_argument('--input', default='corpus/dataset_output/dataset_english.jsonl')
-    parser.add_argument('--out', default='corpus/analysis_output')
+    parser.add_argument('--input', default='dados_intermediarios/datasets/dataset_english.jsonl')
+    parser.add_argument('--out', default='dados_intermediarios/analise_lexical')
     parser.add_argument('--text-field', default='english_text', choices=['english_text', 'source_text'])
     parser.add_argument('--top-n', type=int, default=20)
     args = parser.parse_args()

@@ -1,0 +1,68 @@
+question_id,question_text,country,response,evidence_ids,validation_status
+Q01,Como cada país define e organiza as competências de Computação e Educação Digital em seus documentos curriculares?,suica,"```json
+{
+  ""question_id"": ""Q01"",
+  ""country"": ""suica"",
+  ""response"": ""A Suíça organiza as competências de Computação e Educação Digital em seus documentos curriculares de maneira a promover habilidades como a pesquisa, análise e criação de conteúdos digitais. É enfatizada a cidadania digital e a utilização responsável de tecnologias em diversos contextos educativos."",
+  ""evidence_ids"": [
+    {
+      ""document_id"": ""DISC-841BC3E5-01__en33_per_education numerique_suíça francófona — plan d’études romand, éducation numérique.pdf"",
+      ""pagina"": 5,
+      ""trecho_original"": ""Rechercher, analyser, évaluer l'information et créer des contenus médiatiques à l’aide d’outils adéquats, de manière citoyenne et responsable."",
+      ""classificacao"": ""Currículo"",
+      ""validation_status"": ""Validado""
+    },
+    {
+      ""document_id"": ""DISC-841BC3E5-01__en33_per_education numerique_suíça francófona — plan d’études romand, éducation numérique.pdf"",
+      ""pagina"": 7,
+      ""trecho_original"": ""Tous les domaines disciplinaires se prêtent à l'usage des outils numériques. ... utilise les médias de manière responsable et citoyenne."",
+      ""classificacao"": ""Currículo"",
+      ""validation_status"": ""Validado""
+    },
+    {
+      ""document_id"": ""DISC-841BC3E5-02__tecnologie-e-media-modello-di-competenza_cantão do ticino — piano di studio, tecnologie e media.pdf"",
+      ""pagina"": 2,
+      ""trecho_original"": ""Espazi naturali di esercizio e sviluppo di questa competenza nell’ambito delle discipline."",
+      ""classificacao"": ""Currículo"",
+      ""validation_status"": ""Validado""
+    }
+  ],
+  ""evidence_classification"": ""Currículo"",
+  ""validation_status"": ""Validado""
+}
+```",,candidate
+Q06,"Quais evidências curriculares estão relacionadas à dimensão cognitiva da Educação para a Cidadania Global da UNESCO, especialmente pensamento crítico, compreensão de questões locais e globais, interdependência e resolução de problemas?",suica,"```json
+{
+  ""question_id"": ""Q06"",
+  ""country"": ""suica"",
+  ""response"": ""As evidências curriculares relacionadas à dimensão cognitiva da Educação para a Cidadania Global da UNESCO incluem o desenvolvimento do pensamento crítico, análise de informações, uso responsável de tecnologias e a capacidade de resolver problemas em contextos locais e globais."",
+  ""evidence_ids"": [
+    {
+      ""document_id"": ""DISC-841BC3E5-01__en33_per_education numerique_suíça francófona — plan d’études romand, éducation numérique.pdf"",
+      ""document"": ""plan d’études romand, éducation numérique"",
+      ""page"": ""5"",
+      ""original_snippet"": ""Rechercher, analyser, évaluer l'information et créer des contenus médiatiques à l’aide d’outils adéquats, de manière citoyenne et responsable."",
+      ""classification"": ""evidência curricular"",
+      ""validation_status"": ""validada""
+    },
+    {
+      ""document_id"": ""DISC-841BC3E5-02__tecnologie-e-media-modello-di-competenza_cantão do ticino — piano di studio, tecnologie e media.pdf"",
+      ""document"": ""piano di studio, tecnologie e media"",
+      ""page"": ""3"",
+      ""original_snippet"": ""Uso consapevole delle tecnologie e media; sviluppo di un approccio critico mirato a una gestione consapevole dei contenuti della rete."",
+      ""classification"": ""evidência curricular"",
+      ""validation_status"": ""validada""
+    },
+    {
+      ""document_id"": ""DISC-841BC3E5-03__zh_de_modul_mi_suíça alemã — lehrplan 21, medien und informatik.pdf"",
+      ""document"": ""lehrplan 21, medien und informatik"",
+      ""page"": ""3"",
+      ""original_snippet"": ""Die Anwendungskompetenzen werden integriert in den Fachbereichen unterrichtet. Daher enthält der Modullehrplan dazu keinen eigenen Kompetenzaufbau."",
+      ""classification"": ""evidência curricular"",
+      ""validation_status"": ""validada""
+    }
+  ],
+  ""evidence_classification"": ""curricular"",
+  ""validation_status"": ""validada""
+}
+```",,candidate

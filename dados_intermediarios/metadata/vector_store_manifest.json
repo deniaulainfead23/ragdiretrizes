@@ -1,0 +1,7 @@
+{
+  "backend": "openai",
+  "vector_store_id": "vs_6aa4d08cc1948191bc425516c4087b85",
+  "model": "gpt-4o-mini",
+  "index_folder": "dados_intermediarios/processed + dados_intermediarios/processed_ocr",
+  "updated_at": "2026-09-12T04:22:00+00:00"
+}

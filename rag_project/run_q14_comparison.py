@@ -14,7 +14,7 @@ ROOT = Path(__file__).resolve().parents[1]
 
 DEFAULT_INPUT = (
     ROOT
-    / "analysis"
+    / "dados_derivados"
     / "official_run_20260912"
     / "comparison"
     / "q14_input.csv"
@@ -22,7 +22,7 @@ DEFAULT_INPUT = (
 
 DEFAULT_OUT = (
     ROOT
-    / "analysis"
+    / "dados_derivados"
     / "official_run_20260912"
     / "comparison"
 )

@@ -145,7 +145,7 @@ dados_intermediarios/analise_lexical/ # saídas de TF-IDF e indicadores
 dados_derivados/analysis/             # respostas RAG, matrizes e relatórios finais
 ```
 
-As pastas legadas `corpus/`, `metadata/`, `data/` e `analysis/` permanecem como aliases locais de compatibilidade para comandos e notebooks já existentes.
+Os caminhos legados na raiz (`corpus/`, `metadata/`, `data/` e `analysis/`) não fazem mais parte da versão atual. Use exclusivamente as três camadas acima.
 
 ## Estrutura planejada
 

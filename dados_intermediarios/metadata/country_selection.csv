@@ -1,0 +1,28 @@
+country,continent,pisa_year,pisa_score,pisa_band,official_curriculum_available,computing_or_digital_policy_available,geographical_representation,selection_reason,exception_reason,included
+Analysis_Output,international,,,,true,true,yes,intentional multi-criteria sampling for comparative curricular analysis,,true
+Austrália,international,,,,true,true,yes,intentional multi-criteria sampling for comparative curricular analysis,,true
+Brasil,international,,,,true,true,yes,intentional multi-criteria sampling for comparative curricular analysis,,true
+Canadá,international,,,,true,true,yes,intentional multi-criteria sampling for comparative curricular analysis,,true
+Chile,international,,,,true,true,yes,intentional multi-criteria sampling for comparative curricular analysis,,true
+China,international,,,,true,true,yes,intentional multi-criteria sampling for comparative curricular analysis,,true
+Coreia do Sul,international,,,,true,true,yes,intentional multi-criteria sampling for comparative curricular analysis,,true
+Dataset_Output,international,,,,true,true,yes,intentional multi-criteria sampling for comparative curricular analysis,,true
+Datasetmodelo,international,,,,true,true,yes,intentional multi-criteria sampling for comparative curricular analysis,,true
+Estados Unidos,international,,,,true,true,yes,intentional multi-criteria sampling for comparative curricular analysis,,true
+Estonia,international,,,,true,true,yes,intentional multi-criteria sampling for comparative curricular analysis,,true
+Finlândia,international,,,,true,true,yes,intentional multi-criteria sampling for comparative curricular analysis,,true
+Gana,international,,,,true,true,yes,intentional multi-criteria sampling for comparative curricular analysis,,true
+Hong Kong,international,,,,true,true,yes,intentional multi-criteria sampling for comparative curricular analysis,,true
+Irlanda,international,,,,true,true,yes,intentional multi-criteria sampling for comparative curricular analysis,,true
+Japão,international,,,,true,true,yes,intentional multi-criteria sampling for comparative curricular analysis,,true
+Nova Zelândia,international,,,,true,true,yes,intentional multi-criteria sampling for comparative curricular analysis,,true
+PISA_OECD_REFERENCE,international,,,,true,true,yes,intentional multi-criteria sampling for comparative curricular analysis,,true
+Quênia,international,,,,true,true,yes,intentional multi-criteria sampling for comparative curricular analysis,,true
+Reino Unido,international,,,,true,true,yes,intentional multi-criteria sampling for comparative curricular analysis,,true
+Ruanda,international,,,,true,true,yes,intentional multi-criteria sampling for comparative curricular analysis,,true
+Singapura,international,,,,true,true,yes,intentional multi-criteria sampling for comparative curricular analysis,,true
+Suíça,international,,,,true,true,yes,intentional multi-criteria sampling for comparative curricular analysis,,true
+Taiwan,international,,,,true,true,yes,intentional multi-criteria sampling for comparative curricular analysis,,true
+UNESCO_REFERENCE,international,,,,true,true,yes,intentional multi-criteria sampling for comparative curricular analysis,,true
+Uruguai,international,,,,true,true,yes,intentional multi-criteria sampling for comparative curricular analysis,,true
+África do Sul,international,,,,true,true,yes,intentional multi-criteria sampling for comparative curricular analysis,,true

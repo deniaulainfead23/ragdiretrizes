@@ -75,8 +75,8 @@ def consolidate(input_dir: Path, output_dir: Path) -> tuple[Path, Path]:
 
 def main() -> None:
     parser = argparse.ArgumentParser(description='Consolida respostas RAG por país e pergunta.')
-    parser.add_argument('--input', default='analysis/countries')
-    parser.add_argument('--output', default='analysis/consolidado')
+    parser.add_argument('--input', default='dados_derivados/analysis/countries')
+    parser.add_argument('--output', default='dados_derivados/analysis/consolidado')
     args = parser.parse_args()
     responses_path, evidence_path = consolidate(Path(args.input), Path(args.output))
     print(f'responses={responses_path}')

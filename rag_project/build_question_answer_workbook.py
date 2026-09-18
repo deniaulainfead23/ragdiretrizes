@@ -11,7 +11,7 @@ from rag_project.question_catalog import get_questions
 from rag_project.corpus_registry import load_registry
 
 
-def build_workbook(input_dir: str | Path = 'analysis/countries', output_path: str | Path = '02_perguntas_respostas.xlsx') -> Path:
+def build_workbook(input_dir: str | Path = 'dados_derivados/analysis/countries', output_path: str | Path = '02_perguntas_respostas.xlsx') -> Path:
     root = Path(input_dir)
     rows = []
     for path in sorted(root.glob('*/respostas.csv')):
@@ -70,7 +70,7 @@ def _country_code(country: str, countries: list[dict]) -> str:
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
-    parser.add_argument('--input', default='analysis/countries')
+    parser.add_argument('--input', default='dados_derivados/analysis/countries')
     parser.add_argument('--out', default='02_perguntas_respostas.xlsx')
     args = parser.parse_args()
     print(build_workbook(args.input, args.out))

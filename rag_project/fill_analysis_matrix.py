@@ -3,7 +3,7 @@ import pandas as pd
 from openpyxl import load_workbook
 
 ROOT = Path(__file__).resolve().parents[1]
-RUN = ROOT / "analysis" / "official_run_20260912"
+RUN = ROOT / "dados_derivados" / "analysis" / "official_run_20260912"
 QUESTIONS_DIR = RUN / "review_exports" / "questions"
 INPUT_XLSX = ROOT / "matriz_analise_rag_13x22_template.xlsx"
 OUTPUT_XLSX = RUN / "matriz_analise_rag_13x22_preenchida.xlsx"

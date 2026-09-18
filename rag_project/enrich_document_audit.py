@@ -1,9 +1,9 @@
 from pathlib import Path
 import pandas as pd
 
-INPUT = Path('metadata/auditoria/auditoria_corpus.csv')
-OUTPUT = Path('metadata/auditoria/auditoria_corpus_classificacao_ABCD.csv')
-SUMMARY = Path('metadata/auditoria/resumo_qualidade_documental_por_pais.csv')
+INPUT = Path('dados_intermediarios/metadata/auditoria/auditoria_corpus.csv')
+OUTPUT = Path('dados_intermediarios/metadata/auditoria/auditoria_corpus_classificacao_ABCD.csv')
+SUMMARY = Path('dados_intermediarios/metadata/auditoria/resumo_qualidade_documental_por_pais.csv')
 
 STRUCTURAL_FILES = {
     'brasil_referencial-saberes-digitais-docentes_2024.pdf',

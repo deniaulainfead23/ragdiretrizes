@@ -513,6 +513,8 @@ A UNESCO funciona como eixo internacional de referência; os countries nacionais
 
 O PISA 2022 é utilizado prioritariamente como critério de seleção e caracterização dos países, conforme o Quadro 2 desta dissertação. Ele não é tratado como currículo nem como medida direta de qualidade das políticas de Computação. O documento PISA foi organizado em grupo externo `PISA/OECD`, separado dos países e da UNESCO.
 
+Marrocos foi considerado na etapa de seleção por sua participação no PISA 2022, mas não integra o corpus nacional nem o RAG. A documentação curricular disponível não foi validada segundo os critérios de autoria institucional, disponibilidade integral e rastreabilidade adotados nesta pesquisa. Por essa razão, o país permanece registrado apenas nos artefatos de auditoria e nesta justificativa metodológica de exclusão.
+
 Essa distinção é necessária porque a UNESCO e o PISA cumprem funções diferentes. A UNESCO fornece uma linha de base normativa e formativa relacionada à cidadania global, ética, inclusão, direitos humanos e responsabilidade social. O PISA fornece dados comparativos de desempenho e contexto internacional. Os currículos nacionais constituem o objeto principal da análise.
 
 É metodologicamente possível investigar se países com maiores escores no PISA apresentam também maior proximidade textual com a UNESCO. Essa relação deve ser apresentada como associação exploratória, nunca como causalidade. O desempenho no PISA não demonstra que um currículo produziu determinado resultado, e a similaridade textual não mede implementação, aprendizagem ou qualidade pedagógica.

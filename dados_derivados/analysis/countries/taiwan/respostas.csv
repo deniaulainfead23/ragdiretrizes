@@ -1,0 +1,53 @@
+question_id,question_text,country,response,evidence_ids,validation_status
+Q01,Como cada país define e organiza as competências de Computação e Educação Digital em seus documentos curriculares?,taiwan,"```json
+{
+  ""question_id"": ""Q01"",
+  ""country"": ""taiwan"",
+  ""response"": ""Em Taiwan, a definição e organização das competências de Computação e Educação Digital nos documentos curriculares se concentram em uma abordagem integrada ao desenvolvimento de habilidades tecnológicas e do pensamento crítico. Os currículos são estruturados para preparar os alunos no uso efetivo da tecnologia e no desenvolvimento de uma mentalidade inovadora, além de enfatizar a importância da colaboração e da comunicação."",
+  ""evidence_ids"": [
+    {
+      ""document_id"": ""DISC-FD8711D3-01__taiwan_technology-domain-information-technology_2019.pdf"",
+      ""page"": ""3"",
+      ""excerpt"": ""能利用資訊科技與他人進行有效的互動。能主動關注人與科技、社會、環境的關係。能具備與人溝通、協調、合作的能力。"",
+      ""classification"": ""competência Comunicativa e Colaborativa"",
+      ""validation_status"": ""validado""
+    },
+    {
+      ""document_id"": ""DISC-FD8711D3-01__taiwan_technology-domain-information-technology_2019.pdf"",
+      ""page"": ""30"",
+      ""excerpt"": ""具備應用科技的知識與能力，有效規劃生涯發展。"",
+      ""classification"": ""competência Tecnológica"",
+      ""validation_status"": ""validado""
+    }
+  ],
+  ""evidence_classification"": ""curricular"",
+  ""validation_status"": ""validado""
+}
+```",,candidate
+Q06,"Quais evidências curriculares estão relacionadas à dimensão cognitiva da Educação para a Cidadania Global da UNESCO, especialmente pensamento crítico, compreensão de questões locais e globais, interdependência e resolução de problemas?",taiwan,"```json
+{
+  ""question_id"": ""Q06"",
+  ""country"": ""taiwan"",
+  ""response"": ""As evidências curriculares relacionadas à dimensão cognitiva da Educação para a Cidadania Global da UNESCO em Taiwan incluem o desenvolvimento do pensamento crítico, a compreensão de questões locais e globais, interdependência e resolução de problemas. Os currículos enfatizam a importância da análise crítica e da interdependência social, promovendo habilidades necessárias para resolver desafios contemporâneos."",
+  ""evidence_ids"": [
+    {
+      ""document_id"": ""taiwan_technology-domain-information-technology_2019.pdf"",
+      ""document"": ""DISC-FD8711D3-01__taiwan_technology-domain-information-technology_2019.pdf"",
+      ""page"": 3,
+      ""original_snippet"": ""具備問題理解、思辨分析、推理批判的系統思考與後設思考素養，並能行動與反思，以有效處理及解決生活、生命問題。"",
+      ""classification"": ""Evidência curricular sobre pensamento crítico e resolução de problemas."",
+      ""validation_status"": ""valid""
+    },
+    {
+      ""document_id"": ""taiwan_technology-domain-information-technology_2019.pdf"",
+      ""document"": ""DISC-FD8711D3-01__taiwan_technology-domain-information-technology_2019.pdf"",
+      ""page"": 5,
+      ""original_snippet"": ""探討國際人權議題，並負起全球公民的和平與永續發展責任。"",
+      ""classification"": ""Evidência curricular sobre interdependência e questões globais."",
+      ""validation_status"": ""valid""
+    }
+  ],
+  ""evidence_classification"": ""curricular evidence"",
+  ""validation_status"": ""validated""
+}
+```",,candidate

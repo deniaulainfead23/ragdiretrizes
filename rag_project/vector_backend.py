@@ -35,7 +35,7 @@ def resolve_backend(backend: str | None = None, api_key: str | None = None) -> s
 
 def default_manifest_path() -> Path:
     root = Path(__file__).resolve().parent.parent
-    return root / "metadata" / "vector_store_manifest.json"
+    return root / "dados_intermediarios" / "metadata" / "vector_store_manifest.json"
 
 
 def load_vector_backend_manifest(path: str | Path | None = None) -> dict[str, Any]:

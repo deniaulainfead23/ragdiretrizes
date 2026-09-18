@@ -86,8 +86,8 @@ if __name__ == '__main__':
     import argparse
 
     parser = argparse.ArgumentParser(description='Build a lightweight sensitivity report for the lexical analysis.')
-    parser.add_argument('--input-dir', default='corpus/analysis_output')
-    parser.add_argument('--output-dir', default='corpus/analysis_output')
+    parser.add_argument('--input-dir', default='dados_intermediarios/analise_lexical')
+    parser.add_argument('--output-dir', default='dados_intermediarios/analise_lexical')
     args = parser.parse_args()
     report = build_sensitivity_report(args.input_dir, args.output_dir)
     print(json.dumps(report, ensure_ascii=False, indent=2))

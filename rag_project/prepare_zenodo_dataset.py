@@ -14,11 +14,11 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / "zenodo_package"
-META = ROOT / "metadata" / "bibliographic_matrix.csv"
-MANIFEST = ROOT / "corpus" / "MANIFESTO.md"
-EVIDENCE = ROOT / "analysis" / "evidence" / "evidence_matrix.csv"
-LEXICAL = ROOT / "corpus" / "analysis_output"
-MODEL_XLSX = ROOT / "corpus" / "datasetModelo" / "dataset_comparativo_curriculos.xlsx"
+META = ROOT / "dados_intermediarios" / "metadata" / "bibliographic_matrix.csv"
+MANIFEST = ROOT / "dados_brutos" / "corpus" / "MANIFESTO.md"
+EVIDENCE = ROOT / "dados_derivados" / "analysis" / "evidence" / "evidence_matrix.csv"
+LEXICAL = ROOT / "dados_intermediarios" / "analise_lexical"
+MODEL_XLSX = ROOT / "dados_intermediarios" / "dataset_modelo" / "dataset_comparativo_curriculos.xlsx"
 
 LEXICAL_FILES = [
     "lexical_document_tfidf.csv",
@@ -273,7 +273,7 @@ def main() -> None:
 
     copy_if_exists(MODEL_XLSX, OUT / "comparative_dataset" / MODEL_XLSX.name)
     copy_if_exists(ROOT / "DOCUMENTACAO_METODOLOGICA.md", OUT / "methodology" / "methodology.md")
-    copy_if_exists(ROOT / "corpus" / "MANIFESTO.md", OUT / "methodology" / "provenance.md")
+    copy_if_exists(ROOT / "dados_brutos" / "corpus" / "MANIFESTO.md", OUT / "methodology" / "provenance.md")
     copy_if_exists(ROOT / "zenodo" / "CITATION.cff", OUT / "CITATION.cff")
     copy_if_exists(ROOT / "zenodo" / "LICENSE_DATA.txt", OUT / "LICENSE_DATA.txt")
     copy_if_exists(ROOT / "zenodo" / "data_dictionary.csv", OUT / "data_dictionary.csv")

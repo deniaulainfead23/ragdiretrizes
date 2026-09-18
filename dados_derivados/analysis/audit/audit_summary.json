@@ -1,0 +1,89 @@
+{
+  "catalog": {
+    "documents": 86,
+    "unique_document_ids": 86,
+    "missing_document_ids": 0,
+    "duplicate_document_ids": [],
+    "source_scope_counts": {
+      "international_reference": 7,
+      "national": 79
+    },
+    "audit_group_counts": {
+      "Grupo A": 61,
+      "Grupo B": 20,
+      "Grupo D": 2,
+      "Grupo C": 3
+    },
+    "scope_issues": []
+  },
+  "processed_texts": {
+    "manifest_rows": 86,
+    "released_documents": 86,
+    "catalog_documents": 86,
+    "missing_processed_files": [],
+    "duplicate_manifest_ids": [],
+    "audited_pages": 8099,
+    "page_status_counts": {
+      "OK": 7819,
+      "REVIEW_TEXT_QUALITY": 29,
+      "LOW_TEXT": 250,
+      "EMPTY": 1
+    },
+    "documents_with_review_pages": [
+      "AF-ZA-01",
+      "AF-ZA-02",
+      "AS-CN-02",
+      "BR_001",
+      "BR_002",
+      "BR_003",
+      "BR_004",
+      "BR_005",
+      "BR_006",
+      "BR_010",
+      "BR_016",
+      "CA_003",
+      "CH_002",
+      "CH_003",
+      "CL_001",
+      "CL_002",
+      "CL_003",
+      "CL_004",
+      "GH_001",
+      "GH_002",
+      "HK_001",
+      "HK_002",
+      "IE_001",
+      "JP_001",
+      "JP_002",
+      "KE_001",
+      "KE_002",
+      "KR_001",
+      "SG_009",
+      "SG_010",
+      "SG_014",
+      "SG_018",
+      "TW_001",
+      "UNESCO_001",
+      "UNESCO_002",
+      "UNESCO_003",
+      "UNESCO_004",
+      "UNESCO_005",
+      "UNESCO_006",
+      "US_001",
+      "UY_001",
+      "UY_002",
+      "UY_003"
+    ],
+    "page_report": "dados_derivados\\analysis\\audit\\processed_page_audit.csv"
+  },
+  "content_jsonl": {
+    "exists": true,
+    "path": "dados_intermediarios\\data\\conteudos.jsonl",
+    "records": 8099,
+    "unique_documents": 86,
+    "unique_content_ids": 8099,
+    "duplicate_content_ids": [],
+    "empty_source_text": 0,
+    "malformed_json_lines": []
+  }
+}

@@ -6,7 +6,7 @@ from dotenv import load_dotenv
 from openai import OpenAI
 
 ROOT = Path(__file__).resolve().parents[1]
-RUN = ROOT / "analysis" / "official_run_20260912"
+RUN = ROOT / "dados_derivados" / "analysis" / "official_run_20260912"
 INPUT = RUN / "comparison" / "q14_validated_input.csv"
 OUTPUT = RUN / "comparison" / "q14_validated_final.json"
 

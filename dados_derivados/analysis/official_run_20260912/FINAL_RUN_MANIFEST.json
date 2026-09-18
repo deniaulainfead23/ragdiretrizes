@@ -1,0 +1,14 @@
+{
+  "official_run": "official_run_20260912",
+  "countries": 22,
+  "expected_responses": 286,
+  "responses": 286,
+  "candidate": 283,
+  "inconclusive": 3,
+  "evidences": 626,
+  "q14_input_rows": 286,
+  "q14_thematic_rows": 13,
+  "q14_final_selected": "q14_final_v3.json",
+  "q14_final_valid": true,
+  "problems": []
+}

@@ -4,11 +4,11 @@ import unicodedata
 import pandas as pd
 
 from rag_project.corpus_registry import load_registry
+from rag_project.paths import CORPUS_DIR, METADATA_DIR
 
-ROOT = Path(__file__).resolve().parents[1]
-CORPUS = ROOT / "corpus"
-AUDIT = ROOT / "metadata" / "auditoria" / "auditoria_corpus_classificacao_ABCD.csv"
-OUTPUT = ROOT / "metadata" / "documentos.csv"
+CORPUS = CORPUS_DIR
+AUDIT = METADATA_DIR / "auditoria" / "auditoria_corpus_classificacao_ABCD.csv"
+OUTPUT = METADATA_DIR / "documentos.csv"
 
 
 def normalize(value: str) -> str:

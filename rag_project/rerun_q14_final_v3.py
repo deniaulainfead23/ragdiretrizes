@@ -10,7 +10,7 @@ ROOT = Path(__file__).resolve().parents[1]
 
 BASE = (
     ROOT
-    / "analysis"
+    / "dados_derivados"
     / "official_run_20260912"
     / "comparison"
 )
@@ -31,7 +31,7 @@ VALID_COUNTRIES = [
     "irlanda",
     "japao",
     "nova-zelandia",
-    "quenia",outfile = BASE / "q14_final_v3.json"outfile = BASE / "q14_final_v3.json"
+    "quenia",
     "reino-unido",
     "ruanda",
     "singapura",

@@ -1,0 +1,62 @@
+question_id,question_text,country,response,evidence_ids,validation_status
+Q01,Como cada país define e organiza as competências de Computação e Educação Digital em seus documentos curriculares?,coreia-do-sul,"```json
+{
+  ""question_id"": ""Q01"",
+  ""country"": ""coreia-do-sul"",
+  ""response"": ""A Coreia do Sul organiza suas competências de Computação e Educação Digital em seu currículo através da distribuição de materiais didáticos digitais e programas de educação de software. O currículo revisado de 2015 incluiu a educação em software para todas as escolas, destacando o uso de tecnologias digitais, como a realidade aumentada (AR) e a virtual (VR), para enriquecer os materiais de aprendizagem. Além disso, a formação contínua de professores e a adaptação de conteúdo às novas tecnologias são abordagens centrais para garantir que os alunos desenvolvam competências digitais eficazes."",
+  ""evidence_ids"": [
+    {
+      ""document_id"": ""DISC-CB3085AF-01__coreia-do-sul_keris-white-paper-software-education_2018.pdf"",
+      ""pagina"": 4,
+      ""trecho_original"": ""O Ministério da Educação distribuiu social, science and english digital textbooks... aplicação da educação de software a 1,351 escolas que compuseram cursos de informação para alunos de primeiro grau do ensino médio."",
+      ""classificacao"": ""evidência"",
+      ""validation_status"": ""validada""
+    },
+    {
+      ""document_id"": ""DISC-CB3085AF-01__coreia-do-sul_keris-white-paper-software-education_2018.pdf"",
+      ""pagina"": 6,
+      ""trecho_original"": ""A educação em software será aplicada a todos os alunos a partir do primeiro grau começando em 2018 e terminando em 2020, e para alunos do 5º e 6º ano do ensino fundamental, esse programa será aplicado em 2019."",
+      ""classificacao"": ""evidência"",
+      ""validation_status"": ""validada""
+    }
+  ],
+  ""evidence_classification"": ""curricular"",
+  ""validation_status"": ""validada""
+}
+```",,candidate
+Q06,"Quais evidências curriculares estão relacionadas à dimensão cognitiva da Educação para a Cidadania Global da UNESCO, especialmente pensamento crítico, compreensão de questões locais e globais, interdependência e resolução de problemas?",coreia-do-sul,"```json
+{
+  ""question_id"": ""Q06"",
+  ""country"": ""coreia-do-sul"",
+  ""response"": ""As evidências curriculares relacionadas à dimensão cognitiva da Educação para a Cidadania Global da UNESCO incluem a promoção da literacia mediática e a educação digital, que enfatizam o pensamento crítico, a compreensão das interdependências locais e globais, e o desenvolvimento de habilidades para a resolução de problemas. Por meio de simposições e projetos, busca-se fomentar a cidadania digital que prepara os alunos para serem cidadãos democráticos no ambiente digital."",
+  ""evidence_ids"": [
+    {
+      ""document_id"": ""DISC-CB3085AF-01__coreia-do-sul_keris-white-paper-software-education_2018.pdf"",
+      ""page"": 1,
+      ""original_text"": ""This symposium consisted of ‘International Strategies and Cases for Enhancing Media and Information Literacy’, ‘Exploration of Digital Citizenship in Intelligence Society’, ‘Roles of Media and Information Literacy for Cultivating Democratic Citizens’ and a comprehensive discussion."",
+      ""classification"": ""Evidência de programa educacional"",
+      ""validation_status"": ""Validada""
+    },
+    {
+      ""document_id"": ""DISC-CB3085AF-01__coreia-do-sul_keris-white-paper-software-education_2018.pdf"",
+      ""page"": 4,
+      ""original_text"": ""The third Master Plan of ICT in Education aimed to facilitate a u-Learning society and to build the talent powerhouse."",
+      ""classification"": ""Evidência de políticas educacionais"",
+      ""validation_status"": ""Validada""
+    },
+    {
+      ""document_id"": ""DISC-CB3085AF-01__coreia-do-sul_keris-white-paper-software-education_2018.pdf"",
+      ""page"": 5,
+      ""original_text"": ""Reinforced informatization support system of educational welfare about low-income brackets, handicapped person and Kosian for solving the gap between knowledge information and securing stability."",
+      ""classification"": ""Evidência de inclusão educativa"",
+      ""validation_status"": ""Validada""
+    }
+  ],
+  ""evidence_classification"": {
+    ""curricular"": ""Evidências relacionadas à educação e cidadania digital"",
+    ""policy"": ""Evidências de políticas nacionais para educação"",
+    ""inclusion"": ""Evidências de inclusão e suporte educacional""
+  },
+  ""validation_status"": ""Validada""
+}
+```",,candidate

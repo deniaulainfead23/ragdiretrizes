@@ -3,7 +3,7 @@ import json
 import pandas as pd
 
 ROOT = Path(__file__).resolve().parents[1]
-RUN = ROOT / "analysis" / "official_run_20260912"
+RUN = ROOT / "dados_derivados" / "analysis" / "official_run_20260912"
 OUT = RUN / "review_exports"
 QUESTIONS = [f"Q{i:02d}" for i in range(1, 14)]
 COUNTRIES = [

@@ -1,0 +1,53 @@
+question_id,question_text,country,response,evidence_ids,validation_status
+Q01,Como cada país define e organiza as competências de Computação e Educação Digital em seus documentos curriculares?,nova-zelandia,"```json
+{
+  ""question_id"": ""Q01"",
+  ""country"": ""nova-zelandia"",
+  ""response"": ""A Nova Zelândia organiza as competências de Computação e Educação Digital em seu currículo por meio de um modelo de aprendizagem que integra práticas tecnológicas, conhecimento tecnológico e a natureza da tecnologia. O currículo é estruturado com objetivos de aprendizado específicos para as áreas tecnológicas, incluindo tecnologias digitais e pensamento computacional. As escolas têm autonomia para desenvolver seus próprios currículos tecnológicos, promovendo a inter-relação entre as áreas de conhecimento e facilitando oportunidades de aprendizagem interdisciplinar. A implementação é baseada em planos estratégicos que priorizam a aprendizagem digital, compartilhando informações com a comunidade escolar e promovendo o desenvolvimento profissional contínuo dos professores."",
+  ""evidence_ids"": [
+    {
+      ""document_id"": ""DISC-0C95EF8C-01__nova-zelandia_dt-implementation-support-tool_2020.pdf"",
+      ""pagina"": 6,
+      ""trecho_original"": ""As escolas são exigidas a ter seu próprio currículo de Tecnologia. Os professores planejarão maneiras de vincular as áreas e procurar oportunidades de aprendizagem interdisciplinares."",
+      ""classificacao"": ""descritiva"",
+      ""validation_status"": ""confirmado""
+    },
+    {
+      ""document_id"": ""DISC-0C95EF8C-01__nova-zelandia_dt-implementation-support-tool_2020.pdf"",
+      ""pagina"": 5,
+      ""trecho_original"": ""A aprendizagem de tecnologias digitais é priorizada nos objetivos estratégicos e nos planos da escola, com um plano para avaliar o progresso."",
+      ""classificacao"": ""descritiva"",
+      ""validation_status"": ""confirmado""
+    }
+  ],
+  ""evidence_classification"": ""Curricular"",
+  ""validation_status"": ""validado""
+}
+```",,candidate
+Q06,"Quais evidências curriculares estão relacionadas à dimensão cognitiva da Educação para a Cidadania Global da UNESCO, especialmente pensamento crítico, compreensão de questões locais e globais, interdependência e resolução de problemas?",nova-zelandia,"```json
+{
+  ""question_id"": ""Q06"",
+  ""country"": ""nova-zelandia"",
+  ""response"": ""As evidências curriculares relacionadas à dimensão cognitiva da Educação para a Cidadania Global incluem o desenvolvimento do pensamento crítico, a compreensão de questões locais e globais, a interdependência e a resolução de problemas, promovendo um aprendizado ativo e a utilização de tecnologias digitais como parte do currículo."",
+  ""evidence_ids"": [
+    {
+      ""document_id"": ""DISC-0C95EF8C-01__nova-zelandia_dt-implementation-support-tool_2020.pdf"",
+      ""document"": ""DISC-0C95EF8C-01__nova-zelandia_dt-implementation-support-tool_2020.pdf"",
+      ""page"": 7,
+      ""original_excerpt"": ""Values... Community and participation; Ecological sustainability; Integrity; Respect."",
+      ""classification"": ""curricular evidence"",
+      ""validation_status"": ""validated""
+    },
+    {
+      ""document_id"": ""DISC-0C95EF8C-01__nova-zelandia_dt-implementation-support-tool_2020.pdf"",
+      ""document"": ""DISC-0C95EF8C-01__nova-zelandia_dt-implementation-support-tool_2020.pdf"",
+      ""page"": 11,
+      ""original_excerpt"": ""As the leadership team... found some pockets of learning that looked similar to the new curriculum content."",
+      ""classification"": ""curricular evidence"",
+      ""validation_status"": ""validated""
+    }
+  ],
+  ""evidence_classification"": ""curricular"",
+  ""validation_status"": ""validated""
+}
+```",,candidate

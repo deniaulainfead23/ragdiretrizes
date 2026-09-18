@@ -1,0 +1,24 @@
+country,continent,pisa_2022_aggregate,selection_criterion,source
+Singapura,Asia,1679,C1 + C2,OECD 2023 / Quadro 2
+Japao,Asia,1599,C1 + C2,OECD 2023 / Quadro 2
+Taiwan,Asia,1599,C1 + C2,OECD 2023 / Quadro 2
+Coreia do Sul,Asia,1570,C1 + C2,OECD 2023 / Quadro 2
+Hong Kong,Asia,1560,C1 + C2,OECD 2023 / Quadro 2
+Estonia,Europa,1547,C1 + C2,OECD 2023 / Quadro 2
+Irlanda,Europa,1512,C1 + C2,OECD 2023 / Quadro 2
+Canada,Americas,1519,C1 + C2,OECD 2023 / Quadro 2
+Suica,Europa,1494,C1 + C2,OECD 2023 / Quadro 2
+Australia,Oceania,1492,C1 + C2,OECD 2023 / Quadro 2
+Finlandia,Europa,1485,C1 + C2,OECD 2023 / Quadro 2
+Nova Zelandia,Oceania,1484,C1 + C2,OECD 2023 / Quadro 2
+Reino Unido,Europa,1483,C1 + C2,OECD 2023 / Quadro 2
+EUA,Americas,1468,C1 + C2,OECD 2023 / Quadro 2
+Chile,Americas,1280,C1 + C2,OECD 2023 / Quadro 2
+Uruguai,Americas,1220,C1 + C2,OECD 2023 / Quadro 2
+Brasil,Americas,1183,C1 + C2,OECD 2023 / Quadro 2
+Marrocos,Africa,1069,C1 + C2,OECD 2023 / Quadro 2
+Africa do Sul,Africa,,C2,OECD 2023 / Quadro 2
+Quenia,Africa,,C2,OECD 2023 / Quadro 2
+Ruanda,Africa,,C2,OECD 2023 / Quadro 2
+Gana,Africa,,C2,OECD 2023 / Quadro 2
+China,Asia,,C2,OECD 2023 / Quadro 2

@@ -1,0 +1,55 @@
+question_id,question_text,country,response,evidence_ids,validation_status
+Q01,Como cada país define e organiza as competências de Computação e Educação Digital em seus documentos curriculares?,reino-unido,"```json
+{
+  ""question_id"": ""Q01"",
+  ""country"": ""reino-unido"",
+  ""response"": ""No Reino Unido, as competências de Computação e Educação Digital são organizadas em diferentes estágios do currículo nacional. O currículo enfatiza o pensamento computacional e a criatividade, integrado a disciplinas como matemática, ciência e tecnologia. Os alunos são ensinados a compreender os princípios da ciência da computação e a utilizar a tecnologia da informação para criar programas e sistemas. Desde as etapas iniciais, eles devem aprender sobre algoritmos, programações simples e o uso responsável da tecnologia, culminando em uma educação que promove a literacia digital necessária para o futuro mercado de trabalho."",
+  ""evidence_ids"": [
+    {
+      ""document_id"": ""G9Ai49VZ7zkiqKHZgQLoNL"",
+      ""documento"": ""DISC-2F6D7FF6-01__reino-unido_computing-curriculum_ks1-ks2_2014.pdf"",
+      ""página"": 2,
+      ""trecho_original"": ""Pupils should be taught to: understand what algorithms are; how they are implemented as programs on digital devices; and that programs execute by following precise and unambiguous instructions..."",
+      ""classificação"": ""currículo"",
+      ""validation_status"": ""validado""
+    },
+    {
+      ""document_id"": ""EsrpgmqzVGeb9uYWdSynbi"",
+      ""documento"": ""DISC-2F6D7FF6-02__reino-unido_computing-curriculum_ks3-ks4_2014.pdf"",
+      ""página"": 2,
+      ""trecho_original"": ""A high-quality computing education equips pupils to use computational thinking and creativity to understand and change the world..."",
+      ""classificação"": ""currículo"",
+      ""validation_status"": ""validado""
+    }
+  ],
+  ""evidence_classification"": ""currículo"",
+  ""validation_status"": ""validado""
+}
+```",,candidate
+Q06,"Quais evidências curriculares estão relacionadas à dimensão cognitiva da Educação para a Cidadania Global da UNESCO, especialmente pensamento crítico, compreensão de questões locais e globais, interdependência e resolução de problemas?",reino-unido,"```json
+{
+  ""question_id"": ""Q06"",
+  ""country"": ""reino-unido"",
+  ""response"": ""As evidências curriculares relacionadas à dimensão cognitiva da Educação para a Cidadania Global da UNESCO incluem o desenvolvimento de habilidades de pensamento crítico, a compreensão de questões tanto locais quanto globais, e a resolução de problemas por meio do pensamento computacional. Os currículos de computação em todos os estágios enfatizam a importância da criatividade e do raciocínio lógico na análise de problemas e na criação de soluções."",
+  ""evidence_ids"": [
+    {
+      ""document_id"": ""DISC-2F6D7FF6-01__reino-unido_computing-curriculum_ks1-ks2_2014.pdf"",
+      ""documento"": ""DISC-2F6D7FF6-01__reino-unido_computing-curriculum_ks1-ks2_2014.pdf"",
+      ""pagina"": 2,
+      ""trecho_original"": ""Usar raciocínio lógico para prever o comportamento de programas simples e resolver problemas decomping-os em partes menores."",
+      ""classificacao"": ""Currículo"",
+      ""validation_status"": ""Validado""
+    },
+    {
+      ""document_id"": ""DISC-2F6D7FF6-02__reino-unido_computing-curriculum_ks3-ks4_2014.pdf"",
+      ""documento"": ""DISC-2F6D7FF6-02__reino-unido_computing-curriculum_ks3-ks4_2014.pdf"",
+      ""pagina"": 2,
+      ""trecho_original"": ""Desenvolver e aplicar habilidades de análise, resolução de problemas, design e pensamento computacional."",
+      ""classificacao"": ""Currículo"",
+      ""validation_status"": ""Validado""
+    }
+  ],
+  ""evidence_classification"": ""Educação"",
+  ""validation_status"": ""Validado""
+}
+```",,candidate
