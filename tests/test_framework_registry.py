@@ -20,6 +20,14 @@ def test_unesco_framework_has_expected_dimensions():
     assert any(d['code'] == 'BEH' for d in framework['dimensions'])
 
 
+def test_dlgf_framework_has_expected_areas():
+    framework = get_framework_by_id('UNESCO_DLGF_2018')
+    assert framework is not None
+    assert framework['version'] == '3.0'
+    codes = {d['code'] for d in framework['dimensions']}
+    assert {'0', '1', '2', '3', '4', '5', '6'} <= codes
+
+
 def test_computing_framework_has_expected_domains():
     framework = get_framework_by_id('COMPUTING_AND_DIGITAL_EDUCATION')
     assert framework is not None
@@ -46,6 +54,8 @@ def test_framework_exports_and_excluded_entities_are_ready():
     assert framework_dir.joinpath('unesco_framework.csv').exists()
     assert framework_dir.joinpath('computing_framework.csv').exists()
     assert 'UNESCO_GCED_2015' in outputs
+    assert 'UNESCO_DLGF_2018' in outputs
+    assert framework_dir.joinpath('unesco_dlgf_2018.csv').exists()
     assert 'COMPUTING_AND_DIGITAL_EDUCATION' in outputs
 
     excluded = load_excluded_entities()

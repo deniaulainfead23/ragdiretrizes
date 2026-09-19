@@ -62,6 +62,25 @@ _FRAMEWORKS: dict[str, dict[str, Any]] = {
         ],
         'notes': 'Framework analítico de referência para educação para a cidadania global.',
     },
+    'UNESCO_DLGF_2018': {
+        'framework_id': 'UNESCO_DLGF_2018',
+        'title': 'UNESCO/UIS Digital Literacy Global Framework (DLGF)',
+        'version': '3.0',
+        'source': 'UNESCO Institute for Statistics',
+        'dimensions': [
+            {'code': '0', 'name': 'Devices and software operations', 'keywords': ['devices', 'hardware', 'software operations', 'digital devices']},
+            {'code': '1', 'name': 'Information and data literacy', 'keywords': ['information literacy', 'data literacy', 'search', 'evaluate information', 'manage data']},
+            {'code': '2', 'name': 'Communication and collaboration', 'keywords': ['digital communication', 'digital collaboration', 'digital citizenship', 'netiquette', 'digital identity']},
+            {'code': '3', 'name': 'Digital content creation', 'keywords': ['digital content', 'copyright', 'licenses', 'programming']},
+            {'code': '4', 'name': 'Safety', 'keywords': ['digital safety', 'privacy', 'personal data', 'well-being', 'environmental impact']},
+            {'code': '5', 'name': 'Problem-solving', 'keywords': ['technical problems', 'technological responses', 'creative use', 'digital competence gaps', 'computational thinking']},
+            {'code': '6', 'name': 'Career-related competences', 'keywords': ['specialised digital technologies', 'specialized digital technologies', 'specialised data', 'specialized data']},
+        ],
+        'notes': (
+            'Referencial conceitual e analítico para competências/letramento digital. '
+            'Não é currículo nacional, não substitui UNESCO_GCED_2015 e não deve ser usado como ranking ou benchmark de qualidade curricular.'
+        ),
+    },
     'COMPUTING_AND_DIGITAL_EDUCATION': {
         'framework_id': 'COMPUTING_AND_DIGITAL_EDUCATION',
         'title': 'Computing and Digital Education',
@@ -157,6 +176,7 @@ def export_framework_csvs() -> dict[str, Path]:
     outputs: dict[str, Path] = {}
     alias_map = {
         'UNESCO_GCED_2015': 'unesco_framework.csv',
+        'UNESCO_DLGF_2018': 'unesco_dlgf_2018.csv',
         'COMPUTING_AND_DIGITAL_EDUCATION': 'computing_framework.csv',
         'UNESCO_FUTURES_2021': 'unesco_futures_framework.csv',
     }

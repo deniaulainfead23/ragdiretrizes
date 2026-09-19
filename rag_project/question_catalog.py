@@ -92,6 +92,7 @@ def validate_question(question: dict) -> None:
         'UNESCO_GCED_2015',
         'UNESCO_FUTURES_2021',
         'OECD_PISA',
+        'UNESCO_DLGF_2018',
     }
     if question.get('framework') not in allowed_frameworks:
         raise ValueError(

@@ -15,6 +15,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
+from scipy.sparse import csr_matrix, vstack as sparse_vstack
 
 STOP_WORDS = {
     'a', 'as', 'ao', 'aos', 'com', 'da', 'das', 'de', 'do', 'dos', 'e', 'em', 'na', 'nas', 'no', 'nos', 'o', 'os', 'para', 'por', 'que', 'um', 'uma',
@@ -41,6 +42,9 @@ def load_records(path: Path, text_field: str) -> list[dict]:
                     text = candidate
                     break
             if text:
+                if record.get('source_scope') == 'international_reference':
+                    source = str(record.get('framework_source', '')).lower()
+                    record['dataset_group'] = 'pisa' if 'pisa' in source or 'oecd' in source else 'unesco'
                 record['_text'] = text
                 records.append(record)
     if not records:
@@ -48,11 +52,27 @@ def load_records(path: Path, text_field: str) -> list[dict]:
     return records
 
 
+def aggregate_records(records: list[dict]) -> list[dict]:
+    """Combina chunks processados para evitar que documentos longos dominem o TF-IDF."""
+    grouped: dict[str, dict] = {}
+    for index, record in enumerate(records):
+        key = str(record.get('document_id') or record.get('document') or index)
+        current = grouped.get(key)
+        if current is None:
+            current = dict(record)
+            current['_text'] = ''
+            grouped[key] = current
+        current['_text'] += ('\n\n' if current['_text'] else '') + record['_text']
+    return list(grouped.values())
+
+
 def group_name(record: dict) -> str:
     if record.get('dataset_group') == 'unesco':
         return 'UNESCO'
     if record.get('dataset_group') == 'pisa':
         return 'PISA/OECD'
+    if record.get('source_scope') == 'international_reference':
+        return 'UNESCO' if 'unesco' in str(record.get('framework_source', '')).lower() else 'PISA/OECD'
     return record.get('country') or 'Sem país'
 
 
@@ -171,13 +191,19 @@ def plot_pisa_comparison(output: Path) -> None:
 
 
 def analyze(input_path: str, output_dir: str, text_field: str = 'english_text', top_n: int = 20) -> None:
-    records = [record for record in load_records(Path(input_path), text_field) if not is_excluded_country(record.get('country', ''))]
+    records = aggregate_records([
+        record for record in load_records(Path(input_path), text_field)
+        if not is_excluded_country(record.get('country', ''))
+    ])
     output = Path(output_dir)
     output.mkdir(parents=True, exist_ok=True)
 
-    document_names = [f"{record.get('country', '')}/{record.get('document', '')}" for record in records]
+    document_names = [
+        f"{group_name(record)}/{record.get('document_title') or record.get('document') or record.get('document_id', '')}"
+        for record in records
+    ]
     document_texts = [record['_text'] for record in records]
-    vectorizer = TfidfVectorizer(lowercase=True, strip_accents='unicode', ngram_range=(1, 2), min_df=2, max_df=0.98, max_features=10000, sublinear_tf=True, stop_words=sorted(STOP_WORDS), token_pattern=r'(?u)\b\w{3,}\b')
+    vectorizer = TfidfVectorizer(lowercase=True, strip_accents='unicode', ngram_range=(1, 2), min_df=2, max_df=0.98, max_features=10000, sublinear_tf=True, dtype=np.float32, stop_words=sorted(STOP_WORDS), token_pattern=r'(?u)\b\w{3,}\b')
     document_matrix = vectorizer.fit_transform(document_texts)
     terms = vectorizer.get_feature_names_out()
 
@@ -189,12 +215,15 @@ def analyze(input_path: str, output_dir: str, text_field: str = 'english_text', 
     write_rows(output / 'lexical_document_tfidf.csv', ['document', 'country', 'term', 'tfidf'], document_rows)
     write_rows(output / 'lexical_document_top_terms.csv', ['group', 'rank', 'term', 'tfidf'], top_terms(document_matrix, document_names, terms, top_n))
 
-    grouped_texts = defaultdict(list)
-    for record in records:
-        grouped_texts[group_name(record)].append(record['_text'])
-    group_names = sorted(grouped_texts)
+    grouped_indexes: dict[str, list[int]] = defaultdict(list)
+    for index, record in enumerate(records):
+        grouped_indexes[group_name(record)].append(index)
+    group_names = sorted(grouped_indexes)
     country_group_names = [name for name in group_names if name not in {'UNESCO', 'PISA/OECD'} and not is_excluded_country(name)]
-    country_group_matrix = vectorizer.transform(['\n'.join(grouped_texts[name]) for name in country_group_names])
+    country_group_matrix = sparse_vstack([
+        csr_matrix(document_matrix[grouped_indexes[name]].mean(axis=0))
+        for name in country_group_names
+    ])
     country_group_rows = []
     for row in top_terms(country_group_matrix, country_group_names, terms, top_n):
         country_group_rows.append(row)
@@ -212,7 +241,10 @@ def analyze(input_path: str, output_dir: str, text_field: str = 'english_text', 
         for name, row in zip(country_group_names, country_similarity):
             writer.writerow([name] + [round(float(value), 8) for value in row])
 
-    full_group_matrix = vectorizer.transform(['\n'.join(grouped_texts[name]) for name in group_names])
+    full_group_matrix = sparse_vstack([
+        csr_matrix(document_matrix[grouped_indexes[name]].mean(axis=0))
+        for name in group_names
+    ])
     full_similarity = cosine_similarity(full_group_matrix)
 
     if 'brasil' in country_group_names and 'UNESCO' in group_names:
@@ -259,7 +291,10 @@ def analyze(input_path: str, output_dir: str, text_field: str = 'english_text', 
         'benchmark_groups': [name for name in group_names if name not in country_group_names],
         'unesco_included': 'UNESCO' in group_names,
         'analysis_mode': 'exploratory_lexical',
-        'method_note': 'TF-IDF e similaridade são exploratórios e não equivalem a avaliação documental nem a alinhamento curricular.',
+        'method_note': (
+            'TF-IDF e similaridade são exploratórios e não equivalem a avaliação documental nem a alinhamento curricular. '
+            'A entrada usa chunks processados agregados por document_id; a similaridade de grupos usa a média dos vetores documentais.'
+        ),
     }
     (output / 'analysis_summary.json').write_text(json.dumps(summary, ensure_ascii=False, indent=2), encoding='utf-8')
     print(json.dumps(summary, ensure_ascii=False, indent=2))
@@ -267,9 +302,9 @@ def analyze(input_path: str, output_dir: str, text_field: str = 'english_text', 
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='Gera TF-IDF, similaridade e gráficos do dataset JSONL.')
-    parser.add_argument('--input', default='dados_intermediarios/datasets/dataset_english.jsonl')
+    parser.add_argument('--input', default='dados_intermediarios/data/conteudos.jsonl')
     parser.add_argument('--out', default='dados_intermediarios/analise_lexical')
-    parser.add_argument('--text-field', default='english_text', choices=['english_text', 'source_text'])
+    parser.add_argument('--text-field', default='source_text', choices=['english_text', 'source_text'])
     parser.add_argument('--top-n', type=int, default=20)
     args = parser.parse_args()
     analyze(args.input, args.out, args.text_field, args.top_n)

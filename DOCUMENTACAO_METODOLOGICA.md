@@ -209,7 +209,7 @@ Além disso, deve contemplar uma estrutura específica para a UNESCO, que atua c
 
 ### 6.2 Dois documentos UNESCO como base comparativa
 
-A pesquisa exige a presença de dois documentos UNESCO como referência comparativa principal. Esses documentos devem ser armazenados em uma categoria específica chamada UNESCO e usados como “benchmark” para contrastar com as diretrizes nacionais.
+A pesquisa exige a presença de dois documentos UNESCO como referência comparativa principal. Esses documentos devem ser armazenados em uma categoria específica chamada UNESCO e usados como referências internacionais de contraste analítico com as diretrizes nacionais, sem função de ranking ou padrão de qualidade curricular.
 
 Esses documentos devem ter:
 
@@ -420,7 +420,7 @@ O eixo UNESCO deve funcionar como uma linha de base internacional para a anális
 - colaboração global;
 - consciência crítica diante do ambiente digital.
 
-A UNESCO representa o eixo mais fortemente orientado para a formação do cidadão global e do futuro. Esse eixo é analiticamente central porque é o ponto de comparação para identificar o que os países incorporam ou não em seus currículos.
+A UNESCO é tratada em eixos analíticos distintos. O UNESCO_GCED_2015 sustenta a análise de cidadania global nas dimensões cognitiva, socioemocional e comportamental. O UNESCO_DLGF_2018, por sua vez, funciona como referencial conceitual e analítico para competências/letramento digital. Nenhum desses referenciais é utilizado como ranking, padrão de qualidade curricular ou medida direta de implementação.
 
 ---
 
@@ -565,3 +565,24 @@ As decisões computacionais desta pesquisa permanecem subordinadas às perguntas
 10. **Comunicação da incerteza:** falhas, dados ausentes, OCR e limitações de tradução são explicitados.
 
 Toda afirmação derivada de um procedimento computacional deverá indicar sua unidade de análise, seu parâmetro, sua limitação e a evidência documental correspondente.
+
+
+---
+
+## 19. Atualização metodológica: UNESCO/UIS Digital Literacy Global Framework 2018
+
+O documento *A Global Framework of Reference on Digital Literacy Skills for Indicator 4.4.2* (LAW; WOO; DE LA TORRE; WONG, 2018), publicado pelo UNESCO Institute for Statistics como Information Paper No. 51, passa a ser incorporado ao projeto como referencial principal para a dimensão de competências e letramento digital. Essa incorporação não substitui o framework `UNESCO_GCED_2015`, que permanece associado à Educação para a Cidadania Global e às dimensões cognitiva, socioemocional e comportamental.
+
+O DLGF é tratado como referencial conceitual e analítico, e não como currículo nacional, unidade-país, benchmark de qualidade ou instrumento de ranking. A proposta de 2018 parte do DigComp 2.0 e acrescenta áreas e competências resultantes de mapeamentos empíricos e consultas internacionais. Para a pesquisa, são consideradas as sete áreas propostas: operações de dispositivos e software; literacia da informação e de dados; comunicação e colaboração; criação de conteúdo digital; segurança; resolução de problemas; e competências relacionadas à carreira. A competência 5.5, pensamento computacional, é preservada como categoria própria dentro da área de resolução de problemas.
+
+### 19.1 Regra de integração com as evidências do RAG
+
+A integração do DLGF ocorre em uma etapa posterior à recuperação semântica. Os arquivos originais de respostas e evidências do RAG não são reescritos. Uma camada adicional de classificação recebe as evidências já consolidadas e procura correspondências com as áreas e competências do DLGF, mantendo `country`, `question_id`, `evidence_id`, `document_id`, página, trecho original, classificação prévia e status de validação.
+
+O procedimento segue uma abordagem de baixa inferência. Correspondências explícitas ou sustentadas por termos e descrições compatíveis podem ser classificadas como candidatas ou fortes; situações vagas permanecem inconclusivas ou não detectadas. A ausência de recuperação não é interpretada como ausência conceitual no currículo. De modo semelhante, a quantidade de evidências associadas a uma área não representa qualidade curricular, desempenho educacional ou grau de implementação.
+
+### 19.2 Artefatos reprodutíveis
+
+O framework operacional está registrado em `rag_project/framework/unesco_dlgf_2018.csv`. A nova pergunta analítica é a Q15 do catálogo `rag_project/questions/questions.yaml`. O script `rag_project/classify_dlgf_evidence.py` produz artefatos independentes em `analysis/dlgf_2018/`, preservando os arquivos históricos de `analysis/consolidado/`.
+
+A leitura dos resultados deve ser triangulada com a análise documental, os resultados lexicais e a interpretação da pesquisadora. O DLGF amplia a precisão conceitual da categoria “competências digitais”, enquanto o GCED preserva a dimensão de cidadania global, evitando que competência digital, pensamento computacional e cidadania sejam tratados como conceitos equivalentes.

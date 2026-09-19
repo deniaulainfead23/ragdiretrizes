@@ -1,4 +1,4 @@
-questions_version: 3.0
+questions_version: 3.1
 questions:
   - question_id: Q01
     title: Competências de Computação e Educação Digital
@@ -433,3 +433,40 @@ questions:
     requires_validated_evidence: true
     notes: Comparação internacional somente após validação das evidências.
     version: 3.0
+
+
+  - question_id: Q15
+    title: Competências e letramento digital segundo UNESCO/UIS DLGF 2018
+    question_text: Quais evidências curriculares podem ser classificadas, com baixa inferência e rastreabilidade documental, nas áreas e competências propostas pelo UNESCO/UIS Digital Literacy Global Framework de 2018?
+    question_type: analytical_classification
+    analysis_stage: post_retrieval_classification
+    framework: UNESCO_DLGF_2018
+    category_id: C15
+    target_scope: country
+    target_country: null
+    required_metadata:
+      - document_id
+      - country
+      - document_title
+      - page_start
+      - page_end
+      - chunk_id
+      - source_text
+      - evidence_id
+      - validation_status
+    expected_output:
+      - evidence_id
+      - evidence_text
+      - source
+      - dlgf_area_code
+      - dlgf_area_name
+      - dlgf_competence_code
+      - dlgf_competence_name
+      - correspondence
+      - validation_status
+    evidence_rule: Classificar somente evidências já recuperadas, preservando país, pergunta de origem, documento, página, trecho e status de validação. Usar correspondência explícita ou semanticamente justificável com as áreas e competências do DLGF.
+    exclusion_rule: Não inferir alinhamento por mera proximidade lexical vaga; não converter ausência de recuperação em ausência conceitual; não produzir ranking ou escore de qualidade curricular.
+    allow_cross_country_comparison: false
+    requires_validated_evidence: false
+    notes: Nova camada analítica. Não substitui Q01, Q11 ou Q14 e não altera respostas anteriores do RAG.
+    version: 3.1
