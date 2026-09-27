@@ -1,4 +1,6 @@
 import json
+import csv
+from types import SimpleNamespace
 
 from rag_project.build_dataset import build_bilingual_datasets
 
@@ -18,10 +20,19 @@ def test_build_bilingual_datasets_excludes_non_country_references(tmp_path):
     import rag_project.build_dataset as build_dataset_module
     original_loader = build_dataset_module.load_registry
     build_dataset_module.load_registry = lambda: original_loader(registry)
+    class FakeOpenAI:
+        def __init__(self, api_key):
+            self.chat = SimpleNamespace(completions=SimpleNamespace(create=lambda **kwargs: SimpleNamespace(
+                choices=[SimpleNamespace(message=SimpleNamespace(content='English translated curriculum text.'))]
+            )))
+
+    original_openai = build_dataset_module.OpenAI
+    build_dataset_module.OpenAI = FakeOpenAI
     try:
-        build_bilingual_datasets(str(root), str(out_dir), use_openai_translation=False)
+        build_bilingual_datasets(str(root), str(out_dir), openai_api_key='test-key', use_openai_translation=True)
     finally:
         build_dataset_module.load_registry = original_loader
+        build_dataset_module.OpenAI = original_openai
 
     original = out_dir / 'dataset_original.jsonl'
     assert original.exists()
@@ -41,5 +52,5 @@ def test_build_bilingual_datasets_excludes_non_country_references(tmp_path):
         report = list(csv.DictReader(handle))
     assert len(report) == 2
     assert all(row['record_status'] == 'included' for row in report)
-    assert all(row['translation_status'] == 'not_requested' for row in report)
+    assert {row['translation_status'] for row in report} == {'not_requested', 'translated'}
     assert all('source_text' not in row for row in report)
