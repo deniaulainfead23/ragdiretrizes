@@ -1,8 +1,10 @@
 from __future__ import annotations
 
 import argparse
+import csv
 import hashlib
 import json
+import os
 import re
 import sys
 from datetime import datetime, timezone
@@ -12,7 +14,7 @@ from rag_project.corpus_registry import EXCLUDED_COUNTRIES, load_registry, regis
 from rag_project.paths import CORPUS_DIR, INTERMEDIATE_DATA_DIR
 
 
-PIPELINE_VERSION = "1.0.0"
+PIPELINE_VERSION = "1.2.0"
 ELIGIBLE_EXTENSIONS = {".pdf", ".html", ".htm", ".txt"}
 INVALID_FILE_TOKENS = ("falha", "indisponivel", "downloads_log", "readme", "segunda_tentativa")
 REGISTRY_PATH = Path(__file__).resolve().parent / "config" / "corpus_registry.yaml"
@@ -180,6 +182,122 @@ def build_page_dataset(corpus_root: Path, output_path: Path, registry: dict) -> 
     }
 
 
+def _translation_segments(text: str, max_chars: int = 1200) -> list[str]:
+    """Split source text into paragraph-aware units with an original-text crosswalk."""
+    segments: list[str] = []
+    current = ""
+    for paragraph in re.split(r"\n\s*\n", text.strip()):
+        paragraph = paragraph.strip()
+        while len(paragraph) > max_chars:
+            cut = paragraph.rfind(" ", 0, max_chars)
+            cut = cut if cut > max_chars // 2 else max_chars
+            part, paragraph = paragraph[:cut].strip(), paragraph[cut:].strip()
+            if current:
+                segments.append(current)
+                current = ""
+            if part:
+                segments.append(part)
+        if not paragraph:
+            continue
+        if current and len(current) + len(paragraph) + 2 > max_chars:
+            segments.append(current)
+            current = paragraph
+        else:
+            current = f"{current}\n\n{paragraph}".strip()
+    if current:
+        segments.append(current)
+    return segments
+
+
+def build_english_page_dataset(
+    source_dataset: Path,
+    output_dataset: Path,
+    api_key: str,
+    cache_path: Path,
+    translator=None,
+) -> dict:
+    """Translate every source page into English while retaining an original-text crosswalk."""
+    if not api_key and translator is None:
+        raise ValueError("OPENAI_API_KEY é necessária para gerar o dataset integral em inglês.")
+    if translator is None:
+        try:
+            from openai import OpenAI
+        except ImportError as exc:
+            raise RuntimeError("Instale a dependência openai para traduzir o corpus.") from exc
+        client = OpenAI(api_key=api_key)
+
+        def translator(value: str) -> str:
+            response = client.chat.completions.create(
+                model="gpt-4o-mini",
+                messages=[
+                    {"role": "system", "content": "Translate educational policy text to English faithfully. Preserve technical terms, numbering, and meaning. Do not summarize."},
+                    {"role": "user", "content": value},
+                ],
+                temperature=0.0,
+                max_tokens=2200,
+            )
+            return (response.choices[0].message.content or "").strip()
+
+    cache_path.parent.mkdir(parents=True, exist_ok=True)
+    try:
+        cache = json.loads(cache_path.read_text(encoding="utf-8")) if cache_path.exists() else {}
+    except json.JSONDecodeError:
+        cache = {}
+    output_dataset.parent.mkdir(parents=True, exist_ok=True)
+    temporary_path = output_dataset.with_suffix(output_dataset.suffix + ".tmp")
+    report_rows = []
+    page_count = 0
+    segment_count = 0
+    with source_dataset.open("r", encoding="utf-8") as source, temporary_path.open("w", encoding="utf-8", newline="\n") as target:
+        for line_number, line in enumerate(source, start=1):
+            if not line.strip():
+                continue
+            page = json.loads(line)
+            page_count += 1
+            original = str(page.get("source_text", "")).strip()
+            segments = _translation_segments(original)
+            for segment_index, segment in enumerate(segments, start=1):
+                cache_key = hashlib.sha256(f"translation-v1:{segment}".encode("utf-8")).hexdigest()
+                english = cache.get(cache_key)
+                if not english:
+                    english = translator(segment)
+                    if not english.strip():
+                        raise ValueError(f"Tradução vazia na linha {line_number}, segmento {segment_index}.")
+                    cache[cache_key] = english
+                    cache_path.write_text(json.dumps(cache, ensure_ascii=False, indent=2), encoding="utf-8")
+                record = dict(page)
+                record.update({
+                    "content_id": f"{page['content_id']}_en{segment_index:04d}",
+                    "chunk_id": f"{page['content_id']}_en{segment_index:04d}",
+                    "page_content_id": page["content_id"],
+                    "source_text": english,
+                    "english_text": english,
+                    "original_text": segment,
+                    "translation_status": "translated",
+                    "language": "en",
+                    "original_language": page.get("language", "") or "undetermined",
+                })
+                target.write(json.dumps(record, ensure_ascii=False).replace("\u2028", "\\u2028").replace("\u2029", "\\u2029") + "\n")
+                segment_count += 1
+                report_rows.append({
+                    "document_id": page.get("document_id", ""),
+                    "country": page.get("country", ""),
+                    "page": page.get("page_start", ""),
+                    "segment": segment_index,
+                    "original_chars": len(segment),
+                    "english_chars": len(english),
+                    "translation_status": "translated",
+                })
+    temporary_path.replace(output_dataset)
+    report_path = output_dataset.with_name("english_translation_report.csv")
+    with report_path.open("w", encoding="utf-8-sig", newline="") as handle:
+        fields = ["document_id", "country", "page", "segment", "original_chars", "english_chars", "translation_status"]
+        writer = csv.DictWriter(handle, fieldnames=fields)
+        writer.writeheader()
+        writer.writerows(report_rows)
+    return {"source_pages": page_count, "english_segments": segment_count, "report_path": str(report_path), "cache_path": str(cache_path)}
+
+
 def run(corpus_root: Path, output_root: Path, run_id: str, build_outputs: bool) -> int:
     if not re.fullmatch(r"[A-Za-z0-9_.-]+", run_id):
         raise ValueError("run-id aceita apenas letras, números, ponto, hífen e underscore")
@@ -240,20 +358,45 @@ def run(corpus_root: Path, output_root: Path, run_id: str, build_outputs: bool) 
         print("Pré-verificação concluída. Nenhum dataset ou índice foi construído.")
         return 0
 
+    api_key = os.environ.get("OPENAI_API_KEY", "").strip()
+    if not api_key:
+        try:
+            from dotenv import load_dotenv
+            load_dotenv(Path(__file__).resolve().parent / ".env")
+            api_key = os.environ.get("OPENAI_API_KEY", "").strip()
+        except ImportError:
+            pass
+    if not api_key:
+        manifest["status"] = "build_failed"
+        manifest["errors"].append({"stage": "translation_preflight", "error_type": "MissingOpenAIAPIKey", "message": "Configure OPENAI_API_KEY para gerar o dataset integral em inglês."})
+        write_manifest(manifest_path, manifest)
+        print("Construção interrompida: configure OPENAI_API_KEY para gerar a versão em inglês do dataset.")
+        return 2
+
     dataset_dir = run_dir / "datasets"
     index_dir = run_dir / "index"
-    content_dataset_path = dataset_dir / "dataset_pages.jsonl"
+    original_dataset_path = dataset_dir / "dataset_original_pages.jsonl"
+    english_dataset_path = dataset_dir / "dataset_english_pages.jsonl"
     manifest["status"] = "building"
     write_manifest(manifest_path, manifest)
     try:
         from rag_project.build_index import build_from_dataset
 
-        dataset_report = build_page_dataset(corpus_root, content_dataset_path, registry)
-        index_report = build_from_dataset(str(content_dataset_path), str(index_dir))
+        dataset_report = build_page_dataset(corpus_root, original_dataset_path, registry)
+        translation_report = build_english_page_dataset(
+            original_dataset_path, english_dataset_path, api_key,
+            dataset_dir / "translation_cache.json",
+        )
+        index_report = build_from_dataset(str(english_dataset_path), str(index_dir))
         manifest["outputs"] = {
-            "dataset_pages": {
-                "path": str(content_dataset_path),
-                "sha256": sha256_file(content_dataset_path),
+            "dataset_original_pages": {
+                "path": str(original_dataset_path),
+                "sha256": sha256_file(original_dataset_path),
+            },
+            "dataset_english_pages": {
+                "path": str(english_dataset_path),
+                "sha256": sha256_file(english_dataset_path),
+                "translation_report": translation_report,
             },
             "dataset_build_report": {
                 "path": dataset_report["report_path"],
