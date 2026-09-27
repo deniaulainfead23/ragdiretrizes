@@ -25,6 +25,8 @@ STOP_WORDS = {
     'del', 'los', 'las', 'una', 'para', 'por', 'con', 'que',
 }
 EXCLUDED_COUNTRY_GROUPS = {'marrocos'}
+DLGF_FRAMEWORK_CSV = Path(__file__).resolve().parent / 'framework' / 'unesco_dlgf_2018.csv'
+DLGF_GROUP_NAME = 'UNESCO DLGF 2018'
 
 
 def load_records(path: Path, text_field: str) -> list[dict]:
@@ -42,9 +44,6 @@ def load_records(path: Path, text_field: str) -> list[dict]:
                     text = candidate
                     break
             if text:
-                if record.get('source_scope') == 'international_reference':
-                    source = str(record.get('framework_source', '')).lower()
-                    record['dataset_group'] = 'pisa' if 'pisa' in source or 'oecd' in source else 'unesco'
                 record['_text'] = text
                 records.append(record)
     if not records:
@@ -67,13 +66,36 @@ def aggregate_records(records: list[dict]) -> list[dict]:
 
 
 def group_name(record: dict) -> str:
-    if record.get('dataset_group') == 'unesco':
-        return 'UNESCO'
-    if record.get('dataset_group') == 'pisa':
-        return 'PISA/OECD'
+    if record.get('dataset_group') == 'unesco_dlgf_2018':
+        return DLGF_GROUP_NAME
     if record.get('source_scope') == 'international_reference':
-        return 'UNESCO' if 'unesco' in str(record.get('framework_source', '')).lower() else 'PISA/OECD'
+        return DLGF_GROUP_NAME if str(record.get('framework_source', '')).upper() == 'DLGF_2018' else 'International reference (excluded)'
     return record.get('country') or 'Sem país'
+
+
+def load_dlgf_records(path: Path = DLGF_FRAMEWORK_CSV) -> list[dict]:
+    """Representa cada uma das sete áreas do DLGF 2018 como referência lexical."""
+    with path.open('r', encoding='utf-8-sig', newline='') as handle:
+        areas = list(csv.DictReader(handle))
+    records = []
+    for area in areas:
+        code = str(area.get('code', '')).strip()
+        name = str(area.get('name', '')).strip()
+        keywords = [term.strip() for term in str(area.get('keywords', '')).split(';') if term.strip()]
+        records.append({
+            'document_id': f'DLGF_2018_AREA_{code}',
+            'document_title': name,
+            'country': '',
+            'dataset_group': 'unesco_dlgf_2018',
+            'source_scope': 'international_reference',
+            'framework_source': 'DLGF_2018',
+            'area_code': code,
+            'area_name': name,
+            '_text': ' '.join([name, *keywords]),
+        })
+    if len(records) != 7:
+        raise ValueError(f'O arquivo DLGF 2018 deve conter sete áreas; encontradas {len(records)} em {path}')
+    return records
 
 
 def is_excluded_country(name: str) -> bool:
@@ -149,52 +171,13 @@ def plot_heatmap(similarity: np.ndarray, names: list[str], output: Path) -> None
     plt.close(fig)
 
 
-def write_pisa_comparison(output: Path, group_names: list[str], similarity: np.ndarray, pisa_path: Path) -> None:
-    if not pisa_path.exists() or 'UNESCO' not in group_names:
-        return
-    pisa_rows = list(csv.DictReader(pisa_path.open(encoding='utf-8', newline='')))
-    unesco_index = group_names.index('UNESCO')
-    similarity_by_group = {normalized_country_name(name): float(similarity[index, unesco_index]) for index, name in enumerate(group_names) if name not in {'UNESCO', 'PISA/OECD'} and not is_excluded_country(name)}
-    rows = []
-    for row in pisa_rows:
-        country = row['country']
-        if is_excluded_country(country):
-            continue
-        group = normalized_country_name(country)
-        rows.append({
-            'country': country,
-            'continent': row['continent'],
-            'pisa_2022_aggregate': row['pisa_2022_aggregate'],
-            'similarity_to_unesco': round(similarity_by_group.get(group, float('nan')), 8),
-            'selection_criterion': row['selection_criterion'],
-        })
-    write_rows(output / 'pisa_unesco_comparison.csv', ['country', 'continent', 'pisa_2022_aggregate', 'similarity_to_unesco', 'selection_criterion'], rows)
-
-
-def plot_pisa_comparison(output: Path) -> None:
-    path = output / 'pisa_unesco_comparison.csv'
-    rows = list(csv.DictReader(path.open(encoding='utf-8', newline=''))) if path.exists() else []
-    points = [(float(row['pisa_2022_aggregate']), float(row['similarity_to_unesco']), row['country']) for row in rows if row['pisa_2022_aggregate'] and row['similarity_to_unesco'] not in {'', 'nan'}]
-    if not points:
-        return
-    x, y, labels = zip(*points)
-    fig, axis = plt.subplots(figsize=(10, 7))
-    axis.scatter(x, y, color='#c24b36', alpha=0.85)
-    for point_x, point_y, label in points:
-        axis.annotate(label, (point_x, point_y), fontsize=8, xytext=(4, 4), textcoords='offset points')
-    axis.set_title('PISA 2022 e proximidade textual com UNESCO')
-    axis.set_xlabel('Escore agregado informado no Quadro 2')
-    axis.set_ylabel('Similaridade cosseno com UNESCO')
-    fig.tight_layout()
-    fig.savefig(output / 'pisa_vs_unesco_similarity.png', dpi=180)
-    plt.close(fig)
-
-
 def analyze(input_path: str, output_dir: str, text_field: str = 'english_text', top_n: int = 20) -> None:
-    records = aggregate_records([
+    country_records = [
         record for record in load_records(Path(input_path), text_field)
-        if not is_excluded_country(record.get('country', ''))
-    ])
+        if record.get('country') and not is_excluded_country(record.get('country', ''))
+        and record.get('source_scope', 'national') != 'international_reference'
+    ]
+    records = aggregate_records(country_records + load_dlgf_records())
     output = Path(output_dir)
     output.mkdir(parents=True, exist_ok=True)
 
@@ -203,8 +186,16 @@ def analyze(input_path: str, output_dir: str, text_field: str = 'english_text', 
         for record in records
     ]
     document_texts = [record['_text'] for record in records]
-    vectorizer = TfidfVectorizer(lowercase=True, strip_accents='unicode', ngram_range=(1, 2), min_df=2, max_df=0.98, max_features=10000, sublinear_tf=True, dtype=np.float32, stop_words=sorted(STOP_WORDS), token_pattern=r'(?u)\b\w{3,}\b')
-    document_matrix = vectorizer.fit_transform(document_texts)
+    vectorizer_args = dict(lowercase=True, strip_accents='unicode', ngram_range=(1, 2), min_df=2, max_df=0.98, max_features=10000, sublinear_tf=True, dtype=np.float32, stop_words=sorted(STOP_WORDS), token_pattern=r'(?u)\b\w{3,}\b')
+    vectorizer = TfidfVectorizer(**vectorizer_args)
+    try:
+        document_matrix = vectorizer.fit_transform(document_texts)
+    except ValueError as exc:
+        if 'empty vocabulary' not in str(exc).lower() and 'no terms remain' not in str(exc).lower():
+            raise
+        vectorizer_args.update(min_df=1, max_df=1.0)
+        vectorizer = TfidfVectorizer(**vectorizer_args)
+        document_matrix = vectorizer.fit_transform(document_texts)
     terms = vectorizer.get_feature_names_out()
 
     document_rows = []
@@ -219,7 +210,7 @@ def analyze(input_path: str, output_dir: str, text_field: str = 'english_text', 
     for index, record in enumerate(records):
         grouped_indexes[group_name(record)].append(index)
     group_names = sorted(grouped_indexes)
-    country_group_names = [name for name in group_names if name not in {'UNESCO', 'PISA/OECD'} and not is_excluded_country(name)]
+    country_group_names = [name for name in group_names if name != DLGF_GROUP_NAME and not is_excluded_country(name)]
     country_group_matrix = sparse_vstack([
         csr_matrix(document_matrix[grouped_indexes[name]].mean(axis=0))
         for name in country_group_names
@@ -241,29 +232,48 @@ def analyze(input_path: str, output_dir: str, text_field: str = 'english_text', 
         for name, row in zip(country_group_names, country_similarity):
             writer.writerow([name] + [round(float(value), 8) for value in row])
 
-    full_group_matrix = sparse_vstack([
-        csr_matrix(document_matrix[grouped_indexes[name]].mean(axis=0))
-        for name in group_names
-    ])
-    full_similarity = cosine_similarity(full_group_matrix)
+    dlgf_records = load_dlgf_records()
+    dlgf_doc_rows = {
+        str(records[index].get('document_id')): index
+        for index in range(len(records))
+        if records[index].get('dataset_group') == 'unesco_dlgf_2018'
+    }
+    dlgf_rows = []
+    country_area_matrix = []
+    for country in country_group_names:
+        country_vector = csr_matrix(document_matrix[grouped_indexes[country]].mean(axis=0))
+        area_scores = {'country': country}
+        for area in dlgf_records:
+            area_index = dlgf_doc_rows[area['document_id']]
+            similarity = float(cosine_similarity(country_vector, document_matrix[area_index])[0, 0])
+            dlgf_rows.append({
+                'country': country,
+                'framework_id': 'DLGF_2018',
+                'area_code': area['area_code'],
+                'area_name': area['area_name'],
+                'lexical_similarity': round(similarity, 8),
+                'interpretation_limit': 'Pista exploratória de vocabulário; não prova equivalência nem adesão curricular.',
+            })
+            area_scores[f"area_{area['area_code']}"] = round(similarity, 8)
+        country_area_matrix.append(area_scores)
+    write_rows(output / 'country_dlgf_area_similarity.csv',
+               ['country', 'framework_id', 'area_code', 'area_name', 'lexical_similarity', 'interpretation_limit'], dlgf_rows)
+    write_rows(output / 'country_dlgf_area_similarity_matrix.csv',
+               ['country'] + [f'area_{code}' for code in range(7)], country_area_matrix)
+    if country_area_matrix:
+        area_columns = [f'area_{code}' for code in range(7)]
+        heatmap = np.array([[row[column] for column in area_columns] for row in country_area_matrix], dtype=float)
+        fig, axis = plt.subplots(figsize=(12, max(5, len(country_area_matrix) * 0.42)))
+        image = axis.imshow(heatmap, cmap='YlGnBu', vmin=0, vmax=1, aspect='auto')
+        axis.set_xticks(range(7), [f"Área {area['area_code']}\n{area['area_name']}" for area in dlgf_records], fontsize=8)
+        axis.set_yticks(range(len(country_area_matrix)), [row['country'] for row in country_area_matrix], fontsize=8)
+        axis.set_title('Proximidade lexical exploratória com as áreas do UNESCO DLGF 2018')
+        fig.colorbar(image, ax=axis, label='Similaridade cosseno TF-IDF')
+        fig.tight_layout()
+        fig.savefig(output / 'country_dlgf_area_similarity_heatmap.png', dpi=180)
+        plt.close(fig)
 
-    if 'brasil' in country_group_names and 'UNESCO' in group_names:
-        unesco_index = group_names.index('UNESCO')
-        ranking = []
-        for index, name in enumerate(country_group_names):
-            country_index = group_names.index(name)
-            ranking.append({'country': name, 'similarity_to_unesco': round(float(full_similarity[country_index, unesco_index]), 8), 'similarity_to_brazil': round(float(country_similarity[index, country_group_names.index('brasil')]), 8)})
-        ranking.sort(key=lambda row: row['similarity_to_unesco'], reverse=True)
-        write_rows(output / 'lexical_country_similarity_ranking.csv', ['country', 'similarity_to_unesco', 'similarity_to_brazil'], ranking)
-        reference_rows = [
-            {'country': name, 'similarity_to_unesco': round(float(full_similarity[group_names.index(name), unesco_index]), 8)}
-            for name in country_group_names
-        ]
-        write_rows(output / 'country_unesco_reference.csv', ['country', 'similarity_to_unesco'], reference_rows)
-    write_pisa_comparison(output, group_names, full_similarity, Path('dados_brutos/corpus/pisa/pisa_2022_selection.csv'))
-    plot_pisa_comparison(output)
-
-    country_rows = [row for row in country_group_rows if row['group'] != 'UNESCO']
+    country_rows = [row for row in country_group_rows if row['group'] != DLGF_GROUP_NAME]
     plot_top_terms(country_rows, output / 'lexical_top_terms_groups.png')
     plot_heatmap(country_similarity, country_group_names, output / 'lexical_group_similarity_heatmap.png')
 
@@ -289,11 +299,14 @@ def analyze(input_path: str, output_dir: str, text_field: str = 'english_text', 
         'groups': group_names, 'vocabulary_size': len(terms),
         'country_groups': country_group_names,
         'benchmark_groups': [name for name in group_names if name not in country_group_names],
-        'unesco_included': 'UNESCO' in group_names,
+        'framework_reference': 'DLGF_2018',
+        'framework_area_count': len(dlgf_records),
         'analysis_mode': 'exploratory_lexical',
         'method_note': (
-            'TF-IDF e similaridade são exploratórios e não equivalem a avaliação documental nem a alinhamento curricular. '
-            'A entrada usa chunks processados agregados por document_id; a similaridade de grupos usa a média dos vetores documentais.'
+            'As métricas de similaridade textual e TF-IDF são empregadas como ferramentas exploratórias que indicam pistas de vocabulário e proximidade de termos, não devendo ser lidas como prova direta de equivalência curricular. '
+            'A referência internacional exclusiva desta análise é o UNESCO DLGF 2018, representado pelas sete áreas e seus termos do CSV oficial do projeto. '
+            'A entrada usa documentos nacionais agregados por document_id; a similaridade de país-área usa a média dos vetores documentais. '
+            'A análise lexical entre idiomas exige dataset com tradução consistente para um idioma comum.'
         ),
     }
     (output / 'analysis_summary.json').write_text(json.dumps(summary, ensure_ascii=False, indent=2), encoding='utf-8')
