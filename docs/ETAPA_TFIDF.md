@@ -125,18 +125,9 @@ As conclusões devem distinguir:
 
 Somente a última dimensão permite afirmar algo sobre sentidos formativos, e ela depende da leitura crítica dos documentos.
 
-## 9. Relação com UNESCO e PISA
+## 9. Comparação pelo DLGF 2018
 
-A UNESCO funciona como linha de base normativa e formativa, especialmente para cidadania global, direitos humanos, inclusão, ética e responsabilidade social. O PISA/OCDE deve ser documentado como referencial internacional usado na seleção ou caracterização dos países e, quando seus dados forem cruzados com os resultados, deve ser tratado como contexto comparativo.
-
-O TF-IDF não deve ser apresentado como explicação do desempenho no PISA. A pesquisa pode observar relações e contrastes entre vocabulário curricular e indicadores internacionais, mas não deve afirmar causalidade sem desenho específico para esse propósito.
-
-O documento PISA 2022 presente em `corpus/pisa/` é tratado como grupo externo
-`PISA/OECD`. Ele contextualiza a seleção dos países e não deve ser agregado a um
-país nem usado como se fosse uma diretriz curricular. A comparação entre países
-com maior desempenho no PISA e maior proximidade da UNESCO pode ser apresentada
-como análise exploratória, desde que se declare que proximidade textual não prova
-que o desempenho decorra do currículo.
+O DLGF 2018 é a única matriz internacional usada para organizar evidências de competências digitais. O TF-IDF permanece exploratório: frequências e similaridades lexicais não provam correspondência curricular nem qualidade. A comparação final considera somente currículos e diretrizes oficiais nacionais incluídos e validados, com evidências conferidas por país, documento e página.
 
 ## 10. Limitações atuais
 

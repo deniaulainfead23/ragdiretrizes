@@ -8,6 +8,7 @@ from pathlib import Path
 
 from rag_project.paths import DATASET_DIR, METADATA_DIR, INTERMEDIATE_DATA_DIR
 
+ROOT = Path(__file__).resolve().parents[1]
 DOCUMENTS = METADATA_DIR / "documentos.csv"
 PROCESSED = METADATA_DIR / "processed_documents.csv"
 DEFAULT_OUTPUT = INTERMEDIATE_DATA_DIR / "data" / "conteudos.jsonl"
@@ -92,34 +93,91 @@ def validate_jsonl(path: Path) -> tuple[int, int, int, int]:
     return record_count, len(document_ids), len(content_ids), empty_texts
 
 
+def write_build_report(path: Path, rows: list[dict[str, str]]) -> None:
+    fields = [
+        "document_id", "processed_path", "source_scope", "validation_status",
+        "processing_status", "pages_written", "record_status", "error_type",
+    ]
+    with path.open("w", encoding="utf-8-sig", newline="") as handle:
+        writer = csv.DictWriter(handle, fieldnames=fields)
+        writer.writeheader()
+        writer.writerows(rows)
+
+
 def main(output: str | None = None) -> None:
     output_path = Path(output) if output else DEFAULT_OUTPUT
     output_path.parent.mkdir(parents=True, exist_ok=True)
     temp_path = output_path.with_suffix(output_path.suffix + ".tmp")
+    report_path = output_path.with_name("dataset_build_report.csv")
 
     docs = {row["document_id"]: row for row in read_csv(DOCUMENTS)}
     processed = read_csv(PROCESSED)
 
     record_count = 0
     document_count = 0
+    report_rows: list[dict[str, str]] = []
 
     try:
         with temp_path.open("w", encoding="utf-8", newline="\n") as handle:
             for item in processed:
-                if item.get("status") not in ALLOWED_STATUSES:
-                    continue
-
                 document_id = item["document_id"]
+                processed_path = item.get("processed_path", "")
+                processing_status = item.get("status", "")
                 document = docs.get(document_id)
                 if not document:
-                    raise ValueError(f"Documento não encontrado no catálogo: {document_id}")
+                    report_rows.append({
+                        "document_id": document_id, "processed_path": processed_path,
+                        "source_scope": "", "validation_status": "",
+                        "processing_status": processing_status, "pages_written": "0",
+                        "record_status": "missing_document_catalog", "error_type": "MissingDocumentMetadata",
+                    })
+                    continue
+                base_report = {
+                    "document_id": document_id,
+                    "processed_path": processed_path,
+                    "source_scope": document.get("source_scope", ""),
+                    "validation_status": document.get("validation_status", ""),
+                    "processing_status": processing_status,
+                    "pages_written": "0",
+                    "record_status": "",
+                    "error_type": "",
+                }
+                if processing_status not in ALLOWED_STATUSES:
+                    base_report["record_status"] = "excluded_processing_status"
+                    report_rows.append(base_report)
+                    continue
+                if document.get("source_scope") != "national":
+                    base_report["record_status"] = "excluded_non_national"
+                    report_rows.append(base_report)
+                    continue
+                if document.get("validation_status") != "validated":
+                    base_report["record_status"] = "excluded_not_previously_verified"
+                    report_rows.append(base_report)
+                    continue
 
-                source = ROOT / item["processed_path"]
+                source = ROOT / processed_path
                 if not source.is_file():
-                    raise FileNotFoundError(f"Arquivo processado não encontrado: {source}")
+                    base_report["record_status"] = "missing_processed_file"
+                    base_report["error_type"] = "FileNotFoundError"
+                    report_rows.append(base_report)
+                    continue
 
-                pages = split_pages(source.read_text(encoding="utf-8", errors="ignore"))
+                try:
+                    pages = split_pages(source.read_text(encoding="utf-8", errors="ignore"))
+                except OSError as exc:
+                    base_report["record_status"] = "processed_file_read_error"
+                    base_report["error_type"] = type(exc).__name__
+                    report_rows.append(base_report)
+                    continue
+                if not pages:
+                    base_report["record_status"] = "empty_processed_text"
+                    base_report["error_type"] = "EmptyProcessedText"
+                    report_rows.append(base_report)
+                    continue
                 document_count += 1
+                base_report["pages_written"] = str(len(pages))
+                base_report["record_status"] = "included"
+                report_rows.append(base_report)
 
                 for page_number, page_text in pages:
                     chunk_id = f"{document_id}_p{page_number:04d}_c001"
@@ -128,6 +186,7 @@ def main(output: str | None = None) -> None:
                         "chunk_id": chunk_id,
                         "document_id": document_id,
                         "country": document.get("country", ""),
+                        "country_code": document.get("country_code", ""),
                         "source_scope": document.get("source_scope", ""),
                         "framework_source": document.get("framework_source", ""),
                         "document_title": document.get("title", ""),
@@ -139,6 +198,8 @@ def main(output: str | None = None) -> None:
                         "char_count": len(page_text),
                         "token_estimate": max(1, round(len(page_text) / 4)),
                         "audit_group": document.get("audit_group", ""),
+                        "document_role": document.get("document_role", ""),
+                        "validation_status": document.get("validation_status", ""),
                         "processing_status": item.get("status", ""),
                         "source_path": document.get("source_path", ""),
                         "processed_path": item.get("processed_path", ""),
@@ -168,12 +229,21 @@ def main(output: str | None = None) -> None:
             )
 
         temp_path.replace(output_path)
-    except Exception:
+    except Exception as exc:
+        report_rows.append({
+            "document_id": "", "processed_path": "", "source_scope": "",
+            "validation_status": "", "processing_status": "",
+            "pages_written": "0", "record_status": "generation_failed",
+            "error_type": type(exc).__name__,
+        })
+        write_build_report(report_path, report_rows)
         if temp_path.exists():
             temp_path.unlink()
         raise
+    write_build_report(report_path, report_rows)
 
     print(f"Dataset de conteúdo salvo: {output_path}")
+    print(f"Relatório da geração: {report_path}")
     print(f"Documentos incluídos: {document_count}")
     print(f"Registros/páginas: {record_count}")
     print(f"content_id únicos: {unique_ids}")

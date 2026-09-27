@@ -86,7 +86,7 @@ Depois da validação por país, organizar os achados nos seguintes eixos:
 - definição e organização das competências digitais;
 - pensamento computacional e algoritmos;
 - cidadania digital, ética e letramento midiático;
-- relação com UNESCO e cidadania global;
+- relação entre evidências curriculares nacionais e as áreas do DLGF 2018;
 - competências associadas ao século XXI;
 - criatividade, colaboração e resolução de problemas;
 - inteligência artificial, dados e segurança;

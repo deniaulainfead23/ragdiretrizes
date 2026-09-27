@@ -1,4 +1,4 @@
-questions_version: 3.1
+questions_version: 4.0
 questions:
   - question_id: Q01
     title: Competências de Computação e Educação Digital
@@ -94,11 +94,11 @@ questions:
     version: 3.0
 
   - question_id: Q04
-    title: Convergência com UNESCO e OECD/PISA
-    question_text: Que evidências apresentam convergência com princípios ou dimensões presentes nos referenciais UNESCO e OECD/PISA?
+    title: Competências digitais segundo o DLGF 2018
+    question_text: Como os currículos de cada país abordam competências digitais relacionadas às sete áreas do Digital Literacy Global Framework de 2018?
     question_type: evidence_retrieval
     analysis_stage: retrieval
-    framework: OECD_PISA
+    framework: DLGF_2018
     category_id: C04
     target_scope: country
     target_country: null
@@ -117,12 +117,12 @@ questions:
       - semantic_score
       - evidence_classification
       - validation_status
-    evidence_rule: Recuperar evidências curriculares que possam ser relacionadas de forma explícita e justificável a competências, princípios ou dimensões presentes nos referenciais UNESCO e OECD/PISA.
-    exclusion_rule: Não inferir alinhamento apenas por semelhança lexical vaga; exigir conteúdo curricular semanticamente compatível e registrar a evidência fonte.
+    evidence_rule: Recuperar evidências curriculares relacionadas a operações de dispositivos e software, informação e dados, comunicação e colaboração, criação de conteúdo, segurança, resolução de problemas e competências relacionadas à carreira.
+    exclusion_rule: Não tratar o framework como currículo nacional nem inferir correspondência por semelhança lexical isolada; registrar documento, página e trecho que sustentem cada relação.
     allow_cross_country_comparison: false
     requires_validated_evidence: false
     notes: Pergunta de recuperação documental aplicada por país.
-    version: 3.0
+    version: 4.0
 
   - question_id: Q05
     title: Competências do século XXI
@@ -311,11 +311,11 @@ questions:
     version: 3.0
 
   - question_id: Q11
-    title: Cidadania Global
-    question_text: Que elementos relacionados à cidadania global aparecem nos documentos curriculares?
+    title: Organização curricular por etapa e componente
+    question_text: Como a Computação é organizada nas diferentes etapas da Educação Básica e nas áreas ou disciplinas curriculares?
     question_type: evidence_retrieval
     analysis_stage: retrieval
-    framework: UNESCO_GCED_2015
+    framework: COMPUTING_AND_DIGITAL_EDUCATION
     category_id: C11
     target_scope: country
     target_country: null
@@ -334,12 +334,12 @@ questions:
       - semantic_score
       - evidence_classification
       - validation_status
-    evidence_rule: Recuperar evidências relacionadas às dimensões cognitiva, socioemocional e comportamental da Educação para a Cidadania Global, incluindo interdependência, diversidade, solidariedade, pensamento crítico e participação responsável.
-    exclusion_rule: Excluir ocorrências de termos como global, internacional ou cidadania sem conteúdo formativo compatível com o framework.
+    evidence_rule: Recuperar trechos que indiquem etapas escolares, progressão de aprendizagem, componentes curriculares, disciplinas, integração transversal ou carga/obrigatoriedade da Computação.
+    exclusion_rule: Excluir menções a etapas ou disciplinas sem relação explícita com objetivos ou conteúdos de Computação e Educação Digital.
     allow_cross_country_comparison: false
     requires_validated_evidence: false
     notes: Pergunta de recuperação documental aplicada por país.
-    version: 3.0
+    version: 4.0
 
   - question_id: Q12
     title: Formação e desenvolvimento docente
@@ -404,11 +404,11 @@ questions:
     version: 3.0
 
   - question_id: Q14
-    title: Comparação internacional validada
-    question_text: Quais convergências, diferenças, lacunas de evidência e padrões recorrentes podem ser identificados entre os países a partir das evidências previamente recuperadas e validadas?
+    title: Comparação internacional dos currículos de Computação
+    question_text: Quais convergências, diferenças e lacunas aparecem entre os currículos e diretrizes oficiais dos países quanto à organização da Computação na Educação Básica e às áreas do DLGF 2018?
     question_type: validated_comparison
     analysis_stage: comparison
-    framework: COMPUTING_AND_DIGITAL_EDUCATION
+    framework: DLGF_2018
     category_id: C14
     target_scope: multi_country
     target_country: null
@@ -427,46 +427,9 @@ questions:
       - semantic_score
       - evidence_classification
       - validation_status
-    evidence_rule: Comparar somente evidências previamente recuperadas e validadas, preservando question_id, country, document_id, page_start, page_end e evidence_id.
-    exclusion_rule: Não produzir rankings automáticos nem interpretar ausência de recuperação como ausência conceitual; usar not_detected ou inconclusive quando apropriado.
+    evidence_rule: Comparar somente evidências nacionais previamente recuperadas e validadas, preservando question_id, country, document_id, page_start, page_end e evidence_id; relacionar áreas do DLGF somente quando houver apoio documental.
+    exclusion_rule: Não produzir rankings nem escores de qualidade; não interpretar ausência de recuperação como ausência curricular; não incorporar outros referenciais internacionais.
     allow_cross_country_comparison: true
     requires_validated_evidence: true
     notes: Comparação internacional somente após validação das evidências.
-    version: 3.0
-
-
-  - question_id: Q15
-    title: Competências e letramento digital segundo UNESCO/UIS DLGF 2018
-    question_text: Quais evidências curriculares podem ser classificadas, com baixa inferência e rastreabilidade documental, nas áreas e competências propostas pelo UNESCO/UIS Digital Literacy Global Framework de 2018?
-    question_type: analytical_classification
-    analysis_stage: post_retrieval_classification
-    framework: UNESCO_DLGF_2018
-    category_id: C15
-    target_scope: country
-    target_country: null
-    required_metadata:
-      - document_id
-      - country
-      - document_title
-      - page_start
-      - page_end
-      - chunk_id
-      - source_text
-      - evidence_id
-      - validation_status
-    expected_output:
-      - evidence_id
-      - evidence_text
-      - source
-      - dlgf_area_code
-      - dlgf_area_name
-      - dlgf_competence_code
-      - dlgf_competence_name
-      - correspondence
-      - validation_status
-    evidence_rule: Classificar somente evidências já recuperadas, preservando país, pergunta de origem, documento, página, trecho e status de validação. Usar correspondência explícita ou semanticamente justificável com as áreas e competências do DLGF.
-    exclusion_rule: Não inferir alinhamento por mera proximidade lexical vaga; não converter ausência de recuperação em ausência conceitual; não produzir ranking ou escore de qualidade curricular.
-    allow_cross_country_comparison: false
-    requires_validated_evidence: false
-    notes: Nova camada analítica. Não substitui Q01, Q11 ou Q14 e não altera respostas anteriores do RAG.
-    version: 3.1
+    version: 4.0

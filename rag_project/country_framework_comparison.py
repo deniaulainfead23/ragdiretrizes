@@ -16,17 +16,21 @@ def aggregate_country_framework_summary(evidence_csv: str | Path) -> list[dict[s
         for row in reader:
             country = (row.get('country') or '').strip()
             framework_id = (row.get('framework_id') or '').strip()
-            dimension_code = (row.get('dimension_code') or '').strip()
-            if not country or not framework_id or not dimension_code:
+            area_code = (row.get('area_code') or row.get('dimension_code') or '').strip()
+            area_name = row.get('area_name') or row.get('dimension_name', '')
+            validation_status = (row.get('validation_status') or '').strip().lower()
+            if validation_status not in {'validated', 'validado', 'reformulated', 'reformulado'}:
+                continue
+            if not country or framework_id != 'DLGF_2018' or not area_code:
                 continue
 
-            key = (country, framework_id, dimension_code)
+            key = (country, framework_id, area_code)
             if key not in rows_by_key:
                 rows_by_key[key] = {
                     'country': country,
                     'framework_id': framework_id,
-                    'dimension_code': dimension_code,
-                    'dimension_name': row.get('dimension_name', ''),
+                    'area_code': area_code,
+                    'area_name': area_name,
                     'evidence_count': 0,
                     'documents_with_hits': set(),
                     'status': 'evidence_found',
@@ -45,7 +49,7 @@ def aggregate_country_framework_summary(evidence_csv: str | Path) -> list[dict[s
         summary['validation_status'] = 'validated' if summary['evidence_count'] > 0 else 'not_detected'
         output.append(summary)
 
-    output.sort(key=lambda item: (item['country'], item['framework_id'], item['dimension_code']))
+    output.sort(key=lambda item: (item['country'], item['framework_id'], item['area_code']))
     return output
 
 
@@ -55,7 +59,7 @@ def write_country_framework_summary(evidence_csv: str | Path, output_csv: str | 
     out_path.parent.mkdir(parents=True, exist_ok=True)
 
     fieldnames = [
-        'country', 'framework_id', 'dimension_code', 'dimension_name',
+        'country', 'framework_id', 'area_code', 'area_name',
         'evidence_count', 'document_count', 'validation_status', 'documents_with_hits'
     ]
     with out_path.open('w', encoding='utf-8', newline='') as handle:
@@ -65,8 +69,8 @@ def write_country_framework_summary(evidence_csv: str | Path, output_csv: str | 
             writer.writerow({
                 'country': row['country'],
                 'framework_id': row['framework_id'],
-                'dimension_code': row['dimension_code'],
-                'dimension_name': row['dimension_name'],
+                'area_code': row['area_code'],
+                'area_name': row['area_name'],
                 'evidence_count': row['evidence_count'],
                 'document_count': row['document_count'],
                 'validation_status': row['validation_status'],

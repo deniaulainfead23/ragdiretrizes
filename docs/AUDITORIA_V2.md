@@ -23,7 +23,7 @@ O repositório possui uma base funcional em Python com foco em:
 Estrutura observada:
 
 - [README.md](../README.md): apresentação do projeto e visão geral acadêmica.
-- [DOCUMENTACAO_METODOLOGICA.md](../DOCUMENTACAO_METODOLOGICA.md): documentação metodológica da pesquisa.
+- [documentacao_metodologica.md](../documentacao_metodologica.md): documentação metodológica da pesquisa.
 - [contexto.md](../contexto.md): contexto e objetivos da pesquisa, com desenho original do problema.
 - [corpus/](../corpus): material documental bruto e arquivos de apoio.
 - [docs/](.): documentação complementar e materiais metodológicos.
@@ -354,7 +354,7 @@ Esses artefatos são necessários para garantir rastreabilidade e reprodução, 
 
 ### Fase 8
 
-- atualizar README.md e DOCUMENTACAO_METODOLOGICA.md;
+- atualizar README.md e documentacao_metodologica.md;
 - adicionar testes de rastreabilidade e preventivos;
 - validar que o vínculo entre documento, página, trecho, categoria e framework está íntegro.
 

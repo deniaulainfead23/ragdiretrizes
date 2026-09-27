@@ -5,23 +5,19 @@ from rag_project.analyze_tfidf import analyze
 from rag_project.framework_registry import (
     export_framework_csvs,
     get_framework_by_id,
+    list_frameworks,
     load_excluded_entities,
     load_preprocessing_rules,
     load_stopwords,
 )
 
 
-def test_unesco_framework_has_expected_dimensions():
-    framework = get_framework_by_id('UNESCO_GCED_2015')
-    assert framework is not None
-    assert framework['version'] == '2.0'
-    assert any(d['code'] == 'COG' for d in framework['dimensions'])
-    assert any(d['code'] == 'SOE' for d in framework['dimensions'])
-    assert any(d['code'] == 'BEH' for d in framework['dimensions'])
+def test_only_dlgf_and_computing_frameworks_are_active():
+    assert set(list_frameworks()) == {'DLGF_2018', 'COMPUTING_AND_DIGITAL_EDUCATION'}
 
 
 def test_dlgf_framework_has_expected_areas():
-    framework = get_framework_by_id('UNESCO_DLGF_2018')
+    framework = get_framework_by_id('DLGF_2018')
     assert framework is not None
     assert framework['version'] == '3.0'
     codes = {d['code'] for d in framework['dimensions']}
@@ -51,10 +47,8 @@ def test_framework_exports_and_excluded_entities_are_ready():
     outputs = export_framework_csvs()
     framework_dir = Path(__file__).resolve().parent.parent / 'rag_project' / 'framework'
 
-    assert framework_dir.joinpath('unesco_framework.csv').exists()
     assert framework_dir.joinpath('computing_framework.csv').exists()
-    assert 'UNESCO_GCED_2015' in outputs
-    assert 'UNESCO_DLGF_2018' in outputs
+    assert set(outputs) == {'DLGF_2018', 'COMPUTING_AND_DIGITAL_EDUCATION'}
     assert framework_dir.joinpath('unesco_dlgf_2018.csv').exists()
     assert 'COMPUTING_AND_DIGITAL_EDUCATION' in outputs
 
@@ -80,10 +74,10 @@ def test_tfidf_analysis_is_explicitly_exploratory_and_lexical(tmp_path):
             'source_text': 'digital citizenship technology use and critical thinking in schools',
         },
         {
-            'country': 'UNESCO',
-            'document': 'unesco_1',
-            'dataset_group': 'unesco',
-            'english_text': 'global citizenship education critical thinking solidarity and respect',
+            'country': 'Irlanda',
+            'document': 'doc_irlanda_1',
+            'dataset_group': 'country',
+            'english_text': 'digital information security and programming in the curriculum',
         },
     ]
     with input_path.open('w', encoding='utf-8') as handle:
@@ -101,4 +95,4 @@ def test_tfidf_analysis_is_explicitly_exploratory_and_lexical(tmp_path):
     assert (output_dir / 'group_similarity_heatmap.png').exists()
 
     group_rows = list(__import__('csv').DictReader((output_dir / 'group_tfidf.csv').open('r', encoding='utf-8', newline='')))
-    assert all(row['group'] != 'UNESCO' for row in group_rows)
+    assert all(row['group'] not in {'UNESCO', 'PISA', 'OECD/PISA'} for row in group_rows)

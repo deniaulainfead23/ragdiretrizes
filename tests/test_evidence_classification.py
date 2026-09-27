@@ -1,15 +1,14 @@
 from rag_project.build_evidence_matrix import classify_evidence_record
 
 
-def test_evidence_record_classification_uses_local_fallback_without_api_key(monkeypatch):
-    monkeypatch.delenv('OPENAI_API_KEY', raising=False)
+def test_evidence_record_classification_is_preliminary_and_dlgf_only():
     record = classify_evidence_record(
-        snippet='Os estudantes desenvolvem pensamento crítico e empatia para participar de questões globais.',
-        framework_id='UNESCO_GCED_2015',
-        dimension_code='COG',
-        dimension_name='Cognitive',
+        snippet='Students operate digital devices and software.',
+        framework_id='DLGF_2018',
+        dimension_code='0',
+        dimension_name='Devices and software operations',
     )
 
     assert record['evidence_classification'] == 'explicit'
-    assert record['evidence_status'] in {'candidate', 'validated'}
-    assert 'manual' in record['validation_notes'].lower() or 'fallback' in record['validation_notes'].lower()
+    assert record['evidence_status'] == 'candidate'
+    assert 'humana' in record['validation_notes'].lower()

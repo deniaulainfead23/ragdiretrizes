@@ -28,43 +28,9 @@ _DEFAULT_RULES: dict[str, Any] = {
 
 
 _FRAMEWORKS: dict[str, dict[str, Any]] = {
-    'UNESCO_GCED_2015': {
-        'framework_id': 'UNESCO_GCED_2015',
-        'title': 'UNESCO Global Citizenship Education (GCED)',
-        'version': '2.0',
-        'source': 'UNESCO',
-        'dimensions': [
-            {
-                'code': 'COG',
-                'name': 'Cognitive',
-                'keywords': [
-                    'thinking', 'critical thinking', 'analysis', 'problem solving', 'understanding', 'global issues',
-                    'pensamento crítico', 'pensamento critico', 'resolução de problemas', 'resolucao de problemas',
-                    'análise', 'analise', 'compreensão', 'compreensao', 'questões globais', 'questoes globais'
-                ],
-            },
-            {
-                'code': 'SOE',
-                'name': 'Socioemotional',
-                'keywords': [
-                    'empathy', 'respect', 'solidarity', 'relationships', 'identity', 'social responsibility',
-                    'empatia', 'respeito', 'solidariedade', 'relações', 'relacoes', 'identidade', 'responsabilidade social'
-                ],
-            },
-            {
-                'code': 'BEH',
-                'name': 'Behavioral',
-                'keywords': [
-                    'participation', 'action', 'responsible action', 'engagement', 'citizenship', 'behavior',
-                    'participação', 'participacao', 'ação', 'acao', 'envolvimento', 'cidadania', 'comportamento'
-                ],
-            },
-        ],
-        'notes': 'Framework analítico de referência para educação para a cidadania global.',
-    },
-    'UNESCO_DLGF_2018': {
-        'framework_id': 'UNESCO_DLGF_2018',
-        'title': 'UNESCO/UIS Digital Literacy Global Framework (DLGF)',
+    'DLGF_2018': {
+        'framework_id': 'DLGF_2018',
+        'title': 'Digital Literacy Global Framework (DLGF 2018)',
         'version': '3.0',
         'source': 'UNESCO Institute for Statistics',
         'dimensions': [
@@ -78,7 +44,7 @@ _FRAMEWORKS: dict[str, dict[str, Any]] = {
         ],
         'notes': (
             'Referencial conceitual e analítico para competências/letramento digital. '
-            'Não é currículo nacional, não substitui UNESCO_GCED_2015 e não deve ser usado como ranking ou benchmark de qualidade curricular.'
+            'Não é currículo nacional e não deve ser usado como ranking ou benchmark de qualidade curricular.'
         ),
     },
     'COMPUTING_AND_DIGITAL_EDUCATION': {
@@ -92,16 +58,6 @@ _FRAMEWORKS: dict[str, dict[str, Any]] = {
             {'code': 'ETH', 'name': 'Ethics and Safety', 'keywords': ['digital ethics', 'online safety', 'responsible use', 'privacy', 'cybersecurity']},
         ],
         'notes': 'Framework analítico para competências de computação e educação digital.',
-    },
-    'UNESCO_FUTURES_2021': {
-        'framework_id': 'UNESCO_FUTURES_2021',
-        'title': 'UNESCO Futures of Education',
-        'version': '2.0',
-        'source': 'UNESCO',
-        'dimensions': [
-            {'code': 'FUT', 'name': 'Futures', 'keywords': ['future', 'transformation', 'resilience', 'sustainability', 'learning to learn']},
-        ],
-        'notes': 'Framework complementar para análise de futuro, inovação e aprendizagem.',
     },
 }
 
@@ -175,10 +131,8 @@ def export_framework_csvs() -> dict[str, Path]:
     FRAMEWORK_DIR.mkdir(parents=True, exist_ok=True)
     outputs: dict[str, Path] = {}
     alias_map = {
-        'UNESCO_GCED_2015': 'unesco_framework.csv',
-        'UNESCO_DLGF_2018': 'unesco_dlgf_2018.csv',
+        'DLGF_2018': 'unesco_dlgf_2018.csv',
         'COMPUTING_AND_DIGITAL_EDUCATION': 'computing_framework.csv',
-        'UNESCO_FUTURES_2021': 'unesco_futures_framework.csv',
     }
 
     for framework_id, data in _FRAMEWORKS.items():
@@ -199,13 +153,4 @@ def export_framework_csvs() -> dict[str, Path]:
             writer.writeheader()
             writer.writerows(rows)
         outputs[framework_id] = csv_path
-
-        # mantém compatibilidade com o nome técnico antigo também
-        legacy_path = FRAMEWORK_DIR / f'{framework_id.lower()}.csv'
-        if legacy_path != csv_path:
-            with legacy_path.open('w', encoding='utf-8', newline='') as handle:
-                writer = csv.DictWriter(handle, fieldnames=['framework_id', 'code', 'name', 'keywords'])
-                writer.writeheader()
-                writer.writerows(rows)
-            outputs[f'{framework_id}_legacy'] = legacy_path
     return outputs

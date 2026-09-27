@@ -90,7 +90,7 @@ Principais artefatos:
 - `OCR_Seletivo_Corpus_RAG.ipynb` — notebook histórico do OCR seletivo aplicado aos documentos bloqueados;
 - `Auditoria_Reutilizavel_Corpus_RAG.ipynb` — notebook Colab consolidado para repetir auditoria, OCR, revisão por página e validação do JSONL;
 - `rag_project/audit_corpus.py` — auditoria automatizada e reutilizável do catálogo, textos processados e dataset de conteúdo;
-- `docs/PROTOCOLO_VALIDACAO_TEXTOS.md` — método passo a passo para validação textual orientada por exceções e reutilização por outros pesquisadores.
+- `docs/protocolo_validacao_textos.md` — método passo a passo para validação textual orientada por exceções e reutilização por outros pesquisadores.
 
 Execução local:
 
@@ -122,7 +122,7 @@ O protocolo preserva os documentos originais, mantém `document_id` e páginas, 
 
 A rodada oficial foi fechada em duas camadas: Q01 a Q13 para recuperação de evidências por país e Q14 para comparação internacional baseada nas respostas nacionais já validadas. O resultado técnico registra 286 respostas, três respostas inconclusivas e 13 comparações temáticas. A etapa seguinte é a validação semântica e a interpretação comparativa, não uma nova geração automática de conclusões.
 
-O protocolo completo está em [docs/PROTOCOLO_ANALISE_RESULTADOS.md](docs/PROTOCOLO_ANALISE_RESULTADOS.md). Ele define a relação entre objetivos, perguntas, evidências e produtos analíticos, além das regras para não confundir frequência lexical, similaridade textual ou ausência de recuperação com competência curricular comprovada.
+O protocolo completo está em [docs/protocolo_analise_resultados.md](docs/protocolo_analise_resultados.md). Ele define a relação entre objetivos, perguntas, evidências e produtos analíticos, além das regras para não confundir frequência lexical, similaridade textual ou ausência de recuperação com competência curricular comprovada.
 
 ## Tecnologias
 

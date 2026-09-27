@@ -60,8 +60,8 @@ def extract_pdf_pages(path: str):
     return pages
 
 
-def iter_corpus_documents(corpus_dir: str):
-    """Gera documentos do corpus um a um para evitar carregar tudo em memória."""
+def iter_corpus_files(corpus_dir: str):
+    """Enumera caminhos sem abrir ou extrair o conteúdo dos arquivos."""
     root = Path(corpus_dir)
     if not root.exists():
         return
@@ -70,19 +70,30 @@ def iter_corpus_documents(corpus_dir: str):
             continue
         rel = file.relative_to(root).as_posix()
         ext = file.suffix.lower()
+        yield rel, str(file), ext
+
+
+def read_text_file(path: str) -> str:
+    file = Path(path)
+    try:
+        return file.read_text(encoding='utf-8')
+    except Exception:
+        try:
+            return file.read_text(encoding='latin-1')
+        except Exception:
+            return ""
+
+
+def iter_corpus_documents(corpus_dir: str):
+    """Gera documentos do corpus um a um para evitar carregar tudo em memória."""
+    for rel, path, ext in iter_corpus_files(corpus_dir):
         if ext == ".pdf":
-            pages = extract_pdf_pages(str(file))
+            pages = extract_pdf_pages(path)
             text = "\n\n".join(page_text for _, page_text in pages)
         else:
-            try:
-                text = file.read_text(encoding='utf-8')
-            except Exception:
-                try:
-                    text = file.read_text(encoding='latin-1')
-                except Exception:
-                    text = ""
+            text = read_text_file(path)
         if text and text.strip():
-            yield rel, str(file), text, ext
+            yield rel, path, text, ext
 
 
 def ingest_corpus(corpus_dir: str) -> dict:

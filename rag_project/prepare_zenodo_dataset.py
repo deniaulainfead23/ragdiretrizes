@@ -272,7 +272,7 @@ def main() -> None:
         copy_if_exists(LEXICAL / name, OUT / "lexical_analysis" / name)
 
     copy_if_exists(MODEL_XLSX, OUT / "comparative_dataset" / MODEL_XLSX.name)
-    copy_if_exists(ROOT / "DOCUMENTACAO_METODOLOGICA.md", OUT / "methodology" / "methodology.md")
+    copy_if_exists(ROOT / "documentacao_metodologica.md", OUT / "methodology" / "methodology.md")
     copy_if_exists(ROOT / "dados_brutos" / "corpus" / "MANIFESTO.md", OUT / "methodology" / "provenance.md")
     copy_if_exists(ROOT / "zenodo" / "CITATION.cff", OUT / "CITATION.cff")
     copy_if_exists(ROOT / "zenodo" / "LICENSE_DATA.txt", OUT / "LICENSE_DATA.txt")

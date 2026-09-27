@@ -6,16 +6,17 @@ from rag_project.country_framework_comparison import aggregate_country_framework
 def test_aggregate_country_framework_summary_returns_country_rows(tmp_path):
     evidence_csv = tmp_path / 'evidence_matrix.csv'
     evidence_csv.write_text(
-        'document_id,country,title_original,framework_id,dimension_code,dimension_name,matched_keyword,matched_text,evidence_classification,evidence_status,validation_notes,source_file\n'
-        'BR_001,Brasil,brasil_curriculum,UNESCO_GCED_2015,COG,Cognitive,pensamento crítico,"Os estudantes desenvolvem pensamento crítico e empatia.",explicit,validated,"OpenAI validation",brasil/brasil_curriculum.txt\n'
-        'BR_001,Brasil,brasil_curriculum,UNESCO_GCED_2015,SOE,Socioemotional,empatia,"Os estudantes desenvolvem pensamento crítico e empatia.",explicit,validated,"OpenAI validation",brasil/brasil_curriculum.txt\n'
-        'US_001,Estados Unidos,us_framework,UNESCO_GCED_2015,COG,Cognitive,critical thinking,"Students build critical thinking.",explicit,validated,"OpenAI validation",us/us_framework.txt\n',
+        'evidence_id,country,document_id,framework_id,area_code,area_name,correspondence,validation_status\n'
+        'ev-1,Brasil,BR_001,DLGF_2018,0,Devices and software operations,strong,validated\n'
+        'ev-2,Estados Unidos,US_001,DLGF_2018,5,Problem-solving,candidate,validated\n'
+        'ev-3,Estados Unidos,US_001,DLGF_2018,4,Safety,candidate,candidate\n',
         encoding='utf-8',
     )
 
     rows = aggregate_country_framework_summary(evidence_csv)
 
     assert rows
-    assert any(r['country'] == 'Brasil' and r['framework_id'] == 'UNESCO_GCED_2015' and r['dimension_code'] == 'COG' for r in rows)
-    assert any(r['country'] == 'Estados Unidos' and r['framework_id'] == 'UNESCO_GCED_2015' and r['dimension_code'] == 'COG' for r in rows)
+    assert any(r['country'] == 'Brasil' and r['framework_id'] == 'DLGF_2018' and r['area_code'] == '0' for r in rows)
+    assert any(r['country'] == 'Estados Unidos' and r['framework_id'] == 'DLGF_2018' and r['area_code'] == '5' for r in rows)
+    assert not any(r['area_code'] == '4' for r in rows)
     assert rows[0]['evidence_count'] >= 1

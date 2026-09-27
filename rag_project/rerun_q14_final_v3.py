@@ -131,7 +131,7 @@ REGRAS METODOLÓGICAS OBRIGATÓRIAS:
     efetivamente sustentados pelas comparações fornecidas.
 14. Cada item deve indicar perguntas-fonte compatíveis
     com o conteúdo da afirmação.
-15. Q11 trata de CIDADANIA GLOBAL.
+11. Q11 trata da organização curricular por etapa e componente.
     Não utilize Q11 isoladamente para sustentar afirmações
     sobre cidadania digital.
 16. Q12 trata de FORMAÇÃO E DESENVOLVIMENTO DOCENTE.

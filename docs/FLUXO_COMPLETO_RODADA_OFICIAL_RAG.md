@@ -93,7 +93,7 @@ Artefatos principais:
 OCR_Seletivo_Corpus_RAG.ipynb
 Auditoria_Reutilizavel_Corpus_RAG.ipynb
 rag_project/audit_corpus.py
-docs/PROTOCOLO_VALIDACAO_TEXTOS.md
+docs/protocolo_validacao_textos.md
 ```
 
 ---

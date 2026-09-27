@@ -1,7 +1,9 @@
 from pathlib import Path
 import re
 import unicodedata
+import csv
 import pandas as pd
+import pdfplumber
 
 from rag_project.corpus_registry import load_registry
 from rag_project.paths import CORPUS_DIR, METADATA_DIR
@@ -9,6 +11,7 @@ from rag_project.paths import CORPUS_DIR, METADATA_DIR
 CORPUS = CORPUS_DIR
 AUDIT = METADATA_DIR / "auditoria" / "auditoria_corpus_classificacao_ABCD.csv"
 OUTPUT = METADATA_DIR / "documentos.csv"
+SOURCE_MANIFEST = METADATA_DIR / "corpus_manifest.csv"
 
 
 def normalize(value: str) -> str:
@@ -40,21 +43,38 @@ def status_for_group(group: str):
     }.get(group, ("audit_required", "audit_required"))
 
 
+def count_pages(path: Path) -> int | str:
+    if path.suffix.lower() != ".pdf":
+        return ""
+    try:
+        with pdfplumber.open(path) as pdf:
+            return len(pdf.pages)
+    except Exception:
+        return ""
+
+
+def load_source_manifest() -> dict[str, dict[str, str]]:
+    if not SOURCE_MANIFEST.exists():
+        return {}
+    with SOURCE_MANIFEST.open("r", encoding="utf-8-sig", newline="") as handle:
+        return {
+            normalize(row.get("relative_path", "")): row
+            for row in csv.DictReader(handle)
+            if row.get("relative_path")
+        }
+
+
 def add_row(rows, path, document_id, source_scope, framework_source,
             country="", country_code="", continent="", role="", validation_status="",
-            audit=None):
+            audit=None, source_manifest=None):
     rel = path.relative_to(CORPUS).as_posix()
     audit = audit or {}
     group = str(audit.get("grupo_analitico", "UNAUDITED"))
     if group == "UNAUDITED" and path.suffix.lower() in {".html", ".htm"}:
        group = "Grupo A"
-    audit = {
-        **audit,
-        "status": "HTML_MACHINE_READABLE",
-        "paginas": 1,
-        "paginas_problematicas": 0,
-        "percentual_problematico": 0,
-    }
+    page_total = count_pages(path)
+    if page_total == "":
+        page_total = audit.get("paginas", "")
     rag_status, action = status_for_group(group)
     rows.append({
         "document_id": document_id,
@@ -72,9 +92,11 @@ def add_row(rows, path, document_id, source_scope, framework_source,
         "validation_status": validation_status,
         "audit_group": group,
         "audit_status": audit.get("status", ""),
-        "pages": audit.get("paginas", ""),
+        "pages": page_total,
         "pages_problematic": audit.get("paginas_problematicas", ""),
         "percent_problematic": audit.get("percentual_problematico", ""),
+        "source_verified": (source_manifest or {}).get("source_verified", "false"),
+        "source_sha256": (source_manifest or {}).get("sha256", ""),
         "needs_ocr": group == "Grupo C",
         "structural_error": group == "Grupo D",
         "rag_ingest_status": rag_status,
@@ -90,6 +112,7 @@ def main():
 
     registry = load_registry()
     audits = load_audit()
+    source_manifest = load_source_manifest()
     rows = []
 
     # Países: inclui todos os documentos registrados para análise,
@@ -113,28 +136,7 @@ def main():
                 role=doc.get("role", ""),
                 validation_status=doc.get("validation_status", ""),
                 audit=audits.get(normalize(rel), {}),
-            )
-
-    # Referenciais internacionais: não são países.
-    for folder, framework, prefix in [
-        ("Unesco", "UNESCO", "UNESCO"),
-        ("pisa", "OECD/PISA", "PISA"),
-    ]:
-        base = CORPUS / folder
-        if not base.exists():
-            continue
-        files = sorted(
-            p for p in base.iterdir()
-            if p.is_file() and p.suffix.lower() in {".pdf", ".html", ".htm", ".txt"}
-        )
-        for index, path in enumerate(files, 1):
-            rel = path.relative_to(CORPUS).as_posix()
-            add_row(
-                rows, path, f"{prefix}_{index:03d}",
-                "international_reference", framework,
-                role="reference",
-                validation_status="validated",
-                audit=audits.get(normalize(rel), {}),
+                source_manifest=source_manifest.get(normalize(rel), {}),
             )
 
     df = pd.DataFrame(rows).sort_values(

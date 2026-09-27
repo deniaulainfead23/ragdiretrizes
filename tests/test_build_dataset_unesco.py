@@ -3,7 +3,7 @@ import json
 from rag_project.build_dataset import build_bilingual_datasets
 
 
-def test_build_bilingual_datasets_keeps_unesco_as_benchmark(tmp_path):
+def test_build_bilingual_datasets_excludes_non_country_references(tmp_path):
     root = tmp_path / 'corpus'
     (root / 'unesco').mkdir(parents=True)
     (root / 'brasil').mkdir(parents=True)
@@ -27,10 +27,19 @@ def test_build_bilingual_datasets_keeps_unesco_as_benchmark(tmp_path):
     assert original.exists()
 
     lines = [line for line in original.read_text(encoding='utf-8').splitlines() if line.strip()]
-    assert len(lines) >= 2
+    assert len(lines) == 1
 
     records = [json.loads(line) for line in lines]
-    grouped = {record['country']: record['dataset_group'] for record in records}
+    assert records[0]['country'] == 'brasil'
+    assert records[0]['dataset_group'] == 'country'
+    assert 'unesco_reference' not in records[0]
+    assert 'pisa_reference' not in records[0]
 
-    assert grouped.get('unesco') == 'unesco'
-    assert grouped.get('brasil') == 'country'
+    report_path = out_dir / 'dataset_build_report.csv'
+    assert report_path.exists()
+    with report_path.open(encoding='utf-8-sig', newline='') as handle:
+        report = list(csv.DictReader(handle))
+    assert len(report) == 2
+    assert all(row['record_status'] == 'included' for row in report)
+    assert all(row['translation_status'] == 'not_requested' for row in report)
+    assert all('source_text' not in row for row in report)

@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import argparse
+import csv
 import hashlib
 import json
 import os
@@ -29,6 +30,7 @@ INVALID_FILE_TOKENS = (
     'segunda_tentativa',
 )
 VALID_EXTENSIONS = {'.pdf', '.html', '.htm', '.txt'}
+NON_COUNTRY_REFERENCE_FOLDERS = {'unesco', 'pisa', 'oecd_pisa'}
 
 
 def is_valid_file(path: Path) -> bool:
@@ -78,7 +80,10 @@ def iter_valid_documents(corpus_root: Path, registry: dict | None = None) -> Ite
         return
     registry = registry or load_registry()
     for country_entry, document in registered_documents(registry):
-        if country_entry["country"] in EXCLUDED_COUNTRIES:
+        if (
+            country_entry["country"] in EXCLUDED_COUNTRIES
+            or country_entry["country"].lower() in NON_COUNTRY_REFERENCE_FOLDERS
+        ):
             continue
         file_path = corpus_root / country_entry["country"] / document["file"]
         if is_valid_file(file_path):
@@ -86,11 +91,6 @@ def iter_valid_documents(corpus_root: Path, registry: dict | None = None) -> Ite
 
 
 def dataset_group_for_folder(folder_name: str) -> str:
-    normalized = folder_name.strip().lower()
-    if normalized == 'unesco':
-        return 'unesco'
-    if normalized == 'pisa':
-        return 'pisa'
     return 'country'
 
 
@@ -120,8 +120,6 @@ def make_dataset_record(country: str, source_path: Path, corpus_root: Path, sour
         'institution': '',
         'document_type': '',
         'theme': '',
-        'unesco_reference': 'yes' if dataset_group == 'unesco' else 'no',
-        'pisa_reference': 'yes' if dataset_group == 'pisa' else 'no',
     }
 
 
@@ -164,7 +162,15 @@ def translate_document_in_chunks(client: OpenAI, text: str, cache: dict, cache_p
     return '\n\n'.join(translated_chunks)
 
 
-def write_dataset_stream(corpus_root: Path, output_path: Path, use_openai_translation: bool = False, openai_api_key: Optional[str] = None, dataset_group: str = 'country', translation_cache_path: Optional[Path] = None):
+def write_dataset_stream(
+    corpus_root: Path,
+    output_path: Path,
+    use_openai_translation: bool = False,
+    openai_api_key: Optional[str] = None,
+    dataset_group: str = 'country',
+    translation_cache_path: Optional[Path] = None,
+    report_rows: list[dict] | None = None,
+):
     client = None
     if use_openai_translation and openai_api_key:
         if OpenAI is None:
@@ -182,14 +188,31 @@ def write_dataset_stream(corpus_root: Path, output_path: Path, use_openai_transl
         for country, source_path, country_entry, document in iter_valid_documents(corpus_root):
             source_text = extract_text_from_file(source_path)
             if not source_text.strip():
+                if report_rows is not None:
+                    report_rows.append({
+                        'document_id': document['document_id'],
+                        'country': country,
+                        'source_path': source_path.relative_to(corpus_root).as_posix(),
+                        'dataset_file': output_path.name,
+                        'source_chars': 0,
+                        'output_chars': 0,
+                        'translation_status': 'not_attempted',
+                        'record_status': 'skipped_empty_extraction',
+                        'error_type': 'EmptyExtraction',
+                    })
                 continue
             translated_text = source_text
+            translation_status = 'not_requested'
+            error_type = ''
             if use_openai_translation and client is not None:
                 try:
                     translated_text = translate_document_in_chunks(client, source_text, translation_cache, translation_cache_path)
+                    translation_status = 'translated'
                 except Exception as exc:  # pragma: no cover
                     print(f'Warning: translation failed for {source_path.name}: {exc}')
                     translated_text = source_text
+                    translation_status = 'fallback_source_after_error'
+                    error_type = type(exc).__name__
             record_group = dataset_group_for_folder(country)
             record = make_dataset_record(country, source_path, corpus_root, source_text, translated_text, record_group)
             record.update({
@@ -203,6 +226,18 @@ def write_dataset_stream(corpus_root: Path, output_path: Path, use_openai_transl
             # Escape Unicode line separators so each JSON object remains one JSONL line.
             handle.write(json.dumps(record, ensure_ascii=True) + '\n')
             count += 1
+            if report_rows is not None:
+                report_rows.append({
+                    'document_id': document['document_id'],
+                    'country': country,
+                    'source_path': source_path.relative_to(corpus_root).as_posix(),
+                    'dataset_file': output_path.name,
+                    'source_chars': len(source_text),
+                    'output_chars': len(translated_text),
+                    'translation_status': translation_status,
+                    'record_status': 'included',
+                    'error_type': error_type,
+                })
             print(f'[{record_group}] {count}: {country} / {source_path.name}')
     print(f'Dataset saved: {output_path} ({count} records)')
 
@@ -215,20 +250,47 @@ def build_bilingual_datasets(corpus_root: str, output_dir: str, openai_api_key: 
     original_path = out_dir / 'dataset_original.jsonl'
     english_path = out_dir / 'dataset_english.jsonl'
     translation_cache_path = out_dir / 'translation_cache.json'
+    report_rows: list[dict] = []
 
-    # 1) original dataset: keep source text untouched
-    write_dataset_stream(root, original_path, use_openai_translation=False, openai_api_key=None, dataset_group='country')
-
-    # 2) english dataset: same documents but translated for analysis
-    if use_openai_translation and openai_api_key:
-        write_dataset_stream(root, english_path, use_openai_translation=True, openai_api_key=openai_api_key, dataset_group='country', translation_cache_path=translation_cache_path)
-    else:
-        # if translation is not requested, english file remains a copy of original text to keep structure consistent
-        write_dataset_stream(root, english_path, use_openai_translation=False, openai_api_key=None, dataset_group='country')
+    try:
+        write_dataset_stream(
+            root, original_path, dataset_group='country', report_rows=report_rows
+        )
+        translation_enabled = bool(use_openai_translation and openai_api_key)
+        write_dataset_stream(
+            root,
+            english_path,
+            use_openai_translation=translation_enabled,
+            openai_api_key=openai_api_key if translation_enabled else None,
+            dataset_group='country',
+            translation_cache_path=translation_cache_path if translation_enabled else None,
+            report_rows=report_rows,
+        )
+    except Exception as exc:
+        report_rows.append({
+            'document_id': '', 'country': '', 'source_path': '',
+            'dataset_file': '', 'source_chars': 0, 'output_chars': 0,
+            'translation_status': 'not_completed',
+            'record_status': 'generation_failed',
+            'error_type': type(exc).__name__,
+        })
+        raise
+    finally:
+        report_path = out_dir / 'dataset_build_report.csv'
+        with report_path.open('w', encoding='utf-8-sig', newline='') as handle:
+            fields = [
+                'document_id', 'country', 'source_path', 'dataset_file',
+                'source_chars', 'output_chars', 'translation_status',
+                'record_status', 'error_type',
+            ]
+            writer = csv.DictWriter(handle, fieldnames=fields)
+            writer.writeheader()
+            writer.writerows(report_rows)
 
     print('\nBilingual dataset generation complete.')
     print(f'Original: {original_path}')
     print(f'English: {english_path}')
+    print(f'Report: {out_dir / "dataset_build_report.csv"}')
 
 
 if __name__ == '__main__':

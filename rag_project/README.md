@@ -26,6 +26,29 @@ python -m spacy download pt_core_news_sm
 
 Além disso, instale o Tesseract OCR no sistema e adicione ao PATH.
 
+## Nova rodada para corpus curado
+
+O executor `run_curated_pipeline.py` inicia uma rodada em uma pasta exclusiva,
+sem substituir datasets, índices ou resultados anteriores. Por padrão, faz
+somente a pré-auditoria do corpus e salva um manifesto com hashes em
+`dados_intermediarios/pipeline_runs/<run-id>/run_manifest.json`:
+
+```bash
+python -m rag_project.run_curated_pipeline --run-id curadoria_2026_09
+```
+
+A auditoria interrompe a rodada se encontrar arquivos do corpus ausentes no
+registro ou arquivos elegíveis ainda não registrados. Depois de alinhar o
+registro com a curadoria, `--build` gera os datasets original e inglês (sem
+tradução automática) e um índice FAISS novo, todos dentro da pasta dessa rodada:
+
+```bash
+python -m rag_project.run_curated_pipeline --run-id curadoria_2026_09 --build
+```
+
+Essa etapa não executa perguntas, não usa a chave OpenAI e não modifica os
+documentos do corpus. Use um identificador de rodada novo a cada execução.
+
 ## Uso
 
 1. Construir o índice a partir do corpus (executar na pasta `rag_project`):

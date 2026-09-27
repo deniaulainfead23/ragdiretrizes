@@ -4,7 +4,7 @@
 
 Este documento estabelece a organização física e analítica do projeto sem alterar o título da dissertação:
 
-**Diretrizes Curriculares de Computação e Educação Digital na Educação Básica: uma análise comparativa internacional orientada à formação do cidadão do futuro.**
+**Currículos e diretrizes oficiais de Computação e Educação Digital na Educação Básica: análise comparativa entre países e pelo DLGF 2018.**
 
 A expressão do título é mantida como horizonte formativo da pesquisa. A análise empírica permanece concentrada no que os documentos curriculares e normativos explicitam sobre Computação, Educação Digital e competências relacionadas.
 
@@ -16,22 +16,19 @@ A expressão do título é mantida como horizonte formativo da pesquisa. A anál
 | Dados intermediários | OCR, extração, tradução, normalização, segmentação, metadados, datasets e análises exploratórias | Sim, com versão | Preparação e processamento |
 | Dados derivados | Respostas, evidências, matrizes, comparações, tabelas, gráficos e relatórios | Sim, com registro | Análise e apresentação dos resultados |
 
-## Referenciais internacionais
+## Matriz analítica externa
 
-O UNESCO/UIS 2018, *A Global Framework of Reference on Digital Literacy Skills for Indicator 4.4.2*, será utilizado como referencial principal para organizar a dimensão de competências e letramento digital.
+O DLGF 2018 é a única matriz externa usada para organizar evidências de competências digitais. Ele não integra a contagem de países nem substitui a comparação entre currículos nacionais.
 
-A UNESCO 2015 permanece como referência complementar para cidadania global e para as dimensões cognitiva, socioemocional e comportamental.
-
-Esses referenciais não são países, não entram na contagem do corpus nacional e não funcionam como ranking ou medida direta da qualidade dos currículos.
-
-As categorias devem permanecer separadas:
+As categorias de leitura dos documentos incluem:
 
 - competências digitais e letramento digital;
 - pensamento computacional;
-- cidadania digital e cidadania global;
-- segurança, ética, inclusão e responsabilidade social.
+- cidadania digital, ética e letramento midiático;
+- segurança, inclusão e equidade;
+- organização curricular e formação docente.
 
-A relação entre essas categorias será descrita como articulação analítica, não como equivalência conceitual.
+As áreas do DLGF são aplicadas apenas quando a evidência nacional sustentar a correspondência.
 
 ## Organização dos resultados
 
