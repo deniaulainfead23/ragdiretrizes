@@ -114,10 +114,10 @@ O inventário do corpus é reconciliado com `rag_project/config/corpus_registry.
 No Git Bash, na raiz do repositório:
 
 ```bash
-python -m rag_project.run_curated_pipeline --run-id regen_20260927_01 --build
+python -m rag_project.run_curated_pipeline --run-id regen_20260927_02 --build
 ```
 
-O comando cria dataset por página, índice FAISS e manifesto em `dados_intermediarios/pipeline_runs/regen_20260927_01/`. O modelo `all-MiniLM-L6-v2` é baixado/cacheado na primeira execução. Se precisar exigir o cache local, configure `RAG_EMBEDDING_LOCAL_ONLY=true`; o pipeline falha claramente se não puder carregar o modelo e não substitui embeddings por vetores hash.
+O comando cria dois datasets rastreáveis: `dataset_original_pages.jsonl` preserva os trechos no idioma da fonte e `dataset_english_pages.jsonl` traduz o corpus completo para inglês em segmentos ligados ao trecho original. O índice FAISS é criado a partir da versão inglesa. A tradução exige `OPENAI_API_KEY` e pode gerar cobrança de API. O índice usa `sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2`, baixado/cacheado na primeira execução. Se precisar exigir o cache local, configure `RAG_EMBEDDING_LOCAL_ONLY=true`; o pipeline falha claramente se não puder carregar o modelo e não substitui embeddings por vetores hash. Para escolher outro modelo, defina `RAG_EMBEDDING_MODEL` antes da execução e gere um índice novo.
 
 Q01–Q13 são executadas por país, após a construção do índice. Com `OPENAI_API_KEY` configurada no ambiente ou em `rag_project/.env`, use o mesmo `run-id` e países que tenham documentos validados:
 
@@ -125,20 +125,44 @@ Q01–Q13 são executadas por país, após a construção do índice. Com `OPENA
 for country in australia estonia; do
   python -m rag_project.run_questions_by_country \
     --country "$country" \
-    --index "dados_intermediarios/pipeline_runs/regen_20260927_01/index" \
-    --out "dados_intermediarios/pipeline_runs/regen_20260927_01/questions/$country" \
+    --index "dados_intermediarios/pipeline_runs/regen_20260927_02/index" \
+    --out "dados_intermediarios/pipeline_runs/regen_20260927_02/questions/$country" \
     --backend local
 done
 ```
 
-O registro atual tem quatro documentos validados, distribuídos entre Austrália e Estônia; os outros 90 documentos permanecem excluídos até revisão. Assim, essa primeira reconstrução gera resultados somente para esses dois países. A Q14 comparativa continua condicionada à validação humana das respostas Q01–Q13, conforme o protocolo metodológico.
+O registro atual tem quatro documentos validados, distribuídos entre Austrália e Estônia; os outros documentos permanecem excluídos até revisão. Assim, essa primeira reconstrução gera resultados somente para esses dois países. A Q14 comparativa continua condicionada à validação humana das respostas Q01–Q13, conforme o protocolo metodológico.
+
+Depois de validar as respostas, gere a matriz dos itens Q01–Q13 e a matriz DLGF 2018 a partir das evidências revisadas:
+
+```bash
+python -m rag_project.consolidate_country_responses \
+  --input "dados_intermediarios/pipeline_runs/regen_20260927_02/questions" \
+  --output "dados_intermediarios/pipeline_runs/regen_20260927_02/question_matrix"
+python -m rag_project.build_evidence_matrix \
+  --evidence "dados_intermediarios/pipeline_runs/regen_20260927_02/question_matrix/evidencias_consolidadas.csv" \
+  --out "dados_intermediarios/pipeline_runs/regen_20260927_02/dlgf_2018"
+```
+
+Antes da matriz DLGF, valide manualmente as evidências na coluna `evidence_validation_status` de `evidencias_consolidadas.csv`. A matriz sempre contém as sete áreas do DLGF 2018. `not_assessed` indica ausência de evidência validada; `translation_required` indica que há trechos em japonês/chinês sem tradução para comparação lexical; `no_match_in_reviewed_sample` significa apenas que não houve correspondência lexical naquela amostra revisada. Nenhum desses estados prova ausência curricular. TF-IDF e similaridade textual são pistas de vocabulário, não evidência de equivalência.
+
+Para recalcular TF-IDF após atualizar o corpus, primeiro gere o dataset em inglês com traduções consistentes e depois rode:
+
+```bash
+python -m rag_project.analyze_tfidf \
+  --input "dados_intermediarios/pipeline_runs/regen_20260927_02/datasets/dataset_english.jsonl" \
+  --out "dados_intermediarios/pipeline_runs/regen_20260927_02/tfidf" \
+  --text-field english_text
+```
+
+A comparação lexical inclui apenas os documentos nacionais e as sete áreas do UNESCO DLGF 2018. A tradução por API pode gerar cobrança e exige que o dataset inglês tenha sido criado previamente.
 
 ## Regras metodológicas do projeto
 
 > A análise lexical não substitui a leitura documental nem a interpretação crítica do pesquisador.
 
 - O TF-IDF e a similaridade textual são usados como ferramentas exploratórias.
-- O corpus principal contém 22 países. UNESCO e PISA/OCDE são referências internacionais e não entram na contagem de países nem no bloco comparativo nacional.
+- O corpus principal contém 22 países. O UNESCO DLGF 2018 é usado como referencial analítico internacional, não como currículo nacional nem como ranking.
 - Os resultados computacionais devem ser lidos como pistas de vocabulário e proximidade textual, e não como prova de equivalência curricular.
 - A recuperação semântica e o RAG devem retornar evidências vinculadas a documento, país, fonte e categoria analítica.
 - Páginas marcadas como vazias, curtas ou de baixa qualidade devem ser revisadas visualmente antes da liberação.
