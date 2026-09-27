@@ -1,4 +1,6 @@
-from rag_project.run_curated_pipeline import audit_corpus
+import json
+
+from rag_project.run_curated_pipeline import audit_corpus, build_page_dataset
 
 
 def test_audit_blocks_build_when_corpus_has_curation_divergences(tmp_path):
@@ -52,3 +54,56 @@ def test_audit_allows_build_for_fully_curated_corpus(tmp_path):
     audit = audit_corpus(corpus_root, registry)
 
     assert audit['is_buildable'] is True
+
+
+def test_pending_and_unregistered_sources_do_not_block_validated_subset(tmp_path):
+    corpus_root = tmp_path / 'corpus'
+    country_dir = corpus_root / 'canada'
+    country_dir.mkdir(parents=True)
+    for name in ('approved.pdf', 'pending.pdf', 'unregistered.pdf'):
+        (country_dir / name).write_bytes(b'%PDF')
+    registry = {
+        'countries': [{
+            'country': 'canada',
+            'include_in_analysis': True,
+            'documents': [
+                {'document_id': 'CA-01', 'file': 'approved.pdf', 'role': 'primary', 'validation_status': 'validated'},
+                {'document_id': 'CA-02', 'file': 'pending.pdf', 'role': 'complementary', 'validation_status': 'pending_review'},
+            ],
+        }]
+    }
+
+    audit = audit_corpus(corpus_root, registry)
+
+    assert audit['verified_present_documents'] == 1
+    assert audit['pending_verification_excluded_files'] == ['canada/pending.pdf']
+    assert audit['unregistered_excluded_files'] == ['canada/unregistered.pdf']
+    assert audit['is_buildable'] is True
+
+
+def test_run_local_dataset_extracts_only_validated_registry_documents(tmp_path):
+    corpus_root = tmp_path / 'corpus'
+    country_dir = corpus_root / 'canada'
+    country_dir.mkdir(parents=True)
+    (country_dir / 'approved.txt').write_text('Currículo oficial de computação.', encoding='utf-8')
+    (country_dir / 'pending.txt').write_text('Documento pendente.', encoding='utf-8')
+    registry = {
+        'countries': [{
+            'country': 'canada',
+            'country_code': 'CA',
+            'include_in_analysis': True,
+            'documents': [
+                {'document_id': 'CA-01', 'file': 'approved.txt', 'role': 'primary', 'validation_status': 'validated'},
+                {'document_id': 'CA-02', 'file': 'pending.txt', 'role': 'primary', 'validation_status': 'pending_review'},
+            ],
+        }]
+    }
+    output = tmp_path / 'run' / 'dataset_pages.jsonl'
+
+    report = build_page_dataset(corpus_root, output, registry)
+
+    records = [json.loads(line) for line in output.read_text(encoding='utf-8').splitlines()]
+    assert report['documents_included'] == 1
+    assert report['pages_written'] == 1
+    assert [record['document_id'] for record in records] == ['CA-01']
+    assert records[0]['source_text'] == 'Currículo oficial de computação.'

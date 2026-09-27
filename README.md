@@ -107,6 +107,32 @@ dados_derivados/analysis/audit/processed_page_audit.csv
 
 O protocolo preserva os documentos originais, mantém `document_id` e páginas, aplica OCR apenas quando necessário, registra páginas suspeitas para revisão humana e valida a estrutura dos dados antes da indexação vetorial.
 
+### Reconstruir dataset e índice após atualizar o corpus
+
+O inventário do corpus é reconciliado com `rag_project/config/corpus_registry.yaml`. Arquivos novos ficam como `pending_review` até a confirmação da fonte oficial, do nível de ensino e da relação com Computação/educação digital. Eles aparecem no manifesto de auditoria, mas não entram no dataset nem no índice. A construção usa somente documentos `validated` presentes no corpus e lê os arquivos brutos atuais; ela não depende de `documentos.csv` ou `processed_documents.csv` gerados em rodadas anteriores.
+
+No Git Bash, na raiz do repositório:
+
+```bash
+python -m rag_project.run_curated_pipeline --run-id regen_20260927_01 --build
+```
+
+O comando cria dataset por página, índice FAISS e manifesto em `dados_intermediarios/pipeline_runs/regen_20260927_01/`. O modelo `all-MiniLM-L6-v2` é baixado/cacheado na primeira execução. Se precisar exigir o cache local, configure `RAG_EMBEDDING_LOCAL_ONLY=true`; o pipeline falha claramente se não puder carregar o modelo e não substitui embeddings por vetores hash.
+
+Q01–Q13 são executadas por país, após a construção do índice. Com `OPENAI_API_KEY` configurada no ambiente ou em `rag_project/.env`, use o mesmo `run-id` e países que tenham documentos validados:
+
+```bash
+for country in australia estonia; do
+  python -m rag_project.run_questions_by_country \
+    --country "$country" \
+    --index "dados_intermediarios/pipeline_runs/regen_20260927_01/index" \
+    --out "dados_intermediarios/pipeline_runs/regen_20260927_01/questions/$country" \
+    --backend local
+done
+```
+
+O registro atual tem quatro documentos validados, distribuídos entre Austrália e Estônia; os outros 90 documentos permanecem excluídos até revisão. Assim, essa primeira reconstrução gera resultados somente para esses dois países. A Q14 comparativa continua condicionada à validação humana das respostas Q01–Q13, conforme o protocolo metodológico.
+
 ## Regras metodológicas do projeto
 
 > A análise lexical não substitui a leitura documental nem a interpretação crítica do pesquisador.

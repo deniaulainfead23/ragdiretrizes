@@ -2,7 +2,6 @@ from __future__ import annotations
 
 import argparse
 import hashlib
-import importlib.metadata
 import json
 import re
 import sys
@@ -90,9 +89,10 @@ def audit_corpus(corpus_root: Path, registry: dict) -> dict:
         "unregistered_excluded_files": unregistered,
         "pending_verification_excluded_files": pending_validation,
         "inventory": inventory,
-        "is_buildable": bool(verified_present) and not (
-            missing_verified or unregistered or pending_validation
-        ),
+        # Pending and undiscovered documents are recorded and excluded. They do
+        # not invalidate a build of the already validated subset. A missing
+        # validated source remains a hard error because it breaks traceability.
+        "is_buildable": bool(verified_present) and not missing_verified,
     }
 
 
@@ -100,6 +100,84 @@ def write_manifest(path: Path, manifest: dict) -> None:
     temporary_path = path.with_suffix(".tmp")
     temporary_path.write_text(json.dumps(manifest, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     temporary_path.replace(path)
+
+
+def build_page_dataset(corpus_root: Path, output_path: Path, registry: dict) -> dict:
+    """Extract only registry-validated documents into a run-local page JSONL."""
+    output_path.parent.mkdir(parents=True, exist_ok=True)
+    report_rows = []
+    record_count = 0
+    included_documents = 0
+    temporary_path = output_path.with_suffix(output_path.suffix + ".tmp")
+    with temporary_path.open("w", encoding="utf-8", newline="\n") as handle:
+        for entry, document in registered_documents(registry):
+            source = corpus_root / entry["country"] / document["file"]
+            if source.suffix.lower() == ".pdf":
+                from rag_project.rag.ingest import extract_pdf_pages
+
+                pages = extract_pdf_pages(str(source))
+            else:
+                try:
+                    extracted = source.read_text(encoding="utf-8")
+                except UnicodeDecodeError:
+                    extracted = source.read_text(encoding="latin-1")
+                pages = [(1, extracted)] if extracted.strip() else []
+
+            written = 0
+            for page_number, page_text in pages:
+                page_text = str(page_text).strip()
+                if not page_text:
+                    continue
+                content_id = f"{document['document_id']}_p{int(page_number):04d}"
+                record = {
+                    "content_id": content_id,
+                    "chunk_id": content_id,
+                    "document_id": document["document_id"],
+                    "country": entry["country"],
+                    "country_code": entry.get("country_code", ""),
+                    "source_scope": "national",
+                    "framework_source": "",
+                    "document_title": Path(document["file"]).stem,
+                    "year": "",
+                    "language": document.get("language", ""),
+                    "page_start": page_number,
+                    "page_end": page_number,
+                    "source_text": page_text,
+                    "char_count": len(page_text),
+                    "token_estimate": max(1, round(len(page_text) / 4)),
+                    "document_role": document["role"],
+                    "validation_status": document["validation_status"],
+                    "source_path": source.relative_to(corpus_root.parent).as_posix(),
+                }
+                handle.write(json.dumps(record, ensure_ascii=False) + "\n")
+                record_count += 1
+                written += 1
+            status = "included" if written else "no_extractable_text"
+            if written:
+                included_documents += 1
+            report_rows.append({
+                "document_id": document["document_id"],
+                "source_path": source.relative_to(corpus_root.parent).as_posix(),
+                "processing_status": status,
+                "pages_written": str(written),
+                "validation_status": document["validation_status"],
+            })
+    if record_count == 0:
+        temporary_path.unlink(missing_ok=True)
+        raise ValueError("Nenhuma página com texto foi extraída dos documentos validados.")
+    temporary_path.replace(output_path)
+    report_path = output_path.with_name("dataset_build_report.csv")
+    import csv
+    with report_path.open("w", encoding="utf-8-sig", newline="") as handle:
+        fields = ["document_id", "source_path", "processing_status", "pages_written", "validation_status"]
+        writer = csv.DictWriter(handle, fieldnames=fields)
+        writer.writeheader()
+        writer.writerows(report_rows)
+    return {
+        "documents_included": included_documents,
+        "pages_written": record_count,
+        "report_path": str(report_path),
+    }
 
 
 def run(corpus_root: Path, output_root: Path, run_id: str, build_outputs: bool) -> int:
@@ -153,7 +231,8 @@ def run(corpus_root: Path, output_root: Path, run_id: str, build_outputs: bool) 
     print(f"Manifesto: {manifest_path}")
 
     if not audit["is_buildable"]:
-        manifest["errors"].append({"stage": "preflight", "error_type": "NoVerifiedDocuments", "message": "Nenhum documento selecionado e previamente verificado está presente."})
+        error_type = "MissingValidatedSources" if audit["missing_verified_files"] else "NoValidatedDocuments"
+        manifest["errors"].append({"stage": "preflight", "error_type": error_type, "message": "Preflight requer ao menos um documento validado presente e nenhum documento validado ausente."})
         write_manifest(manifest_path, manifest)
         print("Construção interrompida: preflight encontrou divergências ou nenhum documento verificado presente.")
         return 2
@@ -167,10 +246,9 @@ def run(corpus_root: Path, output_root: Path, run_id: str, build_outputs: bool) 
     manifest["status"] = "building"
     write_manifest(manifest_path, manifest)
     try:
-        from rag_project.build_content_dataset import main as build_content_dataset
         from rag_project.build_index import build_from_dataset
 
-        build_content_dataset(str(content_dataset_path))
+        dataset_report = build_page_dataset(corpus_root, content_dataset_path, registry)
         index_report = build_from_dataset(str(content_dataset_path), str(index_dir))
         manifest["outputs"] = {
             "dataset_pages": {
@@ -178,8 +256,9 @@ def run(corpus_root: Path, output_root: Path, run_id: str, build_outputs: bool) 
                 "sha256": sha256_file(content_dataset_path),
             },
             "dataset_build_report": {
-                "path": str(dataset_dir / "dataset_build_report.csv"),
-                "sha256": sha256_file(dataset_dir / "dataset_build_report.csv"),
+                "path": dataset_report["report_path"],
+                "sha256": sha256_file(Path(dataset_report["report_path"])),
+                "summary": dataset_report,
             },
             "index": {
                 "path": str(index_dir),

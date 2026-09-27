@@ -1,519 +1,592 @@
-corpus_version: "3.0"
+corpus_version: '3.1'
 total_countries: 22
-
 benchmark_sources:
-  - source_id: UNESCO
-    name: UNESCO
-    source_type: international_reference
-    include_in_country_count: false
-  - source_id: PISA_OECD
-    name: PISA/OCDE
-    source_type: international_reference
-    include_in_country_count: false
-
+- source_id: UNESCO
+  name: UNESCO
+  source_type: international_reference
+  include_in_country_count: false
+- source_id: PISA_OECD
+  name: PISA/OCDE
+  source_type: international_reference
+  include_in_country_count: false
 excluded_countries:
-  - country: marrocos
-    reason: documento oficial não validado
-    include_in_analysis: false
-
+- country: marrocos
+  reason: documento oficial não validado
+  include_in_analysis: false
 countries:
-  - country_code: ZA
-    country: africa-do-sul
-    continent: africa
-    include_in_analysis: true
-    documents:
-      - document_id: AF-ZA-01
-        file: africa-do-sul_caps_computer-applications-technology_grades-10-12.pdf
-        role: primary
-        validation_status: validated
-      - document_id: AF-ZA-02
-        file: africa-do-sul_caps_information-technology_grades-10-12.pdf
-        role: primary
-        validation_status: validated
-  - country_code: AU
-    country: australia
-    continent: oceania
-    include_in_analysis: true
-    documents:
-      - document_id: OC-AU-01
-        file: australia_digital-technologies-v9_sequence-achievement_2022.pdf
-        role: primary
-        validation_status: validated
-      - document_id: OC-AU-02
-        file: australia_digital-technologies-v9_sequence-content_2022.pdf
-        role: complementary
-        validation_status: validated
-  - country_code: BR
-    country: brasil
-    continent: americas
-    include_in_analysis: true
-    documents:
-      - document_id: BR_001
-        file: brasil_bncc-computacao_anexo-parecer-cneceb-2_2022.pdf
-        role: primary
-        validation_status: pending_review
-        metadata_source: metadata/bibliographic_matrix.csv
-      - document_id: BR_002
-        file: brasil_bncc-computacao_complemento-bncc_2022.pdf
-        role: primary
-        validation_status: pending_review
-        metadata_source: metadata/bibliographic_matrix.csv
-      - document_id: BR_003
-        file: brasil_bncc_educacao-basica_completa_2018.pdf
-        role: primary
-        validation_status: pending_review
-        metadata_source: metadata/bibliographic_matrix.csv
-      - document_id: BR_004
-        file: brasil_bncc_educacao-infantil-ensino-fundamental_2018.pdf
-        role: primary
-        validation_status: pending_review
-        metadata_source: metadata/bibliographic_matrix.csv
-      - document_id: BR_005
-        file: brasil_cieb-itinerario-formativo-tecnologia-computacao_2021.pdf
-        role: primary
-        validation_status: pending_review
-        metadata_source: metadata/bibliographic_matrix.csv
-      - document_id: BR_006
-        file: brasil_curriculo-referencia-tecnologia-computacao-cieb_2018.pdf
-        role: primary
-        validation_status: pending_review
-        metadata_source: metadata/bibliographic_matrix.csv
-      - document_id: BR_007
-        file: brasil_guia-complemento-computacao-bncc_2023.pdf
-        role: primary
-        validation_status: pending_review
-        metadata_source: metadata/bibliographic_matrix.csv
-      - document_id: BR_008
-        file: brasil_guia-educacao-digital-midiatica_2025.pdf
-        role: primary
-        validation_status: pending_review
-        metadata_source: metadata/bibliographic_matrix.csv
-      - document_id: BR_009
-        file: brasil_ldb-lei-9394_compilada_1996-atualizada.pdf
-        role: complementary
-        validation_status: pending_review
-        metadata_source: metadata/bibliographic_matrix.csv
-      - document_id: BR_010
-        file: brasil_matriz-saberes-digitais-docentes_2024.pdf
-        role: complementary
-        validation_status: pending_review
-        metadata_source: metadata/bibliographic_matrix.csv
-      - document_id: BR_011
-        file: brasil_nota-tecnica-cieb-27_competencias-digitais-professores_2025.pdf
-        role: complementary
-        validation_status: pending_review
-        metadata_source: metadata/bibliographic_matrix.csv
-      - document_id: BR_012
-        file: brasil_parecer-cne-ceb-2_bncc-computacao_2022.pdf
-        role: primary
-        validation_status: pending_review
-        metadata_source: metadata/bibliographic_matrix.csv
-      - document_id: BR_013
-        file: brasil_parecer-cne-cp-15_bncc_2017.pdf
-        role: primary
-        validation_status: pending_review
-        metadata_source: metadata/bibliographic_matrix.csv
-      - document_id: BR_014
-        file: brasil_parecer-cne-cp-7_bncc_2022.pdf
-        role: primary
-        validation_status: pending_review
-        metadata_source: metadata/bibliographic_matrix.csv
-      - document_id: BR_015
-        file: brasil_politica-nacional-educacao-digital-lei-14533_2023.pdf
-        role: primary
-        validation_status: pending_review
-        metadata_source: metadata/bibliographic_matrix.csv
-      - document_id: BR_016
-        file: brasil_referencial-saberes-digitais-docentes_2024.pdf
-        role: complementary
-        validation_status: pending_review
-        metadata_source: metadata/bibliographic_matrix.csv
-      - document_id: BR_017
-        file: brasil_resolucao-cne-ceb-1_bncc-computacao_2022.pdf
-        role: primary
-        validation_status: pending_review
-        metadata_source: metadata/bibliographic_matrix.csv
-      - document_id: BR_018
-        file: brasil_resolucao-cne-ceb-2_diretrizes-dispositivos-digitais-educacao-digital-midiatica_2025.pdf
-        role: primary
-        validation_status: pending_review
-        metadata_source: metadata/bibliographic_matrix.csv
-      - document_id: BR_019
-        file: brasil_resolucao-cne-cp-2_bncc_2017.pdf
-        role: primary
-        validation_status: pending_review
-        metadata_source: metadata/bibliographic_matrix.csv
-      - document_id: BR_020
-        file: brasil_restricao-celulares-escolas-lei-15010_2025.pdf
-        role: complementary
-        validation_status: pending_review
-        metadata_source: metadata/bibliographic_matrix.csv
-  - country_code: CA
-    country: canada
-    continent: americas
-    include_in_analysis: true
-    documents:
-      - document_id: CA_001
-        file: canada_alberta_draft-k6-science-update_2022.pdf
-        role: complementary
-        validation_status: pending_review
-        metadata_source: metadata/bibliographic_matrix.csv
-      - document_id: CA_002
-        file: canada_alberta_k6-science-curriculum-computer-science_2023.pdf
-        role: primary
-        validation_status: pending_review
-        metadata_source: metadata/bibliographic_matrix.csv
-      - document_id: CA_003
-        file: canada_ontario_digital-action-plan.pdf
-        role: primary
-        validation_status: pending_review
-        metadata_source: metadata/bibliographic_matrix.csv
-      - document_id: CA_004
-        file: canada_ontario_ministry-education-published-plan_2023-2024.html
-        role: complementary
-        validation_status: pending_review
-        metadata_source: metadata/bibliographic_matrix.csv
-  - country_code: CL
-    country: chile
-    continent: americas
-    include_in_analysis: true
-    documents:
-      - document_id: CL_001
-        file: articles-140146_programa_feb_2021_final_s_disegno.pdf
-        role: primary
-        validation_status: pending_review
-        metadata_source: metadata/bibliographic_matrix.csv
-      - document_id: CL_002
-        file: articles-37136_bases.pdf
-        role: primary
-        validation_status: pending_review
-        metadata_source: metadata/bibliographic_matrix.csv
-      - document_id: CL_003
-        file: articles-91414_bases.pdf
-        role: primary
-        validation_status: pending_review
-        metadata_source: metadata/bibliographic_matrix.csv
-      - document_id: CL_004
-        file: ds_po_3_2025_tiskarna-66-82.pdf
-        role: complementary
-        validation_status: pending_review
-        metadata_source: metadata/bibliographic_matrix.csv
-      - document_id: CL_005
-        file: recurso_2_rota do pensamento computacional.pdf
-        role: complementary
-        validation_status: pending_review
-        metadata_source: metadata/bibliographic_matrix.csv
-  - country_code: CN
-    country: china
-    continent: asia
-    include_in_analysis: true
-    documents:
-      - document_id: AS-CN-01
-        file: china_information_technology_curriculum_standard_2022.pdf
-        role: primary
-        extraction_method: ocr
-        validation_status: pending_review
-      - document_id: AS-CN-02
-        file: china_compulsory_education_curriculum_plan_2022.pdf
-        role: complementary
-        extraction_method: ocr
-        validation_status: pending_review
-  - country_code: KR
-    country: coreia-do-sul
-    continent: asia
-    include_in_analysis: true
-    documents:
-      - document_id: KR_001
-        file: coreia-do-sul_keris-white-paper-software-education_2018.pdf
-        role: complementary
-        validation_status: pending_review
-        metadata_source: metadata/bibliographic_matrix.csv
-  - country_code: EE
-    country: estonia
-    continent: europe
-    include_in_analysis: true
-    documents:
-      - document_id: EU-EE-01
-        file: estonia_national_curriculum_basic_schools_2026.pdf
-        role: primary
-        validation_status: validated
-      - document_id: EU-EE-02
-        file: estonia_informatics_appendix_10_2023.pdf
-        role: primary
-        validation_status: validated
-  - country_code: US
-    country: eua
-    continent: americas
-    include_in_analysis: true
-    documents:
-      - document_id: US_001
-        file: eua_k12-computer-science-framework_2016.pdf
-        role: primary
-        validation_status: pending_review
-        metadata_source: metadata/bibliographic_matrix.csv
-  - country_code: FI
-    country: finlandia
-    continent: europe
-    include_in_analysis: true
-    documents:
-      - document_id: FI_001
-        file: finlandia_new-national-core-curriculum-basic-education_2016.pdf
-        role: primary
-        validation_status: pending_review
-        metadata_source: metadata/bibliographic_matrix.csv
-  - country_code: GH
-    country: gana
-    continent: africa
-    include_in_analysis: true
-    documents:
-      - document_id: GH_001
-        file: gana_computing-common-core-programme-curriculum_2023.pdf
-        role: primary
-        validation_status: pending_review
-        metadata_source: metadata/bibliographic_matrix.csv
-      - document_id: GH_002
-        file: gana_computing-primary-b4-b6_2019.pdf
-        role: primary
-        validation_status: pending_review
-        metadata_source: metadata/bibliographic_matrix.csv
-  - country_code: HK
-    country: hong-kong
-    continent: asia
-    include_in_analysis: true
-    documents:
-      - document_id: HK_001
-        file: hong-kong_general-studies-curriculum-guide_coding-stem_2017.pdf
-        role: primary
-        validation_status: pending_review
-        metadata_source: metadata/bibliographic_matrix.csv
-      - document_id: HK_002
-        file: hong-kong_ict-curriculum-and-assessment-guide_2017.pdf
-        role: primary
-        validation_status: pending_review
-        metadata_source: metadata/bibliographic_matrix.csv
-      - document_id: HK_003
-        file: Blueprint_Digital_Education_Primary_Secondary_2026.pdf
-        role: complementary
-        validation_status: pending_review
-        metadata_source: official_edb_2026
-  - country_code: IE
-    country: irlanda
-    continent: europe
-    include_in_analysis: true
-    documents:
-      - document_id: IE_001
-        file: irlanda_computer-science-curriculum-specification_2018.pdf
-        role: primary
-        validation_status: pending_review
-        metadata_source: metadata/bibliographic_matrix.csv
-  - country_code: JP
-    country: japao
-    continent: asia
-    include_in_analysis: true
-    documents:
-      - document_id: JP_001
-        file: japao_high-school-curriculum-guidelines_2022.pdf
-        role: primary
-        validation_status: pending_review
-        metadata_source: metadata/bibliographic_matrix.csv
-      - document_id: JP_002
-        file: japao_high-school-information-commentary_2022.pdf
-        role: complementary
-        validation_status: pending_review
-        metadata_source: metadata/bibliographic_matrix.csv
-  - country_code: NZ
-    country: nova-zelandia
-    continent: oceania
-    include_in_analysis: true
-    documents:
-      - document_id: NZ_001
-        file: nova-zelandia_dt-implementation-support-tool_2020.pdf
-        role: primary
-        validation_status: pending_review
-        metadata_source: metadata/bibliographic_matrix.csv
-      - document_id: NZ_002
-        file: nova-zelandia_now-underway-dt-implementation_2020.pdf
-        role: complementary
-        validation_status: pending_review
-        metadata_source: metadata/bibliographic_matrix.csv
-  - country_code: KE
-    country: quenia
-    continent: africa
-    include_in_analysis: true
-    documents:
-      - document_id: KE_001
-        file: quenia_basic-education-curriculum-framework_2017.pdf
-        role: primary
-        validation_status: pending_review
-        metadata_source: metadata/bibliographic_matrix.csv
-      - document_id: KE_002
-        file: quenia_standards-digital-content-course-materials_cbc_2018.pdf
-        role: complementary
-        validation_status: pending_review
-        metadata_source: metadata/bibliographic_matrix.csv
-  - country_code: GB
-    country: reino-unido
-    continent: europe
-    include_in_analysis: true
-    documents:
-      - document_id: UK_001
-        file: reino-unido_computing-curriculum_ks1-ks2_2014.pdf
-        role: primary
-        validation_status: pending_review
-        metadata_source: metadata/bibliographic_matrix.csv
-      - document_id: UK_002
-        file: reino-unido_computing-curriculum_ks3-ks4_2014.pdf
-        role: primary
-        validation_status: pending_review
-        metadata_source: metadata/bibliographic_matrix.csv
-  - country_code: RW
-    country: ruanda
-    continent: africa
-    include_in_analysis: true
-    documents:
-      - document_id: RW_001
-        file: ruanda_ict-syllabus.pdf
-        role: primary
-        validation_status: pending_review
-        metadata_source: metadata/bibliographic_matrix.csv
-  - country_code: SG
-    country: singapura
-    continent: asia
-    include_in_analysis: true
-    documents:
-      - document_id: SG_001
-        file: 7155_y25_sy.pdf
-        role: primary
-        validation_status: pending_review
-        metadata_source: metadata/bibliographic_matrix.csv
-      - document_id: SG_002
-        file: denitradu_olevelcomputingteach.pdf
-        role: complementary
-        validation_status: pending_review
-        metadata_source: metadata/bibliographic_matrix.csv
-      - document_id: SG_003
-        file: ethos da profissão de ensino_singapura.pdf
-        role: complementary
-        validation_status: pending_review
-        metadata_source: metadata/bibliographic_matrix.csv
-      - document_id: SG_004
-        file: framework and guidelines _ moe - nurturing early learners portal_singapura rever.pdf
-        role: complementary
-        validation_status: pending_review
-        metadata_source: metadata/bibliographic_matrix.csv
-      - document_id: SG_005
-        file: inteligência artificial na educação _ moe_singapura.pdf
-        role: complementary
-        validation_status: pending_review
-        metadata_source: metadata/bibliographic_matrix.csv
-      - document_id: SG_006
-        file: mext_ visão geral_.pdf
-        role: complementary
-        validation_status: pending_review
-        metadata_source: metadata/bibliographic_matrix.csv
-      - document_id: SG_007
-        file: moeict guidelines_final_edited_singapura.pdf
-        role: primary
-        validation_status: pending_review
-        metadata_source: metadata/bibliographic_matrix.csv
-      - document_id: SG_008
-        file: moeict guidelines_final_edited_tecnologia_singapura.pdf
-        role: primary
-        validation_status: pending_review
-        metadata_source: metadata/bibliographic_matrix.csv
-      - document_id: SG_009
-        file: nel framework 2022_v2_curriculo_singapura_2022.pdf
-        role: primary
-        validation_status: pending_review
-        metadata_source: metadata/bibliographic_matrix.csv
-      - document_id: SG_010
-        file: nel framework 2022_v2_singapura.pdf
-        role: complementary
-        validation_status: pending_review
-        metadata_source: metadata/bibliographic_matrix.csv
-      - document_id: SG_011
-        file: o modelo 'linha dura' de educação que pôs um pequeno país asiático no topo de ranking mundial - bbc news brasil_singapura.pdf
-        role: complementary
-        validation_status: pending_review
-        metadata_source: metadata/bibliographic_matrix.csv
-      - document_id: SG_012
-        file: o-level-computing-teaching-and-learning-syllabus.pdf
-        role: primary
-        validation_status: pending_review
-        metadata_source: metadata/bibliographic_matrix.csv
-      - document_id: SG_013
-        file: pdpc _ singapore’s approach to ai governance_singapura.pdf
-        role: complementary
-        validation_status: pending_review
-        metadata_source: metadata/bibliographic_matrix.csv
-      - document_id: SG_014
-        file: sgmodelaigovframework2_singapura.pdf
-        role: complementary
-        validation_status: pending_review
-        metadata_source: metadata/bibliographic_matrix.csv
-
-      - document_id: SG_016
-        file: singapura_g3-computing-syllabus_2024.pdf
-        role: primary
-        validation_status: pending_review
-        metadata_source: metadata/bibliographic_matrix.csv
-      - document_id: SG_017
-        file: singapura_h2-computing-syllabus.pdf
-        role: primary
-        validation_status: pending_review
-        metadata_source: metadata/bibliographic_matrix.csv
-      - document_id: SG_018
-        file: singapura_o-level-computing-syllabus_2021.pdf
-        role: primary
-        validation_status: pending_review
-        metadata_source: metadata/bibliographic_matrix.csv
-  - country_code: CH
-    country: suica
-    continent: europe
-    include_in_analysis: true
-    documents:
-      - document_id: CH_001
-        file: en33_per_education numerique_suíça francófona — plan d’études romand, éducation numérique.pdf
-        role: primary
-        validation_status: pending_review
-        metadata_source: metadata/bibliographic_matrix.csv
-      - document_id: CH_002
-        file: tecnologie-e-media-modello-di-competenza_cantão do ticino — piano di studio, tecnologie e media.pdf
-        role: complementary
-        validation_status: pending_review
-        metadata_source: metadata/bibliographic_matrix.csv
-      - document_id: CH_003
-        file: zh_de_modul_mi_suíça alemã — lehrplan 21, medien und informatik.pdf
-        role: complementary
-        validation_status: pending_review
-        metadata_source: metadata/bibliographic_matrix.csv
-  - country_code: TW
-    country: taiwan
-    continent: asia
-    include_in_analysis: true
-    documents:
-      - document_id: TW_001
-        file: taiwan_technology-domain-information-technology_2019.pdf
-        role: primary
-        validation_status: pending_review
-        metadata_source: metadata/bibliographic_matrix.csv
-  - country_code: UY
-    country: uruguai
-    continent: americas
-    include_in_analysis: true
-    documents:
-      - document_id: UY_001
-        file: uruguai_en-el-camino-del-plan-ceibal_2009.pdf
-        role: complementary
-        validation_status: pending_review
-        metadata_source: metadata/bibliographic_matrix.csv
-      - document_id: UY_002
-        file: uruguai_plan-ceibal-in-uruguay.pdf
-        role: complementary
-        validation_status: pending_review
-        metadata_source: metadata/bibliographic_matrix.csv
-      - document_id: UY_003
-        file: uruguai_tecnologias-digitales_2023.pdf
-        role: primary
-        validation_status: pending_review
-        metadata_source: dados_intermediarios/metadata/bibliographic_matrix.csv
+- country_code: ZA
+  country: africa-do-sul
+  continent: africa
+  include_in_analysis: true
+  documents:
+  - document_id: ZA_CUR_003
+    file: 01_DBE_Coding_Robotics_Grades_R-3.pdf
+    role: complementary
+    validation_status: pending_review
+    metadata_source: corpus_reconciliation_2026-09-27
+  - document_id: ZA_CUR_004
+    file: 02_DBE_Coding_Robotics_Grades_4-6.pdf
+    role: complementary
+    validation_status: pending_review
+    metadata_source: corpus_reconciliation_2026-09-27
+  - document_id: ZA_CUR_005
+    file: 03_DBE_Coding_Robotics_Grades_7-9.pdf
+    role: complementary
+    validation_status: pending_review
+    metadata_source: corpus_reconciliation_2026-09-27
+  - document_id: ZA_CUR_006
+    file: 04_DBE_CAPS_Computer_Applications_Technology_Grades_10-12.pdf
+    role: complementary
+    validation_status: pending_review
+    metadata_source: corpus_reconciliation_2026-09-27
+  - document_id: ZA_CUR_007
+    file: 05_DBE_CAPS_Information_Technology_Grades_10-12.pdf
+    role: complementary
+    validation_status: pending_review
+    metadata_source: corpus_reconciliation_2026-09-27
+  - document_id: ZA_CUR_008
+    file: 06_DBE_CAPS_CAT_Section_3_Amendment_2024.pdf
+    role: complementary
+    validation_status: pending_review
+    metadata_source: corpus_reconciliation_2026-09-27
+  - document_id: ZA_CUR_009
+    file: 07_DBE_CAPS_IT_Section_3_Amendment_2024.pdf
+    role: complementary
+    validation_status: pending_review
+    metadata_source: corpus_reconciliation_2026-09-27
+- country_code: AU
+  country: australia
+  continent: oceania
+  include_in_analysis: true
+  documents:
+  - document_id: OC-AU-01
+    file: australia_digital-technologies-v9_sequence-achievement_2022.pdf
+    role: primary
+    validation_status: validated
+  - document_id: OC-AU-02
+    file: australia_digital-technologies-v9_sequence-content_2022.pdf
+    role: complementary
+    validation_status: validated
+- country_code: BR
+  country: brasil
+  continent: americas
+  include_in_analysis: true
+  documents:
+  - document_id: BR_002
+    file: brasil_bncc-computacao_complemento-bncc_2022.pdf
+    role: primary
+    validation_status: pending_review
+    metadata_source: metadata/bibliographic_matrix.csv
+  - document_id: BR_007
+    file: brasil_guia-complemento-computacao-bncc_2023.pdf
+    role: primary
+    validation_status: pending_review
+    metadata_source: metadata/bibliographic_matrix.csv
+  - document_id: BR_008
+    file: brasil_guia-educacao-digital-midiatica_2025.pdf
+    role: primary
+    validation_status: pending_review
+    metadata_source: metadata/bibliographic_matrix.csv
+  - document_id: BR_010
+    file: brasil_matriz-saberes-digitais-docentes_2024.pdf
+    role: complementary
+    validation_status: pending_review
+    metadata_source: metadata/bibliographic_matrix.csv
+  - document_id: BR_011
+    file: brasil_nota-tecnica-cieb-27_competencias-digitais-professores_2025.pdf
+    role: complementary
+    validation_status: pending_review
+    metadata_source: metadata/bibliographic_matrix.csv
+  - document_id: BR_012
+    file: brasil_parecer-cne-ceb-2_bncc-computacao_2022.pdf
+    role: primary
+    validation_status: pending_review
+    metadata_source: metadata/bibliographic_matrix.csv
+  - document_id: BR_013
+    file: brasil_parecer-cne-cp-15_bncc_2017.pdf
+    role: primary
+    validation_status: pending_review
+    metadata_source: metadata/bibliographic_matrix.csv
+  - document_id: BR_014
+    file: brasil_parecer-cne-cp-7_bncc_2022.pdf
+    role: primary
+    validation_status: pending_review
+    metadata_source: metadata/bibliographic_matrix.csv
+  - document_id: BR_015
+    file: brasil_politica-nacional-educacao-digital-lei-14533_2023.pdf
+    role: primary
+    validation_status: pending_review
+    metadata_source: metadata/bibliographic_matrix.csv
+  - document_id: BR_017
+    file: brasil_resolucao-cne-ceb-1_bncc-computacao_2022.pdf
+    role: primary
+    validation_status: pending_review
+    metadata_source: metadata/bibliographic_matrix.csv
+  - document_id: BR_018
+    file: brasil_resolucao-cne-ceb-2_diretrizes-dispositivos-digitais-educacao-digital-midiatica_2025.pdf
+    role: primary
+    validation_status: pending_review
+    metadata_source: metadata/bibliographic_matrix.csv
+- country_code: CA
+  country: canada
+  continent: americas
+  include_in_analysis: true
+  documents:
+  - document_id: CA_001
+    file: canada_alberta_draft-k6-science-update_2022.pdf
+    role: complementary
+    validation_status: pending_review
+    metadata_source: metadata/bibliographic_matrix.csv
+  - document_id: CA_002
+    file: canada_alberta_k6-science-curriculum-computer-science_2023.pdf
+    role: primary
+    validation_status: pending_review
+    metadata_source: metadata/bibliographic_matrix.csv
+  - document_id: CA_003
+    file: canada_ontario_digital-action-plan.pdf
+    role: primary
+    validation_status: pending_review
+    metadata_source: metadata/bibliographic_matrix.csv
+  - document_id: CA_CUR_005
+    file: Ontario_Computer_Studies_Grades_10-12_2008_for_Grades_11-12.pdf
+    role: complementary
+    validation_status: pending_review
+    metadata_source: corpus_reconciliation_2026-09-27
+  - document_id: CA_CUR_006
+    file: Ontario_Grade_10_Digital_Technology_and_Innovations_ICD2O_2023.pdf
+    role: complementary
+    validation_status: pending_review
+    metadata_source: corpus_reconciliation_2026-09-27
+  - document_id: CA_CUR_007
+    file: Ontario_Grades_1-8_Science_and_Technology_2022.pdf
+    role: complementary
+    validation_status: pending_review
+    metadata_source: corpus_reconciliation_2026-09-27
+- country_code: CL
+  country: chile
+  continent: americas
+  include_in_analysis: true
+  documents:
+  - document_id: CL_001
+    file: articles-140146_programa_feb_2021_final_s_disegno.pdf
+    role: primary
+    validation_status: pending_review
+    metadata_source: metadata/bibliographic_matrix.csv
+  - document_id: CL_002
+    file: articles-37136_bases.pdf
+    role: primary
+    validation_status: pending_review
+    metadata_source: metadata/bibliographic_matrix.csv
+  - document_id: CL_003
+    file: articles-91414_bases.pdf
+    role: primary
+    validation_status: pending_review
+    metadata_source: metadata/bibliographic_matrix.csv
+  - document_id: CL_CUR_006
+    file: Chile_Programa_Pensamiento_Computacional_y_Programacion_3-4-Medio_2021.pdf
+    role: complementary
+    validation_status: pending_review
+    metadata_source: corpus_reconciliation_2026-09-27
+  - document_id: CL_004
+    file: ds_po_3_2025_tiskarna-66-82.pdf
+    role: complementary
+    validation_status: pending_review
+    metadata_source: metadata/bibliographic_matrix.csv
+- country_code: CN
+  country: china
+  continent: asia
+  include_in_analysis: true
+  documents:
+  - document_id: AS-CN-02
+    file: china_compulsory_education_curriculum_plan_2022.pdf
+    role: complementary
+    extraction_method: ocr
+    validation_status: pending_review
+  - document_id: AS-CN-01
+    file: china_information_technology_curriculum_standard_2022.pdf
+    role: primary
+    extraction_method: ocr
+    validation_status: pending_review
+  - document_id: CN_CUR_003
+    file: China_Senior_High_School_Curriculum_Plan_2017_revised_2020.pdf
+    role: complementary
+    validation_status: pending_review
+    metadata_source: corpus_reconciliation_2026-09-27
+- country_code: KR
+  country: coreia-do-sul
+  continent: asia
+  include_in_analysis: true
+  documents:
+  - document_id: KR_CUR_002
+    file: 2015_Volume_10_Practical_Arts_Technology_Home_Economics_Information.pdf
+    role: complementary
+    validation_status: pending_review
+    metadata_source: corpus_reconciliation_2026-09-27
+  - document_id: KR_CUR_003
+    file: 2026년도+지능정보사회+실행계획+보고서(교육부).pdf
+    role: complementary
+    validation_status: pending_review
+    metadata_source: corpus_reconciliation_2026-09-27
+  - document_id: KR_001
+    file: coreia-do-sul_keris-white-paper-software-education_2018.pdf
+    role: complementary
+    validation_status: pending_review
+    metadata_source: metadata/bibliographic_matrix.csv
+- country_code: EE
+  country: estonia
+  continent: europe
+  include_in_analysis: true
+  documents:
+  - document_id: EU-EE-02
+    file: estonia_informatics_appendix_10_2023.pdf
+    role: primary
+    validation_status: validated
+  - document_id: EU-EE-01
+    file: estonia_national_curriculum_basic_schools_2026.pdf
+    role: primary
+    validation_status: validated
+- country_code: US
+  country: eua
+  continent: americas
+  include_in_analysis: true
+  documents:
+  - document_id: US_001
+    file: eua_k12-computer-science-framework_2016.pdf
+    role: primary
+    validation_status: pending_review
+    metadata_source: metadata/bibliographic_matrix.csv
+- country_code: FI
+  country: finlandia
+  continent: europe
+  include_in_analysis: true
+  documents:
+  - document_id: FI_001
+    file: finlandia_new-national-core-curriculum-basic-education_2016.pdf
+    role: primary
+    validation_status: pending_review
+    metadata_source: metadata/bibliographic_matrix.csv
+  - document_id: FI_CUR_002
+    file: ICT Competence 2.0.pdf
+    role: complementary
+    validation_status: pending_review
+    metadata_source: corpus_reconciliation_2026-09-27
+  - document_id: FI_CUR_003
+    file: Perusopetuksen_opetussuunnitelman_perusteet_2014.pdf
+    role: complementary
+    validation_status: pending_review
+    metadata_source: corpus_reconciliation_2026-09-27
+  - document_id: FI_CUR_004
+    file: Varhaiskasvatussuunnitelman perusteet 2022_EN_final_23.pdf
+    role: complementary
+    validation_status: pending_review
+    metadata_source: corpus_reconciliation_2026-09-27
+- country_code: GH
+  country: gana
+  continent: africa
+  include_in_analysis: true
+  documents:
+  - document_id: GH_001
+    file: gana_computing-common-core-programme-curriculum_2023.pdf
+    role: primary
+    validation_status: pending_review
+    metadata_source: metadata/bibliographic_matrix.csv
+  - document_id: GH_002
+    file: gana_computing-primary-b4-b6_2019.pdf
+    role: primary
+    validation_status: pending_review
+    metadata_source: metadata/bibliographic_matrix.csv
+- country_code: HK
+  country: hong-kong
+  continent: asia
+  include_in_analysis: true
+  documents:
+  - document_id: HK_CUR_004
+    file: Blueprint_Digital_Education_Executive_Summary_2026.pdf
+    role: complementary
+    validation_status: pending_review
+    metadata_source: corpus_reconciliation_2026-09-27
+  - document_id: HK_003
+    file: Blueprint_Digital_Education_Primary_Secondary_2026.pdf
+    role: complementary
+    validation_status: pending_review
+    metadata_source: official_edb_2026
+  - document_id: HK_CUR_005
+    file: Computational_Thinking_Coding_Education_Supplement_Primary_2020.pdf
+    role: complementary
+    validation_status: pending_review
+    metadata_source: corpus_reconciliation_2026-09-27
+  - document_id: HK_CUR_006
+    file: General_Studies_Primary_P1-P6_2017_referencia_historica.pdf
+    role: complementary
+    validation_status: pending_review
+    metadata_source: corpus_reconciliation_2026-09-27
+  - document_id: HK_001
+    file: hong-kong_general-studies-curriculum-guide_coding-stem_2017.pdf
+    role: primary
+    validation_status: pending_review
+    metadata_source: metadata/bibliographic_matrix.csv
+  - document_id: HK_002
+    file: hong-kong_ict-curriculum-and-assessment-guide_2017.pdf
+    role: primary
+    validation_status: pending_review
+    metadata_source: metadata/bibliographic_matrix.csv
+  - document_id: HK_CUR_007
+    file: Primary_IIT_Framework_AI_Strand_Pilot_2026_CHINESE.pdf
+    role: complementary
+    validation_status: pending_review
+    metadata_source: corpus_reconciliation_2026-09-27
+  - document_id: HK_CUR_008
+    file: Technology_Education_KLA_Curriculum_Guide_P1-S6_2017_CORRIGIDO.pdf
+    role: complementary
+    validation_status: pending_review
+    metadata_source: corpus_reconciliation_2026-09-27
+- country_code: IE
+  country: irlanda
+  continent: europe
+  include_in_analysis: true
+  documents:
+  - document_id: IE_CUR_002
+    file: Ireland_Junior_Cycle_Coding_Specification_2025.pdf
+    role: complementary
+    validation_status: pending_review
+    metadata_source: corpus_reconciliation_2026-09-27
+  - document_id: IE_CUR_003
+    file: Ireland_Leaving_Certificate_Computer_Science_Specification.pdf
+    role: complementary
+    validation_status: pending_review
+    metadata_source: corpus_reconciliation_2026-09-27
+  - document_id: IE_CUR_004
+    file: Ireland_Primary_Curriculum_Framework_2023.pdf
+    role: complementary
+    validation_status: pending_review
+    metadata_source: corpus_reconciliation_2026-09-27
+  - document_id: IE_CUR_005
+    file: Ireland_Primary_STEM_Education_Specification.pdf
+    role: complementary
+    validation_status: pending_review
+    metadata_source: corpus_reconciliation_2026-09-27
+  - document_id: IE_001
+    file: irlanda_computer-science-curriculum-specification_2018.pdf
+    role: primary
+    validation_status: pending_review
+    metadata_source: metadata/bibliographic_matrix.csv
+- country_code: JP
+  country: japao
+  continent: asia
+  include_in_analysis: true
+  documents:
+  - document_id: JP_CUR_003
+    file: 20240311-ope_dev03-1.pdf
+    role: complementary
+    validation_status: pending_review
+    metadata_source: corpus_reconciliation_2026-09-27
+  - document_id: JP_001
+    file: japao_high-school-curriculum-guidelines_2022.pdf
+    role: primary
+    validation_status: pending_review
+    metadata_source: metadata/bibliographic_matrix.csv
+  - document_id: JP_002
+    file: japao_high-school-information-commentary_2022.pdf
+    role: complementary
+    validation_status: pending_review
+    metadata_source: metadata/bibliographic_matrix.csv
+- country_code: NZ
+  country: nova-zelandia
+  continent: oceania
+  include_in_analysis: true
+  documents:
+  - document_id: NZ_CUR_003
+    file: Digital-technologies-development-paper.pdf
+    role: complementary
+    validation_status: pending_review
+    metadata_source: corpus_reconciliation_2026-09-27
+  - document_id: NZ_001
+    file: nova-zelandia_dt-implementation-support-tool_2020.pdf
+    role: primary
+    validation_status: pending_review
+    metadata_source: metadata/bibliographic_matrix.csv
+  - document_id: NZ_002
+    file: nova-zelandia_now-underway-dt-implementation_2020.pdf
+    role: complementary
+    validation_status: pending_review
+    metadata_source: metadata/bibliographic_matrix.csv
+  - document_id: NZ_CUR_004
+    file: Technology-in-the-NewZealandCurriculum.pdf
+    role: complementary
+    validation_status: pending_review
+    metadata_source: corpus_reconciliation_2026-09-27
+- country_code: KE
+  country: quenia
+  continent: africa
+  include_in_analysis: true
+  documents:
+  - document_id: KE_001
+    file: quenia_basic-education-curriculum-framework_2017.pdf
+    role: primary
+    validation_status: pending_review
+    metadata_source: metadata/bibliographic_matrix.csv
+  - document_id: KE_002
+    file: quenia_standards-digital-content-course-materials_cbc_2018.pdf
+    role: complementary
+    validation_status: pending_review
+    metadata_source: metadata/bibliographic_matrix.csv
+- country_code: GB
+  country: reino-unido
+  continent: europe
+  include_in_analysis: true
+  documents:
+  - document_id: UK_001
+    file: reino-unido_computing-curriculum_ks1-ks2_2014.pdf
+    role: primary
+    validation_status: pending_review
+    metadata_source: metadata/bibliographic_matrix.csv
+  - document_id: UK_002
+    file: reino-unido_computing-curriculum_ks3-ks4_2014.pdf
+    role: primary
+    validation_status: pending_review
+    metadata_source: metadata/bibliographic_matrix.csv
+- country_code: RW
+  country: ruanda
+  continent: africa
+  include_in_analysis: true
+  documents:
+  - document_id: RW_CUR_002
+    file: ICT_Syllabus_Lower_Secondary_REB_2015.pdf
+    role: complementary
+    validation_status: pending_review
+    metadata_source: corpus_reconciliation_2026-09-27
+  - document_id: RW_001
+    file: ruanda_ict-syllabus.pdf
+    role: primary
+    validation_status: pending_review
+    metadata_source: metadata/bibliographic_matrix.csv
+  - document_id: RW_CUR_003
+    file: SET_Lower_Primary_P1-P3_2026.pdf
+    role: complementary
+    validation_status: pending_review
+    metadata_source: corpus_reconciliation_2026-09-27
+  - document_id: RW_CUR_004
+    file: SET_Upper_Primary_P4-P6_2026.pdf
+    role: complementary
+    validation_status: pending_review
+    metadata_source: corpus_reconciliation_2026-09-27
+- country_code: SG
+  country: singapura
+  continent: asia
+  include_in_analysis: true
+  documents:
+  - document_id: SG_001
+    file: 7155_y25_sy.pdf
+    role: primary
+    validation_status: pending_review
+    metadata_source: metadata/bibliographic_matrix.csv
+  - document_id: SG_003
+    file: ethos da profissão de ensino_singapura.pdf
+    role: complementary
+    validation_status: pending_review
+    metadata_source: metadata/bibliographic_matrix.csv
+  - document_id: SG_004
+    file: framework and guidelines _ moe - nurturing early learners portal_singapura rever.pdf
+    role: complementary
+    validation_status: pending_review
+    metadata_source: metadata/bibliographic_matrix.csv
+  - document_id: SG_005
+    file: inteligência artificial na educação _ moe_singapura.pdf
+    role: complementary
+    validation_status: pending_review
+    metadata_source: metadata/bibliographic_matrix.csv
+  - document_id: SG_007
+    file: moeict guidelines_final_edited_singapura.pdf
+    role: primary
+    validation_status: pending_review
+    metadata_source: metadata/bibliographic_matrix.csv
+  - document_id: SG_008
+    file: moeict guidelines_final_edited_tecnologia_singapura.pdf
+    role: primary
+    validation_status: pending_review
+    metadata_source: metadata/bibliographic_matrix.csv
+  - document_id: SG_009
+    file: nel framework 2022_v2_curriculo_singapura_2022.pdf
+    role: primary
+    validation_status: pending_review
+    metadata_source: metadata/bibliographic_matrix.csv
+  - document_id: SG_012
+    file: o-level-computing-teaching-and-learning-syllabus.pdf
+    role: primary
+    validation_status: pending_review
+    metadata_source: metadata/bibliographic_matrix.csv
+  - document_id: SG_016
+    file: singapura_g3-computing-syllabus_2024.pdf
+    role: primary
+    validation_status: pending_review
+    metadata_source: metadata/bibliographic_matrix.csv
+  - document_id: SG_017
+    file: singapura_h2-computing-syllabus.pdf
+    role: primary
+    validation_status: pending_review
+    metadata_source: metadata/bibliographic_matrix.csv
+  - document_id: SG_018
+    file: singapura_o-level-computing-syllabus_2021.pdf
+    role: primary
+    validation_status: pending_review
+    metadata_source: metadata/bibliographic_matrix.csv
+- country_code: CH
+  country: suica
+  continent: europe
+  include_in_analysis: true
+  documents:
+  - document_id: CH_001
+    file: en33_per_education numerique_suíça francófona — plan d’études romand, éducation numérique.pdf
+    role: primary
+    validation_status: pending_review
+    metadata_source: metadata/bibliographic_matrix.csv
+  - document_id: CH_002
+    file: tecnologie-e-media-modello-di-competenza_cantão do ticino — piano di studio, tecnologie e media.pdf
+    role: complementary
+    validation_status: pending_review
+    metadata_source: metadata/bibliographic_matrix.csv
+  - document_id: CH_003
+    file: zh_de_modul_mi_suíça alemã — lehrplan 21, medien und informatik.pdf
+    role: complementary
+    validation_status: pending_review
+    metadata_source: metadata/bibliographic_matrix.csv
+- country_code: TW
+  country: taiwan
+  continent: asia
+  include_in_analysis: true
+  documents:
+  - document_id: TW_CUR_002
+    file: 01_taiwan_technology_domain_2019_user_file.pdf
+    role: complementary
+    validation_status: pending_review
+    metadata_source: corpus_reconciliation_2026-09-27
+  - document_id: TW_CUR_003
+    file: 02_taiwan_primary_technology_information_education_reference_2020.pdf
+    role: complementary
+    validation_status: pending_review
+    metadata_source: corpus_reconciliation_2026-09-27
+  - document_id: TW_CUR_004
+    file: 03_taiwan_comprehensive_senior_high_technology_domain_curriculum_2019.pdf
+    role: complementary
+    validation_status: pending_review
+    metadata_source: corpus_reconciliation_2026-09-27
+- country_code: UY
+  country: uruguai
+  continent: americas
+  include_in_analysis: true
+  documents:
+  - document_id: UY_001
+    file: uruguai_en-el-camino-del-plan-ceibal_2009.pdf
+    role: complementary
+    validation_status: pending_review
+    metadata_source: metadata/bibliographic_matrix.csv
+  - document_id: UY_002
+    file: uruguai_plan-ceibal-in-uruguay.pdf
+    role: complementary
+    validation_status: pending_review
+    metadata_source: metadata/bibliographic_matrix.csv
+  - document_id: UY_003
+    file: uruguai_tecnologias-digitales_2023.pdf
+    role: primary
+    validation_status: pending_review
+    metadata_source: dados_intermediarios/metadata/bibliographic_matrix.csv

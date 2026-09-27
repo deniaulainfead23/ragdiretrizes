@@ -1,7 +1,5 @@
 import json
-import hashlib
 import os
-import re
 from typing import Dict, List
 
 import faiss
@@ -25,14 +23,22 @@ class Indexer:
             pass
         self.model = None
         self.dim = dim
+        local_only = os.environ.get("RAG_EMBEDDING_LOCAL_ONLY", "false").strip().lower() in {
+            "1", "true", "yes", "sim"
+        }
         try:
-            self.model = SentenceTransformer(model_name, local_files_only=True)
+            self.model = SentenceTransformer(model_name, local_files_only=local_only)
             dimension_method = getattr(self.model, "get_embedding_dimension", None)
             if dimension_method is None:
                 dimension_method = self.model.get_sentence_embedding_dimension
             self.dim = dimension_method()
-        except Exception:
-            self.model = None
+        except Exception as exc:
+            mode = "somente arquivos locais" if local_only else "download/cache local"
+            raise RuntimeError(
+                f"Não foi possível carregar o modelo de embeddings {model_name!r} ({mode}). "
+                "Instale as dependências e confirme que o modelo all-MiniLM-L6-v2 pode ser baixado "
+                "ou já está no cache do Hugging Face. O pipeline não usa mais embeddings hash como fallback."
+            ) from exc
         self.index = faiss.IndexFlatIP(self.dim)
         self.metadatas: List[Dict] = []
 
@@ -48,15 +54,7 @@ class Indexer:
                 dtype=np.float32,
             )
 
-        embeddings = np.zeros((len(texts), self.dim), dtype=np.float32)
-        for row, text in enumerate(texts):
-            tokens = re.findall(r"\w+", (text or "").lower(), flags=re.UNICODE)
-            for token in tokens:
-                digest = hashlib.sha256(token.encode("utf-8")).digest()
-                index = int.from_bytes(digest[:4], "big") % self.dim
-                sign = 1.0 if digest[4] & 1 else -1.0
-                embeddings[row, index] += sign
-        return embeddings
+        raise RuntimeError("Modelo de embeddings indisponível; nenhum embedding foi gerado.")
 
     def add(self, texts: List[str], metadatas: List[Dict]):
         self.add_batch(texts, metadatas)
