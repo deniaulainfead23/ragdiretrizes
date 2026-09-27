@@ -8,12 +8,16 @@ from collections import defaultdict
 from pathlib import Path
 from typing import Any
 
+from rag_project.corpus_registry import EXCLUDED_COUNTRIES, load_registry
 from rag_project.paths import ANALYSIS_DIR
 
 ROOT = Path(__file__).resolve().parents[1]
 FRAMEWORK_CSV = ROOT / "rag_project" / "framework" / "unesco_dlgf_2018.csv"
-VALIDATED_STATUSES = {"validated", "validado", "reformulated", "reformulado"}
-AREA_COLUMNS = [str(code) for code in range(7)]
+VALIDATED_STATUSES = {
+    "validated", "validado", "validada", "reformulated", "reformulado", "reformulada",
+    "confirmado", "confirmada", "confirmed",
+}
+CJK_RE = re.compile(r"[\u3040-\u30ff\u3400-\u9fff]")
 
 
 def normalize(text: str) -> str:
@@ -89,11 +93,35 @@ def build_evidence_matrix(evidence_csv: str | Path, output_dir: str | Path) -> l
 
     framework = load_framework()
     matrix_rows: list[dict[str, Any]] = []
+    assessable_by_country: dict[str, bool] = defaultdict(bool)
+    translation_needed_by_country: dict[str, bool] = defaultdict(bool)
+    source_text_missing_by_country: dict[str, bool] = defaultdict(bool)
+    evidence_by_country_area: dict[tuple[str, str], set[str]] = defaultdict(set)
     for evidence in evidence_rows:
-        validation_status = str(evidence.get("validation_status", "")).strip().lower()
+        validation_status = str(
+            evidence.get("validation_status")
+            or evidence.get("evidence_validation_status")
+            or evidence.get("validation_status_original")
+            or ""
+        ).strip().lower()
         if validation_status not in VALIDATED_STATUSES:
             continue
-        text = evidence.get("source_text") or evidence.get("evidence_text") or evidence.get("original_text") or ""
+        country = str(evidence.get("country", "")).strip().lower()
+        if not country:
+            continue
+        translated_text = str(
+            evidence.get("translated_text_en") or evidence.get("translated_text_pt") or evidence.get("translated_text") or ""
+        ).strip()
+        text = translated_text or str(
+            evidence.get("source_text") or evidence.get("evidence_text") or evidence.get("original_text") or ""
+        )
+        needs_translation = bool(CJK_RE.search(text)) and not translated_text
+        if needs_translation:
+            translation_needed_by_country[country] = True
+        elif normalize(text):
+            assessable_by_country[country] = True
+        else:
+            source_text_missing_by_country[country] = True
         matches = detect_framework_hits(text, framework)
         if not matches:
             matches = [{
@@ -101,58 +129,103 @@ def build_evidence_matrix(evidence_csv: str | Path, output_dir: str | Path) -> l
                 "dimension_code": "",
                 "dimension_name": "",
                 "keyword": "",
-                "match_type": "not_detected",
+                "match_type": "translation_required" if needs_translation else "not_detected",
             }]
+        evidence_id = str(evidence.get("evidence_id", "")).strip() or ":".join(filter(None, [
+            country, str(evidence.get("question_id", "")).strip(),
+            str(evidence.get("document_id", "")).strip(),
+            str(evidence.get("page_start") or evidence.get("page", "")).strip(),
+        ]))
         for hit in matches:
+            area_code = hit["dimension_code"]
+            if area_code and hit["match_type"] in {"strong", "candidate"}:
+                evidence_by_country_area[(country, area_code)].add(evidence_id)
             matrix_rows.append({
-                "evidence_id": evidence.get("evidence_id", ""),
+                "evidence_id": evidence_id,
                 "question_id": evidence.get("question_id", ""),
-                "country": evidence.get("country", ""),
+                "country": country,
                 "document_id": evidence.get("document_id", ""),
-                "document_title": evidence.get("document_title", ""),
-                "page_start": evidence.get("page_start", evidence.get("page", "")),
-                "page_end": evidence.get("page_end", evidence.get("page", "")),
+                "document_title": evidence.get("document_title") or evidence.get("document", ""),
+                "page_start": evidence.get("page_start") or evidence.get("page", ""),
+                "page_end": evidence.get("page_end") or evidence.get("page", ""),
                 "source_text": text,
                 "validation_status": validation_status,
+                "source_language": evidence.get("source_language", ""),
+                "translation_status": evidence.get("translation_status", ""),
                 "framework_id": "DLGF_2018",
-                "area_code": hit["dimension_code"],
+                "area_code": area_code,
                 "area_name": hit["dimension_name"],
                 "matched_terms": hit["keyword"],
                 "correspondence": hit["match_type"],
-                "review_note": "Correspondência auxiliar; interpretar somente após conferência humana na fonte original.",
+                "review_note": (
+                    "Trecho em japonês/chinês sem tradução disponível; não avaliado lexicalmente."
+                    if hit["match_type"] == "translation_required" else
+                    "Correspondência lexical auxiliar; confirmar tradução e sentido na fonte oficial."
+                ),
             })
 
     mapping_fields = [
         "evidence_id", "question_id", "country", "document_id", "document_title",
-        "page_start", "page_end", "source_text", "validation_status", "framework_id",
+        "page_start", "page_end", "source_text", "validation_status", "source_language", "translation_status", "framework_id",
         "area_code", "area_name", "matched_terms", "correspondence", "review_note",
     ]
     _write_csv(out_dir / "evidence_matrix.csv", matrix_rows, mapping_fields)
 
-    evidence_by_country_area: dict[tuple[str, str], set[str]] = defaultdict(set)
-    countries = sorted({row["country"] for row in matrix_rows if row["country"]})
-    for row in matrix_rows:
-        if row["area_code"] and row["correspondence"] in {"strong", "candidate"} and row["evidence_id"]:
-            evidence_by_country_area[(row["country"], row["area_code"])].add(row["evidence_id"])
-
-    summary = [
-        {"country": country, "area_code": area["code"], "area_name": area["name"],
-         "validated_evidence_count": len(evidence_by_country_area[(country, area["code"])]),
-         "interpretation_limit": "Contagem descritiva; não representa qualidade nem implementação curricular."}
-        for country in countries
-        for area in framework
-    ]
+    registry = load_registry()
+    countries = {
+        str(entry.get("country", "")).strip().lower()
+        for entry in registry.get("countries", [])
+        if entry.get("include_in_analysis") and str(entry.get("country", "")).lower() not in EXCLUDED_COUNTRIES
+    }
+    countries.update(row["country"] for row in matrix_rows if row["country"])
+    countries = sorted(countries)
+    countries_with_validated_rows = {row["country"] for row in matrix_rows}
+    country_state: dict[str, str] = {}
+    summary = []
+    for country in countries:
+        if country not in countries_with_validated_rows:
+            state = "no_validated_evidence"
+        elif translation_needed_by_country[country] or not assessable_by_country[country]:
+            state = "translation_required" if translation_needed_by_country[country] else "no_assessable_text"
+        else:
+            state = "reviewed_sample"
+        country_state[country] = state
+        for area in framework:
+            count = len(evidence_by_country_area[(country, area["code"])])
+            area_status = (
+                "not_assessed" if state in {"no_validated_evidence", "no_assessable_text"}
+                else "evidence_mapped" if count
+                else "translation_required" if state == "translation_required"
+                else "no_match_in_reviewed_sample"
+            )
+            summary.append({
+                "country": country,
+                "framework_id": "DLGF_2018",
+                "area_code": area["code"],
+                "area_name": area["name"],
+                "evidence_count": count if area_status != "not_assessed" else "",
+                "assessment_status": area_status,
+                "interpretation_limit": "Contagem no conjunto de evidências revisado; não mede currículo completo nem ausência conceitual.",
+            })
     _write_csv(
         out_dir / "dlgf_summary_country_area.csv",
         summary,
-        ["country", "area_code", "area_name", "validated_evidence_count", "interpretation_limit"],
+        ["country", "framework_id", "area_code", "area_name", "evidence_count", "assessment_status", "interpretation_limit"],
     )
 
-    matrix = [
-        {"country": country, **{f"area_{code}": len(evidence_by_country_area[(country, code)]) for code in AREA_COLUMNS}}
-        for country in countries
-    ]
-    _write_csv(out_dir / "dlgf_country_area_matrix.csv", matrix, ["country"] + [f"area_{code}" for code in AREA_COLUMNS])
+    area_columns = [f"CA{area['code']}_{area['name']}" for area in framework]
+    matrix = []
+    for country in countries:
+        row: dict[str, Any] = {"country": country, "assessment_status": country_state[country]}
+        for area, column in zip(framework, area_columns):
+            count = len(evidence_by_country_area[(country, area["code"])])
+            row[column] = count if count else (
+                "not_assessed" if country_state[country] in {"no_validated_evidence", "no_assessable_text"}
+                else "translation_required" if country_state[country] == "translation_required"
+                else "no_match_in_reviewed_sample"
+            )
+        matrix.append(row)
+    _write_csv(out_dir / "dlgf_country_area_matrix.csv", matrix, ["country", "assessment_status"] + area_columns)
     return matrix_rows
 
 
