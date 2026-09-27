@@ -6,7 +6,10 @@ import faiss
 import numpy as np
 from sentence_transformers import SentenceTransformer
 
-MODEL_NAME = "all-MiniLM-L6-v2"
+MODEL_NAME = os.environ.get(
+    "RAG_EMBEDDING_MODEL",
+    "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2",
+)
 
 
 class Indexer:
@@ -36,7 +39,7 @@ class Indexer:
             mode = "somente arquivos locais" if local_only else "download/cache local"
             raise RuntimeError(
                 f"Não foi possível carregar o modelo de embeddings {model_name!r} ({mode}). "
-                "Instale as dependências e confirme que o modelo all-MiniLM-L6-v2 pode ser baixado "
+                f"Instale as dependências e confirme que o modelo {model_name} pode ser baixado "
                 "ou já está no cache do Hugging Face. O pipeline não usa mais embeddings hash como fallback."
             ) from exc
         self.index = faiss.IndexFlatIP(self.dim)
