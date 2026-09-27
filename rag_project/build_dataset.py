@@ -209,10 +209,10 @@ def write_dataset_stream(
                     translated_text = translate_document_in_chunks(client, source_text, translation_cache, translation_cache_path)
                     translation_status = 'translated'
                 except Exception as exc:  # pragma: no cover
-                    print(f'Warning: translation failed for {source_path.name}: {exc}')
-                    translated_text = source_text
-                    translation_status = 'fallback_source_after_error'
                     error_type = type(exc).__name__
+                    raise RuntimeError(
+                        f'Tradução incompleta para {source_path.name}; dataset inglês não será preenchido com texto original.'
+                    ) from exc
             record_group = dataset_group_for_folder(country)
             record = make_dataset_record(country, source_path, corpus_root, source_text, translated_text, record_group)
             record.update({
@@ -221,7 +221,8 @@ def write_dataset_stream(
                 'document_id': document['document_id'],
                 'document_role': document['role'],
                 'validation_status': document['validation_status'],
-                'corpus_version': '3.0',
+                'corpus_version': '3.1',
+                'translation_status': translation_status,
             })
             # Escape Unicode line separators so each JSON object remains one JSONL line.
             handle.write(json.dumps(record, ensure_ascii=True) + '\n')
@@ -243,6 +244,11 @@ def write_dataset_stream(
 
 
 def build_bilingual_datasets(corpus_root: str, output_dir: str, openai_api_key: Optional[str] = None, use_openai_translation: bool = False):
+    if not use_openai_translation or not openai_api_key:
+        raise ValueError(
+            'A geração do par de datasets exige tradução ativa e OPENAI_API_KEY; '
+            'sem isso, o dataset_english seria apenas uma cópia do original.'
+        )
     root = Path(corpus_root)
     out_dir = Path(output_dir)
     out_dir.mkdir(parents=True, exist_ok=True)
@@ -256,14 +262,13 @@ def build_bilingual_datasets(corpus_root: str, output_dir: str, openai_api_key: 
         write_dataset_stream(
             root, original_path, dataset_group='country', report_rows=report_rows
         )
-        translation_enabled = bool(use_openai_translation and openai_api_key)
         write_dataset_stream(
             root,
             english_path,
-            use_openai_translation=translation_enabled,
-            openai_api_key=openai_api_key if translation_enabled else None,
+            use_openai_translation=True,
+            openai_api_key=openai_api_key,
             dataset_group='country',
-            translation_cache_path=translation_cache_path if translation_enabled else None,
+            translation_cache_path=translation_cache_path,
             report_rows=report_rows,
         )
     except Exception as exc:
