@@ -28,37 +28,70 @@ def consolidate(input_dir: Path, output_dir: Path) -> tuple[Path, Path]:
                 parsed = _parse_response(row.get('response', ''))
                 country = row.get('country', source.parent.name)
                 question_id = row.get('question_id', '')
-                evidence = parsed.get('evidence_ids', [])
-                if not isinstance(evidence, list):
-                    evidence = []
+                legacy_evidence = parsed.get('evidence_ids', [])
+                if not isinstance(legacy_evidence, list):
+                    legacy_evidence = []
+                row_evidence_ids = [item for item in row.get('evidence_ids', '').split(';') if item.strip()]
+                evidence_count = len(row_evidence_ids) or len(legacy_evidence)
                 response_rows.append({
                     'country': country,
                     'question_id': question_id,
                     'question_text': row.get('question_text', ''),
                     'response': parsed.get('response', row.get('response', '')),
                     'situacao_resposta': row.get('validation_status', parsed.get('validation_status', 'candidate')),
-                    'evidence_count': len(evidence),
+                    'evidence_count': evidence_count,
                     'evidence_classification': parsed.get('evidence_classification', ''),
                     'validation_status': row.get('validation_status', parsed.get('validation_status', 'candidate')),
                     'source_file': source.as_posix(),
                 })
-                for number, item in enumerate(evidence, start=1):
-                    if not isinstance(item, dict):
-                        continue
-                    evidence_rows.append({
-                        'country': country,
-                        'question_id': question_id,
-                        'evidence_number': number,
-                        'document_id': item.get('document_id', ''),
-                        'document': item.get('document', ''),
-                        'page': item.get('page', item.get('página', '')),
-                        'original_text': item.get(
-                            'original_text',
-                            item.get('original_excerpt', item.get('trecho_original', '')),
-                        ),
-                        'classification': item.get('classification', item.get('classificação', '')),
-                        'evidence_validation_status': item.get('validation_status', ''),
-                    })
+                evidence_file = source.parent / 'evidencias.csv'
+                if evidence_file.is_file():
+                    with evidence_file.open('r', encoding='utf-8-sig', newline='') as evidence_handle:
+                        question_evidence = [
+                            item for item in csv.DictReader(evidence_handle)
+                            if item.get('question_id') == question_id
+                        ]
+                    for number, item in enumerate(question_evidence, start=1):
+                        evidence_rows.append({
+                            'country': item.get('country') or country,
+                            'question_id': question_id,
+                            'evidence_number': number,
+                            'evidence_id': item.get('evidence_id', ''),
+                            'document_id': item.get('document_id', ''),
+                            'document': item.get('document_title', ''),
+                            'page': item.get('page_start', ''),
+                            'page_end': item.get('page_end', ''),
+                            'chunk_id': item.get('chunk_id', ''),
+                            'source_path': item.get('source_path', ''),
+                            'original_text': item.get('source_text', ''),
+                            'translated_text_en': item.get('translated_text_en', ''),
+                            'translated_text_pt': item.get('translated_text_pt', ''),
+                            'classification': item.get('evidence_classification', ''),
+                            'evidence_validation_status': item.get('validation_status', ''),
+                        })
+                else:
+                    for number, item in enumerate(legacy_evidence, start=1):
+                        if not isinstance(item, dict):
+                            continue
+                        evidence_rows.append({
+                            'country': country,
+                            'question_id': question_id,
+                            'evidence_number': number,
+                            'evidence_id': item.get('evidence_id', ''),
+                            'document_id': item.get('document_id', ''),
+                            'document': item.get('document', item.get('document_title', '')),
+                            'page': item.get('page', item.get('page_start', item.get('página', ''))),
+                            'page_end': item.get('page_end', ''),
+                            'chunk_id': item.get('chunk_id', ''),
+                            'source_path': item.get('source_path', ''),
+                            'original_text': item.get(
+                                'original_text', item.get('original_excerpt', item.get('trecho_original', item.get('source_text', ''))),
+                            ),
+                            'translated_text_en': item.get('translated_text_en', ''),
+                            'translated_text_pt': item.get('translated_text_pt', ''),
+                            'classification': item.get('classification', item.get('classificação', item.get('evidence_classification', ''))),
+                            'evidence_validation_status': item.get('validation_status', ''),
+                        })
 
     output_dir.mkdir(parents=True, exist_ok=True)
     responses_path = output_dir / 'respostas_consolidadas.csv'
