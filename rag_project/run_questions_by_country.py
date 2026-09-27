@@ -3,6 +3,7 @@ from __future__ import annotations
 import argparse
 import csv
 import json
+import os
 import re
 from datetime import datetime, timezone
 from pathlib import Path
@@ -107,9 +108,10 @@ def _structured_question_text(item: dict, country: str) -> str:
         "não acrescente temas por conhecimento geral, inferência ou expectativa curricular. "
         "Se as evidências forem insuficientes para uma afirmação, omita-a. "
         "evidences deve ser uma lista de objetos com document_id, document_title, page_start, page_end, "
-        "chunk_id, source_language, source_text, translated_text_pt, translation_status, semantic_score, "
+        "chunk_id, source_language, source_text, translated_text_en, translated_text_pt, translation_status, semantic_score, "
         "evidence_classification e validation_status. "
         "source_text deve preservar literalmente o trecho recuperado no idioma original. "
+        "translated_text_en é a tradução usada para busca; não a apresente como citação original. "
         "translated_text_pt deve traduzir SOMENTE esse trecho para português quando o original não estiver em português; "
         "quando já estiver em português, repita o trecho e use translation_status='not_needed'. "
         "Para tradução realizada, use translation_status='translated'. "
@@ -167,8 +169,14 @@ def run_question_plan(
     out_dir.mkdir(parents=True, exist_ok=True)
 
     resolved_backend = resolve_backend(backend, openai_api_key)
+    openai_api_key = openai_api_key or os.environ.get('OPENAI_API_KEY')
     if resolved_backend == 'openai' and not vector_store_id:
         raise ValueError('vector_store_id é obrigatório quando o backend OpenAI é selecionado')
+    if resolved_backend == 'local' and not openai_api_key:
+        raise ValueError(
+            'OPENAI_API_KEY é necessária para sintetizar respostas e evidências no backend local. '
+            'Configure rag_project/.env ou selecione um Vector Store OpenAI.'
+        )
 
     run_timestamp = datetime.now(timezone.utc)
     run_stamp = run_timestamp.strftime('%Y%m%dT%H%M%SZ')
@@ -271,6 +279,7 @@ def run_question_plan(
                 'chunk_id': canonical_chunk_id,
                 'source_language': source_language,
                 'source_text': source_text,
+                'translated_text_en': evidence.get('translated_text_en', ''),
                 'translated_text_pt': translated_text_pt,
                 'translation_status': translation_status,
                 'semantic_score': evidence.get('semantic_score', ''),
@@ -334,7 +343,7 @@ def run_question_plan(
             'evidence_id', 'run_id', 'question_run_id', 'response_id', 'question_id',
             'category_id', 'framework', 'country', 'document_id', 'document_title',
             'page_start', 'page_end', 'chunk_id', 'source_language', 'source_text',
-            'translated_text_pt', 'translation_status', 'semantic_score',
+            'translated_text_en', 'translated_text_pt', 'translation_status', 'semantic_score',
             'evidence_classification', 'validation_status', 'review_notes',
         ],
     )
