@@ -328,8 +328,12 @@ def build_from_dataset(
                     "page_start": page_number,
                     "page_end": record.get("page_end", page_number),
                     "title": record.get("document_title", ""),
-                    "language": record.get("language", ""),
+                    "language": record.get("original_language") or record.get("language", ""),
+                    "retrieval_language": "en" if record.get("translation_status") == "translated" else record.get("language", ""),
+                    "translation_status": record.get("translation_status", "not_available"),
                     "text": chunk,
+                    "translated_text_en": chunk,
+                    "source_text": str(record.get("original_text", "")).strip() or chunk,
                 }
                 batch_texts.append(chunk)
                 batch_metadata.append(metadata)
