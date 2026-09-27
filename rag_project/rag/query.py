@@ -3,7 +3,7 @@ import json
 import os
 from pathlib import Path
 
-import openai
+from openai import OpenAI
 
 from .indexer import Indexer
 
@@ -68,21 +68,45 @@ def rag_query(index_folder: str, question: str, question_id: str = "", country: 
     hits = idx.query(question, top_k=top_k, country=country, document_ids=set(document_ids or []))
     snippets = [h['metadata'] for h in hits]
     print(f'[3/4] Encontrados {len(snippets)} trechos relevantes.')
-    context = "\n\n---\n\n".join([f"Source: {s.get('source')}\nText:\n{s.get('text')[:1000]}" for s in snippets])
-    prompt = f"""Responda somente com base nas evidências abaixo. Preserve incertezas e não invente dados.
-Retorne JSON com: question_id, country, response, evidence_ids, evidence_classification, validation_status.
-Cada evidência deve registrar document_id, documento/source, página, trecho original, classificação e validation_status.
+    candidates = []
+    for hit in hits:
+        metadata = hit['metadata']
+        candidates.append({
+            'document_id': metadata.get('document_id', ''),
+            'document_title': metadata.get('title', ''),
+            'source_path': metadata.get('source') or metadata.get('path', ''),
+            'page_start': metadata.get('page_start') or metadata.get('page', ''),
+            'page_end': metadata.get('page_end') or metadata.get('page', ''),
+            'chunk_id': metadata.get('chunk_id', ''),
+            'source_language': metadata.get('language', ''),
+            'translation_status': metadata.get('translation_status', ''),
+            'semantic_score': hit.get('score', ''),
+            'source_text': str(metadata.get('source_text') or metadata.get('text', ''))[:1500],
+            'translated_text_en': str(metadata.get('translated_text_en', ''))[:1500],
+        })
+    context = json.dumps(candidates, ensure_ascii=False)
+    prompt = f"""Responda à pergunta somente usando os trechos candidatos fornecidos. Não use conhecimento externo.
+Retorne somente JSON válido com as chaves question_id, country, response, evidences e validation_status.
+Cada item em evidences deve conter document_id, document_title, page_start, page_end, chunk_id,
+source_language, source_text, translated_text_en, translated_text_pt, translation_status, semantic_score,
+evidence_classification e validation_status.
+Use somente candidatos fornecidos. Copie document_id, título, páginas, chunk_id, idioma e semantic_score
+exatamente do candidato. source_text deve reproduzir literalmente o texto de origem fornecido, sem paráfrase.
+translated_text_en é a tradução usada para recuperação; use-a como apoio semântico, nunca como citação original.
+Traduza apenas source_text para português se source_language estiver preenchido e não for português;
+use translation_status='translated'. Para português, repita o trecho e use 'not_needed'. Se o idioma
+estiver vazio ou não puder ser identificado pelo candidato, não adivinhe: deixe a tradução vazia e use
+'not_provided'. Deixe evidence_classification vazio para revisão humana. Não use validation_status='validated'.
+Use 'candidate' quando uma evidência apoiar a resposta e 'inconclusive' se não houver apoio suficiente.
+
 question_id: {question_id}
 country: {country}
 framework: {framework}
 category_id: {category_id}
+pergunta: {question}
+trechos candidatos: {context}
 
-EVIDÊNCIAS:
-{context}
-
-PERGUNTA: {question}
-
-RESPOSTA JSON:"""
+JSON:"""
 
     cached = get_cached_answer(index_folder, question, top_k=top_k, question_id=question_id, country=country, question_version=question_version)
     if cached is not None:
@@ -92,14 +116,14 @@ RESPOSTA JSON:"""
 
     if openai_api_key:
         print('[4/4] Gerando resposta com OpenAI...')
-        openai.api_key = openai_api_key
-        resp = openai.ChatCompletion.create(
+        client = OpenAI(api_key=openai_api_key)
+        resp = client.chat.completions.create(
             model="gpt-4o-mini",
             messages=[{"role": "user", "content": prompt}],
             max_tokens=512,
             temperature=0.0,
         )
-        answer = resp['choices'][0]['message']['content']
+        answer = resp.choices[0].message.content or ""
         save_cached_answer(index_folder, question, answer, top_k=top_k, question_id=question_id, country=country, question_version=question_version)
         return answer
 
