@@ -1,6 +1,6 @@
 import json
 
-from rag_project.run_curated_pipeline import audit_corpus, build_page_dataset
+from rag_project.run_curated_pipeline import audit_corpus, build_english_page_dataset, build_page_dataset
 
 
 def test_audit_blocks_build_when_corpus_has_curation_divergences(tmp_path):
@@ -107,3 +107,32 @@ def test_run_local_dataset_extracts_only_validated_registry_documents(tmp_path):
     assert report['pages_written'] == 1
     assert [record['document_id'] for record in records] == ['CA-01']
     assert records[0]['source_text'] == 'Currículo oficial de computação.'
+
+
+def test_english_dataset_preserves_original_source_crosswalk(tmp_path):
+    tmp_path.mkdir(parents=True, exist_ok=True)
+    source = tmp_path / 'dataset_original_pages.jsonl'
+    source.write_text(json.dumps({
+        'content_id': 'JP-01_p0001',
+        'document_id': 'JP-01',
+        'country': 'japao',
+        'source_scope': 'national',
+        'validation_status': 'validated',
+        'page_start': 1,
+        'source_text': '情報技術を教育に活用する。',
+    }, ensure_ascii=False) + '\n', encoding='utf-8')
+    output = tmp_path / 'dataset_english_pages.jsonl'
+
+    report = build_english_page_dataset(
+        source,
+        output,
+        api_key='',
+        cache_path=tmp_path / 'translation_cache.json',
+        translator=lambda value: 'Use information technology in education.',
+    )
+
+    row = json.loads(output.read_text(encoding='utf-8').splitlines()[0])
+    assert report['source_pages'] == 1
+    assert row['source_text'] == 'Use information technology in education.'
+    assert row['original_text'] == '情報技術を教育に活用する。'
+    assert row['translation_status'] == 'translated'
