@@ -85,6 +85,39 @@ def _write_csv(path: Path, rows: list[dict[str, Any]], fields: list[str]) -> Non
         writer.writerows(rows)
 
 
+def _write_matrix_plot(path: Path, matrix: list[dict[str, Any]], area_columns: list[str]) -> None:
+    import matplotlib
+    matplotlib.use("Agg")
+    import matplotlib.pyplot as plt
+    import numpy as np
+
+    if not matrix:
+        return
+    values = np.array([
+        [float(row[column]) if str(row[column]).isdigit() else 0 for column in area_columns]
+        for row in matrix
+    ])
+    fig, axis = plt.subplots(figsize=(12, max(7, len(matrix) * 0.34)))
+    image = axis.imshow(values, cmap="YlGnBu", vmin=0, vmax=max(1, float(values.max())), aspect="auto")
+    axis.set_xticks(range(len(area_columns)), [
+        f"CA{i}\n{column.split('_', 1)[1]}" for i, column in enumerate(area_columns)
+    ], rotation=18, ha="right", fontsize=8)
+    axis.set_yticks(range(len(matrix)), [str(row["country"]) for row in matrix], fontsize=8)
+    for row_index, row in enumerate(matrix):
+        for column_index, column in enumerate(area_columns):
+            value = str(row[column])
+            label = value if value.isdigit() else "TR" if value == "translation_required" else "ND"
+            axis.text(column_index, row_index, label, ha="center", va="center", fontsize=7, color="#222")
+    axis.set_title(
+        "Trechos mapeados às áreas DLGF 2018, na amostra revisada\n"
+        "Número = trechos; — = sem correspondência na amostra; TR = tradução necessária; ND = sem evidência validada"
+    )
+    fig.colorbar(image, ax=axis, label="Contagem de trechos mapeados")
+    fig.tight_layout()
+    fig.savefig(path, dpi=180)
+    plt.close(fig)
+
+
 def build_evidence_matrix(evidence_csv: str | Path, output_dir: str | Path) -> list[dict[str, Any]]:
     source_path = Path(evidence_csv)
     out_dir = Path(output_dir)
@@ -226,6 +259,7 @@ def build_evidence_matrix(evidence_csv: str | Path, output_dir: str | Path) -> l
             )
         matrix.append(row)
     _write_csv(out_dir / "dlgf_country_area_matrix.csv", matrix, ["country", "assessment_status"] + area_columns)
+    _write_matrix_plot(out_dir / "dlgf_country_area_matrix.png", matrix, area_columns)
     return matrix_rows
 
 
