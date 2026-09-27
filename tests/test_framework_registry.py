@@ -2,6 +2,7 @@ import json
 from pathlib import Path
 
 from rag_project.analyze_tfidf import analyze
+from rag_project.build_evidence_matrix import build_evidence_matrix
 from rag_project.framework_registry import (
     export_framework_csvs,
     get_framework_by_id,
@@ -96,3 +97,22 @@ def test_tfidf_analysis_is_explicitly_exploratory_and_lexical(tmp_path):
 
     group_rows = list(__import__('csv').DictReader((output_dir / 'group_tfidf.csv').open('r', encoding='utf-8', newline='')))
     assert all(row['group'] not in {'UNESCO', 'PISA', 'OECD/PISA'} for row in group_rows)
+
+
+def test_dlgf_matrix_distinguishes_translation_and_review_states(tmp_path):
+    source = tmp_path / 'evidence.csv'
+    source.write_text(
+        'country,question_id,evidence_id,document_id,original_text,evidence_validation_status\n'
+        'japao,Q01,J1,DOC1,情報技術を適切かつ効果的に活用する力,validada\n'
+        'singapura,Q01,S1,DOC2,"programming and algorithms",validada\n',
+        encoding='utf-8',
+    )
+    build_evidence_matrix(source, tmp_path / 'out')
+    matrix = list(__import__('csv').DictReader((tmp_path / 'out' / 'dlgf_country_area_matrix.csv').open(encoding='utf-8-sig')))
+    japan = next(row for row in matrix if row['country'] == 'japao')
+    singapore = next(row for row in matrix if row['country'] == 'singapura')
+    assert len([key for key in japan if key.startswith('CA')]) == 7
+    assert japan['assessment_status'] == 'translation_required'
+    assert japan['CA3_Digital content creation'] == 'translation_required'
+    assert singapore['assessment_status'] == 'reviewed_sample'
+    assert singapore['CA3_Digital content creation'] != 'no_match_in_reviewed_sample'
