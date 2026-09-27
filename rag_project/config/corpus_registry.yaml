@@ -291,6 +291,11 @@ countries:
         role: primary
         validation_status: pending_review
         metadata_source: metadata/bibliographic_matrix.csv
+      - document_id: HK_003
+        file: Blueprint_Digital_Education_Primary_Secondary_2026.pdf
+        role: complementary
+        validation_status: pending_review
+        metadata_source: official_edb_2026
   - country_code: IE
     country: irlanda
     continent: europe
@@ -446,11 +451,7 @@ countries:
         role: complementary
         validation_status: pending_review
         metadata_source: metadata/bibliographic_matrix.csv
-      - document_id: SG_015
-        file: singapura_e_brasil_diretrizes_de_computação.pdf
-        role: complementary
-        validation_status: pending_review
-        metadata_source: metadata/bibliographic_matrix.csv
+
       - document_id: SG_016
         file: singapura_g3-computing-syllabus_2024.pdf
         role: primary
