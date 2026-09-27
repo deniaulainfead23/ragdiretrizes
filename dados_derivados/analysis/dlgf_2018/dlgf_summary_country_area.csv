@@ -1,20 +1,155 @@
-﻿country,dlgf_area_code,dlgf_area_name,evidence_count,interpretation_limit
-africa-do-sul,3,Digital content creation,1,"Contagem de evidências classificadas; não representa qualidade, desempenho ou implementação curricular."
-australia,3,Digital content creation,2,"Contagem de evidências classificadas; não representa qualidade, desempenho ou implementação curricular."
-australia,4,Safety,2,"Contagem de evidências classificadas; não representa qualidade, desempenho ou implementação curricular."
-brasil,2,Communication and collaboration,1,"Contagem de evidências classificadas; não representa qualidade, desempenho ou implementação curricular."
-brasil,5,Problem-solving,3,"Contagem de evidências classificadas; não representa qualidade, desempenho ou implementação curricular."
-coreia-do-sul,2,Communication and collaboration,1,"Contagem de evidências classificadas; não representa qualidade, desempenho ou implementação curricular."
-coreia-do-sul,3,Digital content creation,1,"Contagem de evidências classificadas; não representa qualidade, desempenho ou implementação curricular."
-estonia,2,Communication and collaboration,2,"Contagem de evidências classificadas; não representa qualidade, desempenho ou implementação curricular."
-estonia,4,Safety,2,"Contagem de evidências classificadas; não representa qualidade, desempenho ou implementação curricular."
-eua,5,Problem-solving,4,"Contagem de evidências classificadas; não representa qualidade, desempenho ou implementação curricular."
-gana,5,Problem-solving,2,"Contagem de evidências classificadas; não representa qualidade, desempenho ou implementação curricular."
-irlanda,5,Problem-solving,4,"Contagem de evidências classificadas; não representa qualidade, desempenho ou implementação curricular."
-reino-unido,0,Devices and software operations,1,"Contagem de evidências classificadas; não representa qualidade, desempenho ou implementação curricular."
-reino-unido,3,Digital content creation,2,"Contagem de evidências classificadas; não representa qualidade, desempenho ou implementação curricular."
-reino-unido,5,Problem-solving,2,"Contagem de evidências classificadas; não representa qualidade, desempenho ou implementação curricular."
-ruanda,5,Problem-solving,1,"Contagem de evidências classificadas; não representa qualidade, desempenho ou implementação curricular."
-singapura,4,Safety,2,"Contagem de evidências classificadas; não representa qualidade, desempenho ou implementação curricular."
-singapura,5,Problem-solving,1,"Contagem de evidências classificadas; não representa qualidade, desempenho ou implementação curricular."
-uruguai,0,Devices and software operations,3,"Contagem de evidências classificadas; não representa qualidade, desempenho ou implementação curricular."
+﻿country,framework_id,area_code,area_name,evidence_count,assessment_status,interpretation_limit
+africa-do-sul,DLGF_2018,0,Devices and software operations,0,no_match_in_reviewed_sample,Contagem no conjunto de evidências revisado; não mede currículo completo nem ausência conceitual.
+africa-do-sul,DLGF_2018,1,Information and data literacy,0,no_match_in_reviewed_sample,Contagem no conjunto de evidências revisado; não mede currículo completo nem ausência conceitual.
+africa-do-sul,DLGF_2018,2,Communication and collaboration,1,evidence_mapped,Contagem no conjunto de evidências revisado; não mede currículo completo nem ausência conceitual.
+africa-do-sul,DLGF_2018,3,Digital content creation,1,evidence_mapped,Contagem no conjunto de evidências revisado; não mede currículo completo nem ausência conceitual.
+africa-do-sul,DLGF_2018,4,Safety,0,no_match_in_reviewed_sample,Contagem no conjunto de evidências revisado; não mede currículo completo nem ausência conceitual.
+africa-do-sul,DLGF_2018,5,Problem-solving,2,evidence_mapped,Contagem no conjunto de evidências revisado; não mede currículo completo nem ausência conceitual.
+africa-do-sul,DLGF_2018,6,Career-related competences,0,no_match_in_reviewed_sample,Contagem no conjunto de evidências revisado; não mede currículo completo nem ausência conceitual.
+australia,DLGF_2018,0,Devices and software operations,,not_assessed,Contagem no conjunto de evidências revisado; não mede currículo completo nem ausência conceitual.
+australia,DLGF_2018,1,Information and data literacy,,not_assessed,Contagem no conjunto de evidências revisado; não mede currículo completo nem ausência conceitual.
+australia,DLGF_2018,2,Communication and collaboration,,not_assessed,Contagem no conjunto de evidências revisado; não mede currículo completo nem ausência conceitual.
+australia,DLGF_2018,3,Digital content creation,,not_assessed,Contagem no conjunto de evidências revisado; não mede currículo completo nem ausência conceitual.
+australia,DLGF_2018,4,Safety,,not_assessed,Contagem no conjunto de evidências revisado; não mede currículo completo nem ausência conceitual.
+australia,DLGF_2018,5,Problem-solving,,not_assessed,Contagem no conjunto de evidências revisado; não mede currículo completo nem ausência conceitual.
+australia,DLGF_2018,6,Career-related competences,,not_assessed,Contagem no conjunto de evidências revisado; não mede currículo completo nem ausência conceitual.
+brasil,DLGF_2018,0,Devices and software operations,0,no_match_in_reviewed_sample,Contagem no conjunto de evidências revisado; não mede currículo completo nem ausência conceitual.
+brasil,DLGF_2018,1,Information and data literacy,0,no_match_in_reviewed_sample,Contagem no conjunto de evidências revisado; não mede currículo completo nem ausência conceitual.
+brasil,DLGF_2018,2,Communication and collaboration,1,evidence_mapped,Contagem no conjunto de evidências revisado; não mede currículo completo nem ausência conceitual.
+brasil,DLGF_2018,3,Digital content creation,0,no_match_in_reviewed_sample,Contagem no conjunto de evidências revisado; não mede currículo completo nem ausência conceitual.
+brasil,DLGF_2018,4,Safety,0,no_match_in_reviewed_sample,Contagem no conjunto de evidências revisado; não mede currículo completo nem ausência conceitual.
+brasil,DLGF_2018,5,Problem-solving,1,evidence_mapped,Contagem no conjunto de evidências revisado; não mede currículo completo nem ausência conceitual.
+brasil,DLGF_2018,6,Career-related competences,0,no_match_in_reviewed_sample,Contagem no conjunto de evidências revisado; não mede currículo completo nem ausência conceitual.
+canada,DLGF_2018,0,Devices and software operations,0,no_match_in_reviewed_sample,Contagem no conjunto de evidências revisado; não mede currículo completo nem ausência conceitual.
+canada,DLGF_2018,1,Information and data literacy,0,no_match_in_reviewed_sample,Contagem no conjunto de evidências revisado; não mede currículo completo nem ausência conceitual.
+canada,DLGF_2018,2,Communication and collaboration,0,no_match_in_reviewed_sample,Contagem no conjunto de evidências revisado; não mede currículo completo nem ausência conceitual.
+canada,DLGF_2018,3,Digital content creation,0,no_match_in_reviewed_sample,Contagem no conjunto de evidências revisado; não mede currículo completo nem ausência conceitual.
+canada,DLGF_2018,4,Safety,0,no_match_in_reviewed_sample,Contagem no conjunto de evidências revisado; não mede currículo completo nem ausência conceitual.
+canada,DLGF_2018,5,Problem-solving,1,evidence_mapped,Contagem no conjunto de evidências revisado; não mede currículo completo nem ausência conceitual.
+canada,DLGF_2018,6,Career-related competences,0,no_match_in_reviewed_sample,Contagem no conjunto de evidências revisado; não mede currículo completo nem ausência conceitual.
+chile,DLGF_2018,0,Devices and software operations,0,no_match_in_reviewed_sample,Contagem no conjunto de evidências revisado; não mede currículo completo nem ausência conceitual.
+chile,DLGF_2018,1,Information and data literacy,0,no_match_in_reviewed_sample,Contagem no conjunto de evidências revisado; não mede currículo completo nem ausência conceitual.
+chile,DLGF_2018,2,Communication and collaboration,0,no_match_in_reviewed_sample,Contagem no conjunto de evidências revisado; não mede currículo completo nem ausência conceitual.
+chile,DLGF_2018,3,Digital content creation,0,no_match_in_reviewed_sample,Contagem no conjunto de evidências revisado; não mede currículo completo nem ausência conceitual.
+chile,DLGF_2018,4,Safety,0,no_match_in_reviewed_sample,Contagem no conjunto de evidências revisado; não mede currículo completo nem ausência conceitual.
+chile,DLGF_2018,5,Problem-solving,0,no_match_in_reviewed_sample,Contagem no conjunto de evidências revisado; não mede currículo completo nem ausência conceitual.
+chile,DLGF_2018,6,Career-related competences,0,no_match_in_reviewed_sample,Contagem no conjunto de evidências revisado; não mede currículo completo nem ausência conceitual.
+china,DLGF_2018,0,Devices and software operations,,not_assessed,Contagem no conjunto de evidências revisado; não mede currículo completo nem ausência conceitual.
+china,DLGF_2018,1,Information and data literacy,,not_assessed,Contagem no conjunto de evidências revisado; não mede currículo completo nem ausência conceitual.
+china,DLGF_2018,2,Communication and collaboration,,not_assessed,Contagem no conjunto de evidências revisado; não mede currículo completo nem ausência conceitual.
+china,DLGF_2018,3,Digital content creation,,not_assessed,Contagem no conjunto de evidências revisado; não mede currículo completo nem ausência conceitual.
+china,DLGF_2018,4,Safety,,not_assessed,Contagem no conjunto de evidências revisado; não mede currículo completo nem ausência conceitual.
+china,DLGF_2018,5,Problem-solving,,not_assessed,Contagem no conjunto de evidências revisado; não mede currículo completo nem ausência conceitual.
+china,DLGF_2018,6,Career-related competences,,not_assessed,Contagem no conjunto de evidências revisado; não mede currículo completo nem ausência conceitual.
+coreia-do-sul,DLGF_2018,0,Devices and software operations,0,no_match_in_reviewed_sample,Contagem no conjunto de evidências revisado; não mede currículo completo nem ausência conceitual.
+coreia-do-sul,DLGF_2018,1,Information and data literacy,0,no_match_in_reviewed_sample,Contagem no conjunto de evidências revisado; não mede currículo completo nem ausência conceitual.
+coreia-do-sul,DLGF_2018,2,Communication and collaboration,1,evidence_mapped,Contagem no conjunto de evidências revisado; não mede currículo completo nem ausência conceitual.
+coreia-do-sul,DLGF_2018,3,Digital content creation,0,no_match_in_reviewed_sample,Contagem no conjunto de evidências revisado; não mede currículo completo nem ausência conceitual.
+coreia-do-sul,DLGF_2018,4,Safety,0,no_match_in_reviewed_sample,Contagem no conjunto de evidências revisado; não mede currículo completo nem ausência conceitual.
+coreia-do-sul,DLGF_2018,5,Problem-solving,0,no_match_in_reviewed_sample,Contagem no conjunto de evidências revisado; não mede currículo completo nem ausência conceitual.
+coreia-do-sul,DLGF_2018,6,Career-related competences,0,no_match_in_reviewed_sample,Contagem no conjunto de evidências revisado; não mede currículo completo nem ausência conceitual.
+estonia,DLGF_2018,0,Devices and software operations,,not_assessed,Contagem no conjunto de evidências revisado; não mede currículo completo nem ausência conceitual.
+estonia,DLGF_2018,1,Information and data literacy,,not_assessed,Contagem no conjunto de evidências revisado; não mede currículo completo nem ausência conceitual.
+estonia,DLGF_2018,2,Communication and collaboration,,not_assessed,Contagem no conjunto de evidências revisado; não mede currículo completo nem ausência conceitual.
+estonia,DLGF_2018,3,Digital content creation,,not_assessed,Contagem no conjunto de evidências revisado; não mede currículo completo nem ausência conceitual.
+estonia,DLGF_2018,4,Safety,,not_assessed,Contagem no conjunto de evidências revisado; não mede currículo completo nem ausência conceitual.
+estonia,DLGF_2018,5,Problem-solving,,not_assessed,Contagem no conjunto de evidências revisado; não mede currículo completo nem ausência conceitual.
+estonia,DLGF_2018,6,Career-related competences,,not_assessed,Contagem no conjunto de evidências revisado; não mede currículo completo nem ausência conceitual.
+eua,DLGF_2018,0,Devices and software operations,0,no_match_in_reviewed_sample,Contagem no conjunto de evidências revisado; não mede currículo completo nem ausência conceitual.
+eua,DLGF_2018,1,Information and data literacy,0,no_match_in_reviewed_sample,Contagem no conjunto de evidências revisado; não mede currículo completo nem ausência conceitual.
+eua,DLGF_2018,2,Communication and collaboration,0,no_match_in_reviewed_sample,Contagem no conjunto de evidências revisado; não mede currículo completo nem ausência conceitual.
+eua,DLGF_2018,3,Digital content creation,0,no_match_in_reviewed_sample,Contagem no conjunto de evidências revisado; não mede currículo completo nem ausência conceitual.
+eua,DLGF_2018,4,Safety,0,no_match_in_reviewed_sample,Contagem no conjunto de evidências revisado; não mede currículo completo nem ausência conceitual.
+eua,DLGF_2018,5,Problem-solving,3,evidence_mapped,Contagem no conjunto de evidências revisado; não mede currículo completo nem ausência conceitual.
+eua,DLGF_2018,6,Career-related competences,0,no_match_in_reviewed_sample,Contagem no conjunto de evidências revisado; não mede currículo completo nem ausência conceitual.
+finlandia,DLGF_2018,0,Devices and software operations,0,no_match_in_reviewed_sample,Contagem no conjunto de evidências revisado; não mede currículo completo nem ausência conceitual.
+finlandia,DLGF_2018,1,Information and data literacy,0,no_match_in_reviewed_sample,Contagem no conjunto de evidências revisado; não mede currículo completo nem ausência conceitual.
+finlandia,DLGF_2018,2,Communication and collaboration,0,no_match_in_reviewed_sample,Contagem no conjunto de evidências revisado; não mede currículo completo nem ausência conceitual.
+finlandia,DLGF_2018,3,Digital content creation,0,no_match_in_reviewed_sample,Contagem no conjunto de evidências revisado; não mede currículo completo nem ausência conceitual.
+finlandia,DLGF_2018,4,Safety,0,no_match_in_reviewed_sample,Contagem no conjunto de evidências revisado; não mede currículo completo nem ausência conceitual.
+finlandia,DLGF_2018,5,Problem-solving,0,no_match_in_reviewed_sample,Contagem no conjunto de evidências revisado; não mede currículo completo nem ausência conceitual.
+finlandia,DLGF_2018,6,Career-related competences,0,no_match_in_reviewed_sample,Contagem no conjunto de evidências revisado; não mede currículo completo nem ausência conceitual.
+gana,DLGF_2018,0,Devices and software operations,0,no_match_in_reviewed_sample,Contagem no conjunto de evidências revisado; não mede currículo completo nem ausência conceitual.
+gana,DLGF_2018,1,Information and data literacy,0,no_match_in_reviewed_sample,Contagem no conjunto de evidências revisado; não mede currículo completo nem ausência conceitual.
+gana,DLGF_2018,2,Communication and collaboration,1,evidence_mapped,Contagem no conjunto de evidências revisado; não mede currículo completo nem ausência conceitual.
+gana,DLGF_2018,3,Digital content creation,0,no_match_in_reviewed_sample,Contagem no conjunto de evidências revisado; não mede currículo completo nem ausência conceitual.
+gana,DLGF_2018,4,Safety,0,no_match_in_reviewed_sample,Contagem no conjunto de evidências revisado; não mede currículo completo nem ausência conceitual.
+gana,DLGF_2018,5,Problem-solving,0,no_match_in_reviewed_sample,Contagem no conjunto de evidências revisado; não mede currículo completo nem ausência conceitual.
+gana,DLGF_2018,6,Career-related competences,0,no_match_in_reviewed_sample,Contagem no conjunto de evidências revisado; não mede currículo completo nem ausência conceitual.
+hong-kong,DLGF_2018,0,Devices and software operations,0,no_match_in_reviewed_sample,Contagem no conjunto de evidências revisado; não mede currículo completo nem ausência conceitual.
+hong-kong,DLGF_2018,1,Information and data literacy,0,no_match_in_reviewed_sample,Contagem no conjunto de evidências revisado; não mede currículo completo nem ausência conceitual.
+hong-kong,DLGF_2018,2,Communication and collaboration,0,no_match_in_reviewed_sample,Contagem no conjunto de evidências revisado; não mede currículo completo nem ausência conceitual.
+hong-kong,DLGF_2018,3,Digital content creation,0,no_match_in_reviewed_sample,Contagem no conjunto de evidências revisado; não mede currículo completo nem ausência conceitual.
+hong-kong,DLGF_2018,4,Safety,0,no_match_in_reviewed_sample,Contagem no conjunto de evidências revisado; não mede currículo completo nem ausência conceitual.
+hong-kong,DLGF_2018,5,Problem-solving,2,evidence_mapped,Contagem no conjunto de evidências revisado; não mede currículo completo nem ausência conceitual.
+hong-kong,DLGF_2018,6,Career-related competences,0,no_match_in_reviewed_sample,Contagem no conjunto de evidências revisado; não mede currículo completo nem ausência conceitual.
+irlanda,DLGF_2018,0,Devices and software operations,0,no_match_in_reviewed_sample,Contagem no conjunto de evidências revisado; não mede currículo completo nem ausência conceitual.
+irlanda,DLGF_2018,1,Information and data literacy,0,no_match_in_reviewed_sample,Contagem no conjunto de evidências revisado; não mede currículo completo nem ausência conceitual.
+irlanda,DLGF_2018,2,Communication and collaboration,0,no_match_in_reviewed_sample,Contagem no conjunto de evidências revisado; não mede currículo completo nem ausência conceitual.
+irlanda,DLGF_2018,3,Digital content creation,0,no_match_in_reviewed_sample,Contagem no conjunto de evidências revisado; não mede currículo completo nem ausência conceitual.
+irlanda,DLGF_2018,4,Safety,0,no_match_in_reviewed_sample,Contagem no conjunto de evidências revisado; não mede currículo completo nem ausência conceitual.
+irlanda,DLGF_2018,5,Problem-solving,0,no_match_in_reviewed_sample,Contagem no conjunto de evidências revisado; não mede currículo completo nem ausência conceitual.
+irlanda,DLGF_2018,6,Career-related competences,0,no_match_in_reviewed_sample,Contagem no conjunto de evidências revisado; não mede currículo completo nem ausência conceitual.
+japao,DLGF_2018,0,Devices and software operations,0,translation_required,Contagem no conjunto de evidências revisado; não mede currículo completo nem ausência conceitual.
+japao,DLGF_2018,1,Information and data literacy,0,translation_required,Contagem no conjunto de evidências revisado; não mede currículo completo nem ausência conceitual.
+japao,DLGF_2018,2,Communication and collaboration,0,translation_required,Contagem no conjunto de evidências revisado; não mede currículo completo nem ausência conceitual.
+japao,DLGF_2018,3,Digital content creation,0,translation_required,Contagem no conjunto de evidências revisado; não mede currículo completo nem ausência conceitual.
+japao,DLGF_2018,4,Safety,0,translation_required,Contagem no conjunto de evidências revisado; não mede currículo completo nem ausência conceitual.
+japao,DLGF_2018,5,Problem-solving,0,translation_required,Contagem no conjunto de evidências revisado; não mede currículo completo nem ausência conceitual.
+japao,DLGF_2018,6,Career-related competences,0,translation_required,Contagem no conjunto de evidências revisado; não mede currículo completo nem ausência conceitual.
+nova-zelandia,DLGF_2018,0,Devices and software operations,0,no_match_in_reviewed_sample,Contagem no conjunto de evidências revisado; não mede currículo completo nem ausência conceitual.
+nova-zelandia,DLGF_2018,1,Information and data literacy,0,no_match_in_reviewed_sample,Contagem no conjunto de evidências revisado; não mede currículo completo nem ausência conceitual.
+nova-zelandia,DLGF_2018,2,Communication and collaboration,0,no_match_in_reviewed_sample,Contagem no conjunto de evidências revisado; não mede currículo completo nem ausência conceitual.
+nova-zelandia,DLGF_2018,3,Digital content creation,0,no_match_in_reviewed_sample,Contagem no conjunto de evidências revisado; não mede currículo completo nem ausência conceitual.
+nova-zelandia,DLGF_2018,4,Safety,0,no_match_in_reviewed_sample,Contagem no conjunto de evidências revisado; não mede currículo completo nem ausência conceitual.
+nova-zelandia,DLGF_2018,5,Problem-solving,0,no_match_in_reviewed_sample,Contagem no conjunto de evidências revisado; não mede currículo completo nem ausência conceitual.
+nova-zelandia,DLGF_2018,6,Career-related competences,0,no_match_in_reviewed_sample,Contagem no conjunto de evidências revisado; não mede currículo completo nem ausência conceitual.
+quenia,DLGF_2018,0,Devices and software operations,0,no_match_in_reviewed_sample,Contagem no conjunto de evidências revisado; não mede currículo completo nem ausência conceitual.
+quenia,DLGF_2018,1,Information and data literacy,0,no_match_in_reviewed_sample,Contagem no conjunto de evidências revisado; não mede currículo completo nem ausência conceitual.
+quenia,DLGF_2018,2,Communication and collaboration,0,no_match_in_reviewed_sample,Contagem no conjunto de evidências revisado; não mede currículo completo nem ausência conceitual.
+quenia,DLGF_2018,3,Digital content creation,0,no_match_in_reviewed_sample,Contagem no conjunto de evidências revisado; não mede currículo completo nem ausência conceitual.
+quenia,DLGF_2018,4,Safety,0,no_match_in_reviewed_sample,Contagem no conjunto de evidências revisado; não mede currículo completo nem ausência conceitual.
+quenia,DLGF_2018,5,Problem-solving,1,evidence_mapped,Contagem no conjunto de evidências revisado; não mede currículo completo nem ausência conceitual.
+quenia,DLGF_2018,6,Career-related competences,0,no_match_in_reviewed_sample,Contagem no conjunto de evidências revisado; não mede currículo completo nem ausência conceitual.
+reino-unido,DLGF_2018,0,Devices and software operations,0,no_match_in_reviewed_sample,Contagem no conjunto de evidências revisado; não mede currículo completo nem ausência conceitual.
+reino-unido,DLGF_2018,1,Information and data literacy,0,no_match_in_reviewed_sample,Contagem no conjunto de evidências revisado; não mede currículo completo nem ausência conceitual.
+reino-unido,DLGF_2018,2,Communication and collaboration,0,no_match_in_reviewed_sample,Contagem no conjunto de evidências revisado; não mede currículo completo nem ausência conceitual.
+reino-unido,DLGF_2018,3,Digital content creation,0,no_match_in_reviewed_sample,Contagem no conjunto de evidências revisado; não mede currículo completo nem ausência conceitual.
+reino-unido,DLGF_2018,4,Safety,0,no_match_in_reviewed_sample,Contagem no conjunto de evidências revisado; não mede currículo completo nem ausência conceitual.
+reino-unido,DLGF_2018,5,Problem-solving,3,evidence_mapped,Contagem no conjunto de evidências revisado; não mede currículo completo nem ausência conceitual.
+reino-unido,DLGF_2018,6,Career-related competences,0,no_match_in_reviewed_sample,Contagem no conjunto de evidências revisado; não mede currículo completo nem ausência conceitual.
+ruanda,DLGF_2018,0,Devices and software operations,0,no_match_in_reviewed_sample,Contagem no conjunto de evidências revisado; não mede currículo completo nem ausência conceitual.
+ruanda,DLGF_2018,1,Information and data literacy,0,no_match_in_reviewed_sample,Contagem no conjunto de evidências revisado; não mede currículo completo nem ausência conceitual.
+ruanda,DLGF_2018,2,Communication and collaboration,0,no_match_in_reviewed_sample,Contagem no conjunto de evidências revisado; não mede currículo completo nem ausência conceitual.
+ruanda,DLGF_2018,3,Digital content creation,0,no_match_in_reviewed_sample,Contagem no conjunto de evidências revisado; não mede currículo completo nem ausência conceitual.
+ruanda,DLGF_2018,4,Safety,0,no_match_in_reviewed_sample,Contagem no conjunto de evidências revisado; não mede currículo completo nem ausência conceitual.
+ruanda,DLGF_2018,5,Problem-solving,0,no_match_in_reviewed_sample,Contagem no conjunto de evidências revisado; não mede currículo completo nem ausência conceitual.
+ruanda,DLGF_2018,6,Career-related competences,0,no_match_in_reviewed_sample,Contagem no conjunto de evidências revisado; não mede currículo completo nem ausência conceitual.
+singapura,DLGF_2018,0,Devices and software operations,0,no_match_in_reviewed_sample,Contagem no conjunto de evidências revisado; não mede currículo completo nem ausência conceitual.
+singapura,DLGF_2018,1,Information and data literacy,0,no_match_in_reviewed_sample,Contagem no conjunto de evidências revisado; não mede currículo completo nem ausência conceitual.
+singapura,DLGF_2018,2,Communication and collaboration,0,no_match_in_reviewed_sample,Contagem no conjunto de evidências revisado; não mede currículo completo nem ausência conceitual.
+singapura,DLGF_2018,3,Digital content creation,0,no_match_in_reviewed_sample,Contagem no conjunto de evidências revisado; não mede currículo completo nem ausência conceitual.
+singapura,DLGF_2018,4,Safety,0,no_match_in_reviewed_sample,Contagem no conjunto de evidências revisado; não mede currículo completo nem ausência conceitual.
+singapura,DLGF_2018,5,Problem-solving,1,evidence_mapped,Contagem no conjunto de evidências revisado; não mede currículo completo nem ausência conceitual.
+singapura,DLGF_2018,6,Career-related competences,0,no_match_in_reviewed_sample,Contagem no conjunto de evidências revisado; não mede currículo completo nem ausência conceitual.
+suica,DLGF_2018,0,Devices and software operations,0,no_match_in_reviewed_sample,Contagem no conjunto de evidências revisado; não mede currículo completo nem ausência conceitual.
+suica,DLGF_2018,1,Information and data literacy,0,no_match_in_reviewed_sample,Contagem no conjunto de evidências revisado; não mede currículo completo nem ausência conceitual.
+suica,DLGF_2018,2,Communication and collaboration,0,no_match_in_reviewed_sample,Contagem no conjunto de evidências revisado; não mede currículo completo nem ausência conceitual.
+suica,DLGF_2018,3,Digital content creation,0,no_match_in_reviewed_sample,Contagem no conjunto de evidências revisado; não mede currículo completo nem ausência conceitual.
+suica,DLGF_2018,4,Safety,0,no_match_in_reviewed_sample,Contagem no conjunto de evidências revisado; não mede currículo completo nem ausência conceitual.
+suica,DLGF_2018,5,Problem-solving,0,no_match_in_reviewed_sample,Contagem no conjunto de evidências revisado; não mede currículo completo nem ausência conceitual.
+suica,DLGF_2018,6,Career-related competences,0,no_match_in_reviewed_sample,Contagem no conjunto de evidências revisado; não mede currículo completo nem ausência conceitual.
+taiwan,DLGF_2018,0,Devices and software operations,,not_assessed,Contagem no conjunto de evidências revisado; não mede currículo completo nem ausência conceitual.
+taiwan,DLGF_2018,1,Information and data literacy,,not_assessed,Contagem no conjunto de evidências revisado; não mede currículo completo nem ausência conceitual.
+taiwan,DLGF_2018,2,Communication and collaboration,,not_assessed,Contagem no conjunto de evidências revisado; não mede currículo completo nem ausência conceitual.
+taiwan,DLGF_2018,3,Digital content creation,,not_assessed,Contagem no conjunto de evidências revisado; não mede currículo completo nem ausência conceitual.
+taiwan,DLGF_2018,4,Safety,,not_assessed,Contagem no conjunto de evidências revisado; não mede currículo completo nem ausência conceitual.
+taiwan,DLGF_2018,5,Problem-solving,,not_assessed,Contagem no conjunto de evidências revisado; não mede currículo completo nem ausência conceitual.
+taiwan,DLGF_2018,6,Career-related competences,,not_assessed,Contagem no conjunto de evidências revisado; não mede currículo completo nem ausência conceitual.
+uruguai,DLGF_2018,0,Devices and software operations,0,no_match_in_reviewed_sample,Contagem no conjunto de evidências revisado; não mede currículo completo nem ausência conceitual.
+uruguai,DLGF_2018,1,Information and data literacy,0,no_match_in_reviewed_sample,Contagem no conjunto de evidências revisado; não mede currículo completo nem ausência conceitual.
+uruguai,DLGF_2018,2,Communication and collaboration,0,no_match_in_reviewed_sample,Contagem no conjunto de evidências revisado; não mede currículo completo nem ausência conceitual.
+uruguai,DLGF_2018,3,Digital content creation,0,no_match_in_reviewed_sample,Contagem no conjunto de evidências revisado; não mede currículo completo nem ausência conceitual.
+uruguai,DLGF_2018,4,Safety,0,no_match_in_reviewed_sample,Contagem no conjunto de evidências revisado; não mede currículo completo nem ausência conceitual.
+uruguai,DLGF_2018,5,Problem-solving,0,no_match_in_reviewed_sample,Contagem no conjunto de evidências revisado; não mede currículo completo nem ausência conceitual.
+uruguai,DLGF_2018,6,Career-related competences,0,no_match_in_reviewed_sample,Contagem no conjunto de evidências revisado; não mede currículo completo nem ausência conceitual.
