@@ -57,20 +57,31 @@ def _discovered_documents(entry: dict) -> list[dict]:
     return documents
 
 
-def registered_documents(registry: dict, country: str | None = None):
+def analysis_documents(
+    registry: dict,
+    country: str | None = None,
+    include_pending_review: bool = False,
+):
     countries = registry.get("countries", [])
     if country is not None:
         countries = [get_country(registry, country)]
+    allowed_statuses = {"validated"}
+    if include_pending_review:
+        allowed_statuses.add("pending_review")
     for entry in countries:
         if not entry or entry.get("country") in EXCLUDED_COUNTRIES or not entry.get("include_in_analysis"):
             continue
         documents = entry.get("documents", []) or []
         for document in documents:
-            if document.get("validation_status") != "validated":
+            if document.get("validation_status") not in allowed_statuses:
                 continue
             if document.get("role") not in {"primary", "complementary"}:
                 continue
             yield entry, document
+
+
+def registered_documents(registry: dict, country: str | None = None):
+    yield from analysis_documents(registry, country)
 
 
 def registry_document_map(registry: dict, country: str | None = None) -> dict[tuple[str, str], dict]:

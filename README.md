@@ -131,7 +131,7 @@ for country in australia estonia; do
 done
 ```
 
-O registro atual tem quatro documentos validados, distribuídos entre Austrália e Estônia; os outros documentos permanecem excluídos até revisão. Assim, essa primeira reconstrução gera resultados somente para esses dois países. A Q14 comparativa continua condicionada à validação humana das respostas Q01–Q13, conforme o protocolo metodológico.
+O fluxo padrão continua restrito a documentos `validated`. Para exploração preliminar dos documentos registrados como `pending_review`, existe a opção explícita `--include-pending-review`; ela preserva o status original e não transforma respostas em evidência validada. Na rodada exploratória de 27/09/2026, os 94 documentos registrados dos 22 países foram incluídos sem promover status, e Q01–Q13 foram executadas por país no Vector Store. As respostas dessa rodada permanecem candidatas até conferência humana; Q14 continua condicionada à validação das evidências.
 
 Depois de validar as respostas, gere a matriz dos itens Q01–Q13 e a matriz DLGF 2018 a partir das evidências revisadas:
 
@@ -146,7 +146,7 @@ python -m rag_project.build_evidence_matrix \
 
 Antes da matriz DLGF, valide manualmente as evidências na coluna `evidence_validation_status` de `evidencias_consolidadas.csv`. A matriz sempre contém as sete áreas do DLGF 2018. `not_assessed` indica ausência de evidência validada; `translation_required` indica que há trechos em japonês/chinês sem tradução para comparação lexical; `no_match_in_reviewed_sample` significa apenas que não houve correspondência lexical naquela amostra revisada. Nenhum desses estados prova ausência curricular. TF-IDF e similaridade textual são pistas de vocabulário, não evidência de equivalência.
 
-Para recalcular TF-IDF após atualizar o corpus, primeiro gere o dataset em inglês com traduções consistentes e depois rode:
+Para comparação lexical entre idiomas, prefira gerar um dataset traduzido de forma consistente e depois rode:
 
 ```bash
 python -m rag_project.analyze_tfidf \
@@ -155,7 +155,9 @@ python -m rag_project.analyze_tfidf \
   --text-field english_text
 ```
 
-A comparação lexical inclui apenas os documentos nacionais e as sete áreas do UNESCO DLGF 2018. A tradução por API pode gerar cobrança e exige que o dataset inglês tenha sido criado previamente.
+A comparação lexical inclui documentos nacionais e as sete áreas do UNESCO DLGF 2018. A tradução por API pode gerar cobrança e exige que o dataset inglês tenha sido criado previamente.
+
+Na rodada exploratória de 27/09/2026, o TF-IDF também foi calculado diretamente sobre `source_text` em `dados_intermediarios/pipeline_runs/todos_paises_exploratorio_20260927_01/datasets/dataset_original_pages.jsonl`. Essa saída fica em `dados_intermediarios/analise_lexical/todos_paises_exploratorio_20260927_01/`. Como os textos estão nos idiomas originais, não há idioma registrado por página e há fontes `pending_review`, essa execução serve apenas para exploração; não deve ser usada como ranking ou comparação lexical normalizada entre países.
 
 ## Regras metodológicas do projeto
 
@@ -170,7 +172,7 @@ A comparação lexical inclui apenas os documentos nacionais e as sete áreas do
 
 ## Protocolo de análise dos resultados
 
-A rodada oficial foi fechada em duas camadas: Q01 a Q13 para recuperação de evidências por país e Q14 para comparação internacional baseada nas respostas nacionais já validadas. O resultado técnico registra 286 respostas, três respostas inconclusivas e 13 comparações temáticas. A etapa seguinte é a validação semântica e a interpretação comparativa, não uma nova geração automática de conclusões.
+A pasta `official_run_20260912` contém a rodada histórica de 12/09/2026. A rodada exploratória de 27/09/2026 está separada em `dados_derivados/analysis/todos_paises_exploratorio_20260927_01/`: 286 respostas para Q01–Q13 nos 22 países, com evidências candidatas ainda sujeitas a revisão. Os dois conjuntos não devem ser combinados. A etapa seguinte é a validação semântica e a interpretação comparativa, não uma nova geração automática de conclusões.
 
 O protocolo completo está em [docs/protocolo_analise_resultados.md](docs/protocolo_analise_resultados.md). Ele define a relação entre objetivos, perguntas, evidências e produtos analíticos, além das regras para não confundir frequência lexical, similaridade textual ou ausência de recuperação com competência curricular comprovada.
 

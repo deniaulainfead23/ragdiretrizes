@@ -1,7 +1,7 @@
 {
   "backend": "openai",
-  "vector_store_id": "vs_6aa4d08cc1948191bc425516c4087b85",
+  "vector_store_id": "vs_6ab99691714c819182b0029378344d75",
   "model": "gpt-4o-mini",
-  "index_folder": "dados_intermediarios/processed + dados_intermediarios/processed_ocr",
-  "updated_at": "2026-09-12T04:22:00+00:00"
+  "index_folder": "dados_intermediarios\\pipeline_runs\\todos_paises_exploratorio_20260927_01\\datasets",
+  "updated_at": "2026-09-27T22:24:51+00:00"
 }

@@ -20,6 +20,8 @@ def chunk_text(text: str, chunk_size: int = 1000, overlap: int = 200):
         chunk = text[start:end].strip()
         if chunk:
             yield chunk
+        if end >= length:
+            break
         start = end - overlap
         if start < 0:
             start = 0

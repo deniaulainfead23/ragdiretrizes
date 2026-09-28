@@ -173,11 +173,23 @@ Esta etapa segue os princípios de Computação Aplicada às Humanidades Digitai
 
 Um ranking textual não deve ser apresentado como julgamento de qualidade curricular. Alta similaridade com a UNESCO não prova implementação efetiva; vocabulário diferente também não prova ausência de alinhamento.
 
-### Estado atual da execução
+### Execução exploratória em 27/09/2026
 
-O corpus atual contém 91 documentos, incluindo seis documentos UNESCO e um
-documento PISA 2022. A tradução integral foi iniciada em blocos de 6.000
-caracteres e 92 blocos foram preservados no cache. Como a execução foi interrompida
-antes de concluir todos os documentos, o `dataset_english.jsonl` atual não deve ser
-usado para resultados finais. A execução deve ser retomada com o mesmo comando;
-os blocos já existentes no `translation_cache.json` serão reutilizados.
+O TF-IDF da rodada `todos_paises_exploratorio_20260927_01` foi calculado com
+`source_text` do dataset original em páginas, sem tradução para um idioma comum:
+
+```bash
+python -m rag_project.analyze_tfidf \
+  --input dados_intermediarios/pipeline_runs/todos_paises_exploratorio_20260927_01/datasets/dataset_original_pages.jsonl \
+  --text-field source_text \
+  --out dados_intermediarios/analise_lexical/todos_paises_exploratorio_20260927_01
+```
+
+A entrada continha 9.042 páginas de 93 documentos com texto nos 22 países; 36
+páginas eram de fontes `validated` e 9.006 de fontes `pending_review`. As sete
+áreas do DLGF foram adicionadas separadamente como referência lexical, totalizando
+100 unidades documentais no cálculo. O JSONL não registra o idioma por página e
+preserva os idiomas originais. Portanto, os resultados são exploratórios: não
+devem ser interpretados como comparação lexical normalizada, ranking de países
+ou evidência de alinhamento curricular. Para comparação entre idiomas, use uma
+tradução consistente e registre o modelo, a cobertura e as falhas da tradução.

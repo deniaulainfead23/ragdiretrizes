@@ -95,7 +95,7 @@ questions:
 
   - question_id: Q04
     title: Competências digitais segundo o DLGF 2018
-    question_text: Como os currículos de cada país abordam competências digitais relacionadas às sete áreas do Digital Literacy Global Framework de 2018?
+    question_text: Quais evidências nos documentos curriculares de Computação ou Educação Digital se relacionam a uma ou mais áreas do Digital Literacy Global Framework de 2018? Para cada relação sustentada, indique a área, documento, página e trecho; não é necessário haver evidência para todas as áreas.
     question_type: evidence_retrieval
     analysis_stage: retrieval
     framework: DLGF_2018
@@ -117,12 +117,12 @@ questions:
       - semantic_score
       - evidence_classification
       - validation_status
-    evidence_rule: Recuperar evidências curriculares relacionadas a operações de dispositivos e software, informação e dados, comunicação e colaboração, criação de conteúdo, segurança, resolução de problemas e competências relacionadas à carreira.
-    exclusion_rule: Não tratar o framework como currículo nacional nem inferir correspondência por semelhança lexical isolada; registrar documento, página e trecho que sustentem cada relação.
+    evidence_rule: "Recuperar qualquer trecho curricular de Computação ou Educação Digital diretamente relacionado a pelo menos uma área do DLGF 2018: dispositivos e software; informação e dados; comunicação e colaboração; criação de conteúdo digital; segurança; resolução de problemas; competências relacionadas à carreira. Aderência parcial é suficiente; indicar somente áreas sustentadas por evidências."
+    exclusion_rule: "Não tratar o framework como currículo nacional, exigir cobertura de todas as áreas, nem inferir correspondência por semelhança lexical isolada. Registrar documento, página, trecho e área específica que cada evidência sustenta."
     allow_cross_country_comparison: false
     requires_validated_evidence: false
     notes: Pergunta de recuperação documental aplicada por país.
-    version: 4.0
+    version: 5.0
 
   - question_id: Q05
     title: Competências do século XXI

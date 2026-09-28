@@ -1,4 +1,4 @@
-from rag_project.corpus_registry import registered_documents
+from rag_project.corpus_registry import analysis_documents, registered_documents
 
 
 def test_registered_documents_does_not_discover_unregistered_files(tmp_path, monkeypatch):
@@ -36,3 +36,24 @@ def test_registered_documents_excludes_pending_review():
     documents = list(registered_documents(registry))
 
     assert [document['file'] for _, document in documents] == ['approved.pdf']
+
+
+def test_analysis_documents_can_include_pending_without_relabeling_them():
+    registry = {
+        'countries': [
+            {
+                'country': 'brasil',
+                'include_in_analysis': True,
+                'documents': [
+                    {'file': 'approved.pdf', 'role': 'primary', 'validation_status': 'validated'},
+                    {'file': 'pending.pdf', 'role': 'complementary', 'validation_status': 'pending_review'},
+                ],
+            }
+        ]
+    }
+
+    documents = list(analysis_documents(registry, include_pending_review=True))
+
+    assert [document['validation_status'] for _, document in documents] == [
+        'validated', 'pending_review',
+    ]

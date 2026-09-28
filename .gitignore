@@ -24,6 +24,10 @@ rag_project/**/metadatas.json
 dados_intermediarios/datasets/
 dados_intermediarios/analise_lexical/
 dados_intermediarios/data/conteudos.jsonl
+dados_intermediarios/pipeline_runs/
+
+# Generated analysis results are reproducible and may contain source excerpts
+dados_derivados/analysis/
 
 # Documentos intermediários derivados do corpus
 dados_intermediarios/processed/

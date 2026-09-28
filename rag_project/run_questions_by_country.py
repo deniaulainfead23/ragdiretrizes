@@ -11,7 +11,12 @@ from pathlib import Path
 from dotenv import load_dotenv
 
 from rag_project.question_catalog import get_questions
-from rag_project.corpus_registry import get_country, load_registry, registered_documents
+from rag_project.corpus_registry import (
+    analysis_documents,
+    get_country,
+    load_registry,
+    registered_documents,
+)
 from rag_project.rag.query import rag_query
 from rag_project.vector_backend import resolve_backend
 from rag_project.paths import ANALYSIS_DIR, METADATA_DIR
@@ -99,6 +104,21 @@ def _candidate_status(value: object, has_evidence: bool) -> str:
     return 'candidate'
 
 
+def _response_text(parsed: dict, has_evidence: bool) -> str:
+    response = str(parsed.get('response') or '').strip()
+    if response:
+        return response
+    if has_evidence:
+        return (
+            'Foram recuperadas evidências, mas não foi gerada uma síntese textual. '
+            'Consulte os trechos na planilha de evidências para revisão.'
+        )
+    return (
+        'Esta consulta não retornou evidências documentais suficientes para formular uma resposta. '
+        'Isso não indica ausência do tema no currículo; requer revisão da recuperação e das fontes.'
+    )
+
+
 def _structured_question_text(item: dict, country: str) -> str:
     return (
         f"{item['question_text']}\n\n"
@@ -109,9 +129,10 @@ def _structured_question_text(item: dict, country: str) -> str:
         "Se as evidências forem insuficientes para uma afirmação, omita-a. "
         "evidences deve ser uma lista de objetos com document_id, document_title, page_start, page_end, "
         "chunk_id, source_language, source_text, translated_text_en, translated_text_pt, translation_status, semantic_score, "
-        "evidence_classification e validation_status. "
+        "source_validation_status, evidence_classification e validation_status. "
         "source_text deve preservar literalmente o trecho recuperado no idioma original. "
-        "translated_text_en é a tradução usada para busca; não a apresente como citação original. "
+        "translated_text_en deve conter somente uma tradução inglesa presente no conteúdo recuperado; "
+        "se não houver, deixe vazio e não traduza ou invente o campo. "
         "translated_text_pt deve traduzir SOMENTE esse trecho para português quando o original não estiver em português; "
         "quando já estiver em português, repita o trecho e use translation_status='not_needed'. "
         "Para tradução realizada, use translation_status='translated'. "
@@ -119,6 +140,7 @@ def _structured_question_text(item: dict, country: str) -> str:
         "Não invente página, documento, chunk_id, idioma ou evidência. "
         "Não use 'validated': validation_status deve ser 'candidate' quando houver suporte recuperado ou "
         "'inconclusive' quando a recuperação não sustentar uma resposta segura. "
+        "source_validation_status deve preservar exatamente o status de validação do documento-fonte. "
         "document_id deve representar o identificador canônico do documento, sem sufixo de nome de arquivo. "
         f"question_id={item['question_id']}; country={country}; "
         f"analysis_framework={item['framework']}; category_id={item['category_id']}."
@@ -132,9 +154,12 @@ def _parse_response(response: str) -> dict:
         text = re.sub(r'\s*```$', '', text)
     try:
         value = json.loads(text)
-        return value if isinstance(value, dict) else {}
     except (TypeError, json.JSONDecodeError):
-        return {}
+        try:
+            value = json.loads(text, strict=False)
+        except (TypeError, json.JSONDecodeError):
+            return {}
+    return value if isinstance(value, dict) else {}
 
 
 def _write_csv(path: Path, rows: list[dict], fallback_fields: list[str]) -> None:
@@ -162,8 +187,15 @@ def run_question_plan(
 
     documents = list(registered_documents(registry, country))
     document_ids = [document['document_id'] for _, document in documents]
+    all_analysis_documents = list(
+        analysis_documents(registry, country, include_pending_review=True)
+    )
+    source_validation_statuses = {
+        document['document_id']: document.get('validation_status', '')
+        for _, document in all_analysis_documents
+    }
     catalog = _load_document_catalog()
-    known_ids = set(catalog)
+    known_ids = set(catalog) | set(source_validation_statuses)
 
     out_dir = Path(output_dir)
     out_dir.mkdir(parents=True, exist_ok=True)
@@ -284,13 +316,16 @@ def run_question_plan(
                 'translation_status': translation_status,
                 'semantic_score': evidence.get('semantic_score', ''),
                 'evidence_classification': evidence.get('evidence_classification') or evidence.get('classification', ''),
+                'source_validation_status': (
+                    source_validation_statuses.get(document_id)
+                    or metadata.get('validation_status', '')
+                    or evidence.get('source_validation_status', '')
+                ),
                 'validation_status': _candidate_status(evidence.get('validation_status'), bool(source_text)),
                 'review_notes': '',
             })
 
-        response_text = parsed.get('response', '') if parsed else ''
-        if not response_text:
-            response_text = response
+        response_text = _response_text(parsed, bool(evidence_ids))
 
         response_status = _candidate_status(
             parsed.get('validation_status') if parsed else '',
@@ -344,7 +379,7 @@ def run_question_plan(
             'category_id', 'framework', 'country', 'document_id', 'document_title',
             'page_start', 'page_end', 'chunk_id', 'source_language', 'source_text',
             'translated_text_en', 'translated_text_pt', 'translation_status', 'semantic_score',
-            'evidence_classification', 'validation_status', 'review_notes',
+            'evidence_classification', 'source_validation_status', 'validation_status', 'review_notes',
         ],
     )
     _write_csv(

@@ -10,7 +10,12 @@ import sys
 from datetime import datetime, timezone
 from pathlib import Path
 
-from rag_project.corpus_registry import EXCLUDED_COUNTRIES, load_registry, registered_documents
+from rag_project.corpus_registry import (
+    EXCLUDED_COUNTRIES,
+    analysis_documents,
+    load_registry,
+    registered_documents,
+)
 from rag_project.paths import CORPUS_DIR, INTERMEDIATE_DATA_DIR
 
 
@@ -62,6 +67,7 @@ def audit_corpus(corpus_root: Path, registry: dict) -> dict:
             actual[(relative_path.parts[0].lower(), Path(*relative_path.parts[1:]).as_posix())] = path
 
     missing_verified = sorted(f"{country}/{filename}" for country, filename in verified if (country, filename) not in actual)
+    missing_registered = sorted(f"{country}/{filename}" for country, filename in curated if (country, filename) not in actual)
     unregistered = sorted(f"{country}/{filename}" for country, filename in actual if (country, filename) not in curated)
     pending_validation = sorted(
         f"{country}/{filename}"
@@ -88,6 +94,7 @@ def audit_corpus(corpus_root: Path, registry: dict) -> dict:
         "verified_present_documents": len(verified_present),
         "discovered_documents": len(actual),
         "missing_verified_files": missing_verified,
+        "missing_registered_files": missing_registered,
         "unregistered_excluded_files": unregistered,
         "pending_verification_excluded_files": pending_validation,
         "inventory": inventory,
@@ -104,15 +111,24 @@ def write_manifest(path: Path, manifest: dict) -> None:
     temporary_path.replace(path)
 
 
-def build_page_dataset(corpus_root: Path, output_path: Path, registry: dict) -> dict:
-    """Extract only registry-validated documents into a run-local page JSONL."""
+def build_page_dataset(
+    corpus_root: Path,
+    output_path: Path,
+    registry: dict,
+    include_pending_review: bool = False,
+) -> dict:
+    """Extract selected registry documents into a run-local page JSONL."""
     output_path.parent.mkdir(parents=True, exist_ok=True)
     report_rows = []
     record_count = 0
     included_documents = 0
+    validation_status_counts: dict[str, int] = {}
     temporary_path = output_path.with_suffix(output_path.suffix + ".tmp")
     with temporary_path.open("w", encoding="utf-8", newline="\n") as handle:
-        for entry, document in registered_documents(registry):
+        for entry, document in analysis_documents(
+            registry,
+            include_pending_review=include_pending_review,
+        ):
             source = corpus_root / entry["country"] / document["file"]
             if source.suffix.lower() == ".pdf":
                 from rag_project.rag.ingest import extract_pdf_pages
@@ -164,6 +180,8 @@ def build_page_dataset(corpus_root: Path, output_path: Path, registry: dict) -> 
                 "pages_written": str(written),
                 "validation_status": document["validation_status"],
             })
+            validation_status = document["validation_status"]
+            validation_status_counts[validation_status] = validation_status_counts.get(validation_status, 0) + 1
     if record_count == 0:
         temporary_path.unlink(missing_ok=True)
         raise ValueError("Nenhuma página com texto foi extraída dos documentos validados.")
@@ -178,6 +196,8 @@ def build_page_dataset(corpus_root: Path, output_path: Path, registry: dict) -> 
     return {
         "documents_included": included_documents,
         "pages_written": record_count,
+        "validation_status_counts": validation_status_counts,
+        "include_pending_review": include_pending_review,
         "report_path": str(report_path),
     }
 
@@ -298,7 +318,13 @@ def build_english_page_dataset(
     return {"source_pages": page_count, "english_segments": segment_count, "report_path": str(report_path), "cache_path": str(cache_path)}
 
 
-def run(corpus_root: Path, output_root: Path, run_id: str, build_outputs: bool) -> int:
+def run(
+    corpus_root: Path,
+    output_root: Path,
+    run_id: str,
+    build_outputs: bool,
+    include_pending_review: bool = False,
+) -> int:
     if not re.fullmatch(r"[A-Za-z0-9_.-]+", run_id):
         raise ValueError("run-id aceita apenas letras, números, ponto, hífen e underscore")
 
@@ -313,18 +339,31 @@ def run(corpus_root: Path, output_root: Path, run_id: str, build_outputs: bool) 
     run_dir.mkdir(parents=True, exist_ok=False)
     registry = load_registry()
     audit = audit_corpus(corpus_root, registry)
+    selected_document_count = (
+        audit["curated_documents"] if include_pending_review
+        else audit["verified_selected_documents"]
+    )
+    missing_selected_files = (
+        audit["missing_registered_files"] if include_pending_review
+        else audit["missing_verified_files"]
+    )
+    is_buildable = bool(selected_document_count) and not missing_selected_files
     manifest = {
         "pipeline_version": PIPELINE_VERSION,
         "run_id": run_id,
         "identifier": f"local:{run_id}",
         "title": "RAG comparativo de currículos de Computação na Educação Básica",
         "created_at": datetime.now(timezone.utc).isoformat(),
-        "status": "preflight_blocked" if not audit["is_buildable"] else "preflight_passed",
+        "status": "preflight_blocked" if not is_buildable else "preflight_passed",
         "corpus_version": str(registry.get("corpus_version", "")),
         "registry_sha256": sha256_file(REGISTRY_PATH),
         "questions_sha256": sha256_file(QUESTIONS_PATH),
         "dlgf_framework_sha256": sha256_file(DLGF_FRAMEWORK_PATH),
         "build_requested": build_outputs,
+        "inclusion_policy": (
+            "registered_documents_including_pending_review_exploratory"
+            if include_pending_review else "validated_documents_only"
+        ),
         "fair_metadata": {
             "findable": {"local_identifier": f"local:{run_id}", "metadata_standard": "project-run-manifest-v1"},
             "accessible": {"storage": "workspace-local", "formats": ["CSV", "JSONL", "JSON", "FAISS"]},
@@ -343,14 +382,18 @@ def run(corpus_root: Path, output_root: Path, run_id: str, build_outputs: bool) 
     print(f"Corpus encontrado: {audit['discovered_documents']}")
     print(f"Documentos curados no registro: {audit['curated_documents']}")
     print(f"Documentos previamente verificados presentes: {audit['verified_present_documents']}")
-    print(f"Arquivos verificados ausentes: {len(audit['missing_verified_files'])}")
-    print(f"Arquivos pendentes/não verificados excluídos: {len(audit['pending_verification_excluded_files'])}")
+    print(f"Documentos selecionados para esta construção: {selected_document_count}")
+    print(f"Arquivos ausentes da seleção: {len(missing_selected_files)}")
+    if include_pending_review:
+        print(f"Documentos pendentes incluídos como exploratórios: {len(audit['pending_verification_excluded_files'])}")
+    else:
+        print(f"Documentos pendentes excluídos: {len(audit['pending_verification_excluded_files'])}")
     print(f"Arquivos não registrados excluídos: {len(audit['unregistered_excluded_files'])}")
     print(f"Manifesto: {manifest_path}")
 
-    if not audit["is_buildable"]:
-        error_type = "MissingValidatedSources" if audit["missing_verified_files"] else "NoValidatedDocuments"
-        manifest["errors"].append({"stage": "preflight", "error_type": error_type, "message": "Preflight requer ao menos um documento validado presente e nenhum documento validado ausente."})
+    if not is_buildable:
+        error_type = "MissingSelectedSources" if missing_selected_files else "NoSelectedDocuments"
+        manifest["errors"].append({"stage": "preflight", "error_type": error_type, "message": "Preflight requer documentos selecionados presentes no corpus."})
         write_manifest(manifest_path, manifest)
         print("Construção interrompida: preflight encontrou divergências ou nenhum documento verificado presente.")
         return 2
@@ -382,12 +425,21 @@ def run(corpus_root: Path, output_root: Path, run_id: str, build_outputs: bool) 
     try:
         from rag_project.build_index import build_from_dataset
 
-        dataset_report = build_page_dataset(corpus_root, original_dataset_path, registry)
+        dataset_report = build_page_dataset(
+            corpus_root,
+            original_dataset_path,
+            registry,
+            include_pending_review=include_pending_review,
+        )
         translation_report = build_english_page_dataset(
             original_dataset_path, english_dataset_path, api_key,
             dataset_dir / "translation_cache.json",
         )
-        index_report = build_from_dataset(str(english_dataset_path), str(index_dir))
+        index_report = build_from_dataset(
+            str(english_dataset_path),
+            str(index_dir),
+            include_pending_review=include_pending_review,
+        )
         manifest["outputs"] = {
             "dataset_original_pages": {
                 "path": str(original_dataset_path),
@@ -439,8 +491,19 @@ def main() -> None:
         help="Identificador único da rodada; uma pasta existente nunca é sobrescrita",
     )
     parser.add_argument("--build", action="store_true", help="Após auditoria aprovada, gerar datasets e índice local")
+    parser.add_argument(
+        "--include-pending-review",
+        action="store_true",
+        help="Inclui documentos registrados como pending_review em análise exploratória, sem validá-los.",
+    )
     args = parser.parse_args()
-    raise SystemExit(run(args.corpus, args.output_root, args.run_id, args.build))
+    raise SystemExit(run(
+        args.corpus,
+        args.output_root,
+        args.run_id,
+        args.build,
+        include_pending_review=args.include_pending_review,
+    ))
 
 
 if __name__ == "__main__":

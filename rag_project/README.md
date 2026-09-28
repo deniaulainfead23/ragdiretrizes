@@ -37,17 +37,28 @@ somente a pré-auditoria do corpus e salva um manifesto com hashes em
 python -m rag_project.run_curated_pipeline --run-id curadoria_2026_09
 ```
 
-A auditoria interrompe a rodada se encontrar arquivos do corpus ausentes no
-registro ou arquivos elegíveis ainda não registrados. Depois de alinhar o
-registro com a curadoria, `--build` gera os datasets original e inglês (sem
-tradução automática) e um índice FAISS novo, todos dentro da pasta dessa rodada:
+A auditoria registra divergências entre o corpus e o registro. O modo padrão
+constrói somente documentos `validated`; documentos ausentes da seleção
+impedem uma construção rastreável. Depois de alinhar o registro, `--build` gera
+o dataset original, sua versão inglesa traduzida pela API e um índice FAISS
+novo, todos dentro da pasta dessa rodada:
 
 ```bash
 python -m rag_project.run_curated_pipeline --run-id curadoria_2026_09 --build
 ```
 
-Essa etapa não executa perguntas, não usa a chave OpenAI e não modifica os
-documentos do corpus. Use um identificador de rodada novo a cada execução.
+Para uma exploração preliminar que também inclua documentos registrados como
+`pending_review`, acrescente `--include-pending-review`. O status original é
+preservado; isso não aprova documentos nem suas evidências. A tradução integral
+e o índice local podem exigir tempo, chamadas pagas à API e memória. Use um
+identificador de rodada novo a cada execução.
+
+A rodada exploratória de 27/09/2026 usou 94 documentos registrados dos 22 países,
+preservando quatro documentos `validated` e 90 `pending_review`. Q01–Q13 foram
+executadas no Vector Store OpenAI a partir dos textos originais. O TF-IDF também
+foi calculado sobre o dataset multilíngue original; esses escores são exploratórios
+e não permitem comparação normalizada entre idiomas. O FAISS local dessa rodada
+não foi concluído por falta de memória.
 
 ## Uso
 

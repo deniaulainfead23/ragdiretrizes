@@ -144,14 +144,15 @@ def validate_processed_corpus(
 def _upload_jsonl_by_country(client: OpenAI, vector_store_id: str, file_path: Path) -> None:
     """Compatibilidade com datasets JSONL legados."""
     records_by_country: dict[str, list[str]] = defaultdict(list)
-    for line in file_path.read_text(encoding="utf-8").splitlines():
-        if not line.strip():
-            continue
-        record = json.loads(line)
-        country = record.get("country")
-        if not country:
-            raise ValueError(f"Registro sem country em {file_path}")
-        records_by_country[country].append(line)
+    with file_path.open("r", encoding="utf-8") as handle:
+        for line in handle:
+            if not line.strip():
+                continue
+            record = json.loads(line)
+            country = record.get("country")
+            if not country:
+                raise ValueError(f"Registro sem country em {file_path}")
+            records_by_country[country].append(line.rstrip("\r\n"))
 
     for country, records in sorted(records_by_country.items()):
         content = ("\n".join(records) + "\n").encode("utf-8")

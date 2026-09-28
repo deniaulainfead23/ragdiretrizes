@@ -5,6 +5,17 @@ from types import SimpleNamespace
 
 from rag_project import build_content_dataset
 from rag_project import build_index
+from rag_project.rag.preprocess import chunk_text
+
+
+def test_chunk_text_finishes_for_short_text():
+    assert list(chunk_text('short text')) == ['short text']
+
+
+def test_chunk_text_preserves_overlap_and_finishes_last_chunk():
+    chunks = list(chunk_text('x' * 1100, chunk_size=1000, overlap=200))
+
+    assert [len(chunk) for chunk in chunks] == [1000, 300]
 
 
 def test_page_dataset_records_selection_and_exclusion_report(tmp_path, monkeypatch):
@@ -112,6 +123,12 @@ def test_index_is_built_from_page_dataset_and_preserves_provenance(tmp_path, mon
             'validation_status': 'validated', 'page_start': 1,
             'source_text': 'Digital literacy framework reference.',
         },
+        {
+            'content_id': 'BR-02_p0001_c001', 'document_id': 'BR-02',
+            'country': 'Brasil', 'source_scope': 'national',
+            'validation_status': 'pending_review', 'page_start': 1,
+            'source_text': 'Curriculum text awaiting review.',
+        },
     ]
     dataset_path.write_text(''.join(json.dumps(row) + '\n' for row in records), encoding='utf-8')
 
@@ -120,8 +137,53 @@ def test_index_is_built_from_page_dataset_and_preserves_provenance(tmp_path, mon
     metadata = json.loads((output_dir / 'metadatas.json').read_text(encoding='utf-8'))
 
     assert report['pages_indexed'] == 1
-    assert report['records_excluded'] == 1
+    assert report['records_excluded'] == 2
     assert metadata[0]['document_id'] == 'BR-01'
     assert metadata[0]['page_start'] == 8
     assert metadata[0]['validation_status'] == 'validated'
     assert (output_dir / 'build_report.json').exists()
+
+
+def test_index_can_include_pending_review_pages_exploratorily(tmp_path, monkeypatch):
+    class FakeIndexer:
+        def __init__(self):
+            self.metadatas = []
+            self.index = SimpleNamespace(ntotal=0)
+
+        def add_batch(self, texts, metadatas, batch_size=8):
+            self.index.ntotal += len(texts)
+            self.metadatas.extend(metadatas)
+
+        def validate_alignment(self):
+            return self.index.ntotal == len(self.metadatas)
+
+        def save(self, folder):
+            output = Path(folder)
+            output.mkdir(parents=True, exist_ok=True)
+            (output / 'index.faiss').write_bytes(b'test-index')
+            (output / 'metadatas.json').write_text(json.dumps(self.metadatas), encoding='utf-8')
+
+    monkeypatch.setattr(build_index, 'Indexer', FakeIndexer)
+    dataset_path = tmp_path / 'dataset_pages.jsonl'
+    dataset_path.write_text(json.dumps({
+        'content_id': 'BR-02_p0001',
+        'document_id': 'BR-02',
+        'country': 'Brasil',
+        'country_code': 'BR',
+        'source_scope': 'national',
+        'validation_status': 'pending_review',
+        'page_start': 1,
+        'source_text': 'Curriculum text awaiting review.',
+    }) + '\n', encoding='utf-8')
+
+    output_dir = tmp_path / 'index'
+    report = build_index.build_from_dataset(
+        str(dataset_path),
+        str(output_dir),
+        include_pending_review=True,
+    )
+    metadata = json.loads((output_dir / 'metadatas.json').read_text(encoding='utf-8'))
+
+    assert report['pages_indexed'] == 1
+    assert report['pending_review_pages_indexed'] == 1
+    assert metadata[0]['validation_status'] == 'pending_review'

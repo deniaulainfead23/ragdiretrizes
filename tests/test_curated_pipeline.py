@@ -56,6 +56,36 @@ def test_audit_allows_build_for_fully_curated_corpus(tmp_path):
     assert audit['is_buildable'] is True
 
 
+def test_exploratory_dataset_includes_pending_without_relabeling(tmp_path):
+    corpus_root = tmp_path / 'corpus'
+    country_dir = corpus_root / 'brasil'
+    country_dir.mkdir(parents=True)
+    (country_dir / 'approved.txt').write_text('Texto validado.', encoding='utf-8')
+    (country_dir / 'pending.txt').write_text('Texto ainda pendente.', encoding='utf-8')
+    registry = {
+        'countries': [{
+            'country': 'brasil',
+            'country_code': 'BR',
+            'include_in_analysis': True,
+            'documents': [
+                {'document_id': 'BR-01', 'file': 'approved.txt', 'role': 'primary', 'validation_status': 'validated'},
+                {'document_id': 'BR-02', 'file': 'pending.txt', 'role': 'complementary', 'validation_status': 'pending_review'},
+            ],
+        }]
+    }
+    output = tmp_path / 'run' / 'dataset_pages.jsonl'
+
+    report = build_page_dataset(corpus_root, output, registry, include_pending_review=True)
+
+    records = [json.loads(line) for line in output.read_text(encoding='utf-8').splitlines()]
+    assert report['documents_included'] == 2
+    assert report['validation_status_counts'] == {'validated': 1, 'pending_review': 1}
+    assert {record['document_id']: record['validation_status'] for record in records} == {
+        'BR-01': 'validated',
+        'BR-02': 'pending_review',
+    }
+
+
 def test_pending_and_unregistered_sources_do_not_block_validated_subset(tmp_path):
     corpus_root = tmp_path / 'corpus'
     country_dir = corpus_root / 'canada'

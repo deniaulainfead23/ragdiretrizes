@@ -14,7 +14,7 @@ Q02. De que forma o pensamento computacional é definido e incorporado ao currí
 
 Q03. Como os currículos tratam cidadania digital, ética digital e letramento midiático?
 
-Q04. Como os currículos de cada país abordam competências digitais relacionadas às sete áreas do DLGF 2018?
+Q04. Quais evidências de Computação ou Educação Digital se relacionam a uma ou mais áreas do DLGF 2018? Aderência parcial é suficiente; não é necessário cobrir todas as áreas.
 
 Q05. Quais competências associadas ao século XXI aparecem nos documentos curriculares?
 
@@ -44,13 +44,13 @@ O corpus analítico é formado por documentos oficiais nacionais sobre currícul
 
 Um documento só pode ser aprovado quando autoria e publicação oficial forem confirmadas; país, instituição, título, versão/ano e nível de ensino estiverem identificados; sua relação com Computação ou Educação Digital na Educação Básica estiver justificada; a versão corresponder à selecionada; páginas e extração textual forem conferidas; e proveniência, endereço oficial e decisão de inclusão estiverem registrados. Duplicatas, rascunhos, materiais jornalísticos e documentos sem relação curricular direta ficam excluídos.
 
-Documentos pendentes, ausentes ou não registrados ficam fora do dataset validado até revisão humana. A ausência de uma fonte ou de evidência recuperada não demonstra ausência de conteúdo curricular.
+Documentos pendentes, ausentes ou não registrados ficam fora do dataset validado até revisão humana. Para exploração preliminar, documentos registrados como `pending_review` podem ser incluídos sem alterar seu status; respostas baseadas neles permanecem candidatas e exigem validação humana. A ausência de uma fonte ou de evidência recuperada não demonstra ausência de conteúdo curricular.
 
 ## Referencial analítico
 
 O DLGF 2018 é a única matriz internacional de competências digitais. Suas sete áreas são: operações de dispositivos e software; informação e dados; comunicação e colaboração; criação de conteúdo digital; segurança; resolução de problemas; e competências relacionadas à carreira. A tabela operacional está em `rag_project/framework/unesco_dlgf_2018.csv`.
 
-Uma correspondência com o DLGF só é indicada quando o trecho curricular e sua página sustentarem a relação. Correspondências vagas ficam inconclusivas. O documento atualmente selecionado como referência internacional não corresponde ao DLGF 2018 e permanece excluído até a conferência da fonte correta. Nenhum outro material internacional entra no corpus ou na matriz.
+Uma correspondência com o DLGF só é indicada quando o trecho curricular e sua página sustentarem a relação com pelo menos uma área; não se exige cobertura de todas as sete. Correspondências vagas ficam inconclusivas. O documento atualmente selecionado como referência internacional não corresponde ao DLGF 2018 e permanece excluído até a conferência da fonte correta. Nenhum outro material internacional entra no corpus ou na matriz.
 
 ## Fluxo de processamento
 
@@ -66,8 +66,10 @@ Uma correspondência com o DLGF só é indicada quando o trecho curricular e sua
 
 Cada rodada recebe identificador próprio e manifesto com hashes do corpus, catálogo de perguntas, framework e parâmetros de processamento. A rodada nova não sobrescreve documentos brutos nem resultados anteriores. Chaves e credenciais ficam em configuração local ignorada pelo controle de versão e nunca são copiadas para arquivos do projeto.
 
-## Estado da rodada
+## Estado da rodada em 27-09-2026
 
-O preflight encontrou divergências entre arquivos do corpus, registro documental e status de aprovação. A geração completa do dataset e do índice permanece bloqueada até a reconciliação da curadoria e a validação da cobertura documental. Resultados de rodadas anteriores são históricos e não representam esta especificação; devem ser preservados e identificados como históricos.
+A rodada `todos_paises_exploratorio_20260927_01` incluiu os 94 documentos registrados dos 22 países, preservando os status originais: quatro `validated` e 90 `pending_review`. Foram extraídas 9.042 páginas. Q01–Q13 foram executadas por país no Vector Store; resultados de fontes pendentes são exploratórios e não equivalem a evidência validada. Q04 aceita relação sustentada com uma ou mais áreas do DLGF.
+
+O TF-IDF exploratório foi calculado a partir do texto original multilíngue. Como o dataset não registra idioma por página e a tradução não foi concluída, os escores entre idiomas não devem ser usados como comparação normalizada ou ranking. O índice FAISS local não foi concluído por falta de memória; as consultas RAG usaram o Vector Store OpenAI. Resultados anteriores permanecem históricos e separados da rodada atual.
 
 

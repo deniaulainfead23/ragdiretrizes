@@ -13,11 +13,11 @@ from pathlib import Path
 
 try:
     from rag_project.rag.ingest import extract_pdf_pages, iter_corpus_files, read_text_file
-    from rag_project.rag.indexer import Indexer
+    from rag_project.rag.indexer import Indexer, MODEL_NAME
     from rag_project.rag.preprocess import chunk_text, normalize_text
 except ImportError:  # pragma: no cover - suporte ao uso legado de dentro de rag_project
     from rag.ingest import extract_pdf_pages, iter_corpus_files, read_text_file
-    from rag.indexer import Indexer
+    from rag.indexer import Indexer, MODEL_NAME
     from rag.preprocess import chunk_text, normalize_text
 from rag_project.corpus_registry import load_registry, registered_documents
 
@@ -275,14 +275,16 @@ def build_from_dataset(
     chunk_size: int = 1200,
     overlap: int = 200,
     embedding_batch_size: int = EMBEDDING_BATCH_SIZE,
+    include_pending_review: bool = False,
 ) -> dict:
-    """Build a fresh FAISS index from validated, page-level dataset JSONL."""
+    """Build a FAISS index from validated pages and optionally pending review pages."""
     dataset_file = Path(dataset_path)
     output_dir = Path(out_dir)
     indexer = Indexer()
     batch_texts: list[str] = []
     batch_metadata: list[dict] = []
     pages_used = 0
+    pending_review_pages_used = 0
     chunks_used = 0
     excluded_records = 0
 
@@ -295,7 +297,11 @@ def build_from_dataset(
             except json.JSONDecodeError as exc:
                 raise ValueError(f"JSONL inválido na linha {line_number}: {exc.msg}") from exc
 
-            if record.get("source_scope") != "national" or record.get("validation_status") != "validated":
+            validation_status = record.get("validation_status")
+            status_is_included = validation_status == "validated" or (
+                include_pending_review and validation_status == "pending_review"
+            )
+            if record.get("source_scope") != "national" or not status_is_included:
                 excluded_records += 1
                 continue
             page_text = str(record.get("source_text", "")).strip()
@@ -304,6 +310,8 @@ def build_from_dataset(
                 continue
 
             pages_used += 1
+            if validation_status == "pending_review":
+                pending_review_pages_used += 1
             source_path = str(record.get("source_path", ""))
             normalized_page = normalize_text(page_text)
             for chunk_index, chunk in enumerate(
@@ -350,13 +358,15 @@ def build_from_dataset(
             f"Índice desalinhado: vetores={indexer.index.ntotal}, metadados={len(indexer.metadatas)}"
         )
     if not pages_used:
-        raise ValueError("Dataset sem páginas nacionais previamente validadas; índice não criado")
+        raise ValueError("Dataset sem páginas nacionais elegíveis; índice não criado")
 
     indexer.save(str(output_dir))
     result = {
         "dataset_path": str(dataset_file),
         "index_path": str(output_dir),
         "pages_indexed": pages_used,
+        "pending_review_pages_indexed": pending_review_pages_used,
+        "include_pending_review": include_pending_review,
         "chunks_indexed": chunks_used,
         "records_excluded": excluded_records,
         "embedding_model": MODEL_NAME,
