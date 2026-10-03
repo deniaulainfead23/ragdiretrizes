@@ -1,7 +1,8 @@
 import json
 from types import SimpleNamespace
 
-from rag_project.openai_vector_store import _upload_jsonl_by_country
+import rag_project.openai_vector_store as openai_vector_store
+from rag_project.openai_vector_store import _upload_jsonl_by_country, cloud_rag_query
 
 
 def test_jsonl_upload_preserves_unicode_line_separators(tmp_path):
@@ -35,4 +36,31 @@ def test_jsonl_upload_preserves_unicode_line_separators(tmp_path):
     assert uploaded_records == {
         'brasil': [records[0]],
         'estonia': [records[1]],
+    }
+
+
+def test_cloud_query_requests_the_evidence_schema_consumed_by_runner(monkeypatch):
+    request = {}
+
+    class FakeResponses:
+        def create(self, **kwargs):
+            request.update(kwargs)
+            return SimpleNamespace(output_text='{}')
+
+    monkeypatch.setattr(
+        openai_vector_store,
+        'OpenAI',
+        lambda api_key: SimpleNamespace(responses=FakeResponses()),
+    )
+
+    cloud_rag_query(
+        'vs-test', 'Q04', api_key='test-key', question_id='Q04', country='australia'
+    )
+
+    prompt = request['input']
+    assert 'evidences' in prompt
+    assert 'evidence_ids' not in prompt
+    assert 'source_text' in prompt
+    assert request['tools'][0]['filters'] == {
+        'type': 'eq', 'key': 'country', 'value': 'australia'
     }

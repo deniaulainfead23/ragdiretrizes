@@ -45,6 +45,8 @@ def build_country_question_plan(country: str, question_id: str | None = None) ->
                 'analysis_stage': q['analysis_stage'],
                 'framework': q['framework'],
                 'category_id': q['category_id'],
+                'evidence_rule': q['evidence_rule'],
+                'exclusion_rule': q['exclusion_rule'],
                 'version': q['version'],
             })
     if question_id and not selected:
@@ -105,10 +107,16 @@ def _candidate_status(value: object, has_evidence: bool) -> str:
 
 
 def _response_text(parsed: dict, has_evidence: bool) -> str:
-    response = str(parsed.get('response') or '').strip()
+    raw_response = parsed.get('response')
+    response = raw_response.strip() if isinstance(raw_response, str) else ''
     if response:
         return response
     if has_evidence:
+        if raw_response not in (None, ''):
+            return (
+                'O modelo retornou a síntese em formato incompatível. As evidências foram preservadas '
+                'para revisão; não use a síntese nem o mapeamento automático como conclusão.'
+            )
         return (
             'Foram recuperadas evidências, mas não foi gerada uma síntese textual. '
             'Consulte os trechos na planilha de evidências para revisão.'
@@ -123,6 +131,10 @@ def _structured_question_text(item: dict, country: str) -> str:
     return (
         f"{item['question_text']}\n\n"
         "Regras metodológicas obrigatórias: responda SOMENTE em JSON válido, sem Markdown. "
+        f"Regra específica de evidência: {item['evidence_rule']} "
+        f"Regra específica de exclusão: {item['exclusion_rule']} "
+        "Quando houver um framework nomeado, use somente as áreas oficiais descritas na regra de evidência; "
+        "não substitua essas áreas por conceitos próximos nem crie categorias. "
         "Use as chaves question_id, country, response, evidences e validation_status. "
         "A resposta deve conter SOMENTE afirmações sustentadas diretamente pelas evidências recuperadas; "
         "não acrescente temas por conhecimento geral, inferência ou expectativa curricular. "

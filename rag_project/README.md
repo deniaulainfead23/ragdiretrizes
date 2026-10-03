@@ -113,6 +113,43 @@ e não recriam os Vector Stores.
 O dataset original continua local para preservar a fonte, e o dataset inglês é usado
 como base de análise e busca hospedada.
 
+### Auditar uma resposta RAG no documento de origem
+
+`validate_rag_answer` consulta o Vector Store nacional atual por país, confere cada
+trecho `source_text` na página física do PDF em `dados_brutos/corpus` e solicita uma
+revisão semântica da síntese contra os trechos que passaram pela conferência literal:
+
+```bash
+python -m rag_project.validate_rag_answer \
+    --country brasil \
+    --question "Como o pensamento computacional aparece no currículo?" \\
+    --question-id Q02 \\
+    --category-id C02 \\
+    --output dados_derivados/analysis/validacao_q02_brasil.txt
+```
+
+Por padrão, a CLI imprime texto estruturado para leitura humana. A função
+`validate_rag_answer_text(...)` também retorna esse relatório como string; a função
+`validate_rag_answer(...)` permanece disponível para integrações que precisem dos
+campos estruturados em memória.
+
+A resposta do RAG pode ser uma síntese parafraseada; ela não precisa copiar o
+documento literalmente. A conferência literal é feita no trecho de evidência citado
+e na página indicada. O resultado é `validado_preliminarmente` ou
+`conteudo_duvidoso`; ambos mantêm `human_review_required=true`. Um status preliminar
+não substitui a interpretação da pesquisadora, não altera o status do corpus e não
+equivale à validação científica final. Se o trecho retornado pelo RAG for uma
+paráfrase, o juiz semântico pode procurar uma passagem literal de apoio na página
+física citada. O código só aceita esse vínculo preliminar se a passagem proposta
+também for encontrada no texto extraído do PDF; sem esse apoio verificável, retorna
+`conteudo_duvidoso`.
+
+O relatório também inclui `result_description`, `status_reasons` (códigos e detalhes
+por evidência/afirmação), `citation_checks`, `semantic_review` e
+`human_review_checklist`. Assim é possível ver qual documento/página falhou, quais
+afirmações ficaram parcialmente sustentadas e o que a pesquisadora deve conferir.
+`source_text` precisa corresponder ao PDF; a resposta resumida pode ser parafraseada.
+
 ## Observações
 
 O código é um protótipo alinhado à metodologia: adequações podem ser necessárias para lidar com formatos específicos do corpus e para melhorar chunking e normalização linguística.

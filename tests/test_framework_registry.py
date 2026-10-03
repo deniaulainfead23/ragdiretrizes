@@ -1,7 +1,7 @@
 import json
 from pathlib import Path
 
-from rag_project.analyze_tfidf import analyze
+from rag_project.analyze_tfidf import analyze, analyze_dlgf_only, analyze_within_country
 from rag_project.build_evidence_matrix import build_evidence_matrix
 from rag_project.framework_registry import (
     export_framework_csvs,
@@ -97,6 +97,92 @@ def test_tfidf_analysis_is_explicitly_exploratory_and_lexical(tmp_path):
 
     group_rows = list(__import__('csv').DictReader((output_dir / 'group_tfidf.csv').open('r', encoding='utf-8', newline='')))
     assert all(row['group'] not in {'UNESCO', 'PISA', 'OECD/PISA'} for row in group_rows)
+
+
+def test_within_country_tfidf_avoids_cross_country_scores_and_flags_cjk(tmp_path):
+    input_path = tmp_path / 'dataset.jsonl'
+    records = [
+        {'country': 'brasil', 'document_id': 'br1', 'source_scope': 'national', 'source_text': 'programação dados algoritmos resolução problemas'},
+        {'country': 'brasil', 'document_id': 'br2', 'source_scope': 'national', 'source_text': 'programação digital dados criação conteúdo'},
+        {'country': 'taiwan', 'document_id': 'tw1', 'source_scope': 'national', 'source_text': '數位合作共創 演算法 資料處理'},
+        {'country': 'taiwan', 'document_id': 'tw2', 'source_scope': 'national', 'source_text': '資訊科技 程式設計 資料處理'},
+        {'country': 'coreia-do-sul', 'document_id': 'kr1', 'source_scope': 'national', 'source_text': '컴퓨터 교육과 정보 기술'},
+        {'country': 'coreia-do-sul', 'document_id': 'kr2', 'source_scope': 'national', 'source_text': '디지털 정보 보호와 프로그래밍'},
+        {'country': 'uruguai', 'document_id': 'uy1', 'source_scope': 'national', 'source_text': 'tecnologías digitales educación básica'},
+        {'country': 'UNESCO', 'document_id': 'u1', 'source_scope': 'international_reference', 'source_text': 'digital literacy devices data'},
+    ]
+    with input_path.open('w', encoding='utf-8') as handle:
+        for record in records:
+            handle.write(json.dumps(record, ensure_ascii=False) + '\n')
+
+    output_dir = tmp_path / 'within_country_output'
+    summary = analyze_within_country(str(input_path), str(output_dir), text_field='source_text', top_n=5)
+
+    assert summary['mode'] == 'within_country_only'
+    assert summary['cross_country_similarity_computed'] is False
+    assert summary['dlgf_similarity_computed'] is False
+    assert summary['analysis_status_counts']['translation_required_cjk'] == 2
+    assert not (output_dir / 'lexical_group_similarity.csv').exists()
+    assert not (output_dir / 'country_dlgf_area_similarity.csv').exists()
+    profiles = list(__import__('csv').DictReader((output_dir / 'country_profiles.csv').open(encoding='utf-8', newline='')))
+    taiwan = next(row for row in profiles if row['country'] == 'taiwan')
+    assert taiwan['analysis_status'] == 'translation_required_cjk'
+    korea = next(row for row in profiles if row['country'] == 'coreia-do-sul')
+    assert korea['analysis_status'] == 'translation_required_cjk'
+    uruguay = next(row for row in profiles if row['country'] == 'uruguai')
+    assert uruguay['analysis_status'] == 'single_document_no_idf_contrast'
+    terms = list(__import__('csv').DictReader((output_dir / 'country_local_top_terms.csv').open(encoding='utf-8', newline='')))
+    assert any(row['country'] == 'uruguai' for row in terms)
+
+
+def test_within_country_tfidf_removes_english_function_words(tmp_path):
+    input_path = tmp_path / 'translated_dataset.jsonl'
+    records = [
+        {'country': 'japao', 'document_id': 'jp1', 'source_scope': 'national', 'source_text': 'That is the digital programming curriculum and it will teach algorithms.'},
+        {'country': 'japao', 'document_id': 'jp2', 'source_scope': 'national', 'source_text': 'This curriculum should teach students programming, data, and algorithms.'},
+    ]
+    with input_path.open('w', encoding='utf-8') as handle:
+        for record in records:
+            handle.write(json.dumps(record, ensure_ascii=False) + '\n')
+
+    output_dir = tmp_path / 'translated_output'
+    analyze_within_country(str(input_path), str(output_dir), text_field='source_text', top_n=20)
+
+    rows = list(__import__('csv').DictReader((output_dir / 'country_local_top_terms.csv').open(encoding='utf-8', newline='')))
+    terms = {row['term'] for row in rows}
+    assert {'that', 'the', 'will', 'this', 'should', 'and'} .isdisjoint(terms)
+    assert 'algorithms' in terms
+
+
+def test_dlgf_only_tfidf_outputs_country_to_framework_without_country_ranking(tmp_path):
+    input_path = tmp_path / 'translated_dataset.jsonl'
+    records = [
+        {'country': 'japao', 'document_id': 'jp1', 'source_scope': 'national', 'english_text': 'Students use algorithms and programming to solve problems.'},
+        {'country': 'eua', 'document_id': 'us1', 'source_scope': 'national', 'english_text': 'Students use devices, software, data, privacy, and programming.'},
+        {'country': 'unesco', 'document_id': 'other', 'source_scope': 'international_reference', 'english_text': 'Unrelated reference vocabulary.'},
+    ]
+    with input_path.open('w', encoding='utf-8') as handle:
+        for record in records:
+            handle.write(json.dumps(record, ensure_ascii=False) + '\n')
+
+    output_dir = tmp_path / 'dlgf_only'
+    summary = analyze_dlgf_only(
+        str(input_path),
+        str(output_dir),
+        framework_path=Path(__file__).resolve().parent.parent / 'rag_project' / 'framework' / 'unesco_dlgf_2018.csv',
+        asset_dir=tmp_path / 'assets',
+    )
+
+    rows = list(__import__('csv').DictReader((output_dir / 'country_dlgf_area_similarity.csv').open(encoding='utf-8', newline='')))
+    assert summary['analysis_mode'] == 'country_to_dlgf_only'
+    assert summary['framework_area_count'] == 7
+    assert summary['countries'] == ['eua', 'japao']
+    assert summary['country_country_similarity_computed'] is False
+    assert summary['other_frameworks_included'] == []
+    assert len(rows) == 14
+    assert {row['framework_id'] for row in rows} == {'DLGF_2018'}
+    assert not (output_dir / 'country_similarity.csv').exists()
+    assert (tmp_path / 'assets' / 'country_dlgf_area_similarity_heatmap.png').is_file()
 
 
 def test_dlgf_matrix_distinguishes_translation_and_review_states(tmp_path):

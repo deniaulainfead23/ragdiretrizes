@@ -295,11 +295,15 @@ def cloud_rag_query(
     response = client.responses.create(
         model=model,
         input=(
-            "Responda em português usando somente as evidências recuperadas.\n"
-            "Retorne JSON com: question_id, country, response, evidence_ids, "
-            "evidence_classification, validation_status.\n"
-            "Para cada evidência, informe document_id, documento, página, "
-            "trecho original, classificação e validation_status.\n"
+            "Responda em português usando somente as evidências recuperadas e as regras da pergunta.\n"
+            "Retorne somente JSON válido, sem Markdown, com as chaves question_id, country, response, "
+            "evidences e validation_status. evidences deve ser uma lista de objetos com document_id, "
+            "document_title, page_start, page_end, chunk_id, source_language, source_text, "
+            "translated_text_en, translated_text_pt, translation_status, semantic_score, "
+            "source_validation_status, evidence_classification e validation_status.\n"
+            "Copie somente metadados e trechos presentes nas evidências recuperadas. Quando um campo "
+            "não estiver disponível, deixe-o vazio; nunca invente documento, página, trecho ou tradução. "
+            "Use candidate se houver evidência de apoio e inconclusive se não houver. Nunca use validated.\n"
             f"question_id: {question_id}\n"
             f"country: {country}\n"
             f"framework: {framework}\n"

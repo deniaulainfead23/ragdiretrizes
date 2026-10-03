@@ -1,6 +1,11 @@
 import json
 
 from rag_project.run_curated_pipeline import audit_corpus, build_english_page_dataset, build_page_dataset
+from rag_project.run_tfidf_all_countries import (
+    export_tfidf_chart_assets,
+    generate_tfidf_charts,
+    verify_translation_coverage,
+)
 
 
 def test_audit_blocks_build_when_corpus_has_curation_divergences(tmp_path):
@@ -166,3 +171,73 @@ def test_english_dataset_preserves_original_source_crosswalk(tmp_path):
     assert row['source_text'] == 'Use information technology in education.'
     assert row['original_text'] == '情報技術を教育に活用する。'
     assert row['translation_status'] == 'translated'
+
+
+def test_tfidf_translation_coverage_requires_every_source_page(tmp_path):
+    source = tmp_path / 'source.jsonl'
+    source.write_text(
+        '\n'.join([
+            json.dumps({'content_id': 'JP_p0001', 'country': 'japao', 'source_text': '日本語。'}, ensure_ascii=False),
+            json.dumps({'content_id': 'BR_p0001', 'country': 'brasil', 'source_text': 'Texto.'}, ensure_ascii=False),
+        ]) + '\n',
+        encoding='utf-8',
+    )
+    translated = tmp_path / 'translated.jsonl'
+    translated.write_text(
+        '\n'.join([
+            json.dumps({'page_content_id': 'JP_p0001', 'country': 'japao', 'language': 'en', 'translation_status': 'translated', 'english_text': 'Japanese text.'}),
+            json.dumps({'page_content_id': 'BR_p0001', 'country': 'brasil', 'language': 'en', 'translation_status': 'translated', 'english_text': 'Text.'}),
+        ]) + '\n',
+        encoding='utf-8',
+    )
+
+    coverage = verify_translation_coverage(source, translated)
+
+    assert coverage['source_pages'] == 2
+    assert coverage['translated_pages'] == 2
+    assert coverage['countries'] == ['brasil', 'japao']
+
+
+def test_tfidf_translation_coverage_rejects_missing_pages(tmp_path):
+    source = tmp_path / 'source.jsonl'
+    source.write_text(
+        json.dumps({'content_id': 'JP_p0001', 'country': 'japao', 'source_text': '日本語。'}) + '\n',
+        encoding='utf-8',
+    )
+    translated = tmp_path / 'translated.jsonl'
+    translated.write_text('', encoding='utf-8')
+
+    try:
+        verify_translation_coverage(source, translated)
+    except ValueError as exc:
+        assert 'Tradução incompleta' in str(exc)
+    else:
+        raise AssertionError('A cobertura incompleta deveria ser rejeitada.')
+
+
+def test_tfidf_chart_generation_marks_countries_without_contrast(tmp_path):
+    analysis_dir = tmp_path / 'analysis'
+    analysis_dir.mkdir()
+    (analysis_dir / 'country_profiles.csv').write_text(
+        'country,documents,analysis_status\njapao,3,within_country_only\neua,1,single_document_no_idf_contrast\n',
+        encoding='utf-8',
+    )
+    (analysis_dir / 'country_local_top_terms.csv').write_text(
+        'country,rank_within_country,term,mean_tfidf_within_country\n'
+        'japao,1,students,0.04\njapao,2,learning,0.03\njapao,3,technology,0.02\n'
+        'eua,1,students,0.05\neua,2,computing,0.04\neua,3,technology,0.03\n',
+        encoding='utf-8',
+    )
+
+    report = generate_tfidf_charts(analysis_dir)
+
+    assert report['country_charts'] == 2
+    assert report['countries_without_idf_contrast'] == ['eua']
+    assert report['countries_without_terms'] == []
+    assert (analysis_dir / 'top3_terms_by_country.png').is_file()
+    assert (analysis_dir / 'countries' / 'japao_tfidf_top3.png').is_file()
+    assert (analysis_dir / 'countries' / 'eua_tfidf_top3.png').is_file()
+
+    assets = export_tfidf_chart_assets(report, tmp_path / 'tfidf_run', tmp_path / 'assets')
+    assert (tmp_path / 'assets' / 'tfidf_run' / 'top3_terms_by_country.png').is_file()
+    assert (tmp_path / 'assets' / 'tfidf_run' / 'countries' / 'japao_tfidf_top3.png').is_file()
