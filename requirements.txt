@@ -1,0 +1,8 @@
+openai>=1.66
+python-dotenv
+PyYAML
+pymupdf
+pdfplumber
+rapidfuzz
+python-docx
+pytest

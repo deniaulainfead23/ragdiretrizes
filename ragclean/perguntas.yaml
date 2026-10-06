@@ -1,0 +1,46 @@
+# Catálogo de perguntas do passo 4. Edite à vontade: id, titulo e pergunta.
+# Origem: questions.yaml v4.0 da branch correcao-pipeline-rag (só os campos usados aqui).
+perguntas:
+- id: Q01
+  titulo: Competências de Computação e Educação Digital
+  pergunta: Como o país define e organiza as competências de Computação e Educação Digital em seus documentos curriculares?
+- id: Q02
+  titulo: Pensamento Computacional
+  pergunta: Como o Pensamento Computacional é definido, desenvolvido ou incorporado ao currículo do país?
+- id: Q03
+  titulo: Cidadania digital, ética e letramento midiático
+  pergunta: Como os documentos abordam cidadania digital, ética digital e letramento midiático?
+- id: Q04
+  titulo: Competências digitais segundo o DLGF 2018
+  pergunta: Quais evidências nos documentos curriculares de Computação ou Educação Digital se relacionam a uma ou mais áreas do Digital Literacy Global Framework de 2018? Para cada relação sustentada, indique a área, documento e trecho; não é necessário haver evidência para todas as áreas.
+- id: Q05
+  titulo: Competências do século XXI
+  pergunta: Quais competências associadas ao século XXI aparecem nos documentos curriculares?
+- id: Q06
+  titulo: Colaboração, criatividade e resolução de problemas
+  pergunta: Como colaboração, criatividade e resolução de problemas são incorporadas às competências e práticas curriculares?
+- id: Q07
+  titulo: IA, ética, privacidade e segurança
+  pergunta: Como os documentos abordam Inteligência Artificial, ética, privacidade, segurança e uso responsável das tecnologias digitais?
+- id: Q08
+  titulo: Inclusão, acessibilidade e equidade digital
+  pergunta: Como inclusão, acessibilidade e equidade digital são tratadas nos documentos?
+- id: Q09
+  titulo: Dimensão técnica e sociocultural
+  pergunta: Que equilíbrio existe entre dimensões técnicas da Computação e dimensões sociais, culturais, éticas e humanas da Educação Digital?
+- id: Q10
+  titulo: Pensamento crítico, autonomia e participação
+  pergunta: Como pensamento crítico, autonomia e participação social são promovidos no currículo relacionado à Computação e Educação Digital?
+- id: Q11
+  titulo: Organização curricular por etapa e componente
+  pergunta: Como a Computação é organizada nas diferentes etapas da Educação Básica e nas áreas ou disciplinas curriculares?
+- id: Q12
+  titulo: Formação e desenvolvimento docente
+  pergunta: Como a formação, atuação ou desenvolvimento profissional docente para Computação e Educação Digital são abordados?
+- id: Q13
+  titulo: Eixos recorrentes no país
+  pergunta: Quais eixos, conceitos e competências aparecem de forma recorrente nos documentos analisados do país?
+- id: Q14
+  titulo: Comparação internacional dos currículos de Computação
+  pergunta: Quais convergências, diferenças e lacunas aparecem entre os currículos e diretrizes oficiais dos países quanto à organização da Computação na Educação Básica e às áreas do DLGF 2018?
+

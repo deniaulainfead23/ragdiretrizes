@@ -1,34 +1,21 @@
-# Secrets and local configuration
+# Segredos
 .env
 .env.*
 !.env.example
 
-# Python local files
+# Python
 __pycache__/
-**/__pycache__/
 *.py[cod]
 .pytest_cache/
 .venv/
 .vscode/
 
-# Local RAG indexes and caches
-.cache/
-rag_project/.cache/
-rag_project/.openai_vector_stores.json
-rag_project/indexed*/
-rag_project/**/checkpoint.json
-rag_project/**/*.faiss
-rag_project/**/metadatas.json
+# Corpus: os documentos originais ficam so na sua maquina
+dados_brutos/corpus/*
+!dados_brutos/corpus/.gitkeep
 
-# Generated intermediate datasets and lexical analysis outputs
-dados_intermediarios/datasets/
-dados_intermediarios/analise_lexical/
-dados_intermediarios/data/conteudos.jsonl
-dados_intermediarios/pipeline_runs/
-
-# Generated analysis results are reproducible and may contain source excerpts
-dados_derivados/analysis/
-
-# Documentos intermediários derivados do corpus
-dados_intermediarios/processed/
-dados_intermediarios/processed_ocr/
+# Gerados pelo pipeline (reproduziveis a partir do corpus)
+dados_intermediarios/*
+!dados_intermediarios/README.md
+dados_derivados/*
+!dados_derivados/README.md
