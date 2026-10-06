@@ -9,3 +9,5 @@ Se você usar subpastas (por exemplo, uma por país), o nome da primeira pasta v
 um filtro opcional na hora de perguntar. Não é obrigatório.
 
 Os documentos não são versionados no git (veja `.gitignore`).
+
+Arquivos de perguntas para importar pelo menu (opção 6) ficam em `dados_brutos/perguntas/`.

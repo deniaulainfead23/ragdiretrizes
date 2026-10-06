@@ -8,7 +8,7 @@ import shutil
 import sys
 from collections import Counter
 
-from . import caminhos, consulta, extracao, indexacao, validacao
+from . import atualizacao, caminhos, consulta, extracao, indexacao, perguntas, validacao
 
 LINHA = "─" * 72
 
@@ -233,6 +233,102 @@ def passo_5() -> None:
     print(f"Detalhe: {_rel(caminhos.VALIDACAO / (rodada + '.json'))}")
 
 
+def catalogo_de_perguntas() -> None:
+    catalogo = perguntas.carregar()
+    print(f"O catálogo tem {len(catalogo)} pergunta(s), em {_rel(caminhos.PERGUNTAS)}.")
+    acao = _escolher("O que quer fazer?", [
+        "Ver as perguntas do catálogo",
+        f"Importar perguntas de um arquivo em {_rel(caminhos.PERGUNTAS_ENTRADA)}/",
+        "Remover uma pergunta",
+    ])
+    if acao.startswith("Ver"):
+        for p in catalogo:
+            print(f"\n  {p['id']} — {p['titulo']}\n     {p['pergunta']}")
+        return
+    if acao.startswith("Remover"):
+        rotulo = _escolher("Qual pergunta remover?", [f"{p['id']} — {p['titulo']}" for p in catalogo])
+        if _confirmar(f"Remover {rotulo}?"):
+            perguntas.gravar([p for p in catalogo if not rotulo.startswith(p["id"] + " ")])
+            print("Removida. As respostas antigas continuam guardadas como histórico.")
+        return
+
+    print("\nO que isto faz: lê um arquivo de perguntas (CSV, XLSX, TXT ou YAML), confere e mostra o")
+    print("que muda no catálogo. Nada é gravado sem a sua confirmação e nada é enviado à internet.")
+    caminhos.PERGUNTAS_ENTRADA.mkdir(parents=True, exist_ok=True)
+    arquivos = perguntas.arquivos_para_importar()
+    if not arquivos:
+        print(f"\nNão há arquivo para importar. Salve o seu em {_rel(caminhos.PERGUNTAS_ENTRADA)}/")
+        print(f"(use {perguntas.MODELO} como modelo) e volte aqui. Ajuda: opção 'a' do menu.")
+        return
+    nome = _escolher("Qual arquivo importar?", [a.name for a in arquivos])
+    lidas = perguntas.ler_arquivo(caminhos.PERGUNTAS_ENTRADA / nome)
+    prontas, erros, avisos = perguntas.conferir(lidas, catalogo)
+    for aviso in avisos:
+        print("  aviso: " + aviso)
+    if erros:
+        print("\nO arquivo tem problemas e não foi importado:")
+        for erro in erros:
+            print("  " + erro)
+        return
+    modo = _escolher("Como importar?", [
+        "Juntar: acrescenta as novas e atualiza as de mesmo id (as demais ficam)",
+        "Substituir: o catálogo passa a ser só o que está no arquivo",
+    ])
+    efeito = perguntas.comparar(prontas, catalogo, substituir=modo.startswith("Substituir"))
+    print()
+    for rotulo in ("novas", "alteradas", "removidas"):
+        for p in efeito[rotulo]:
+            print(f"  {rotulo[:-1].upper():<9} {p['id']}  {p['pergunta'][:80]}")
+    print(f"\n{len(efeito['novas'])} nova(s), {len(efeito['alteradas'])} alterada(s), "
+          f"{len(efeito['iguais'])} igual(is), {len(efeito['removidas'])} removida(s). "
+          f"Catálogo ficará com {len(efeito['catalogo'])} pergunta(s).")
+    if not (efeito["novas"] or efeito["alteradas"] or efeito["removidas"]):
+        print("Nada a mudar.")
+        return
+    if _confirmar("Gravar o catálogo?"):
+        perguntas.gravar(efeito["catalogo"])
+        print("Catálogo gravado. Use a opção 7 (Atualizar tudo) para responder e validar o que mudou.")
+
+
+def atualizar_tudo() -> None:
+    print("O que isto faz: confere o corpus e o catálogo de perguntas e refaz só o que ficou")
+    print("desatualizado: extração, índice, respostas e validação, nessa ordem.")
+    sit = situacao()
+    if not sit[0][0]:
+        print("\nAntes falta concluir o passo 0 (chave da OpenAI).")
+        return
+    pasta = ""
+    pastas = consulta.pastas_do_corpus()
+    if pastas:
+        pasta = _escolher("As perguntas valem para qual pasta do corpus?", pastas, permitir_vazio="corpus inteiro")
+    p = atualizacao.plano(pasta)
+    print("\nPlano:")
+    print("  Extração:  " + ("refazer para os documentos novos ou alterados" if p["extrair"] else "em dia"))
+    print("  Índice:    " + ("atualizar (cobrado pela API)" if p["indexar"] else "em dia"))
+    if p["indexar"] and p["perguntas"]:
+        print(f"  Perguntas: todas as {len(p['perguntas'])} serão respondidas de novo, porque o corpus mudou")
+    else:
+        print(f"  Perguntas: {len(p['perguntas'])} nova(s) ou alterada(s) a responder" if p["perguntas"]
+              else "  Perguntas: em dia")
+        for q in p["perguntas"]:
+            print(f"               {q['id']}  {q['pergunta'][:70]}")
+    print(f"  Validação: {len(p['validar'])} rodada(s) pendente(s)" + (" + a nova" if p["perguntas"] else ""))
+    if not (p["extrair"] or p["indexar"] or p["perguntas"] or p["validar"]):
+        print("\nEstá tudo em dia. Nada a fazer.")
+        return
+    if not _confirmar():
+        return
+    feito = atualizacao.atualizar(pasta)
+    print(f"\n{LINHA}\nAtualização concluída.")
+    for rodada in feito["validadas"]:
+        print(f"  Validação: {_rel(caminhos.VALIDACAO / (rodada + '.csv'))}")
+
+
+def ajuda_perguntas() -> None:
+    print(perguntas.texto_da_ajuda())
+    print(f"(Este texto está em {_rel(caminhos.AJUDA_PERGUNTAS)}; no VS Code, abra com Ctrl+Shift+V.)")
+
+
 def recomecar() -> None:
     print("O que isto faz: apaga o Vector Store na OpenAI e tudo em dados_intermediarios e")
     print("dados_derivados. Os documentos originais em dados_brutos NÃO são tocados.")
@@ -276,7 +372,10 @@ def mostrar_menu() -> None:
         marca = "[x]" if sit[n][0] else "[ ]"
         seta = "  <- próximo" if n == seguinte else ""
         print(f" {marca} {n}. {nome:<32} {sit[n][1]}{seta}")
-    print("\n     9. Recomeçar do zero (mantém os documentos originais)")
+    print(f"\n     6. Catálogo de perguntas            {len(perguntas.carregar())} pergunta(s) — ver, importar, remover")
+    print("     7. Atualizar tudo                   refaz só o que mudou (corpus ou perguntas)")
+    print("     a. Ajuda: como fazer perguntas novas")
+    print("     9. Recomeçar do zero                mantém os documentos originais e o catálogo")
     print("     s. Sair")
     if seguinte is None:
         print("\nTudo em dia. Use o passo 4 para novas perguntas e o 5 para validá-las.")
@@ -305,9 +404,16 @@ def principal() -> None:
             return
         if not escolha and seguinte is not None:
             escolha = str(seguinte)
-        if escolha == "9":
-            print(f"\n{LINHA}\nRECOMEÇAR\n{LINHA}")
-            recomecar()
+        extras = {"6": ("CATÁLOGO DE PERGUNTAS", catalogo_de_perguntas), "7": ("ATUALIZAR TUDO", atualizar_tudo),
+                  "a": ("AJUDA — COMO FAZER PERGUNTAS NOVAS", ajuda_perguntas), "9": ("RECOMEÇAR", recomecar)}
+        if escolha in extras:
+            print(f"\n{LINHA}\n{extras[escolha][0]}\n{LINHA}")
+            try:
+                extras[escolha][1]()
+            except KeyboardInterrupt:
+                print("\nInterrompido. O que já foi feito ficou gravado.")
+            except Exception as exc:
+                print(f"\nParou com erro: {type(exc).__name__}: {exc}")
         elif escolha.isdigit() and int(escolha) in PASSOS:
             executar(int(escolha))
         else:

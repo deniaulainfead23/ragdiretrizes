@@ -15,3 +15,5 @@ RESPOSTAS = DERIVADOS / "respostas"
 VALIDACAO = DERIVADOS / "validacao"
 
 PERGUNTAS = Path(__file__).resolve().parent / "perguntas.yaml"
+PERGUNTAS_ENTRADA = BRUTOS / "perguntas"
+AJUDA_PERGUNTAS = RAIZ / "COMO_FAZER_PERGUNTAS.md"

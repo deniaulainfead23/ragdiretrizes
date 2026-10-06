@@ -34,6 +34,15 @@ def _gravar_indice(indice: dict) -> None:
     caminhos.INDICE.write_text(json.dumps(indice, ensure_ascii=False, indent=2), encoding="utf-8")
 
 
+def assinatura() -> str:
+    """Identifica o conjunto de documentos no índice. Muda quando o corpus indexado muda."""
+    import hashlib
+
+    indice = ler_indice()
+    base = indice.get("vector_store_id", "") + "|" + ",".join(sorted(indice.get("arquivos", {})))
+    return hashlib.sha1(base.encode()).hexdigest()[:12]
+
+
 def pendencias() -> tuple[list[dict], list[str]]:
     """Compara manifesto e índice: (documentos a enviar, doc_ids a retirar do índice)."""
     prontos = {r["doc_id"]: r for r in ler_manifesto() if r["situacao"] == "ok"}

@@ -30,6 +30,9 @@ explica o que vai fazer antes de executar. Enter executa o próximo passo penden
 | 3. Indexar | Envia os textos ao Vector Store da OpenAI | `dados_intermediarios/indice.json` | API |
 | 4. Perguntar | Pergunta livre ou catálogo `ragclean/perguntas.yaml` | `dados_derivados/respostas/` | API |
 | 5. Validar | Confere as respostas contra os documentos originais | `dados_derivados/validacao/` | API |
+| 6. Catálogo de perguntas | Ver, importar de arquivo ou remover perguntas | `ragclean/perguntas.yaml` | — |
+| 7. Atualizar tudo | Refaz só o que mudou: extração, índice, respostas, validação | todas as anteriores | API |
+| a. Ajuda | Como fazer perguntas novas | — | — |
 | 9. Recomeçar | Apaga índice, intermediários e derivados | — | — |
 
 Para rodar um passo direto, sem o menu: `python iniciar.py --passo 2`.
@@ -43,6 +46,18 @@ de pastas. Não há manifesto manual nem registro por país. Formatos: PDF, DOCX
 - Se usar subpastas, a primeira pasta vira um filtro opcional no passo 4 (ex.: perguntar só sobre `brasil/`).
 - PDFs escaneados (imagem, sem texto) são apontados no passo 2 e ficam fora do RAG até receberem OCR.
 - Os documentos não vão para o git.
+
+## Perguntas
+
+O catálogo fica em `ragclean/perguntas.yaml` (id, título e pergunta). Para subir perguntas novas:
+
+1. Salve um arquivo CSV, XLSX, TXT ou YAML em `dados_brutos/perguntas/`
+   (há um `modelo_perguntas.csv` para copiar).
+2. Menu **6 → Importar**: o arquivo é conferido e você vê o que é novo, alterado e igual antes de gravar.
+3. Menu **7. Atualizar tudo**: só as perguntas novas ou alteradas são respondidas e validadas.
+   Se o corpus mudou, extração e índice são refeitos e todas as perguntas rodam de novo.
+
+O guia de redação está em [COMO_FAZER_PERGUNTAS.md](COMO_FAZER_PERGUNTAS.md) e na opção **a** do menu.
 
 ## Como a validação funciona
 
@@ -79,8 +94,11 @@ ragclean/
   consulta.py            passo 4
   validacao.py           passo 5
   menu.py
+  perguntas.py           catálogo e importação (opção 6)
+  atualizacao.py         atualizar tudo (opção 7)
   perguntas.yaml         catálogo Q01–Q14
 dados_brutos/corpus/     documentos originais (você preenche)
+dados_brutos/perguntas/  arquivos de perguntas para importar
 dados_intermediarios/    textos extraídos, manifesto, índice
 dados_derivados/         respostas e validações
 tests/                   pytest, roda sem internet

@@ -5,11 +5,10 @@ import json
 import os
 from datetime import datetime
 
-import yaml
-
 from . import caminhos
+from . import perguntas as perguntas_mod
 from .extracao import ler_manifesto
-from .indexacao import cliente, ler_indice
+from .indexacao import assinatura, cliente, ler_indice
 
 INSTRUCOES = (
     "Você responde perguntas usando SOMENTE os documentos recuperados pela busca em arquivos. "
@@ -45,8 +44,7 @@ ESQUEMA = {
 
 
 def carregar_perguntas() -> list[dict]:
-    dados = yaml.safe_load(caminhos.PERGUNTAS.read_text(encoding="utf-8")) or {}
-    return dados.get("perguntas", [])
+    return perguntas_mod.carregar()
 
 
 def pastas_do_corpus() -> list[str]:
@@ -106,6 +104,10 @@ def rodar(perguntas: list[dict], pasta: str = "", avisar=print, api=None) -> str
     api = api or cliente()
     caminhos.RESPOSTAS.mkdir(parents=True, exist_ok=True)
     rodada = datetime.now().strftime("%Y%m%d-%H%M%S") + (f"_{pasta}" if pasta else "")
+    base, n = rodada, 1
+    while (caminhos.RESPOSTAS / f"{rodada}.json").exists():  # nunca sobrescreve uma rodada anterior
+        n += 1
+        rodada = f"{base}-{n}"
     destino = caminhos.RESPOSTAS / f"{rodada}.json"
     itens = []
     for n, p in enumerate(perguntas, start=1):
@@ -118,7 +120,7 @@ def rodar(perguntas: list[dict], pasta: str = "", avisar=print, api=None) -> str
         item = {"id": p.get("id", f"P{n:02d}"), "titulo": p.get("titulo", ""), **item}
         itens.append(item)
         destino.write_text(
-            json.dumps({"rodada": rodada, "vector_store_id": ler_indice().get("vector_store_id"), "itens": itens},
+            json.dumps({"rodada": rodada, "pasta": pasta, "indice": assinatura(), "itens": itens},
                        ensure_ascii=False, indent=2),
             encoding="utf-8",
         )

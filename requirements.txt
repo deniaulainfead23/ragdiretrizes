@@ -6,3 +6,4 @@ pdfplumber
 rapidfuzz
 python-docx
 pytest
+openpyxl

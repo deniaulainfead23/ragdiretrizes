@@ -162,3 +162,95 @@ def test_indexacao_incremental_e_consulta(projeto):
     resultados = validacao.validar_rodada(rodada, avisar=lambda *_: None, api=_juiz("sustentada"))
     assert resultados[0]["status"] == "VALIDADA"
     assert (caminhos.VALIDACAO / f"{rodada}.csv").exists()
+
+
+# ───────────── catálogo de perguntas e "atualizar tudo" ─────────────
+
+from ragclean import atualizacao, perguntas  # noqa: E402
+
+CATALOGO = [{"id": "Q01", "titulo": "PC", "pergunta": "Como o pensamento computacional é definido nos documentos?"},
+            {"id": "Q02", "titulo": "Ética", "pergunta": "Como os documentos abordam ética digital e privacidade?"}]
+
+
+@pytest.fixture
+def com_catalogo(projeto, monkeypatch):
+    monkeypatch.setattr(caminhos, "PERGUNTAS", projeto / "perguntas.yaml")
+    monkeypatch.setattr(caminhos, "PERGUNTAS_ENTRADA", projeto / "dados_brutos/perguntas")
+    (projeto / "dados_brutos/perguntas").mkdir()
+    perguntas.gravar(CATALOGO)
+    return projeto
+
+
+def test_importa_csv_do_excel_juntando_ao_catalogo(com_catalogo):
+    arq = caminhos.PERGUNTAS_ENTRADA / "novas.csv"
+    arq.write_bytes("ID;Título;Pergunta\nQ02;Ética;Como os documentos abordam ética, privacidade e segurança?\n"
+                    ";;Como os documentos orientam a avaliação da aprendizagem?\n"
+                    ";;Como o pensamento computacional é definido nos documentos?\n".encode("latin-1"))
+    assert perguntas.arquivos_para_importar() == [arq]
+    prontas, erros, avisos = perguntas.conferir(perguntas.ler_arquivo(arq), perguntas.carregar())
+    assert not erros
+    assert [p["id"] for p in prontas] == ["Q02", "P01", "Q01"]  # sem id: código novo, ou o id de quem já tem o mesmo texto
+    assert prontas[1]["titulo"].startswith("Como os documentos orientam")
+    efeito = perguntas.comparar(prontas, perguntas.carregar(), substituir=False)
+    assert [len(efeito[k]) for k in ("novas", "alteradas", "iguais", "removidas")] == [1, 1, 1, 0]
+    assert [p["id"] for p in efeito["catalogo"]] == ["Q01", "Q02", "P01"]
+    perguntas.gravar(efeito["catalogo"])
+    assert perguntas.carregar()[1]["pergunta"].endswith("segurança?")
+    assert list((caminhos.INTERMEDIARIOS / "perguntas_anteriores").glob("*.yaml"))  # cópia do catálogo anterior
+
+
+def test_importa_txt_xlsx_e_yaml_antigo(com_catalogo):
+    import openpyxl
+
+    txt = caminhos.PERGUNTAS_ENTRADA / "a.txt"
+    txt.write_text("# rascunho\nQue infraestrutura digital os documentos exigem das escolas?\n\n", encoding="utf-8")
+    assert [p["pergunta"][:3] for p in perguntas.ler_arquivo(txt)] == ["Que"]
+    wb = openpyxl.Workbook()
+    wb.active.append(["id", "pergunta"])
+    wb.active.append(["Q20", "Como os documentos tratam a formação de professores?"])
+    wb.save(caminhos.PERGUNTAS_ENTRADA / "b.xlsx")
+    assert perguntas.ler_arquivo(caminhos.PERGUNTAS_ENTRADA / "b.xlsx")[0]["id"] == "Q20"
+    yml = caminhos.PERGUNTAS_ENTRADA / "c.yaml"
+    yml.write_text("questions:\n  - question_id: Q30\n    title: T\n    question_text: Como a IA aparece no currículo oficial?\n")
+    assert perguntas.ler_arquivo(yml)[0] == {"id": "Q30", "titulo": "T", "pergunta": "Como a IA aparece no currículo oficial?"}
+
+
+def test_importacao_recusa_arquivo_com_problema(com_catalogo):
+    ruins = [{"id": "X 1", "titulo": "", "pergunta": "Como os documentos tratam inclusão digital?"},
+             {"id": "Q9", "titulo": "", "pergunta": "IA?"},
+             {"id": "Q9", "titulo": "", "pergunta": "Em que página aparece a programação no currículo?"}]
+    _, erros, avisos = perguntas.conferir(ruins, [])
+    assert len(erros) == 3 and any("página" in a for a in avisos)
+    assert perguntas.conferir([{"id": "", "titulo": "", "pergunta": ""}], [])[1]  # sem coluna 'pergunta'
+    substituir = perguntas.comparar([CATALOGO[0]], CATALOGO, substituir=True)
+    assert [p["id"] for p in substituir["removidas"]] == ["Q02"]
+
+
+def test_atualizar_tudo_refaz_so_o_que_mudou(com_catalogo):
+    api, juiz, calado = _ApiFalsa(), _juiz("sustentada"), lambda *_: None
+    assert atualizacao.plano()["extrair"] and len(atualizacao.plano()["perguntas"]) == 2
+    feito = atualizacao.atualizar(avisar=calado, api=api, api_juiz=juiz)
+    assert len(api.pedidos) == 2 and feito["validadas"] == [feito["rodada"]]
+
+    p = atualizacao.plano()  # nada mudou: nada a fazer, nenhuma chamada nova
+    assert not (p["extrair"] or p["indexar"] or p["perguntas"] or p["validar"])
+    atualizacao.atualizar(avisar=calado, api=api, api_juiz=juiz)
+    assert len(api.pedidos) == 2
+
+    # uma pergunta alterada e uma nova: só essas duas são refeitas
+    catalogo = perguntas.carregar()
+    catalogo[1]["pergunta"] = "Como os documentos abordam ética, privacidade e segurança?"
+    perguntas.gravar(catalogo + [{"id": "Q03", "titulo": "t", "pergunta": "Como a avaliação é orientada nos documentos?"}])
+    assert [q["id"] for q in atualizacao.plano()["perguntas"]] == ["Q02", "Q03"]
+    import time; time.sleep(1.1)  # o nome da rodada tem resolução de 1 segundo
+    atualizacao.atualizar(avisar=calado, api=api, api_juiz=juiz)
+    assert len(api.pedidos) == 4
+
+    # o corpus mudou: o índice muda e todas as perguntas voltam a ficar pendentes
+    (caminhos.CORPUS / "novo.txt").write_text("Novo documento do corpus. " * 30, encoding="utf-8")
+    p = atualizacao.plano()
+    assert p["extrair"] and p["indexar"] and len(p["perguntas"]) == 3
+    time.sleep(1.1)
+    atualizacao.atualizar(avisar=calado, api=api, api_juiz=juiz)
+    assert len(api.pedidos) == 7 and atualizacao.plano()["perguntas"] == []
+    assert atualizacao.perguntas_pendentes(pasta="reino-unido")  # outra pasta é outro conjunto de respostas
