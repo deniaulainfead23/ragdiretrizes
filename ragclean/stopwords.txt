@@ -1,0 +1,30 @@
+# Palavras ignoradas na comparação TF-IDF por documento de referência (uma por linha).
+# São palavras de ligação, sem conteúdo. Acrescente ou retire à vontade.
+# A lista em inglês do scikit-learn é somada a esta automaticamente.
+
+# português
+a o as os um uma uns umas de da do das dos em na no nas nos por para com sem sob sobre entre ate
+e ou mas que se como quando onde qual quais quem cujo cuja porque pois tambem ja nao sim mais menos
+muito muita muitos muitas pouco cada todo toda todos todas outro outra outros outras mesmo mesma
+este esta estes estas esse essa esses essas aquele aquela isto isso aquilo seu sua seus suas
+ele ela eles elas nos lhe lhes me te ao aos pela pelo pelas pelos num numa dele dela deles delas
+ser sao foi era sera sendo estar esta estao ter tem tinha haver ha pode podem deve devem
+assim ainda apenas bem so tal tais art inciso paragrafo
+
+# espanhol
+el la los las un una unos unas del al y o pero que como cuando donde cual cuales quien porque
+tambien ya no si mas menos muy cada todo toda todos todas otro otra otros otras este esta estos
+estas ese esa esos esas su sus se lo le les con sin sobre entre hasta por para en es son fue ser
+estar esta estan tiene tienen puede pueden debe deben asi solo
+
+# francês
+le la les un une des du de au aux et ou mais que qui quoi dont ou comme quand parce aussi deja ne pas
+plus moins tres chaque tout toute tous toutes autre autres ce cet cette ces son sa ses leur leurs
+il elle ils elles nous vous on se y en dans sur sous entre avec sans pour par est sont etait etre
+avoir peut peuvent doit doivent ainsi seulement
+
+# inglês (complemento)
+shall may within also etc
+
+# endereços de internet
+http https www com org html pdf

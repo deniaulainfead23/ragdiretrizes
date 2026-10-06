@@ -11,3 +11,4 @@ um filtro opcional na hora de perguntar. Não é obrigatório.
 Os documentos não são versionados no git (veja `.gitignore`).
 
 Arquivos de perguntas para importar pelo menu (opção 6) ficam em `dados_brutos/perguntas/`.
+Listas de termos e documentos de referência da comparação TF-IDF (opção 8) ficam em `dados_brutos/referencias/`.

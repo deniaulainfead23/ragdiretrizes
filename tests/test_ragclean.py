@@ -254,3 +254,92 @@ def test_atualizar_tudo_refaz_so_o_que_mudou(com_catalogo):
     atualizacao.atualizar(avisar=calado, api=api, api_juiz=juiz)
     assert len(api.pedidos) == 7 and atualizacao.plano()["perguntas"] == []
     assert atualizacao.perguntas_pendentes(pasta="reino-unido")  # outra pasta é outro conjunto de respostas
+
+
+# ───────────────────────── comparação TF-IDF ─────────────────────────
+
+from ragclean import tfidf  # noqa: E402
+
+
+def _ler(caminho):
+    with caminho.open(encoding="utf-8-sig", newline="") as f:
+        return list(csv_mod.DictReader(f, delimiter=";"))
+
+
+import csv as csv_mod  # noqa: E402
+
+
+@pytest.fixture
+def com_referencias(projeto, monkeypatch):
+    monkeypatch.setattr(caminhos, "REFERENCIAS", projeto / "dados_brutos/referencias")
+    monkeypatch.setattr(caminhos, "TFIDF", projeto / "dados_derivados/tfidf")
+    caminhos.REFERENCIAS.mkdir()
+    (caminhos.CORPUS / "brasil").mkdir()
+    (caminhos.CORPUS / "brasil/bncc.txt").write_text(
+        "O pensamento computacional envolve algoritmos e a criação de um algoritmo. A educação digital "
+        "protege os dados pessoais dos estudantes. " * 5, encoding="utf-8")
+    extracao.extrair_corpus(avisar=lambda *_: None)
+    return projeto
+
+
+def test_le_lista_de_termos_em_varios_formatos(com_referencias):
+    a = caminhos.REFERENCIAS / "a.csv"
+    a.write_text("categoria;termo\nPC;computational thinking\nPC;Pensamento Computacional\n"
+                 "PC;pensamento computacional\n# nota\nSegurança;dados pessoais\n", encoding="utf-8")
+    termos = tfidf.ler_termos(a)
+    assert [t["termo"] for t in termos] == ["computational thinking", "Pensamento Computacional", "dados pessoais"]
+    assert termos[2]["categoria"] == "Segurança"
+    b = caminhos.REFERENCIAS / "b.txt"
+    b.write_text("algoritm*\nprograms, debug\n", encoding="utf-8")
+    assert [t["termo"] for t in tfidf.ler_termos(b)] == ["algoritm*", "programs, debug"]
+    assert [t["termo"] for t in tfidf.termos_digitados("privacy, dados pessoais; x")] == ["privacy", "dados pessoais"]
+    assert tfidf.arquivos_de_referencia("lista") == [a, b] and tfidf.arquivos_de_referencia("documento") == [b]
+
+
+def test_comparacao_por_lista_de_termos(com_referencias):
+    termos = [{"categoria": "PC", "termo": "computational thinking"},
+              {"categoria": "PC", "termo": "PENSAMENTO computacional"},
+              {"categoria": "PC", "termo": "algoritm*"},
+              {"categoria": "Segurança", "termo": "educacao digital"},
+              {"categoria": "Segurança", "termo": "blockchain"}]
+    saida = tfidf.comparar_termos(termos, por="documento", nome="teste", avisar=lambda *_: None)
+    oc = {l["termo"]: l for l in _ler(saida / "ocorrencias.csv")}
+    assert oc["PENSAMENTO computacional"]["brasil/bncc.txt"] == "5"  # ignora maiúsculas
+    assert oc["algoritm*"]["brasil/bncc.txt"] == "10"  # curinga: algoritmos + algoritmo
+    assert oc["educacao digital"]["brasil/bncc.txt"] == "5"  # ignora acento
+    assert oc["computational thinking"]["reino-unido/curriculo.txt"] == "2"
+    assert oc["blockchain"]["total"] == "0"
+    cobertura = {l["documento"]: l for l in _ler(saida / "cobertura.csv")}
+    assert cobertura["brasil/bncc.txt"]["termos_encontrados"] == "3" and cobertura["solto.md"]["termos_encontrados"] == "0"
+    trechos = _ler(saida / "trechos_para_conferencia.csv")
+    assert any("educação digital" in t["trecho"] for t in trechos)  # trecho sai com o texto original
+    for nome in ("tfidf.csv", "frequencia_por_10mil_palavras.csv", "por_categoria.csv", "LEIA-ME.md",
+                 "parametros.json", "mapa_de_calor.png"):
+        assert (saida / nome).exists(), nome
+    # termo raro pesa mais que termo presente em todos os grupos
+    idf = {l["termo"]: float(l["idf"].replace(",", ".")) for l in _ler(saida / "tfidf.csv")}
+    assert idf["algoritm*"] > 1.0
+
+    por_pasta = tfidf.comparar_termos(termos, por="pasta", nome="teste", avisar=lambda *_: None)
+    assert por_pasta != saida
+    assert {l["pasta"] for l in _ler(por_pasta / "cobertura.csv")} == {"brasil", "reino-unido", "(raiz)"}
+
+
+def test_comparacao_por_documento_de_referencia(com_referencias):
+    ref = caminhos.REFERENCIAS / "framework.txt"
+    ref.write_text("Computational thinking and creativity help pupils design, write and debug programs "
+                   "and understand physical systems. " * 4, encoding="utf-8")
+    saida = tfidf.comparar_documento(ref, por="documento", avisar=lambda *_: None)
+    ranking = _ler(saida / "similaridade.csv")
+    assert ranking[0]["documento"] == "reino-unido/curriculo.txt"
+    assert float(ranking[0]["similaridade"].replace(",", ".")) > 0.2
+    assert "computational thinking" in ranking[0]["principais_termos_em_comum"]
+    assert float(ranking[-1]["similaridade"].replace(",", ".")) == 0  # outro idioma: sem vocabulário em comum
+    assert (saida / "termos_da_referencia.csv").exists() and (saida / "similaridade.png").exists()
+
+    # referência que também está no corpus fica fora da comparação
+    copia = caminhos.REFERENCIAS / "curriculo.txt"
+    copia.write_text(TEXTO, encoding="utf-8")
+    saida2 = tfidf.comparar_documento(copia, por="documento", avisar=lambda *_: None)
+    assert "reino-unido/curriculo.txt" not in {l["documento"] for l in _ler(saida2 / "similaridade.csv")}
+    assert "deixada fora" in (saida2 / "LEIA-ME.md").read_text(encoding="utf-8")

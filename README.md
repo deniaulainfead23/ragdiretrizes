@@ -32,7 +32,8 @@ explica o que vai fazer antes de executar. Enter executa o próximo passo penden
 | 5. Validar | Confere as respostas contra os documentos originais | `dados_derivados/validacao/` | API |
 | 6. Catálogo de perguntas | Ver, importar de arquivo ou remover perguntas | `ragclean/perguntas.yaml` | — |
 | 7. Atualizar tudo | Refaz só o que mudou: extração, índice, respostas, validação | todas as anteriores | API |
-| a. Ajuda | Como fazer perguntas novas | — | — |
+| 8. Comparação TF-IDF | Compara o corpus com uma lista de termos ou um documento de referência | `dados_derivados/tfidf/` | — |
+| a / b. Ajuda | Como fazer perguntas novas / como fazer a comparação TF-IDF | — | — |
 | 9. Recomeçar | Apaga índice, intermediários e derivados | — | — |
 
 Para rodar um passo direto, sem o menu: `python iniciar.py --passo 2`.
@@ -58,6 +59,20 @@ O catálogo fica em `ragclean/perguntas.yaml` (id, título e pergunta). Para sub
    Se o corpus mudou, extração e índice são refeitos e todas as perguntas rodam de novo.
 
 O guia de redação está em [COMO_FAZER_PERGUNTAS.md](COMO_FAZER_PERGUNTAS.md) e na opção **a** do menu.
+
+## Comparação TF-IDF
+
+Análise lexical, local e sem custo, feita sobre os textos do passo 2. Você define a fonte de comparação:
+
+- **Lista de termos** (arquivo `.txt`/`.csv` em `dados_brutos/referencias/`, ou digitada no menu):
+  mostra onde e quanto cada termo aparece, com cobertura, frequência, TF-IDF, soma por categoria
+  e os trechos para conferência.
+- **Documento de referência** (PDF, DOCX, TXT… em `dados_brutos/referencias/`): ordena os documentos
+  ou pastas pela proximidade de vocabulário com ele e mostra os termos que explicam o resultado.
+
+O menu **8** conduz em três etapas (fonte, unidade de comparação, cálculo). Cada execução grava uma
+pasta em `dados_derivados/tfidf/` com um `LEIA-ME.md` próprio. Guia: [COMO_COMPARAR_TFIDF.md](COMO_COMPARAR_TFIDF.md)
+ou opção **b** do menu.
 
 ## Como a validação funciona
 
@@ -96,9 +111,12 @@ ragclean/
   menu.py
   perguntas.py           catálogo e importação (opção 6)
   atualizacao.py         atualizar tudo (opção 7)
+  tfidf.py               comparação TF-IDF (opção 8)
   perguntas.yaml         catálogo Q01–Q14
+  stopwords.txt          palavras ignoradas no TF-IDF
 dados_brutos/corpus/     documentos originais (você preenche)
 dados_brutos/perguntas/  arquivos de perguntas para importar
+dados_brutos/referencias/ listas de termos e documentos de referência do TF-IDF
 dados_intermediarios/    textos extraídos, manifesto, índice
 dados_derivados/         respostas e validações
 tests/                   pytest, roda sem internet

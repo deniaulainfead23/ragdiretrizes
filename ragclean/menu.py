@@ -8,7 +8,7 @@ import shutil
 import sys
 from collections import Counter
 
-from . import atualizacao, caminhos, consulta, extracao, indexacao, perguntas, validacao
+from . import atualizacao, caminhos, consulta, extracao, indexacao, perguntas, tfidf, validacao
 
 LINHA = "─" * 72
 
@@ -324,6 +324,77 @@ def atualizar_tudo() -> None:
         print(f"  Validação: {_rel(caminhos.VALIDACAO / (rodada + '.csv'))}")
 
 
+def comparacao_tfidf() -> None:
+    print("O que isto faz: compara o vocabulário do corpus com uma fonte de referência que VOCÊ define.")
+    print("Roda na sua máquina, sem custo de API. Usa os textos extraídos no passo 2.")
+    prontos = [r for r in extracao.ler_manifesto() if r["situacao"] == "ok"]
+    if not prontos:
+        print("\nAinda não há textos extraídos. Faça o passo 2 primeiro.")
+        return
+    caminhos.REFERENCIAS.mkdir(parents=True, exist_ok=True)
+    pasta_ref = _rel(caminhos.REFERENCIAS)
+
+    print("\nETAPA 1 de 3 — Qual é a fonte de comparação?")
+    print("  Lista de termos: você diz as palavras ou expressões e o sistema mostra onde e quanto")
+    print("    cada uma aparece. Serve para verificar a presença de conceitos (ex.: áreas do DLGF).")
+    print("  Documento de referência: você indica um documento (ex.: um framework) e o sistema mede")
+    print("    quais documentos do corpus têm o vocabulário mais parecido com o dele.")
+    fonte = _escolher("Escolha:", [
+        f"Lista de termos em arquivo ({pasta_ref}/*.txt ou *.csv)",
+        "Lista de termos digitada agora",
+        f"Documento de referência ({pasta_ref}/*.pdf, *.docx, *.txt, *.md)",
+        "Ver a ajuda completa",
+    ])
+    if fonte.startswith("Ver"):
+        print("\n" + caminhos.AJUDA_TFIDF.read_text(encoding="utf-8"))
+        return
+
+    termos, referencia, nome = None, None, "termos-digitados"
+    if fonte.startswith("Lista de termos digitada"):
+        print("\nDigite os termos separados por vírgula. Expressões valem ('data literacy');")
+        print("use * para variações ('algoritm*' pega algoritmo, algoritmos, algorítmico).")
+        termos = tfidf.termos_digitados(input("Termos: "))
+    else:
+        tipo = "lista" if fonte.startswith("Lista") else "documento"
+        arquivos = tfidf.arquivos_de_referencia(tipo)
+        if not arquivos:
+            print(f"\nNão há arquivo desse tipo em {pasta_ref}/. Salve o seu lá e volte aqui.")
+            return
+        escolhido = caminhos.REFERENCIAS / _escolher("Qual arquivo?", [a.name for a in arquivos])
+        if tipo == "lista":
+            termos, nome = tfidf.ler_termos(escolhido), escolhido.stem
+        else:
+            referencia = escolhido
+    if termos is not None:
+        if not termos:
+            print("\nNenhum termo válido encontrado.")
+            return
+        categorias = {t["categoria"] for t in termos if t["categoria"]}
+        print(f"\n{len(termos)} termo(s)" + (f" em {len(categorias)} categoria(s)" if categorias else "") + ": "
+              + ", ".join(t["termo"] for t in termos[:8]) + ("…" if len(termos) > 8 else ""))
+
+    print("\nETAPA 2 de 3 — O que comparar com a fonte?")
+    por = "documento"
+    if consulta.pastas_do_corpus():
+        unidade = _escolher("Unidade de comparação:", [
+            "Cada documento separadamente",
+            "Cada pasta do corpus (junta os documentos da pasta; ex.: um resultado por país)",
+        ])
+        por = "pasta" if unidade.startswith("Cada pasta") else "documento"
+    else:
+        print(f"  O corpus não tem pastas: a comparação será por documento ({len(prontos)}).")
+
+    print("\nETAPA 3 de 3 — Calcular")
+    if termos is not None:
+        saida = tfidf.comparar_termos(termos, por=por, nome=nome, avisar=lambda *_: None)
+    else:
+        saida = tfidf.comparar_documento(referencia, por=por)
+    print(f"\n{LINHA}")
+    texto = (saida / "LEIA-ME.md").read_text(encoding="utf-8")
+    print(texto.split("## Como ler")[0].strip())
+    print(f"\nResultados em {_rel(saida)}/  (abra o LEIA-ME.md dessa pasta para saber como interpretar)")
+
+
 def ajuda_perguntas() -> None:
     print(perguntas.texto_da_ajuda())
     print(f"(Este texto está em {_rel(caminhos.AJUDA_PERGUNTAS)}; no VS Code, abra com Ctrl+Shift+V.)")
@@ -374,7 +445,9 @@ def mostrar_menu() -> None:
         print(f" {marca} {n}. {nome:<32} {sit[n][1]}{seta}")
     print(f"\n     6. Catálogo de perguntas            {len(perguntas.carregar())} pergunta(s) — ver, importar, remover")
     print("     7. Atualizar tudo                   refaz só o que mudou (corpus ou perguntas)")
+    print(f"     8. Comparação TF-IDF                {len(tfidf.comparacoes())} feita(s) — por lista de termos ou documento de referência")
     print("     a. Ajuda: como fazer perguntas novas")
+    print("     b. Ajuda: como fazer a comparação TF-IDF")
     print("     9. Recomeçar do zero                mantém os documentos originais e o catálogo")
     print("     s. Sair")
     if seguinte is None:
@@ -405,7 +478,9 @@ def principal() -> None:
         if not escolha and seguinte is not None:
             escolha = str(seguinte)
         extras = {"6": ("CATÁLOGO DE PERGUNTAS", catalogo_de_perguntas), "7": ("ATUALIZAR TUDO", atualizar_tudo),
-                  "a": ("AJUDA — COMO FAZER PERGUNTAS NOVAS", ajuda_perguntas), "9": ("RECOMEÇAR", recomecar)}
+                  "a": ("AJUDA — COMO FAZER PERGUNTAS NOVAS", ajuda_perguntas),
+                  "8": ("COMPARAÇÃO TF-IDF", comparacao_tfidf),
+                  "b": ("AJUDA — COMPARAÇÃO TF-IDF", lambda: print(caminhos.AJUDA_TFIDF.read_text(encoding="utf-8"))), "9": ("RECOMEÇAR", recomecar)}
         if escolha in extras:
             print(f"\n{LINHA}\n{extras[escolha][0]}\n{LINHA}")
             try:
