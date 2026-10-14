@@ -22,6 +22,22 @@ Os resultados abaixo descrevem padrões presentes nas respostas do RAG e devem s
 | Q12 | 21 | 1 | 47 |
 | Q13 | 21 | 1 | 52 |
 
+## Validação humana da amostra cega
+
+Para verificar a adequação das evidências recuperadas, foi sorteada uma amostra cega de 50 registros, com semente `seed=42`, da fila de 619 evidências da Avaliação 1. Em 13/10/2026, a pesquisadora conferiu a página indicada em cada registro sem consultar o status sugerido pelo modelo. A classificação e o gabarito correspondente estão em `dados_derivados/analysis/todos_paises_exploratorio_20260927_01/human_validation/`.
+
+| Classificação humana | Evidências | Percentual | Interpretação |
+|---|---:|---:|---|
+| `validated` | 16 | 32% | A página indicada sustenta a evidência e responde à pergunta. |
+| `reformulated` | 15 | 30% | Há apoio documental, mas página, contexto, tradução ou redação requer ajuste. |
+| `rejected` | 17 | 34% | A página indicada não sustenta a afirmação associada. |
+| `inconclusive` | 2 | 4% | Não foi possível concluir a verificação. |
+| **Total** | **50** | **100%** | **Amostra cega revisada pela pesquisadora.** |
+
+No confronto posterior com o gabarito da pré-classificação, houve concordância em 21 das 50 classificações (42,0%). Considerando as quatro categorias, o coeficiente kappa de Cohen foi 0,162, o que indica baixa concordância entre o julgamento automatizado e a conferência humana.
+
+**Texto para os resultados da dissertação.** A validação humana da amostra cega indica que o RAG é útil para recuperar e triar evidências candidatas, mas não para validar autonomamente afirmações curriculares. Apenas 16 das 50 evidências (32%) foram validadas sem ajuste; as demais exigiram reformulação, foram rejeitadas ou permaneceram inconclusivas. Portanto, as respostas produzidas na Avaliação 1 devem ser apresentadas como resultados preliminares de recuperação documental. Afirmações comparativas só devem ser sustentadas por evidências conferidas pela pesquisadora e classificadas como `validated`.
+
 ## Q01 — Organização das competências
 
 As respostas descrevem diferentes formas de organização curricular: competências e objetivos de aprendizagem, componentes ou disciplinas específicos, integração transversal e progressões por etapa escolar. Sistemas digitais, dados, programação, cultura/literacia digital e resolução de problemas aparecem com frequência nas sínteses. A organização não é uniforme entre países: há currículos por fase, strands, disciplinas eletivas e estruturas provinciais ou regionais. Canadá e Hong Kong tiveram respostas inconclusivas; isso não permite concluir ausência de organização curricular.

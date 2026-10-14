@@ -1,0 +1,2878 @@
+﻿evidence_id,country,question_id,rag_source_text,dataset_text_at_cited_page,minha_decisao
+EVID_AFRICA_DO_SUL_Q04_ZA_CUR_003_P0014_001,africa-do-sul,Q04,"Digital Citizenship helps to develop an awareness of responsible and ethical behaviour in the digital world, which includes the responsible and ethical use of digital tools.","10 
+2.6.2 Robotics 
+In addition to the coding concepts, practices and perspectives, in robotics, the following concepts, practices, and 
+perspectives must be developed and practised repeatedly:  
+ 
+Figure 2.8 Robotics Concepts, Practices and Perspectives 
+2.6.3 Digital Concepts 
+Digital concepts are fundamental ideas and principles that underpin and support coding and robotics. They 
+encompass various aspects of technology and computer science, providing the context and application for these 
+fields. In Coding and Robotics, digital concepts are divided into the following topics: Digital Citizenship, Digital 
+Awareness and Digital Skills. 
+2.6.3.1 
+Digital Citizenship 
+Digital Citizenship helps to develop an awareness of responsible and ethical behaviour in the digital world, 
+which includes the responsible and ethical use of digital tools. 
+It includes the rights, responsibilities and behaviours (respect, integrity, and safety) displayed by individuals in 
+the digital world. It further includes concepts like respecting others' privacy, avoidance of, and aversion towards 
+cyberbullying, the inculcation and employment of netiquette, digital health and welfare, as well as mindfulness 
+with respect to the impact of online actions and deeds and the taking of responsibility for such actions in the 
+digital environment. 
+2.6.3.2 
+Digital Awareness 
+The recognition of the competencies, expertise and the mindset needed by individuals to effectively use digital 
+tools entail understanding and the applications of technologies in a world that is becoming more interconnected. 
+It includes an awareness of different types of computing devices and their purposes, the concepts of hardware 
+and software interactions as well as the exemplification and applications of concept such as input-processing-
+output and the awareness that the internet as an example of a network such that in a digital world, devices often 
+need to communicate with each other. 
+2.6.3.3 
+Digital Skills 
+An essential set of a range of abilities that enable individuals to effectively use digital devices, software, and 
+platforms to perform various tasks. It includes an awareness of patterns to communicate a message as patterns 
+is a fundamental concept in both coding and robotics. 
+2.7 
+APPROACH TO TEACHING CODING AND ROBOTICS 
+Coding and Robotics, as a subject, is process-driven as it focuses on coding and robotics processes, rather 
+than just exit skills or products. Coding develops cognitive and critical thinking skills as it emphasises the 
+development of knowledge, skills, strategies, and attitudes that enable learners to become more effective 
+Concepts
+• Motion
+• Sensor
+• Actuator
+• Controller
+• Logic
+• Power Source
+• Automation
+• Instruction
+• Communication
+• Coding (Programming)
+Practices
+• Computational Thinking
+• Design Thinking
+• Prototyping
+• Design and Construction
+• Algorithm Design
+• Testing and Reconfiguration
+• Reflection and Iteration
+• Creative Thinking
+• Logical thinking
+• Creating robotics artefacts
+Perspectives
+• Expressing and Creating
+• Innovation
+• Questioning
+• Connecting
+• Collaboration
+• Perseverance
+• Choice of Conduct",validated
+EVID_AFRICA_DO_SUL_Q12_ZA_CUR_003_P0014_001,africa-do-sul,Q12,"Digital Citizenship ajuda a desenvolver uma consciência de comportamento responsável e ético no mundo digital, que inclui o uso responsável e ético de ferramentas digitais.","10 
+2.6.2 Robotics 
+In addition to the coding concepts, practices and perspectives, in robotics, the following concepts, practices, and 
+perspectives must be developed and practised repeatedly:  
+ 
+Figure 2.8 Robotics Concepts, Practices and Perspectives 
+2.6.3 Digital Concepts 
+Digital concepts are fundamental ideas and principles that underpin and support coding and robotics. They 
+encompass various aspects of technology and computer science, providing the context and application for these 
+fields. In Coding and Robotics, digital concepts are divided into the following topics: Digital Citizenship, Digital 
+Awareness and Digital Skills. 
+2.6.3.1 
+Digital Citizenship 
+Digital Citizenship helps to develop an awareness of responsible and ethical behaviour in the digital world, 
+which includes the responsible and ethical use of digital tools. 
+It includes the rights, responsibilities and behaviours (respect, integrity, and safety) displayed by individuals in 
+the digital world. It further includes concepts like respecting others' privacy, avoidance of, and aversion towards 
+cyberbullying, the inculcation and employment of netiquette, digital health and welfare, as well as mindfulness 
+with respect to the impact of online actions and deeds and the taking of responsibility for such actions in the 
+digital environment. 
+2.6.3.2 
+Digital Awareness 
+The recognition of the competencies, expertise and the mindset needed by individuals to effectively use digital 
+tools entail understanding and the applications of technologies in a world that is becoming more interconnected. 
+It includes an awareness of different types of computing devices and their purposes, the concepts of hardware 
+and software interactions as well as the exemplification and applications of concept such as input-processing-
+output and the awareness that the internet as an example of a network such that in a digital world, devices often 
+need to communicate with each other. 
+2.6.3.3 
+Digital Skills 
+An essential set of a range of abilities that enable individuals to effectively use digital devices, software, and 
+platforms to perform various tasks. It includes an awareness of patterns to communicate a message as patterns 
+is a fundamental concept in both coding and robotics. 
+2.7 
+APPROACH TO TEACHING CODING AND ROBOTICS 
+Coding and Robotics, as a subject, is process-driven as it focuses on coding and robotics processes, rather 
+than just exit skills or products. Coding develops cognitive and critical thinking skills as it emphasises the 
+development of knowledge, skills, strategies, and attitudes that enable learners to become more effective 
+Concepts
+• Motion
+• Sensor
+• Actuator
+• Controller
+• Logic
+• Power Source
+• Automation
+• Instruction
+• Communication
+• Coding (Programming)
+Practices
+• Computational Thinking
+• Design Thinking
+• Prototyping
+• Design and Construction
+• Algorithm Design
+• Testing and Reconfiguration
+• Reflection and Iteration
+• Creative Thinking
+• Logical thinking
+• Creating robotics artefacts
+Perspectives
+• Expressing and Creating
+• Innovation
+• Questioning
+• Connecting
+• Collaboration
+• Perseverance
+• Choice of Conduct",inconclusive
+EVID_AFRICA_DO_SUL_Q13_ZA_CUR_007_P0052_001,africa-do-sul,Q13,"The paper will comprise questions covering the following broad topics: Programming skills, OOP-programming (including very basic application and basic problem solving skills)...","52 | P a g e  
+ 
+The paper will comprise questions covering the following broad topics: 
+ 
+Programming skills 
+ 
+OOP-programming (including very basic application and basic problem solving skills) 
+ 
+Integrated data-aware that will also include problem-solving as part of the solution 
+ 
+Integrated SQL solution that will also include problem-solving as part of the solution 
+ 
+Problem solving – different levels of higher order skills 
+Software design techniques, methods and tools such as UML, CRC cards, etc. will not be 
+examined as part of the practical paper. 
+The learner will not be required to enter large amounts of data. The required data could be 
+retrieved from the data disk or imported from documents such as a text file, or a database 
+table. All GUIs will be provided. 
+Marks for questions must be allocated towards basic skills, concepts, constructs and problem 
+solving techniques, e.g. application of an iteration structure as part of the solution (correct 
+structure) as well as for the correct use of the structure.  The allocation of marks should take 
+into account the time spent on solving, coding and debugging a solution. 
+A practical information sheet will be provided for practical (Annexure C). 
+Paper 2: 3-hour written paper of 150 marks (25% of the total marks for the subject) 
+The paper will cover all theory aspects of all content, concepts and skills of topics, including 
+elements of Solution Development, e.g. algorithmic development, data structures, program 
+design and general programming concepts as well as generic problem solving questions. 
+The paper does not have an overarching scenario. Each question may have its own scenario.",validated
+EVID_AUSTRALIA_Q01_OC_AU_02_P0001_002,australia,Q01,"Students securely access and use digital systems and their peripherals for a range of purposes, including transmitting data. They use the core features of common digital tools to plan, create, locate and share content, and to collaborate, following agreed behaviours.","V9.0 Australian Curriculum https://v9.australiancurriculum.edu.au/ 
+ 
+ 
+Digital Technologies: Sequence of content F-10 Digital Technologies Strand Knowledge and understanding 
+ 
+ 
+F 
+1–2 
+3–4 
+5–6 
+7–8 
+9–10 
+Digital 
+Systems 
+recognise & 
+explore digital 
+systems 
+(hardware & 
+software) for a 
+purpose 
+AC9TDIFK01 
+identify & explore 
+digital systems & 
+their components for 
+a purpose 
+AC9TDI2K01 
+explore & describe a 
+range of digital 
+systems & their 
+peripherals for a 
+variety of purposes 
+AC9TDI4K01 
+ 
+explore transmitting 
+different types of data 
+between digital 
+systems AC9TDI4K02 
+investigate the main 
+internal components of 
+common digital systems & 
+their function 
+AC9TDI6K01 
+ 
+examine how digital 
+systems form networks to 
+transmit data 
+AC9TDI6K02 
+explain how hardware 
+specifications affect 
+performance & select 
+appropriate hardware for 
+tasks & workloads 
+AC9TDI8K01 
+ 
+investigate how data is 
+transmitted & secured in 
+wired & wireless networks 
+including the internet 
+AC9TDI8K02 
+investigate how hardware 
+& software manage, 
+control & secure access to 
+data in networked digital 
+systems AC9TDI10K01 
+Data 
+representation 
+represent data 
+as objects, 
+pictures & 
+symbols 
+AC9TDIFK02 
+represent data as 
+pictures, symbols, 
+numbers & words 
+AC9TDI2K02 
+recognise different 
+types of data & explore 
+how the same data can 
+be represented 
+differently depending 
+on the purpose 
+AC9TDI4K03 
+explain how digital 
+systems represent all data 
+using numbers 
+AC9TDI6K03 
+ 
+explore how data can be 
+represented by off & on 
+states (zeros & ones in 
+binary) AC9TDI6K04 
+investigate how digital 
+systems represent text, 
+image & audio data using 
+integers AC9TDI8K03 
+ 
+explain how & why digital 
+systems represent 
+integers in binary 
+AC9TDI8K04 
+represent documents 
+online as content (text), 
+structure (markup) & 
+presentation (styling) & 
+explain why such 
+representations are 
+important  
+AC9TDI10K02 
+ 
+investigate simple data 
+compression techniques  
+AC9TDI10K03",rejected
+EVID_AUSTRALIA_Q03_OC_AU_02_P0002_001,australia,Q03,Students recognise that digital tools may store their personal data online.,"V9.0 Australian Curriculum https://v9.australiancurriculum.edu.au/ 
+ 
+ 
+ 
+Digital Technologies: Sequence of Content F–10 Strand Processes and production skills 
+ 
+ 
+F 
+1–2 
+3–4 
+5–6 
+7–8 
+9–10 
+Acquiring, 
+managing and 
+analysing data 
+ 
+ 
+ 
+ 
+acquire, store & validate 
+data from a range of 
+sources using software, 
+including spreadsheets & 
+databases AC9TDI8P01 
+ 
+analyse & visualise data 
+using a range of software, 
+including spreadsheets & 
+databases, to draw 
+conclusions & make 
+predictions by identifying 
+trends AC9TDI8P02 
+ 
+model & query the 
+attributes of objects & 
+events using structured 
+data AC9TDI8P03 
+develop techniques to 
+acquire, store and validate 
+data from a range of 
+sources using software, 
+including spreadsheets 
+and databases 
+AC9TDI10P01  
+ 
+analyse and visualise data 
+interactively using a range 
+of software, including 
+spreadsheets and 
+databases, to draw 
+conclusions and make 
+predictions by identifying 
+trends and outliers 
+AC9TDI10P02 
+ 
+model & query entities & 
+their relationships using 
+structured data 
+AC9TDI10P03 
+Investigating 
+and defining 
+ 
+investigate simple 
+problems for known 
+users that can be 
+solved with digital 
+systems 
+AC9TDI2P01 
+define problems with 
+given design criteria & 
+by co-creating user 
+stories AC9TDI4P01 
+define problems with given 
+or co-developed design 
+criteria & by creating user 
+stories AC9TDI6P01 
+define & decompose real-
+world problems with 
+design criteria & by 
+creating user stories 
+AC9TDI8P04 
+define & decompose real-
+world problems with 
+design criteria & by 
+interviewing stakeholders 
+to create user stories  
+AC9TDI10P04",rejected
+EVID_AUSTRALIA_Q08_OC_AU_01_P0001_002,australia,Q08,"access and use the basic features of common digital tools to create, locate and share content, and collaborate and communicate design ideas using models and drawings.","V9.0 Australian Curriculum https://v9.australiancurriculum.edu.au/ 
+ 
+Technologies: Sequence of achievement F-8 
+Foundation 
+Years 1 and 2 
+Years 3 and 4 
+By the end of Foundation 
+students identify familiar 
+products, services and 
+environments and develop 
+familiarity with digital systems, 
+using them for a purpose. They 
+create, communicate and choose 
+design ideas. Students follow 
+steps and use materials and 
+equipment to safely make a 
+designed solution for a school-
+selected context. They show how 
+to represent data using objects, 
+pictures and symbols and identify 
+examples of data that is owned 
+by them. 
+By the end of Year 2 students describe the purpose 
+of familiar products, services and environments, 
+including digital systems. They represent and 
+process data in different ways and follow and 
+describe basic algorithms involving a sequence of 
+steps and branching to show how simple digital 
+solutions meet a need for known users. For each of 
+the 2 prescribed technologies contexts they identify 
+the features and uses of technologies and create 
+designed solutions. Students select design ideas 
+based on their personal preferences. They access 
+and use the basic features of common digital tools 
+to create, locate and share content, and collaborate 
+and communicate design ideas using models and 
+drawings. Students safely produce designed or 
+digital solutions and recognise that digital tools may 
+store their personal data online. 
+By the end of Year 4 students describe how people design 
+products, services and environments to meet the needs of 
+people, including sustainability. They process and represent data 
+for different purposes, follow and describe simple algorithms 
+involving branching and iteration, and implement them as visual 
+programs. For each of the 2 prescribed technologies contexts 
+they describe the features and uses of technologies and create 
+designed solutions. Students select design ideas against design 
+criteria. Students securely access and use digital systems and 
+their peripherals for a range of purposes, including transmitting 
+data. They communicate design ideas using models and 
+drawings including annotations and symbols. Students plan and 
+sequence steps and use technologies and techniques to safely 
+produce designed solutions. They use the core features of 
+common digital tools to plan, create, locate and share content, 
+and to collaborate, following agreed behaviours. Students identify 
+their personal data stored online and its risks. 
+Years 5 and 6 
+Years 7 and 8 
+By the end of Year 6 students explain how people design products, services 
+and environments to meet the needs of communities, including sustainability. 
+For each of the 3 prescribed technologies contexts students explain how the 
+features of technologies impact on design decisions and they create designed 
+solutions. They process data and show how digital systems represent data, 
+design algorithms involving complex branching and iteration, and implement 
+them as visual programs including variables. They select and justify design 
+ideas and solutions against design criteria. Students share and communicate 
+ideas or content to an audience using technical terms, graphical representation 
+techniques and appropriate digital tools. They develop project plans, including 
+production processes, and select technologies and techniques to safely 
+produce designed or digital solutions. Students securely access and use 
+multiple digital systems and describe their components and how they interact 
+to process and transmit data. They identify their digital footprint and recognise 
+its permanence. 
+By the end of Year 8 students explain how people design, innovate and 
+produce products, services and environments for preferred futures. For each of 
+the 4 prescribed technologies contexts students explain how the features of 
+technologies impact on design decisions, and create designed solutions based 
+on analysis of needs or opportunities. They acquire, interpret and model with 
+spreadsheets and represent data with integers and binary. Students design 
+and trace algorithms; and implement them in a general-purpose programming 
+language. Students create and adapt design ideas, processes and solutions, 
+and justify their decisions against developed design criteria that include 
+sustainability. They communicate design ideas and solutions to audiences 
+using technical terms and graphical representation techniques, including using 
+digital tools. They select appropriate hardware for particular tasks, explain how 
+data is transmitted and secured in networks, and identify cyber security threats. 
+They use a range of digital tools to individually and collaboratively document 
+and manage production processes to safely and responsibly produce designed 
+or digital solutions for the intended purpose. Students manage their digital 
+footprint.",rejected
+EVID_BRASIL_Q10_BR_018_P0012_001,brasil,Q10,"a educação digital e midiática para consolidar a autonomia de leitura, apresentar os ambientes digitais e suas funções sociais, e introduzir conceitos essenciais da educação midiática como autoria e propósito dos conteúdos, evidências, representação e outros; e IV - a promoção da segurança e dos direitos digitais, assegurando proteção sem comprometer a autonomia, garantindo o direito à informação e incentivando o uso ético e crítico das mídias.","12 
+DO PLANEJAMENTO DA IMPLEMENTAÇÃO EM CADA ETAPA DE ENSINO 
+ 
+Art. 36. A elaboração dos novos currículos, acompanhados de plano de formação 
+docente, deve se dar ao longo do ano de 2025, com efetiva implementação obrigatória a partir 
+do ano de 2026, cabendo às redes de ensino discutir com a comunidade escolar se esta 
+implementação se realizará com a opção de currículos de transição, em função de cada etapa de 
+ensino e do nível de proficiência e necessidades de formação do corpo docente. 
+§ 1º A implementação na Educação Infantil poderá ser concomitante em todos os anos, 
+integrando os conteúdos e brincadeiras aos campos de experiências já programados. 
+§ 2º A implementação nos Anos Iniciais do Ensino Fundamental poderá ser 
+concomitante. 
+§ 3º A implementação nos Anos Finais do Ensino Fundamental deverá levar em 
+consideração o grau de proficiência do corpo docente. 
+§ 4º A implementação no Ensino Médio deverá ser convergente com a Resolução 
+CNE/CEB nº 2, de 13 de novembro de 2024. 
+ 
+CAPÍTULO V 
+DA FORMAÇÃO DOS PROFISSIONAIS DA EDUCAÇÃO 
+ 
+Art. 37. Os sistemas de ensino e as instituições de todas as etapas e modalidades de 
+ensino devem definir e implementar estratégias de formação continuada dos professores, 
+funcionários e demais profissionais da educação e das equipes de gestão escolar que atuam na 
+Educação Básica, focadas no aprofundamento e ampliação de seus saberes, habilidades e 
+competências e no fortalecimento da identidade profissional para a implementação da educação 
+digital e midiática e uso pedagógico intencional dos dispositivos digitais. 
+Art. 38. Compete às redes de ensino estabelecer e implementar um plano de formação 
+para os profissionais da educação, nos termos da presente Resolução. 
+Art. 39. O plano de formação de profissionais da educação para uso de dispositivos e 
+para educação digital e midiática deve ter como princípios: 
+I - a vocação da formação continuada; e 
+II - a coerência com as opções de implementação feitas pela rede de ensino e com a etapa 
+de ensino em que atua o profissional e sua formação inicial. 
+Art. 40. As formações para docentes também devem prever conteúdos e práticas sobre 
+o uso consciente e responsável de dispositivos digitais por parte dos profissionais da educação, 
+de forma a zelar sobre o uso em sala de aula em presença dos estudantes. 
+Art. 41. O plano de formação dos profissionais de educação deve prever etapas e ações 
+específicas relativas ao uso pedagógico de dispositivos digitais e à educação digital e midiática, 
+quais sejam: 
+I - a avaliação diagnóstica: realizada por meio de um levantamento de perfil sobre as 
+competências digitais do corpo docente e de apoio à docência e à infraestrutura escolar, cujos 
+dados podem ser coletados a partir do Autodiagnóstico de Saberes Digitais Docentes do",reformulated
+EVID_BRASIL_Q13_BR_008_P0004_003,brasil,Q13,as competências digitais e midiáticas na BNCC.,"C A P Í T U L O  1
+Entendendo a 
+educação digital 
+e midiática
+1.	 O que é educação digital e midiática?	
+5
+a.	 Educação digital escolar	
+7
+b.	 Educação midiática	
+8
+c.	 Pensamento Computacional	
+9
+2.	 Quais políticas apoiam a 
+implementação da educação digital 
+e midiática?	
+10
+a.	 Educação digital escolar	
+10
+b.	 Educação midiática	
+11
+c.	 Pensamento Computacional	
+12
+d.	 Construindo uma cidadania digital	
+13
+e.	 Materiais didáticos e Guias de 
+orientação do MEC	
+14
+3.	 Quais fundamentos pedagógicos 
+da educação digital e midiática? 	
+18
+a.	 Construindo currículos para a 
+cidadania digital	
+18
+b.	 Quais temas e conceitos importantes 
+para assegurar no currículo de 
+educação digital e midiática?	
+21
+c.	 As competências digitais e midiáticas 
+na BNCC	
+23
+4
+EDUCAÇÃO DIGITAL E MIDIÁTICA
+2. QUAIS OS CAMINHOS  
+DE IMPLEMENTAÇÃO CURRICULAR?
+1. ENTENDENDO A EDUCAÇÃO  
+DIGITAL E MIDIÁTICA
+3. COMO FORMAR OS  
+PROFISSIONAIS DA MINHA REDE?
+4. CONSTRUINDO UM CALENDÁRIO",rejected
+EVID_CANADA_Q03_CA_003_P0016_003,canada,Q03,developing essential digital skills and literacy from childhood to later life,"14
+Ontario Digital Service | Action Plan
+Sparking a new vision
+Government in the internet era empowers people to help design and use responsive 
+online services, participate in an active digital economy, and benefit from digital  
+technologies in their lives. This Ontario is enabled by a digital public service, where 
+work is oriented around people’s needs, and teams embrace digital ways of developing 
+and delivering, across government. 
+Our collective mandate requires that we consider not only the technical requirements 
+of a service that we’re designing and developing, but also the entire service and system 
+surrounding the end-user.
+People-centred services and programs
+At the heart of this vision are simpler, faster, and better online services for the people, 
+communities, and businesses of Ontario. Not just for the sake of simplicity or speed; 
+but because better online services can reduce frustration, save individuals time, improve 
+access, achieve better value for public investments and better outcomes for people. 
+Consider the example of a single parent who works during regular business  
+hours and can’t get away to visit an office to renew their health card. Making services  
+accessible online, around the clock, meets this individual’s need for off-hours  
+availability. When this parent visits a government website to complete that renewal, 
+we also want to ensure that their experience is as quick and seamless as possible. 
+Our investment in their experience expresses care and compassion for their time and 
+life situation. 
+As a provider of programs and services for an increasingly diverse population,  
+government must remain responsive to people in a variety of circumstances— 
+providing the services people need, when they need them, and wherever they  
+happen to be. A one-size-fits-all approach will not work in an era of greater  
+personalization. User needs must guide our approach to more efficient, effective 
+services, policies, and programs.",rejected
+EVID_CANADA_Q04_CA_CUR_007_P0042_001,canada,Q04,"Digital literacy involves the ability to solve problems using technology in a safe, legal, and ethically responsible manner. With the ever-expanding role of digitalization and big data in the modern world, digital literacy also means having strong data literacy skills and the ability to engage with emerging technologies.","41 
+ 
+ 
+• Students, as citizens, participate in various groups and online networks in a safe and socially 
+responsible manner.
+ 
+ 
+Digital Literacy
+Definition
+Digital literacy involves the ability to solve problems using technology in a safe, legal, and ethically 
+responsible manner. With the ever-expanding role of digitalization and big data in the modern world, 
+digital literacy also means having strong data literacy skills and the ability to engage with emerging 
+technologies. Digitally literate students recognize the rights and responsibilities, as well as the 
+opportunities, that come with living, learning, and working in an interconnected digital world.
+Student Descriptors
+• Students select and use appropriate digital tools to collaborate, communicate, create, innovate, 
+and solve problems.
+• Students understand how to manage and regulate their use of technology to support their mental 
+health and well-being.
+• Students use digital tools to define and plan data searches, collect data, and identify relevant data 
+sets. They analyse, interpret, and graphically represent, or “visualize”, data in various ways to 
+solve problems and inform decisions.
+• Students demonstrate a willingness and confidence to explore and use new or unfamiliar digital 
+tools and emerging technologies (e.g., open source software, wikis, robotics, augmented reality). 
+Students understand how different technologies are connected and recognize their benefits and 
+limitations.
+• Students manage their digital footprint by engaging in social media and online communities 
+respectfully, inclusively, safely, legally, and ethically. Students understand their rights with 
+respect to personal data and know how to protect their privacy and security and respect the 
+privacy and security of others.
+• Students analyse and understand the impact of technological advancements on society, and 
+society’s role in the evolution of technology.",validated
+EVID_CANADA_Q06_CA_CUR_007_P0070_001,canada,Q06,"Scientific and Engineering Design Processes
+In addition to developing knowledge related to specific concepts, the study of science and technology offers students varied opportunities to learn skills that are relevant to their everyday world. Strand A is focused on such skills, and refers to the following three processes:
+• scientific research process
+• scientific experimentation process
+• engineering design process","69 
+ 
+ 
+ 
+ 
+Scientific and Engineering Design Processes
+In addition to developing knowledge related to specific concepts, the study of science and technology 
+offers students varied opportunities to learn skills that are relevant to their everyday world. Strand A is 
+focused on such skills, and refers to the following three processes:
+• scientific research process
+• scientific experimentation process
+• engineering design process
+The skills associated with these processes include:
+• initiating and planning (e.g., asking questions, clarifying problems, planning procedures)",validated
+EVID_CANADA_Q08_CA_CUR_006_P0025_002,canada,Q08,"A2.3 investigate contributions to innovations in digital technology and computing by people from diverse local, Canadian, and global communities, including Indigenous communities in Canada and around the world.","25 
+ 
+A2. Digital Technology and Society  
+demonstrate an understanding of important social, cultural, economic, environmental, and ethical 
+issues, as well as contributions and innovations involving diverse local and global communities, related 
+to digital technology 
+Specific expectations 
+Throughout this course, in connection with the learning in the other strands, students will: 
+A2.1 investigate current social, cultural, economic, environmental, and ethical issues related to digital 
+technology that have personal, local, and global impacts, taking various perspectives into account 
+A2.2 analyze personal and societal safety and cybersecurity issues related to digital technology, and 
+identify measures and technologies that can help mitigate related concerns for individuals and 
+communities  
+A2.3 investigate contributions to innovations in digital technology and computing by people from 
+diverse local, Canadian, and global communities, including Indigenous communities in Canada and 
+around the world 
+A2.4 investigate how to identify and address bias involving digital technology 
+A2.5 analyze accessibility issues involving digital technology, and identify measures that can improve 
+accessibility 
+A3. Applications, Careers, and Connections 
+demonstrate an understanding of real-world applications of digital technology and programming, 
+including within various industries and careers 
+Specific expectations 
+Throughout this course, in connection with the learning in the other strands, students will: 
+A3.1 investigate how digital technology and programming skills can be used within a variety of 
+disciplines in real-world applications 
+A3.2 investigate ways in which various industries, including those that involve skilled trades, are 
+changing as a result of digital technology and programming innovations 
+A3.3 investigate various career options related to digital technology and programming, and ways to 
+continue their learning in these areas",validated
+EVID_CANADA_Q13_CA_CUR_007_P0053_002,canada,Q13,"A. STEM Skills and Connections
+This strand focuses on science, technology, engineering, and mathematics (STEM) skills, coding and emerging technologies, practical applications of science and technology, and contributions that people with diverse lived experiences have made to science and technology.","52 
+ 
+ 
+The Achievement Chart for Science and Technology, Grades 1–8
+Knowledge and Understanding – Subject-specific content acquired in each grade (knowledge), and 
+the comprehension of its meaning and significance (understanding)
+Categories
+Level 1
+Level 2
+Level 3
+Level 4
+  
+The student:
+Knowledge of content (e.g., 
+facts, terminology, definitions)
+demonstrates 
+limited 
+knowledge of 
+content
+demonstrates 
+some 
+knowledge of 
+content
+demonstrates 
+considerable 
+knowledge of 
+content
+demonstrates 
+thorough 
+knowledge of 
+content
+Understanding of content (e.g., 
+concepts, ideas, theories, 
+principles, procedures, processes)
+demonstrates 
+limited 
+understanding 
+of content
+demonstrates 
+some 
+understanding 
+of content
+demonstrates 
+considerable 
+understanding 
+of content
+demonstrates 
+thorough 
+understanding 
+of content
+Thinking and Investigation – The use of critical and creative thinking skills and inquiry and problem-
+solving skills and/or processes
+Categories
+Level 1
+Level 2
+Level 3
+Level 4
+  
+The student:
+Use of initiating and planning 
+skills and strategies (e.g., 
+formulating questions, identifying 
+the problem, developing 
+hypotheses, scheduling, selecting 
+strategies and resources, 
+developing plans)
+uses initiating 
+and planning 
+skills and 
+strategies 
+with limited 
+effectiveness
+uses initiating 
+and planning 
+skills and 
+strategies 
+with some 
+effectiveness
+uses initiating 
+and planning 
+skills and 
+strategies 
+with 
+considerable 
+effectiveness
+uses initiating 
+and planning 
+skills and 
+strategies 
+with a high 
+degree of 
+effectiveness
+Use of processing skills and 
+strategies (e.g., performing and 
+recording; gathering evidence 
+and data; examining different 
+points of view; selecting tools, 
+equipment, materials, and 
+technology; observing; 
+manipulating materials; proving)
+uses 
+processing 
+skills and 
+strategies 
+with limited 
+effectiveness
+uses 
+processing 
+skills and 
+strategies 
+with some 
+effectiveness
+uses 
+processing 
+skills and 
+strategies 
+with 
+considerable 
+effectiveness
+uses 
+processing 
+skills and 
+strategies 
+with a high 
+degree of 
+effectiveness
+Use of critical/creative thinking 
+processes, skills, and strategies 
+(e.g., analysing, interpreting, 
+problem solving, evaluating, 
+forming and justifying 
+conclusions on the basis of 
+evidence, developing solutions, 
+considering diverse perspectives)
+uses critical/ 
+creative 
+thinking 
+processes, 
+skills, and 
+strategies 
+with limited 
+effectiveness
+uses critical/ 
+creative 
+thinking 
+processes, 
+skills, and 
+strategies 
+with some 
+effectiveness
+uses critical/ 
+creative 
+thinking 
+processes, 
+skills, and 
+strategies 
+with 
+considerable 
+effectiveness
+uses critical/ 
+creative 
+thinking 
+processes, 
+skills, and 
+strategies 
+with a high 
+degree of 
+effectiveness",reformulated
+EVID_CHILE_Q06_CL_002_P0370_003,chile,Q06,"4. Comunicar el diseño, la planificación u otros procesos de la resolución de necesidades de reparación, adaptación o mejora de objetos o entornos, utilizando herramientas TIC y considerando el objetivo, la audiencia y aspectos éticos.","368
+Bases Curriculares 2015   |    7° básico a 2° medio   |   Orientación",reformulated
+EVID_CHILE_Q12_CL_CUR_006_P0009_002,chile,Q12,Las habilidades para el siglo XXI presentan como foco formativo central la formación integral de los estudiantes dando continuidad a los objetivos de aprendizaje transversales de 1° básico a 2° medio.,"Programa de Estudio Pensamiento Computacional y Programación 3° o 4° medio 
+ 
+Unidad de Currículum y Evaluación  
+ 
+7 
+Ministerio de Educación, febrero 2021 
+Las habilidades para el siglo XXI presentan como foco formativo central la formación integral de los 
+estudiantes dando continuidad a los objetivos de aprendizaje transversales de 1° básico a 2° medio. 
+Como estos, son transversales a todas las asignaturas, y al ser transferibles a otros contextos, se 
+convierten en un aprendizaje para la vida. Se presentan organizadas en torno a cuatro ámbitos: 
+maneras de pensar, maneras de trabajar, herramientas para trabajar y herramientas para vivir en el 
+mundo.  
+ 
+MANERAS DE PENSAR 
+Desarrollo de la creatividad y la innovación 
+Las personas que aprenden a ser creativas poseen habilidades de pensamiento divergente, producción 
+de ideas, fluidez, flexibilidad y originalidad. El pensamiento creativo implica abrirse a diferentes ideas, 
+perspectivas y puntos de vista, ya sea en la exploración personal o en el trabajo en equipo. La enseñanza 
+para la creatividad implica asumir que el pensamiento creativo puede desarrollarse en todas las 
+instancias de aprendizaje y en varios niveles: imitación, variación, combinación, transformación y 
+creación original. Por ello, es importante que los docentes consideren que, para lograr la creación 
+original, es necesario haber desarrollado varias habilidades y que la creatividad también puede 
+enseñarse mediante actividades más acotadas según los diferentes niveles (Fadel et al, 2016). 
+Desarrollo del pensamiento crítico 
+Cuando aprendemos a pensar críticamente, podemos discriminar entre informaciones, declaraciones 
+o argumentos, evaluando su contenido, pertinencia, validez y verosimilitud. El pensamiento crítico 
+permite cuestionar la información, tomar decisiones y emitir juicios, como asimismo reflexionar 
+críticamente acerca de diferentes puntos de vista, tanto de los propios como de los demás, ya sea para 
+defenderlos o contradecirlos sobre la base de evidencias. Contribuye así, además, a la autorreflexión y 
+corrección de errores, y favorece la capacidad de estar abierto a los cambios y de tomar decisiones 
+razonadas. El principal desafío en la enseñanza del pensamiento crítico es la aplicación exitosa de estas 
+habilidades en contextos diferentes de aquellos en que fueron aprendidas (Fadel et al, 2016). 
+Desarrollo de la metacognición 
+El pensamiento metacognitivo se relaciona al concepto de “aprender a aprender”. Se refiere a ser 
+consciente del propio aprendizaje y de los procesos para lograrlo, lo que permite autogestionarlo con 
+autonomía, adaptabilidad y flexibilidad. El proceso de pensar acerca del pensar involucra la reflexión 
+propia sobre la posición actual, fijar los objetivos a futuro, diseñar acciones y estrategias potenciales, 
+monitorear el proceso de aprendizaje y evaluar los resultados. Incluye tanto el conocimiento que se 
+tiene sobre uno mismo como estudiante o pensador, como los factores que influyen en el rendimiento. 
+La reflexión acerca del propio aprendizaje favorece su comunicación, por una parte, y la toma de 
+conciencia de las propias capacidades y debilidades, por otra. Desde esta perspectiva, desarrolla la 
+autoestima, la disciplina, la capacidad de perseverar y la tolerancia a la frustración.",validated
+EVID_CHINA_Q08_AS_CN_02_P0009_002,china,Q08,"Eu
+
+—. FerAl
+
+NES BER EAR. FREIRA SE
+
+CAAA, RES, PERERA ET, BSA
+
+ABR. EA, ATS, MP eT aR RMS
+SABIED.","Eu
+
+—. FerAl
+
+NES BER EAR. FREIRA SE
+
+CAAA, RES, PERERA ET, BSA
+
+ABR. EA, ATS, MP eT aR RMS
+SABIED.
+
+ABARAT LSS
+
+UX:
+
+E SOE
+
+1. FER
+
+ACHE, REZAR, RETR SE, SURE. B
+DEAL AE ICES, SOA PETES, HE
+ESRI GME, RAE ART
+Rep BP ALS UBER AE, WAP SEP oe ek A
+
+CTH TAS
+
+ca
+
+ie
+
+2. BAR
+
+RAS SEHR, BAAR TTI, UEDRSSRTARIE, HE
+KES AGE RA ACG. EO, ARIAS MO
+
+RARA, TES, READ GRAM, WR RIAN
+Bo DPE MSS RNA SRE, RASSEY IN
+
+BEAN. RPA, MP RE, SSAA
+
+Rá
+
+Wie, RA Beri
+
+» RAR MESH. HAM, AGG, SUR AMA
+EMR. HE, ee, Fee riash
+
+He BAD it,
+
+BR, SER AAAI A AS ise)
+
+2
+
+RAE, PIVA
+
+ARR
+
+a
+
+las:
+
+Epa",inconclusive
+EVID_CHINA_Q11_AS_CN_02_P0023_002,china,Q11,"Di LRA mara (20224). PBL, ESA, TARTES WBE.","Di LRA mara (20224)
+
+uu |
+
+PBL,
+
+ESA, TARTES WBE
+FEBRE AAT, TE Me
+
+fare
+
+CHER, FABRA
+
+SEAM
+
+SIRS. 5%
+
+f
+
+[ASA PH
+
+Adr
+
+5. ESSE
+
+Bi, AREAS
+
+BUS SA Ek, FRAY
+
+Es
+
+FE
+
+faia
+SHE.
+
+KER, HUM
+
+HITE, PRTB. A
+PORK SA
+
+WHR. RATES, ARACEAE SS.
+
+SEAT BETE SABA TERI
+
+ELE,
+TB TAS ESTE
+
+E RS EEN,
+
+ABBA TBAB VAL
+
+DP BRA TE ARES ee:
+
+aS, te
+
+SORES TOE RAE. PRES SUEE HK, BRA
+
+ie Sc, HT
+
+WL, HERESIA.
+
+FR
+TORRE » mM
+
+ka
+
+BA. A PARES,
+
+LTRS
+
+DL. HS
+ARE BCE, Base,
+
+MEXA, RAAT. A BTT DME
+
+WA AME, HOTT RAR ANBR
+SCL, BULA TEDL
+BS bi AWA BR, Hl)
+
+ES
+
+Mz
+
+REU SE BEM, FFD.
+
+eo,
+RA
+FX
+
+Ft
+
+CARE AAA ASC
+
+BALA VRIES.
+RBM
+
+ES BBC TE
+» APRA IBtA
+
+wu
+
+NTC ARA ME WR.
+
+RELIG ES, HTT ABA BUN SCH SSBC RE RAE
+PRR BORIS ER E
+ENTERRO ad, TR Bites,
+ER.
+
+IATE, MSA PURA
+
+RRL",reformulated
+EVID_ESTONIA_Q01_EU_EE_01_P0010_003,estonia,Q01,"Loovtöö temaatika valib kool, täpsema teemavaliku teevad õpilased. Loovtööd võib teha nii individuaalselt kui ka kollektiivselt.","(8) III kooliastmes korraldab põhikool õpilastele läbivatest teemadest lähtuva või õppeaineid lõimiva loovtöö,
+milleks on uurimus, projekt, kunstitöö või muu taoline. Loovtöö temaatika valib kool, täpsema teemavaliku
+teevad õpilased. Loovtööd võib teha nii individuaalselt kui ka kollektiivselt. Loovtöö korraldust kirjeldatakse
+kooli õppekavas.
+ (9) Õpilase mitteformaalõppes või mõnes teises haridusasutuses läbitud õppe formaalõppe osana
+arvestamise eesmärk on toetada elukestva õppe põhimõtete rakendumist ning pakkuda igale õpilasele
+õpimotivatsiooni toetavaid valikuterohkeid ja kättesaadavaid õpivõimalusi, mis tagavad õpilasele sujuva
+liikumise haridustasemete ja -liikide vahel.
+[RT I, 25.06.2025, 1- jõust. 01.09.2025]
+ (10) Kool arvestab õpilase või piiratud teovõimega õpilase puhul seadusliku esindaja taotluse alusel õpilase
+õppimist mitteformaalõppes või mõnes teises haridusasutuses koolis õpetatava osana, tingimusel, et see
+võimaldab õpilasel saavutada kooli või individuaalse õppekavaga määratud õpitulemusi.
+[RT I, 25.06.2025, 1- jõust. 01.09.2025]
+ (11) Õpilase mitteformaalõppes või mõnes teises haridusasutuses läbitud õppe arvestamise alused kirjeldatakse
+kooli õppekava üldosas.
+[RT I, 25.06.2025, 1- jõust. 01.09.2025]
+ (12) Kool korraldab õpilastele süsteemse ja kvaliteetse karjääriõppe, -info ja -nõustamise (edaspidi
+karjääriteenused) kättesaadavuse, sealhulgas korraldades koolisisest meeskonnatööd karjääriteenuste
+lõimimiseks õppetöösse ning karjääriõppe kavandamiseks ja elluviimiseks ja koostööd väliste partneritega,
+kogudes ja analüüsides sisemiste ja väliste osaliste tagasisidet karjääriteenuste arendamiseks.
+[RT I, 25.06.2025, 1- jõust. 01.09.2026]
+§ 16. Õpilase ja vanema teavitamine ning nõustamine
+ (1) Klassi- või aineõpetajad jälgivad õpilase arengut ja toimetulekut koolis ning vajaduse korral kohandavad
+õpet vastavalt õpilase vajadustele. Õpilase võimete ja annete kõrgeimale võimalikule tasemele arendamiseks
+tuleb põhikoolis selgitada välja õpilase individuaalsed õpivajadused, valida sobivad õppemeetodid ning
+korraldada diferentseeritud õpet. Põhikool tagab õpilasele, kellel tekib ajutine mahajäämus eeldatavate
+õpitulemuste saavutamisel, täiendava pedagoogilise juhendamise väljaspool õppetunde.
+ (2) Põhikool nõustab vajaduse korral õpilase vanemat õpilase arengu toetamises ja kodus õppimises.
+ (3) Põhikool korraldab õpilaste ja vanemate teavitamist edasiõppimisvõimalustest ning tagab õpilastele
+karjääriteenuste kättesaadavuse ja süsteemse, vajaduspõhise korralduse.
+[RT I, 25.06.2025, 1- jõust. 01.09.2025]
+ (4) Põhikool tagab õpilasele ning vanematele teabe kättesaadavuse õppe ja kasvatuse korralduse kohta ning
+juhendamise ja nõustamise õppetööd käsitlevates küsimustes. Peamised õppeteemad, vajalikud õppevahendid,
+hindamise korraldus ja planeeritavad üritused tehakse õpilasele teatavaks õppeveerandi või poolaasta algul.
+§ 17. Õpilase individuaalse arengu toetamiseks kohaldatavad erisused
+[RT I, 14.02.2018, 1- jõust. 17.02.2018]
+ (1) Kui eesti õppekeelega põhikoolis õpib eesti keelest erineva emakeelega õpilane või välisriigist saabunud
+õpilane, võib kool õpilase või piiratud teovõimega õpilase puhul vanema nõusolekul eesti keele õpet korraldada
+„Eesti keel teise keelena” ainekava alusel.
+[RT I, 25.06.2025, 1- jõust. 01.09.2025]
+ (2) Eestis vähem kui kolm aastat elanud õpilase puhul võib õpilase või piiratud teovõimega õpilase puhul
+vanema taotlusel loobuda B-võõrkeele õppest. Õpilase õppe toetamiseks võib kasutada § 15 lõikes 4 nimetatud
+tunniressurssi.
+ (3) Liikumispuudega õpilasele võib kooli õppekava või individuaalse õppekavaga sätestada nominaalseks
+õppeajaks põhikoolis 10 õppeaastat.
+ (4) Kõnepuudega õpilasele võib kooli õppekava või individuaalse õppekavaga sätestada nominaalseks
+õppeajaks põhikoolis 10 õppeaastat, suurendada keele ja kirjanduse valdkonna õppemahtu ning loobuda B-
+võõrkeele õppest.
+ (5) Kuulmispuudega õpilasele võib kooli õppekava või individuaalse õppekavaga sätestada nominaalseks
+õppeajaks põhikoolis 11 õppeaastat, suurendada keele ja kirjanduse valdkonna õppemahtu ning loobuda B-
+võõrkeele õppest. Lisanduvad keeleõppe tunnid võib asendada viipekeele õppega.
+ (6) Nägemispuudega õpilasele võib kooli õppekava või individuaalse õppekavaga sätestada nominaalseks
+õppeajaks põhikoolis 10 õppeaastat ning suurendada tehnoloogia valdkonna õppemahtu.
+ (7) Kool võib õpilase individuaalse arengu toetamiseks arvestada kokkuleppel õpilase või piiratud
+teovõimega õpilase puhul vanemaga tema õpi- või töökogemust ning teha muudatusi või kohandusi õppesisus,
+Leht 10 / 18
+Põhikooli riiklik õppekava",reformulated
+EVID_ESTONIA_Q05_EU_EE_01_P0012_002,estonia,Q05,"taotletakse õpilase kujunemist kultuuriteadlikuks inimeseks, kes mõistab kultuuri osa inimeste mõtte- ja käitumislaadi kujundajana ning kultuuride muutumist ajaloo vältel, kellel on ettekujutus kultuuride mitmekesisusest ja kultuuriga määratud elupraktikate eripärast ning kes väärtustab omakultuuri ja kultuurilist mitmekesisust ning on kultuuriliselt salliv ja koostööaldis;","(2) Õppetunni vältel saab õpilane enamasti suulist või kirjalikku sõnalist tagasisidet õppeainet ja ainevaldkonda
+puudutavate teadmiste ja oskuste (sealhulgas üldpädevuste, kooliastme lõpuks taotletavate teadmiste, oskuste
+ja hoiakute ja läbivate teemade) kohta. Kogu õppepäeva vältel annavad õpetajad ja teised õppe- ja kasvatusalal
+töötavad isikud õpilasele tagasisidet, et toetada õpilase käitumise, hoiakute ja väärtushinnangute kujunemist.
+Põhikool reageerib juhtumitele, mis on vastuolus üldtunnustatud väärtuste ning heade tavadega.
+[RT I, 08.03.2023, 1- jõust. 11.03.2023]
+ (3) Õpilane kaasatakse enese ja kaaslaste hindamisse, et arendada tema oskust eesmärke seada ning oma
+õppimist ja käitumist eesmärkide alusel analüüsida ning tõsta õpimotivatsiooni.
+ (4) Kujundava hindamise ühe vahendina võib kasutada õpimappi. Õpimapp õppimise päevikuna sisaldab nii
+õppetöid kui ka tööde analüüsi ja tagasisidet. Õpimappe võib koostada aine- ja valdkonnapõhiselt, läbivate
+teemade või üldpädevuste kohta.
+§ 21. Teadmiste ja oskuste hindamine kui kokkuvõtvate hinnete alus
+ (1) Õpilase ainealaseid teadmisi ja oskusi võrreldakse õpilase õppe aluseks olevas ainekavas toodud oodatavate
+õpitulemustega ja tema õppele püstitatud eesmärkidega. Ainealaseid teadmisi ja oskusi võib hinnata nii õppe
+käigus kui ka õppeteema lõppedes.
+ (2) Hindamisel viie palli süsteemis:
+ 1)  hindega „5” ehk „väga hea” hinnatakse vaadeldava perioodi või vaadeldava temaatika õpitulemuste
+saavutatust, kui saavutatud õpitulemused vastavad õpilase õppe aluseks olevatele taotletavatele õpitulemustele
+täiel määral ja ületavad neid;
+ 2)  hindega „4” ehk „hea” hinnatakse vaadeldava perioodi või vaadeldava temaatika õpitulemuste saavutatust,
+kui saavutatud õpitulemused vastavad üldiselt õpilase õppe aluseks olevatele taotletavatele õpitulemustele;
+ 3)  hindega „3” ehk „rahuldav” hinnatakse vaadeldava perioodi või vaadeldava temaatika õpitulemuste
+saavutatust, kui saavutatud õpitulemused võimaldavad õpilasel edasi õppida või kooli lõpetada ilma, et tal tekiks
+olulisi raskusi hakkamasaamisel edasisel õppimisel või edasises elus;
+ 4)  hindega „2” ehk „puudulik” hinnatakse vaadeldava perioodi või vaadeldava temaatika õpitulemuste
+saavutatust, kui õpilase areng nende õpitulemuste osas on toimunud, aga ei võimalda oluliste raskusteta
+hakkamasaamist edasisel õppimisel või edasises elus;
+ 5)  hindega „1” ehk „nõrk” hinnatakse vaadeldava perioodi või vaadeldava temaatika õpitulemuste saavutatust,
+kui saavutatud õpitulemused ei võimalda oluliste raskusteta hakkamasaamist edasisel õppimisel või edasises
+elus ning kui õpilase areng nende õpitulemuste osas puudub.
+ (3) Viie palli süsteemis hinnatavate kirjalike tööde koostamisel ja hindamisel lähtutakse põhimõttest, et
+kui kasutatakse punktiarvestust ja õpetaja ei ole andnud teada teisiti, koostatakse tööd nii, et hindega „5”
+hinnatakse õpilast, kes on saavutanud 90–100% maksimaalsest võimalikust punktide arvust, hindega „4” 75–
+89%, hindega „3” 50–74%, hindega „2” 20–49% ning hindega „1” 0–19%.
+ (4) Põhikool võib viie palli süsteemi asemel kasutada koolisiseselt teistsugust hindesüsteemi. Kasutatav
+hindesüsteem ja hinnete viie palli süsteemi teisendamise põhimõtted sätestatakse kooli õppekavas. Õpilase
+koolist lahkumisel teisendatakse selle õppeaasta kokkuvõtvad hinded ja käimasoleva õppeveerandi jooksul
+saadud hinded viie palli süsteemi, arvestades lõikes 2 sätestatud hindeskaalat ja lõikes 3 kirjeldatud
+protsendivahemikke.
+[RT I, 25.06.2025, 1- jõust. 01.09.2025]
+ (5) Põhikooli I ja II kooliastmel võib õpilase hindamisel kasutada kirjeldavaid sõnalisi hinnanguid, millel
+puudub numbriline ekvivalent. Kirjeldavate sõnaliste hinnangute kasutamine koolis sätestatakse kooli
+õppekavas. Õpilase koolist lahkumisel või hiljemalt II kooliastme lõpul tuleb jooksva õppeaasta sõnalised
+hinnangud, mis on aluseks õpilase järgmisse klassi üleviimisel, teisendada lõikes 2 sätestatud hindeskaalasse,
+arvestades lõikes 3 kirjeldatud protsendivahemikke.
+[RT I, 25.06.2025, 1- jõust. 01.09.2025]
+ (6) Kui hindamisel tuvastatakse kõrvalise abi kasutamine või mahakirjutamine, võib kirjalikku või praktilist
+tööd, suulist vastust (esitust), praktilist tegevust või selle tulemust hinnata hindega „nõrk”, kui see on ette nähtud
+kooli õppekavas.
+ (7) Kui kirjalikku või praktilist tööd, suulist vastust (esitust), praktilist tegevust või selle tulemust on hinnatud
+hindega „puudulik” või „nõrk” või on hinne jäänud panemata, antakse õpilasele võimalus järelevastamiseks või
+järeltöö sooritamiseks. Järelevastamise ja järeltööde sooritamise kord sätestatakse kooli õppekavas.
+§ 22. Kokkuvõtvad hinded ja järgmisse klassi üleviimine
+ (1) Kokkuvõttev hindamine on hinnete koondamine poolaastahinneteks ning poolaastahinnete koondamine
+aastahinneteks.
+ (2) Põhikool võib tõsta hinnete koondamise sagedust ning kasutada poolaastahinnete asemel näiteks
+veerandihindeid või trimestrihindeid. Sellisel juhul kohaldatakse poolaastahinnete asemel kasutatavatele
+kokkuvõtvatele hinnetele käesolevas paragrahvis poolaastahinnete kohta sätestatut.
+Leht 12 / 18
+Põhikooli riiklik õppekava",reformulated
+EVID_EUA_Q01_US_001_P0039_001,eua,Q01,"Equity is woven throughout the concept statements. A few examples are discussed here. Equity is particularly apparent in the Impacts of Computing core concept, as the overview states, “An informed and responsible person should understand the social implications of the digital world, including equity and access to computing.”","K–12 Computer Science Framework	
+29
+Equity in Computer Science Education
+(6–8.Algorithms and Programming.Program Development). The description provides an example 
+of how a team that employs user-centered design may develop an app that translates hard-to-
+understand pronunciation from people with speech difficulties into understandable language. In 
+Grades 9–12, students learn that “diverse teams can develop programs with a broad impact through 
+careful review and by drawing on the strengths of members in different roles” (9–12.Algorithms and 
+Programming.Program Development). 
+Examples: Weaving Equity Into Practices
+Considerations of equity are included in many of the practices, but it is the main focus of the first core 
+practice. 
+The practice Fostering an Inclusive Computing Culture is dedicated to equity, inclusion, and diversity. 
+The associated practice statements are below: 
+By the end of Grade 12, students should be able to: 
+1.	Include the unique perspectives of others and reflect on one’s own perspectives when 
+designing and developing computational products. 
+2.	Address the needs of diverse end users during the design process to produce artifacts with 
+broad accessibility and usability.
+3.	Employ self- and peer-advocacy to address bias in interactions, product design, and 
+development methods.
+These practice statements emphasize the role that equity, inclusion, and diversity each play in the 
+design of computational artifacts. The Collaborating Around Computing practice also describes ways 
+of promoting inclusion in computer science. The first practice statement reads, “Cultivate working 
+relationships with individuals possessing diverse perspectives, skills, and personalities.” To fulfill this 
+recommendation, students learn strategies for including all team members’ ideas, such as trying 
+to draw out the opinions of the quieter collaborators. Other instances in the practice overviews, 
+statements, and progressions attend to concerns about equity, diversity, and inclusion. These 
+instances emphasize the need to practice equity and inclusion when doing computer science, such 
+as creating an app or robot, to benefit from diverse collaborators and attention to diverse users. 
+Efforts to Increase Access and Opportunity
+Computer science education research has described how inequity can be perpetuated on a small 
+scale, as in a classroom, as well as on a large scale, as in course availability and scheduling. 
+Differences in learning opportunities are often seen along the lines of gender, race, disability, and 
+socioeconomic status and are reflected in reduced access to resources, such as ample computer labs",reformulated
+EVID_EUA_Q02_US_001_P0079_001,eua,Q02,Computational thinking refers to the thought processes involved in expressing solutions as computational steps or algorithms that can be carried out by a computer.,"K–12 Computer Science Framework	
+69
+Practices Including Computational Thinking
+the capabilities of computers, formulating problems to be addressed by a computer, and designing 
+algorithms that a computer can execute. The most effective context and approach for developing 
+computational thinking is learning computer science; they are intrinsically connected. 
+Computational thinking is essentially a problem-solving 
+process that involves designing solutions that capitalize on 
+the power of computers; this process begins before a single 
+line of code is written. Computers provide benefits in terms of 
+memory, speed, and accuracy of execution. Computers also 
+require people to express their thinking in a formal structure, 
+such as a programming language. Similar to writing notes on 
+a piece of paper to “get your thoughts down,” creating a 
+program allows people to externalize their thoughts in a form 
+that can be manipulated and scrutinized. Programming allows 
+students to think about their thinking; by debugging a 
+program, students debug their own thinking (Papert, 1980).
+Despite what the name implies, computational thinking is fundamentally a human ability. In other 
+words, “[h]umans process information; humans compute” (Wing, 2008, p. 3718). This nuance is the 
+basis for “unplugged” approaches to computer science (i.e., teaching computer science without 
+computers) and explains how computational thinking can apply beyond the borders of computer 
+science to a variety of disciplines, such as science, technology, engineering, and mathematics (STEM), 
+but also the arts and humanities (Bundy, 2007). 
+Computational thinking 
+refers to the thought 
+processes involved in 
+expressing solutions as 
+computational steps or 
+algorithms that can be 
+carried out by a computer.",validated
+EVID_EUA_Q03_US_001_P0039_001,eua,Q03,"An informed and responsible person should understand the social implications of the digital world, including equity and access to computing.","K–12 Computer Science Framework	
+29
+Equity in Computer Science Education
+(6–8.Algorithms and Programming.Program Development). The description provides an example 
+of how a team that employs user-centered design may develop an app that translates hard-to-
+understand pronunciation from people with speech difficulties into understandable language. In 
+Grades 9–12, students learn that “diverse teams can develop programs with a broad impact through 
+careful review and by drawing on the strengths of members in different roles” (9–12.Algorithms and 
+Programming.Program Development). 
+Examples: Weaving Equity Into Practices
+Considerations of equity are included in many of the practices, but it is the main focus of the first core 
+practice. 
+The practice Fostering an Inclusive Computing Culture is dedicated to equity, inclusion, and diversity. 
+The associated practice statements are below: 
+By the end of Grade 12, students should be able to: 
+1.	Include the unique perspectives of others and reflect on one’s own perspectives when 
+designing and developing computational products. 
+2.	Address the needs of diverse end users during the design process to produce artifacts with 
+broad accessibility and usability.
+3.	Employ self- and peer-advocacy to address bias in interactions, product design, and 
+development methods.
+These practice statements emphasize the role that equity, inclusion, and diversity each play in the 
+design of computational artifacts. The Collaborating Around Computing practice also describes ways 
+of promoting inclusion in computer science. The first practice statement reads, “Cultivate working 
+relationships with individuals possessing diverse perspectives, skills, and personalities.” To fulfill this 
+recommendation, students learn strategies for including all team members’ ideas, such as trying 
+to draw out the opinions of the quieter collaborators. Other instances in the practice overviews, 
+statements, and progressions attend to concerns about equity, diversity, and inclusion. These 
+instances emphasize the need to practice equity and inclusion when doing computer science, such 
+as creating an app or robot, to benefit from diverse collaborators and attention to diverse users. 
+Efforts to Increase Access and Opportunity
+Computer science education research has described how inequity can be perpetuated on a small 
+scale, as in a classroom, as well as on a large scale, as in course availability and scheduling. 
+Differences in learning opportunities are often seen along the lines of gender, race, disability, and 
+socioeconomic status and are reflected in reduced access to resources, such as ample computer labs",reformulated
+EVID_EUA_Q04_US_001_P0079_001,eua,Q04,Computational thinking refers to the thought processes involved in expressing solutions as computational steps or algorithms that can be carried out by a computer.,"K–12 Computer Science Framework	
+69
+Practices Including Computational Thinking
+the capabilities of computers, formulating problems to be addressed by a computer, and designing 
+algorithms that a computer can execute. The most effective context and approach for developing 
+computational thinking is learning computer science; they are intrinsically connected. 
+Computational thinking is essentially a problem-solving 
+process that involves designing solutions that capitalize on 
+the power of computers; this process begins before a single 
+line of code is written. Computers provide benefits in terms of 
+memory, speed, and accuracy of execution. Computers also 
+require people to express their thinking in a formal structure, 
+such as a programming language. Similar to writing notes on 
+a piece of paper to “get your thoughts down,” creating a 
+program allows people to externalize their thoughts in a form 
+that can be manipulated and scrutinized. Programming allows 
+students to think about their thinking; by debugging a 
+program, students debug their own thinking (Papert, 1980).
+Despite what the name implies, computational thinking is fundamentally a human ability. In other 
+words, “[h]umans process information; humans compute” (Wing, 2008, p. 3718). This nuance is the 
+basis for “unplugged” approaches to computer science (i.e., teaching computer science without 
+computers) and explains how computational thinking can apply beyond the borders of computer 
+science to a variety of disciplines, such as science, technology, engineering, and mathematics (STEM), 
+but also the arts and humanities (Bundy, 2007). 
+Computational thinking 
+refers to the thought 
+processes involved in 
+expressing solutions as 
+computational steps or 
+algorithms that can be 
+carried out by a computer.",validated
+EVID_EUA_Q07_US_001_P0083_002,eua,Q07,"K–12 Computer Science Framework
+Practices Including Computational Thinking.","K–12 Computer Science Framework	
+73
+Practices Including Computational Thinking
+References
+Aho, A.V. (2011, January) Computation and Computational Thinking. ACM Ubiquity, 1, 1-8. 
+Barr, V., & Stephenson, C. (2011). Bringing computational thinking to K–12: What is involved and what is the role of the 
+computer science education community? ACM Inroads, 2, 48–54.
+Brennan, K., & Resnick, M. (2012). Using artifact-based interviews to study the development of computational thinking in 
+interactive media design. Paper presented at the annual meeting of the American Educational Research Association, 
+Vancouver, BC, Canada.
+Bundy, A. (2007). Computational thinking is pervasive. Journal of Scientific and Practical Computing, 1, 67–69. 
+Cuny, J., Snyder, L., & Wing, J.M. (2010). Demystifying computational thinking for non-computer scientists. Unpublished 
+manuscript in progress. Retrieved from http://www.cs.cmu.edu/~CompThink/resources/TheLinkWing.pdf 
+International Society for Technology in Education. (2016). ISTE standards for students. Retrieved from 
+https://www.iste.org/resources/product?id=3879&childProduct=3848 
+Lee, I. (2016). Reclaiming the roots of CT. CSTA Voice: The Voice of K–12 Computer Science Education and Its Educators, 
+12(1), 3–4. Retrieved from http://www.csteachers.org/resource/resmgr/Voice/csta_voice_03_2016.pdf
+National Governors Association Center for Best Practices & Council of Chief State School Officers. (2010). Common core state 
+standards for mathematics. Washington DC: Author. 
+Next Generation Science Standards Lead States. (2013). Next generation science standards: For states, by states. Washington, 
+DC: The National Academies Press.
+Papert, S. (1980). Mindstorms: Children, computers, and powerful ideas. NY: Basic Books.
+Wing, J. M. (2006, March). Computational thinking. Communications of the ACM, 49(3), 33–35.
+Wing, J. M. (2008). Computational thinking and thinking about computing. Philosophical Transactions of the Royal Society, 
+366(1881), 3717–3725.",rejected
+EVID_EUA_Q12_US_001_P0080_003,eua,Q12,Computational thinking refers to the thought processes involved in expressing solutions as computational steps or algorithms that can be carried out by a computer.,"70	
+K–12 Computer Science Framework
+Practices Including Computational Thinking
+Distinguishing Computational Thinking
+The description of computational thinking in the K–12 Computer Science Framework extends beyond 
+the general use of computers or technology in education to include specific skills such as designing 
+algorithms, decomposing problems, and modeling phenomena. If computational thinking can take 
+place without a computer, conversely, using a computer in class does not necessarily constitute 
+computational thinking. For example, a student is not necessarily using computational thinking 
+when he or she enters data into a spreadsheet and creates a chart. However, this action can include 
+computational thinking if the student creates algorithms to automate the transformation of the data or 
+to power an interactive data visualization.
+A computational artifact must be distinguished by evaluating the process used to create it (i.e., 
+computational thinking), in addition to the characteristics of the product itself. For example, the same 
+digital animation may be the result of carefully constructing algorithms that control when characters 
+move and how they interact or simply selecting characters and actions from a predesignated tem­
+plate. In this example, it is the process used to create the animation that defines whether it can be 
+considered a computational artifact. The assessment of computational thinking can be improved by 
+having students explain their decisions and development process (Brennan & Resnick, 2012).",rejected
+EVID_FINLANDIA_Q08_FI_CUR_003_P0307_001,finlandia,Q08,"Tavoitteena on kielellisesti virikkeinen ja yhteisöllinen oppimisympäristö, jossa oppilaiden näkemyksiä arvostetaan ja jossa on mahdollisuus tarkastella ja tuottaa tekstejä yksin ja yhdessä turvallisesti myös viestintäteknologian avulla.","käytetään muun muassa oppiainerajojen ylittävää eheyttävää opetusta. Opetus kehittää 
+oppilaiden taitoa arvioida omaa oppimistaan.
+Äidinkieli ja kirjallisuus ­oppiaineen oppimisympäristöihin ja työtapoihin liittyvät 
+tavoitteet vuosiluokilla 3­6
+Tavoitteena on kielellisesti virikkeinen ja yhteisöllinen oppimisympäristö, jossa oppilaiden 
+näkemyksiä arvostetaan ja jossa on mahdollisuus tarkastella ja tuottaa tekstejä yksin ja 
+yhdessä turvallisesti myös viestintäteknologian avulla. Opetuksessa hyödynnetään oppilaiden 
+itse valitsemia ja heitä kiinnostavia kirjoja ja muita monimuotoisia tekstejä sekä laajennetaan 
+oppilaiden lukukokemuksia. Äidinkielen oppimisympäristöön kuuluu myös koulun ulkopuolinen 
+kulttuuri­ ja mediatarjonta. Työtavat valitaan niin, että ne mahdollistavat yhdessä toimimisen 
+ja kokemusten jakamisen sekä oppiaineen sisältöalueiden luontevan integroitumisen. Opetusta 
+eheytetään prosessinomaisen opiskelun ja projektityöskentelyn avulla. Vuorovaikutus­ ja 
+draamataitoja syvennetään erilaisten harjoitusten avulla. Draamaa ja kirjallisuuden opetusta 
+yhdistetään muiden oppiaineiden opetukseen.
+Ohjaus, eriyttäminen ja tuki äidinkieli ja kirjallisuus ­oppiaineessa vuosiluokilla 3­6
+Tavoitteena on tukea oppilaiden kielellistä kehitystä, sujuvan luku­ ja kirjoitustaidon 
+oppimista sekä lukutaidon syvenemistä ymmärtäväksi lukemiseksi. Oppilaita tuetaan 
+sanavarannon laajentamisessa, käsitteiden oppimisessa sekä ajatusten kielentämisessä ja 
+vuorovaikutustaidoissa. Jokaista oppilasta kannustetaan taitotasoaan vastaavan kirjallisuuden 
+ja muiden tekstien lukemiseen ja ohjataan luetun ymmärtämisen strategioiden käyttöön sekä 
+sopivien opiskelustrategioiden kehittämiseen ja omien vahvuuksien tunnistamiseen. Oppilaiden 
+tekstien tuottamisen taitojen sekä oikeinkirjoituksen kehittämiseksi annetaan malleja sekä 
+yhteisöllistä ja yksilöllistä tukea. Myös kielellisesti taitavia oppilaita tuetaan lukuhaasteiden 
+ottamisessa, itselleen soveltuvien työtapojen löytämisessä ja tavoitteiden asettamisessa. Tekstit 
+ja työtavat valitaan niin, että oppilaiden yhdenvertaisuus ja sukupuolten tasa­arvo toteutuu.
+Oppilaan oppimisen ja osaamisen arviointi äidinkieli ja kirjallisuus ­oppiaineessa 
+vuosiluokilla 3–6
+Arviointi ja siihen perustuva palaute on monipuolista, konkreettista ja oppimisen taitoja 
+kehittävää. Arviointi nivotaan kiinteäksi osaksi oppimisprosessia. Arviointi perustuu monipuoliseen 
+dokumentointiin siitä, miten oppilaiden laajenevat kielelliset taidot ja tekstien tuottaminen sekä 
+tulkinta kehittyvät ja mitkä ovat heidän tietonsa kielestä, kirjallisuudesta ja muusta kulttuurista.
+Oppilaita ohjataan arvioimaan omaa ja muiden työskentelyä, ilmaisua ja tuotoksia. Oppimista 
+tukevan, monipuolisen ja erittelevän arvioinnin ja palautteen avulla oppilaita autetaan 
+tulemaan tietoiseksi omista taidoistaan, tiedoistaan ja työskentelyprosesseistaan ja he saavat 
+välineitä niiden kehittämiseen. Oppimisen edistymisen kannalta keskeisiä ovat äidinkielen ja 
+kirjallisuuden oppimäärien eri tavoitealueiden perustaidot ja niihin johtavat työskentelyprosessit 
+ja oppimisstrategiat.
+Äidinkielen ja kirjallisuuden oppimäärän sanallista arviota tai arvosanaa antaessaan opettaja 
+arvioi oppilaiden osaamista suhteessa paikallisessa opetussuunnitelmassa vuosiluokittain 
+3–6 kohdennettuihin tavoitteisiin. Lukuvuosiarviointi 6. luokalla perustuu paikallisessa 
+opetussuunnitelmassa 
+kyseiselle 
+vuosiluokalle 
+kohdennettuihin 
+oppiaineen 
+opetuksen 
+tavoitteisiin.
+Määritellessään osaamisen tasoa 6. vuosiluokan lukuvuositodistusta varten opettaja käyttää 
+äidinkielen ja kirjallisuuden valtakunnallisia arviointikriteereitä. Oppilas on saavuttanut äidinkielen 
+ja kirjallisuuden oppimäärän tavoitteet arvosanan 5, 7, 8 tai 9 mukaisesti, kun oppilaan osaaminen 
+vastaa pääosin kyseisen arvosanan kriteereissä kuvattua osaamisen tasoa. Arvosanojen 4, 6 ja 
+10 mukaisen osaamisen kokonaisarviointi muodostetaan äidinkielen ja kirjallisuuden oppimäärän 
+tavoitteiden pohjalta ja suhteessa edellä mainittuihin lukuvuosiarvioinnin kriteereihin. Paremman 
+osaamisen tason saavuttaminen jonkin tavoitteen osalta voi kompensoida hylätyn tai heikomman 
+Vuosiluokat 3­6
+297",reformulated
+EVID_FINLANDIA_Q12_FI_CUR_002_P0004_001,finlandia,Q12,...the staff are familiar with and use digital services relevant to the child's early childhood education and care and pre-​primary education appropriately.,"Production
+In pre-​primary education
+...children draw up simple 
+diagrams.
+...children produce 
+and interpret 
+messages in digital 
+environments.
+...process photos and videos 
+diversely through play and 
+exploration.
+...children produce 
+playful animations.
+...children 
+produce texts in 
+accordance with 
+the broad 
+definition of text.
+...children make personal and 
+shared digital books underpinned 
+by a broad definition of text.
+...children's developing writing and 
+reading skills are supported with 
+digital environments.
+...digital environments are 
+used in playing with 
+language.
+...children play games that 
+encourage them to 
+produce their own 
+content.
+...children film, record on video 
+and modify content using simple 
+functionalities.
+In early childhood education and care
+...complete 
+photography and 
+video projects.
+...digital environments are 
+used in story crafting.
+...is able to work 
+independently and together 
+with others in the school’s 
+digital environments.
+...masters basic file processing 
+skills: saving, copying, 
+transferring and deleting.
+...takes photos, records videos 
+and sound and carries out 
+simple editing.
+...uses a camera and 
+other easy applications to 
+make and record 
+observations.
+...practises producing 
+text in a digital service 
+(multimodal texts).
+...knows how to edit text: 
+activation of text, selection of 
+font size and type.
+...is able to produce and 
+interpret simple tables and 
+diagrams.
+...knows how to 
+produce text in digital 
+environments. The 
+pupil knows how to 
+produce text for 
+different purposes 
+(multimodal texts).
+...masters the basics 
+of a word processing 
+application.
+...knows how to 
+produce a simple 
+animation.
+...uses image and video 
+processing software 
+diversely.
+...is able to use styles in text. 
+The pupil finds the special 
+characters he or she needs.
+...käyttää digitaalisten 
+ympäristöjen monipuolisia 
+mahdollisuuksia tuottamisessa.
+The pupil is able to draw up 
+an appropriate diagram 
+from statistical data by 
+using a spreadsheet 
+program.
+...is able to draw up 
+extensive, structured 
+presentations using a 
+presentation graphics 
+program.
+...knows how to take part 
+in a joint production 
+process of written or 
+other content in a digital 
+service.
+...is able to use cell 
+references, formulas 
+and the most common 
+functions of a 
+spreadsheet program.
+...knows how use an 
+automatic referencing 
+tool to make citations 
+and a list of references.
+*...is able to propose 
+improvements that make 
+presentations easier to understand 
+using the possibilities provided by 
+digital services.
+*... is familiar with and uses 
+programs for editing images, 
+video and sound. The pupil 
+produces and shares edited 
+content on different topics. 
+*...is familiar with different digital 
+services intended for personal 
+production and knows how to use 
+them. The pupil is interested in editing 
+images, videos and sound, and 
+produces content independently. 
+*...osaa käyttää 
+kosketusnäyttökynää 
+tarkoituksenmukaisesti.
+*...knows how to 
+select an appropriate 
+image format for 
+publishing and edit 
+the resolution so that 
+the file is suitable for 
+publication.
+*...knows how to keyword 
+and use hashtags to 
+organise content.
+*...knows how to create a file 
+for shared use and how to link 
+other pupils to it.
+...understands 
+the potential of 
+3D modelling 
+and printing.
+...knows how to arrange 
+text, images and tables 
+appropriately.
+...masters the basics 
+of spreadsheets.
+...masters the basics of 
+presentation graphics. The 
+pupil is able to draw up a 
+presentation.
+...practises finding 
+saved content.
+...is able to comment 
+and give feedback.
+...produces 
+content using 
+speech.
+...is able to find saved 
+or shared content. 
+The pupil understands 
+about the folder and 
+file structure when 
+this is required by the 
+operating system.
+...practises commenting 
+on content produced by 
+others.
+...is able to design a logical 
+folder and file structure. The 
+pupil knows where to find 
+the content he or she needs.
+...with guidance, knows 
+how to produce a work 
+that contains text, sound, 
+images and video image.
+...knows how to edit 
+images, videos and 
+sound and, this way, 
+complete a work.
+...knows how to edit 
+content in a digital 
+environment together 
+with others.
+...children practise playful 
+reading and writing.
+...knows how to store and share 
+content in a cloud service. The 
+pupil knows how to send files if 
+necessary.
+Digital competence
+ICT competence
+1C
+In grades 7 to 9, the pupil
+In grades 3 to 6, the pupil
+In grades 1 to 2, the pupil
+...knows how to draw 
+up a table and 
+convert it into a 
+diagram.
+Finnish National Agency for Education 2022
+Version 2.0",rejected
+EVID_FINLANDIA_Q13_FI_CUR_003_P0807_002,finlandia,Q13,Oppilas osaa tuottaa mallien avulla yksinkertaisia tekstejä.,"Suomen kieli ja kirjallisuus ­oppimäärän päättöarvioinnin kriteerit
+Arvosana
+Osaamisen kuvaus
+Osaamisen kuvaus arvosanalle 5
+Oppilas osaa tuottaa mallien avulla 
+yksinkertaisia tekstejä. Oppilas osaa nimetä 
+jonkin vahvuutensa tai kehittämiskohteensa 
+tekstin tuottajana.
+Osaamisen kuvaus arvosanalle 7
+Oppilas osaa tuottaa erityyppisiä 
+tekstejä ohjeiden mukaan. Oppilas 
+osaa kuvata itseään tekstien tuottajana 
+ja nimetä muutamia vahvuuksiaan ja 
+kehittämiskohteitaan.
+Osaamisen kuvaus arvosanalle 8
+Oppilas osaa tuottaa tavoitteen mukaisia 
+tekstejä. Oppilas osaa eritellä vahvuuksiaan ja 
+kehittämiskohteitaan tekstin tuottajana.
+Osaamisen kuvaus arvosanalle 9
+Oppilas osaa tuottaa luovasti tilanteeseen ja 
+tavoitteeseen sopivia tekstejä. Oppilas osaa 
+arvioida vahvuuksiaan ja kehittämiskohteitaan 
+tekstin tuottajana ja pohtia, miten voi taitojaan 
+kehittää.
+T11 tarjota oppilaalle tilaisuuksia tuottaa kertovia, kuvaavia, ohjaavia 
+ja erityisesti kantaa ottavia ja pohtivia tekstejä, myös monimediaisissa 
+ympäristöissä, ja auttaa oppilasta valitsemaan kuhunkin tekstilajiin ja 
+tilanteeseen sopivia ilmaisutapoja
+Tavoitealue
+Tekstien tuottaminen
+Tavoitteista johdetut oppimisen tavoitteet
+Oppilas oppii tuottamaan kertovia, kuvaavia, ohjaavia, pohtivia ja kantaa ottavia tekstejä, myös 
+monimediaisissa ympäristöissä, ja oppii valitsemaan kuhunkin tekstilajiin ja tilanteeseen sopivia 
+ilmaisutapoja.
+Sisältöalueet
+S3 Tekstien tuottaminen
+Laaja­alaisen osaamisen osa­alueet
+L2 Kulttuurinen osaaminen, vuorovaikutus ja ilmaisu
+L4 Monilukutaito
+L5 Tieto­ ja viestintäteknologinen osaaminen
+Arvioinnin kohde
+Tekstilajien hallinta
+Vuosiluokat 7­9
+797",rejected
+EVID_GANA_Q06_GH_001_P0073_002,gana,Q06,Learners should also be encouraged to work on projects in groups to foster collaborative learning.,"44 
+ 
+© NaCCA, Ministry of Education 2021 
+STRAND 1: INTRODUCTION TO COMPUTING 
+SUB-STRAND 3: HEALTH AND SAFETY INTHE USE OF ICT TOOLS 
+CONTENT 
+STANDARD 
+INDICATORS AND EXEMPLAR(S) 
+CORE COMPETENCIES 
+B9.1.3.1. Demonstrate 
+How to Apply Health 
+and Safety Measures in 
+the Use ICT Tools 
+B9.1.3.1.1 Evaluate health issues at workstations Exemplar(s): 
+1. Discuss the use of ergonomic tools such as ergonomic keyboard and paper stand. 
+2. Demonstrate the appropriateness of the lighting system while working with the 
+computer. 
+CC8.1: Speak clearly and explain ideas. 
+Share a narrative or extended answer while 
+speaking to a group. 
+B9.1.3.1.2 Evaluate Safety Risk Reduction at issues at workstations 
+Exemplar(s): 
+1. Discuss the heat generated by machines (e.g. computers, printers etc.) and how to 
+reduce excess heat. 
+CC8.1: Speak clearly and explain ideas. 
+Share a narrative or extended answer while 
+speaking to a group.",reformulated
+EVID_IRLANDA_Q04_IE_CUR_005_P0039_001,irlanda,Q04,"In STE Education, teachers can use computational thinking by:   •  providing opportunities for children to engage with both digital and non-digital technologies as users and creators •  broadening children’s understanding of computational thinking as a problem-solving approach across STE Education and other curricular areas   •  assisting children to decompose [break down] problems into a series of manageable steps and to abstract [remove] unnecessary detail •  modelling pattern recognition [spotting similarities and/or repetitions] and encouraging children to identify patterns that they have previously encountered in both unplugged and plugged activities •  facilitating children to systematically plan, design, create and modify algorithms [sequence of steps] in both unplugged and plugged activities, drawing their attention to the computational skills that they are using •  challenging children to test, modify and improve their creations in digital technology through working collaboratively with peers •  encouraging children to consider feedback, persevere in their explorations and to take informed risks as part of the process •  providing opportunities for children to reflect on the computational thinking process, evaluate their successes and setbacks and generalise their learning to wider contexts.","In STE Education, teachers can use computational thinking by:   
+•	 	providing opportunities for children to engage with both digital and non-digital  
+technologies as users and creators
+•	 	broadening children’s understanding of computational thinking as a problem-solving  
+approach across STE Education and other curricular areas   
+•	 	assisting children to decompose [break down] problems into a series of manageable  
+steps and to abstract [remove] unnecessary detail 
+•	 	modelling pattern recognition [spotting similarities and/or repetitions] and  
+encouraging children to identify patterns that they have previously encountered in  
+both unplugged and plugged activities   
+•	 	facilitating children to systematically plan, design, create and modify algorithms  
+[sequence of steps] in both unplugged and plugged activities, drawing their  
+attention to the computational skills that they are using  
+•	 	challenging children to test, modify and improve their creations in digital technology  
+through working collaboratively with peers
+•	 	encouraging children to consider feedback, persevere in their explorations and to  
+take informed risks as part of the process   
+•	 	providing opportunities for children to reflect on the computational thinking process,  
+evaluate their successes and setbacks and generalise their learning to wider contexts.
+Computational thinking 
+Computational thinking draws on the principles 
+of computing to think about and solve problems. 
+It involves the processes that we can use when 
+considering and solving problems in a way that is 
+similar to how computers assist us. When children 
+develop their computational thinking, they can apply 
+this learning across Science, Technology, Engineering 
+and beyond.  
+Computational thinking encourages children to use 
+logic and reasoning to break down problems into 
+manageable parts, to apply prior knowledge to new 
+contexts and to focus on important information 
+relevant to the process of problem-solving. These 
+skills are supported and strengthened by a range 
+of dispositions that can be fostered through 
+computational thinking. When used effectively, 
+children can develop the confidence and persistence 
+to work with challenging open-ended problems 
+and can foster their ability to collaborate and 
+communicate with others. 
+Computational thinking can be fostered through 
+both unplugged [non-digital] and plugged [digital] 
+learning activities in the classroom setting. While 
+both unplugged and plugged activities are suitable 
+for stages 1 to 4, it is essential to ensure that 
+children have opportunities to transition from 
+unplugged activities to plugged contexts. These 
+activities may involve the design and development 
+of algorithms or programs to solve problems and for 
+a particular purpose.  
+Computational 
+thinking
+37
+Science, Technology, Engineering and Mathematics (STEM) Education",validated
+EVID_IRLANDA_Q07_IE_CUR_002_P0014_002,irlanda,Q07,"discutir as questões éticas e de segurança que podem surgir ao usar as tecnologias digitais, incluindo a Inteligência Artificial.","Junior Cycle 
+Specification
+Coding
+14
+Strand 2: Let’s get 
+connected
+Students learn about
+Students should be able to
+Making connections:
+The importance of computers as 
+communication devices and how they 
+provide access to data 
+2.1	 discuss the basic concepts underpinning the 
+internet
+2.2	 investigate and describe how data is 
+transported on the internet and how 
+computers communicate and cooperate 
+through protocols
+2.3	 explain the difference between search engines 
+and web browsers
+2.4	 investigate how search engines deliver results
+2.5	 create a small website using HTML and CSS to 
+showcase their learning
+Bits and bytes:
+How computers store data and how data 
+can be stored in different formats
+2.6	 explain how computers represent data using 0s 
+and 1s
+2.7	 investigate how drawings and photos are 
+represented in computing devices
+Artificial Intelligence:
+Learning about Artificial Intelligence (AI) 
+and its ethical and safe use in coding
+2.8	 identify different AI models and how they can  
+be applied in coding
+2.9	 discuss the use of AI models when applied 
+in coding, their potential advantages and 
+limitations and any ethical and safety issues 
+which may arise
+Real world problems:
+How computer science* can inspire critical 
+and creative thinking 
+2.10	identify a topic or a challenge in computer 
+science that inspires them
+2.11	investigate the chosen topic/challenge 
+including the related ethical, legal and technical 
+issues
+2.12	present the proposed topic or challenge to 
+be addressed for discussion and reflect on 
+feedback received
+2.13	justify continuing with the proposed topic or 
+challenge to be addressed outlining why it is 
+worthwhile and any modifications made",reformulated
+EVID_IRLANDA_Q09_IE_CUR_004_P0034_001,irlanda,Q09,"O princípio da educação inclusiva e diversidade centra-se nos valores e práticas que permitem que as crianças, como indivíduos, pertençam e se sintam respeitadas, confiantes e seguras, para que possam se engajar em um aprendizado significativo e alcançar seu potencial.","Inclusive Education and Diversity
+The framework’s principle on Inclusive education 
+and diversity centres on the values and practices 
+that enable children, as individuals, to belong 
+and to feel respected, confident, and safe so they 
+can engage in meaningful learning and reach 
+their potential. The framework is concerned with 
+the best interest of every child, considering that 
+they vary in their competence, language, family 
+background, age, culture, ethnic status, religion, 
+gender, and sexual identity. 
+The curriculum supports schools in providing 
+each child with an inclusive and developmentally 
+appropriate learning experience in primary 
+school as they move from the home learning 
+environment or preschool setting. Through its 
+vision and principles, the curriculum encourages 
+an appreciation of children’s unique capabilities, 
+interests, culture, language, and background. 
+Informed by this knowledge and with the help  
+of appropriate resources, primary and special 
+school teachers can create a respectful 
+school climate and build their curriculum and 
+interactions to proactively promote inclusive 
+principles in their school. 
+32",rejected
+EVID_JAPAO_Q02_JP_CUR_003_P0053_002,japao,Q02,"proactive, interactive, and authentic learning.","49 
+ 
+[Basic Policy] 
+○ Integrated enhancement of personalized and self-regulated learning and 
+collaborative learning 
+- The Central Council for Education's Special Subcommittee set up under the 
+Elementary and Secondary Education Committee will examine the ideal approach 
+to educational guidance/student guidance by smoothly utilizing 1 device for 1 
+student, textbooks, teaching materials, and related software, as well as the ideal 
+approach to environmental improvements inside and outside schools, to enhance 
+both personalized and self-regulated learning and collaborative learning as indicated 
+in the “Japanese-Style School Education in Reiwa” report, and take necessary 
+measures based on the results. 
+ 
+○ Implementation of the National Curriculum Standards that develop competencies 
+required in the new era 
+- Increase awareness by continuing to provide information on effective teaching 
+practices to ensure that the objectives of the National Curriculum Standards are 
+understood and implemented in each school, such as promoting lesson 
+improvement and establishing curriculum management from the perspective of 
+proactive, interactive, and authentic learning, to develop the competencies required 
+in the new era (including the competencies that are the foundation of learning, such 
+as language ability, information literacy, and the ability to identify and solve 
+problems). 
+- Promote practical research in pilot schools for research purposes to further improve 
+and enhance the standards for curriculums in the future. 
+ 
+ ○ Improvement in the quality of early childhood education 
+- Promote efforts to improve and enhance the content of early childhood education and 
+to improve the quality of early childhood education in the region by utilizing the early 
+childhood education promotion system since early childhood education is important 
+for cultivating the foundation for lifelong character development. Moreover, promote 
+the development and implementation of curricula that allow for collaboration 
+between those involved in preschool and elementary school to improve the 
+connection between early childhood education and elementary school education, 
+and conduct large-scale surveys and other activities to ensure the quality of early 
+childhood education based on data.",rejected
+EVID_JAPAO_Q04_JP_CUR_003_P0033_001,japao,Q04,"○ Em educação básica e secundária, há necessidade de cultivar a alfabetização da informação como qualidades e competências que são a base da aprendizagem, e melhorar as habilidades de ensino dos professores e ainda aprimorar a melhoria do ambiente de TIC para esse fim.","29 
+ 
+ (Promoting educational DX at every school level)  
+  ○ In elementary and secondary education, there is a need to cultivate information 
+literacy as qualities and competencies that are the foundation of learning, and to 
+improve teachers' teaching skills and further enhance ICT environmental 
+improvement for this purpose. In addition, there is a need to promote initiatives 
+for the use of digital textbooks, teaching materials, and study support software, 
+as well as the utilizing educational data and work-style reforms of schools through 
+next-generation school work DX using cloud computing. 
+  ○ The worldwide development of online education in higher education during the 
+COVID-19 pandemic has opened new possibilities and the world of higher 
+education has become more accessible to students. Hybrid education that 
+effectively combines in-person and distance classes, and digitally enhanced 
+education should be promoted, as well as the promotion of courses in data 
+science and other fields. Additionally, fostering DX human resources to support 
+DX in society is also important. 
+  ○ Digital technology should be promoted in lifelong learning more convenient using 
+online education, and in visualizing learning histories. Strengthening digital 
+infrastructure and digital education in community learning centers, libraries, and 
+other social education facilities are also required. 
+  ○ In promoting these initiatives, it is also necessary to acquire knowledge of digital 
+literacy and cybersecurity, while paying attention to the positive and negative 
+aspects of a digital society, and to develop the ability to think and act on their own. 
+Adequate support is needed to ensure that this does not lead to widening 
+disparities among regions and schools. 
+  ○ Moreover, from the perspective of realizing education that leaves no one behind 
+and draws out the potential of all, it is important to ensure that everyone has the 
+opportunity to receive quality education by making maximizing use of the functions 
+of online education and digital devices. 
+○ Furthermore, to further demonstrate the welfare role19 of schools in cooperation 
+with related organizations, while some difficulties such as child poverty, abuse, 
+and bullying are difficult to see the actual situation and support is difficult to reach 
+children, it is important to understand children's SOS by linking data in local 
+governments, leading to push-type support. 
+○ Generative AI should be addressed based on the potential benefits and possible 
+ 
+19 It is a haven and safety net where children can safely and securely connect with others to support their 
+physical and mental health and includes connecting children with difficulties to welfare and medical support 
+through the school.",validated
+EVID_JAPAO_Q11_JP_001_P0167_002,japao,Q11,情報を適切に活用することの必要性や重要性，望ましいコミュニケーションを図るために必要な力について考察すること，情報モラルや情報セキュリティに配慮すること，望ましいコミュニケーションを図ろうとする態度を身に付けることなどを扱う。,"外国語
+165
+ａ　不定詞の用法
+ｂ　関係代名詞の用法
+ｃ　関係副詞の用法
+ｄ　接続詞の用法
+ｅ　助動詞の用法
+ｆ　前置詞の用法
+ｇ　動詞の時制及び相など
+ｈ　仮定法
+〔思考力，判断力，表現力等〕
+（2）	 情報を整理しながら考えなどを形成し，英語で表現したり，伝え合ったりすることに関する事項
+　具体的な課題等を設定し，コミュニケーションを行う目的や場面，状況などに応じて，情報を整理
+しながら考えなどを形成し，これらを論理的に適切な英語で表現することを通して，次の事項を身に
+付けることができるよう指導する。
+ア	 日常的な話題や社会的な話題について，英語を聞いたり読んだりして，情報や考えなどの概要や
+要点，詳細，話し手や書き手の意図などを的確に捉えたり，自分自身の考えをまとめたりすること。
+イ	 日常的な話題や社会的な話題について，英語を聞いたり読んだりして得られた情報や考えなどを
+活用しながら，話したり書いたりして情報や自分自身の考えなどを適切に表現すること。
+ウ	 日常的な話題や社会的な話題について，伝える内容を整理し，英語で話したり書いたりして，要
+点や意図などを明確にしながら，情報や自分自身の考えなどを伝え合うこと。
+（3）言語活動及び言語の働きに関する事項
+①	 言語活動に関する事項
+　（2）に示す事項については，（1）に示す事項を活用して，例えば，次のような五つの領域別の言語
+活動及び複数の領域を結び付けた統合的な言語活動を通して指導する。
+ア	 中学校学習指導要領第２章第９節の第２の２の（3）の①に示す言語活動のうち，中学校におけ
+る学習内容の定着を図るために必要なもの。
+イ	 聞くこと
+（ｱ）日常的な話題について，話される速さが調整されたり，基本的な語句や文での言い換えを十
+分に聞いたりしながら，対話や放送などから必要な情報を聞き取り，話し手の意図を把握する
+活動。また，聞き取った内容を話したり書いたりして伝え合う活動。
+（ｲ）社会的な話題について，話される速さが調整されたり，基本的な語句や文での言い換えを十
+分に聞いたりしながら，対話や説明などから必要な情報を聞き取り，概要や要点を把握する活
+動。また，聞き取った内容を話したり書いたりして伝え合う活動。
+ウ	 読むこと
+（ｱ）日常的な話題について，基本的な語句や文での言い換えや，書かれている文章の背景に関す
+る説明などを十分に聞いたり読んだりしながら，電子メールやパンフレットなどから必要な情
+報を読み取り，書き手の意図を把握する活動。また，読み取った内容を話したり書いたりして
+伝え合う活動。
+（ｲ）社会的な話題について，基本的な語句や文での言い換えや，書かれている文章の背景に関す
+る説明などを十分に聞いたり読んだりしながら，説明文や論証文などから必要な情報を読み取
+り，概要や要点を把握する活動。また，読み取った内容を話したり書いたりして伝え合う活動。
+エ	 話すこと［やり取り］
+（ｱ）身近な出来事や家庭生活などの日常的な話題について，使用する語句や文，やり取りの具体",rejected
+EVID_JAPAO_Q12_JP_CUR_003_P0097_002,japao,Q12," Promote teacher development, recruitment and training reforms; secure excellent teachers with appeal and improve their qualities and competencies; advance further acceleration of work-style reforms of schools; improve treatment; and expand and enhance instruction systems in an integrated manner.","93 
+ 
+strengthen digital infrastructures to develop effective social education activities that 
+combine the use of digital and real activities in an increasingly digital society, and 
+promote efforts to improve the digital literacy of all generations, such as closing the 
+digital divide, to realize a digital society in which no one is left behind. 
+ 
+[Indicators]  
+ - Improvement of information literacy of students (literacy value as per the Information 
+Literacy Survey) 
+- Improvement of teachers’ teaching skills for ICT utilization (ability to use ICT for 
+instruction in class, ability to teach students to use ICT) 
+- Increase the usage frequency of ICT equipment in situations where tasks are tackled 
+according to the characteristics, understanding, and progress of each student 
+- Increase in the usage frequency of ICT equipment in situations where students 
+interact with each other 
+- Increase in the percentage of schools that have fully adopted good practices to 
+improve efficiency in school operations through the use of ICT 
+- Increase in the frequency of lessons using ICT equipment 
+- Increase coverage of operation support centers across Japan (target by FY2024: 
+100%) 
+- Increase in the number of students per academic year in accredited mathematical, 
+data science, and AI education programs (applied basic level) 
+ 
+Target 12 Develop Instruction Systems and ICT Environment and Strengthen the 
+Educational Research Infrastructure 
+ Promote teacher development, recruitment and training reforms; secure excellent 
+teachers with appeal and improve their qualities and competencies; advance further 
+acceleration of work-style reforms of schools; improve treatment; and expand and 
+enhance instruction systems in an integrated manner. In addition, the aim is to improve 
+the attractiveness of teaching and the well-being of teachers by establishing a system in 
+which teachers can focus on matters that only teachers can do through the use of ICT 
+and the establishment of a system of cooperation and sharing with support personnel. 
+At the higher education stage, under the leadership and responsibility of the president, 
+strengthen the platform to improve the quality of education and research. 
+ 
+[Basic Policy] 
+(Elementary and secondary education)",rejected
+EVID_QUENIA_Q06_KE_001_P0072_001,quenia,Q06,"It is envisaged that learners will develop creativity, self-awareness, high self-esteem confidence, self-control, reliability, hard work, endurance and management skills as they engage in creative and collaborative activities in music.","Basic Education Curriculum Framework                                                            Nurturing Every Learner’s Potential 
+72 
+Engaged, Empowered & Ethical Citizens 
+solving, decision making, rational and intuitive thinking and aesthetic sensitivity. It is envisaged 
+that learners will develop creativity, self-awareness, high self-esteem confidence, self-control, 
+reliability, hard work, endurance and management skills as they engage in creative and 
+collaborative activities in music. 
+This subject will enable the learner to pursue further education at tertiary level, prepare them for 
+self-employment and employment and also for lifelong enjoyment of and participation in music. 
+Graduates of music can pursue careers such as composer, recording studio technician, singer, 
+accompanist , cultural activities organizer, adjudicator, arranger, artist manager/director, music 
+producer and editor, music therapist, band director, clinician, choral director, composer, film 
+scoring, educator, music web producer, music publisher, columnist, concert promoter, 
+choreographer, music teacher and rehearsal director. 
+ 
+Dance 
+Dance is an art that uses the body as an instrument for non-verbal communication and 
+expression. It is also a physical exercise of the body. It fosters students‟ intellectual, social and 
+moral development and contributes to the learners‟ artistic, aesthetic and cultural education. 
+ 
+Gardner„s multiple intelligence theory states that learners possess different kinds of minds and 
+therefore learn, remember, perform, and understand in different ways. Based on this theory, 
+dance will be offered as an area of specialization in order to nurture a learner‟s talent in dance 
+under the talent pathway.  
+ 
+According to Bruner‟s cognitive development theory curricula should be organized in a spiral 
+manner so that the learner continually builds upon what they have already learned. Based on this, 
+the learner will be provided with opportunities to build on the skills acquired from lower 
+secondary in performing arts related to dance. The learner will be provided with opportunities to 
+develop competencies in choreography, performance, appreciation and dance etiquette through 
+an experiential and collaborative process. This will enable the learner to develop the ability to 
+communicate and express ideas and feelings effectively through dance. 
+ 
+The subject will enable the learner to develop self‐confidence, social skills and creativity, 
+enhance physical well-being and develop an appreciation of artistic forms of dance as they 
+engage in creative and collaborative processes. 
+ 
+The subject will prepare learners for further learning at tertiary level, enjoyment and will serve as 
+an opportunity for learners to nurture and develop their talents. It will also prepare them for self-
+employment or employment and contribution towards the creative economy. Learners that study 
+dance can pursue careers such as artistic director, choreographer, dance therapist, physical 
+therapist, rehearsal director, dancer, composer/musician, and dance teacher.  
+ 
+ 
+ 
+Theatre and Elocution 
+Theatre and elocution at senior school will focus on building on the competencies already 
+developed in lower secondary school. The learner will have opportunities to refine their own 
+creative and aesthetic sensibilities through acting, voice and speech, dramatic literature, play",rejected
+EVID_QUENIA_Q07_KE_002_P0010_001,quenia,Q07,"The material should stress issues such as Citizenship, Health education, Life Skills and Values Education, Education for Sustainable Development (ESD), Non-formal Learning Programme, Community Service Learning and Parental Empowerment & Engagement.","10
+General Standards 
+Digital materials will be curated on the following broad areas: 
+ 
+Conformity to the curriculum 
+ 
+Accuracy and currency of the content in the material 
+ 
+Language use 
+ 
+Promotion of positive values and attitudes 
+ 
+Integration of pertinent and contemporary issues 
+ 
+Assessment 
+ 
+Multimedia elements  
+ 
+Technical design 
+ 
+User guide  
+ 
+Cloud content attributes  
+ 
+Specific Standards for CBC Digital Course Materials 
+ 
+Conformity to the competence based Curriculum   
+The material should; 
+ 
+Cover strand, sub strands, themes concepts and skills in the curriculum design 
+ 
+be relevant to the learning areas specific learning outcomes 
+ 
+develop concepts sufficiently  
+ 
+develop skills sufficiently  
+ 
+be correct and accurate. 
+ 
+be current 
+ 
+be appropriate to the level of the learner  
+ 
+develop core competencies 
+ 
+develop core values 
+ 
+promote positive altitude  
+ 
+be organized in a logical sequence",rejected
+EVID_REINO_UNIDO_Q07_UK_001_P0002_003,reino-unido,Q07,"use technology safely and respectfully, keeping personal information private; identify where to go for help and support when they have concerns about content or contact on the internet or other online technologies.","Computing – key stages 1 and 2 
+2 
+Subject content 
+Key stage 1 
+Pupils should be taught to: 
+ understand what algorithms are; how they are implemented as programs on digital 
+devices; and that programs execute by following precise and unambiguous instructions 
+ create and debug simple programs 
+ use logical reasoning to predict the behaviour of simple programs 
+ use technology purposefully to create, organise, store, manipulate and retrieve digital 
+content 
+ recognise common uses of information technology beyond school 
+ use technology safely and respectfully, keeping personal information private; identify 
+where to go for help and support when they have concerns about content or contact on 
+the internet or other online technologies. 
+Key stage 2 
+Pupils should be taught to: 
+ design, write and debug programs that accomplish specific goals, including controlling 
+or simulating physical systems; solve problems by decomposing them into smaller 
+parts 
+ use sequence, selection, and repetition in programs; work with variables and various 
+forms of input and output 
+ use logical reasoning to explain how some simple algorithms work and to detect and 
+correct errors in algorithms and programs 
+ understand computer networks including the internet; how they can provide multiple 
+services, such as the world wide web; and the opportunities they offer for 
+communication and collaboration 
+ use search technologies effectively, appreciate how results are selected and ranked, 
+and be discerning in evaluating digital content 
+ select, use and combine a variety of software (including internet services) on a range of 
+digital devices to design and create a range of programs, systems and content that 
+accomplish given goals, including collecting, analysing, evaluating and presenting data 
+and information 
+ use technology safely, respectfully and responsibly; recognise 
+acceptable/unacceptable behaviour; identify a range of ways to report concerns about 
+content and contact.
+© Crown copyright 2013 
+Reference: DFE-00171-2013",validated
+EVID_REINO_UNIDO_Q12_UK_002_P0001_001,reino-unido,Q12,"A high-quality computing education equips pupils to use computational thinking and creativity to understand and change the world. Computing has deep links with mathematics, science, and design and technology, and provides insights into both natural and artificial systems.","Published: September 2013 
+ 
+Computing programmes of study: 
+key stages 3 and 4 
+National curriculum in England 
+Purpose of study 
+A high-quality computing education equips pupils to use computational thinking and 
+creativity to understand and change the world. Computing has deep links with 
+mathematics, science, and design and technology, and provides insights into both natural 
+and artificial systems. The core of computing is computer science, in which pupils are 
+taught the principles of information and computation, how digital systems work, and how to 
+put this knowledge to use through programming. Building on this knowledge and 
+understanding, pupils are equipped to use information technology to create programs, 
+systems and a range of content. Computing also ensures that pupils become digitally 
+literate – able to use, and express themselves and develop their ideas through, information 
+and communication technology – at a level suitable for the future workplace and as active 
+participants in a digital world. 
+Aims 
+The national curriculum for computing aims to ensure that all pupils: 
+ can understand and apply the fundamental principles and concepts of computer 
+science, including abstraction, logic, algorithms and data representation 
+ can analyse problems in computational terms, and have repeated practical experience 
+of writing computer programs in order to solve such problems 
+ can evaluate and apply information technology, including new or unfamiliar 
+technologies, analytically to solve problems 
+ are responsible, competent, confident and creative users of information and 
+communication technology. 
+Attainment targets 
+By the end of each key stage, pupils are expected to know, apply and understand the 
+matters, skills and processes specified in the relevant programme of study. 
+Schools are not required by law to teach the example content in [square brackets].",rejected
+EVID_SINGAPURA_Q09_SG_012_P0007_001,singapura,Q09,The dimension of Computer as a Tool looks mainly at the utilitarian aspect of computing and ICT.,"7 
+ 
+Computer as a Tool 
+The dimension of Computer as a Tool looks mainly at the utilitarian aspect of computing and 
+ICT.  At the heart of it are the use of the computer and the use of computer applications. Use 
+of computer exposes students to the hardware, the technology and related devices and 
+peripherals that open up ways for work, play and living.  
+ 
+Use of computer applications focuses on the mastery of productivity, communications and 
+creative tools to complete tasks for specific purposes. Common examples include word 
+processing, spreadsheets, graphics, emails, animation, and web design. 
+ 
+Computer in Society 
+ 
+This dimension focuses mainly on the ethical, legal and security issues relating to the use of 
+computers and ICT in society. Issues commonly associated with this dimension include 
+internet security, intellectual property, computer addiction, and data privacy. 
+ 
+The inclusion of the 21st Century Competencies component reflects the impact of technology 
+on the kind of skills needed at the workplace of the future.  21st Century Competencies 
+relevant to the ICT area include the ability to work collaboratively, produce creative work and 
+be self-directed in learning. 
+ 
+Big Ideas in Computing 
+ 
+The US College Board and the National Science Foundation (2010)3 focused on practices of 
+computational thinking for high school CS curricula based on seven ‘big ideas’ of Computing. 
+The ‘big ideas’ are: 
+(a) 
+Computing is a creative human activity. 
+(b) 
+Abstraction reduces information and detail to focus on concepts relevant to 
+understanding and solving problems. 
+(c) 
+Data and information facilitates the creation of knowledge. 
+(d) 
+Algorithms are tools for developing and expressing solutions to computational 
+problems. 
+(e) 
+Programming is a creative process that produces computational artefacts. 
+(f) 
+Digital devices, systems, and the networks that interconnect them enable and 
+foster computational approaches to solving problems. 
+(g) 
+Computing enables innovation in other fields, including science, social science, 
+humanities, arts, medicine, engineering, and business. 
+ 
+In addition, Stanford University’s4 undergraduate program on ‘Ways of Thinking/Ways of 
+Doing’ describes formal reasoning as a way of thinking that involves rigorous deductive 
+(logical and analytical) thinking. This way of thinking underpins decision making and analysis 
+skills that are applied in many fields, including Computing. 
+ 
+                                                     
+3 AP Computer Science: Principles – Big Ideas, Key Concepts and Supporting Concepts (2010, The College Board and National Science 
+Foundation). 
+4 The study of undergraduate program at Stanford: Ways of Thinking/Ways of Doing, a capacity-based approach to fostering breadth in 
+General Education Electives.",reformulated
+EVID_SUICA_Q11_CH_002_P0004_003,suica,Q11,Identificare e scegliere Decifrare semplici contributi in diversi linguaggi mediali.,"4 
+ 
+ 
+ 
+Primo ciclo 
+Secondo ciclo 
+Terzo ciclo 
+Interpretazione 
+Identificare e 
+scegliere 
+Decifrare semplici contributi in diversi linguaggi mediali 
+(testo, immagine, simbolo, audio, film, …). 
+ 
+Riflettere sull'utilizzo e sulle differenze dei diversi linguaggi 
+mediali (testo, immagine simbolo, audio, film , …). 
+Distinguere le principali funzioni dei media (informazione, 
+formazione, intrattenimento, comunicazione).  
+Riconoscere che un dispositivo può eseguire solo istruzioni 
+predefinite. 
+Riconoscere l’influenza che possono avere i media e i loro 
+contenuti su pensiero e comportamento delle persone.  
+Riconoscere gli elementi base del linguaggio fotografico, 
+cinematografico, televisivo nonché le loro funzioni.  
+Leggere in modo critico le intenzioni dei principali messaggi mediali 
+(per esempio pubblicità, giornale, televisione, …). 
+Scegliere fra i mezzi a disposizione quelli appropriati e attuali, per 
+realizzare il prodotto desiderato. 
+Riconoscere 
+Riconoscere istruzioni formali come ricette, istruzioni di 
+gioco o di costruzioni, coreografie di ballo, eccetera. 
+Discutere delle proprie esperienze in ambienti reali e 
+virtuali e raccontare del proprio utilizzo dei media. 
+Riconoscere le possibili conseguenze delle azioni compiute 
+attraverso i media.  
+Confrontarsi con le principali regole legate alla protezione 
+dei dati e dei diritti d'autore (per esempio dati sulla persona, 
+password, nickname) nell’ambito dei propri lavori mediali. 
+Riconoscere opportunità e rischi nell'uso dei media e tenerne 
+conto nel proprio comportamento.  
+Riconoscere intrecci e interazioni fra il mondo reale e mediale. 
+Azione 
+Organizzare e 
+utilizzare 
+Organizzare oggetti in base a una proprietà scelta in 
+modo da trovarli più velocemente (forma, dimensione, 
+colore, ...). 
+Elaborare una successione di semplici istruzioni per 
+risolvere un problema. 
+Saper avviare e spegnere dispositivi, aprire e chiudere 
+programmi, utilizzare semplici funzioni del sistema 
+operativo. 
+Cercare informazioni su fonti analogiche (es.: libri) e 
+fonti digitali destinati ai bambini. 
+Elaborare una successione di istruzioni per risolvere un 
+problema. 
+Scrivere semplici testi con la tastiera. 
+Accedere con il proprio nome utente a una rete locale o a un 
+ambiente di apprendimento.  Depositare e ritrovare in modo 
+autonomo i propri documenti sia in locale sia in rete. 
+Distinguere tra sistema operativo e applicazioni. 
+Cercare informazioni su un tema specifico utilizzando i 
+media proposti, seguendo percorsi guidati. 
+Formulare e proporre soluzioni a problemi con la produzione di 
+programmi eseguibili da computer in modo corretto, utilizzando 
+variabili e sottoprogrammi. 
+Usare i diversi spazi di archiviazione (sia locali sia in rete), salvare in 
+modo strutturato i propri dati, effettuare backup regolari per la 
+protezione dei propri materiali digitali. 
+Proteggere in modo adeguato i dati privati (scegliendo ad esempio 
+password sicure). 
+Ricercare con i mezzi appropriati informazioni e dati in modo critico 
+e utilizzarli nel proprio processo di apprendimento. 
+Progettare e 
+produrre 
+Produrre in digitale semplici informazioni e contenuti 
+(audio, testo, immagini, …). 
+Progettare e produrre artefatti digitali e contenuti mediali 
+individuali o collaborativi utilizzando in maniera opportuna e 
+sicura le risorse a disposizione. 
+Creare contenuti mediali utilizzando correttamente materiali propri 
+e di terzi, considerando le regole di sicurezza e di comportamento 
+nonché il quadro giuridico. 
+Condividere la propria produzione e lavorare in un ambiente 
+collaborativo per produrre propri artefatti digitali 
+(programmazioni, oggetti in 3D, …). 
+Autoregolazione 
+Valutare e 
+giudicare 
+Esplicitare le emozioni che possono suscitare i media. 
+Sperimentare i media in modo giocoso e creativo. 
+Riflettere sulle proprie esperienze in ambienti reali e 
+virtuali.  
+Trovare errori nei propri prodotti digitali o nelle 
+strategie utilizzate per risolvere un problema.  
+Riflettere sui diversi tipi di esperienze con e senza i media e 
+argomentare il proprio utilizzo dei media.  Confrontarsi con 
+regole e valori nei diversi ambienti. 
+Ponderare i possibili effetti dei propri contenuti mediali. 
+Trovare errori nei propri prodotti digitali o nelle strategie 
+utilizzate per risolvere un problema. 
+Riflettere criticamente sulle conseguenze della crescente centralità 
+dei media e delle tecnologie nella società, anche in ambiti culturali, 
+politici ed economici. 
+Trovare errori nei propri prodotti digitali o nelle strategie utilizzate 
+per risolvere un problema. 
+Progressione di competenza",reformulated
+EVID_TAIWAN_Q02_TW_CUR_003_P0011_002,taiwan,Q02,以通訊和電子郵件的方式與他人進行溝通。,"9 
+類別／項目 
+學習內容 
+可融入的學習內容之舉例 
+文本表述_
+說明文本 
+◎Bc-Ⅱ-3 
+數據、圖表、圖片、工具
+列等輔助說明。 
+資議T-Ⅱ-1 
+資料處理軟體的基本
+操作。 
+◎Bc-Ⅲ-3 數據、圖表、圖片、工具
+列等輔助說明。 
+資議T-Ⅱ-3 
+數位學習網站與資源
+的體驗。 
+文本表述_
+應用文本 
+Be-Ⅲ-2 
+在人際溝通方面，以通
+知、電子郵件便條等慣
+用語彙及書寫格式為
+主。 
+資議T-Ⅲ-1 資料處理軟體的應
+用。 
+資議T-Ⅲ-2 網路服務工具的應
+用。 
+Be-Ⅲ-3 
+在學習應用方面，以簡
+報、讀書報告、演講稿等
+格式與寫作方法為主。 
+資議T-Ⅲ-3 數位學習網站與資源
+的使用。 
+ 
+ 
+文化內涵_
+物質文化 
+Ca-Ⅲ-2  各類文本中表現科技演
+進、環境發展的文化內
+涵。 
+資議H-Ⅲ-1 健康數位習慣的實
+踐。 
+資議H-Ⅲ-3 資訊安全與生活的關
+係。 
+科議S-Ⅲ-1 科技的發明與創新。 
+二、語文領域－本土語文（客家語文） 
+（一）學習表現 
+類別／項目 
+學習表現 
+可融入的學習表現之舉例 
+聆聽 
+1-Ⅱ-3 
+能學會運用視聽媒材練
+習客家語文的聽力。
+。 
+資議t-Ⅱ-2 
+體會資訊科技解決問
+題的過程。 
+1-Ⅲ-3 
+能運用資訊科技聽懂客
+家語文。 
+資議p-Ⅱ-1 
+認識以資訊科技溝通
+的方法。 
+資議p-Ⅱ-3 
+舉例說明以資訊科技
+分享資源的方法。 
+資議p-Ⅲ-2 使用數位資源的整理
+方法。 
+資議p-Ⅲ-3 運用資訊科技分享學
+習資源與心得。 
+（二）學習內容 
+類別／項目 
+學習表現 
+可融入的學習表現之舉例 
+語言/文學_
+字詞 
+Ab-Ⅲ-3 
+客家詞語簡易工具書及
+資訊媒體。 
+資議T-Ⅲ-2 網路服務工具的應
+用。數位學習網站與
+資源的使用。 
+資議T-Ⅲ-3 數位學習網站與資源
+的使用。",rejected
+EVID_TAIWAN_Q05_TW_CUR_002_P0029_001,taiwan,Q05,能整合資訊科技與他人合作完成專題製作。,"25 
+科技領域學習重點 
+科技領域核心素養 
+學習表現 
+學習內容 
+運c-V-2 
+ 
+運c-V-3 
+ 
+ 
+運p-V-1 
+能認識專案管理的
+概念。 
+能整合適當的資訊
+科技與他人合作完
+成專題製作。 
+能整合資訊科技進
+行有效的溝通表達。 
+進行溝通協調，合
+作完成科技專題製
+作。 
+運a-IV-2 
+ 
+ 
+ 
+設a-IV-3 
+ 
+ 
+設a-IV-4 
+能了解資訊科技相
+關之法律、倫理及社
+會議題，以保護自己
+與尊重他人。 
+能主動關注人與科
+技、社會、環境的關
+係。 
+能針對科技議題養
+成社會責任感與公
+民意識。 
+資H-IV-4 
+ 
+資H-IV-5 
+資H-IV-6 
+ 
+生S-IV-2 
+ 
+生S-IV-3 
+媒體與資訊科技相關
+社會議題。 
+資訊倫理與法律。 
+資訊科技對人類生活
+之影響。 
+科技對社會與環境的
+影響。 
+科技議題的探究。 
+科-J-C3 
+利用科技工具理解
+國內及全球科技發
+展現況或其他本土
+與國際事務。 
+運a-V-2 
+ 
+ 
+設a-V-2 
+ 
+ 
+ 
+※設a-V-3 
+能使用多元的觀點
+思辨資訊科技相關
+議題。 
+能從關懷自然生態
+與社會人文的角度，
+思考科技的選用及
+永續發展議題。 
+能不受性別限制主
+動關注並參與生活
+中的科技議題。 
+資H-V-3 
+ 
+生S-V-1 
+資訊科技對人與社會
+的影響與衝擊。 
+工程科技議題的探
+究。 
+科S-U-C3 
+善用科技工具，主
+動關懷科技未來發
+展趨勢，反思科技
+在多元文化與國際
+理解的角色。",validated
+EVID_TAIWAN_Q08_TW_CUR_004_P0033_002,taiwan,Q08,科技與社會的互動省思，能不受性別限制主動關注並參與生活中的科技議題。,"29 
+議題 
+學習主題 
+實質內涵 
+融入課程綱要學習重點之示例 
+氣候變遷 
+環U6 探究國際與國內對氣候
+變遷的應對措施，了解因
+應氣候變遷的國際公約
+的精神。 
+設a-V-3 
+ 
+ 
+生S-V-1 
+能不受性別限制主動
+關注並參與生活中的
+科技議題。 
+科技與社會互動的省
+思。 
+環U7 收集並分析在地能源的
+消耗與排碳的趨勢，思考
+因地制宜的解決方案，參
+與集體的行動。 
+設a-V-2 
+ 
+ 
+ 
+ 
+設a-V-3 
+ 
+ 
+生S-V-1 
+ 
+生N-V-2 
+能從關懷自然生態與
+社會人文的角度，思
+考科技的選用、關注
+科技倫理及永續發展
+議題。 
+能不受性別限制主動
+關注並參與生活中的
+科技議題。 
+科技與社會互動的省
+思。 
+工程、科技、科學、藝
+術與數學的統整與應
+用。 
+災害防救 
+環U10 執行災害防救的演練。 
+設c-V-3 
+ 
+生P-V-1 
+能具備溝通協調、組
+織工作團隊的能力。 
+工程設計與實作。 
+環U11 運用繪圖科技與災害資
+料調查，繪製防災地圖。 
+運c-V-2 
+ 
+ 
+運p-V-1 
+ 
+資D-V-2 
+ 
+資H-V-3 
+能選用適當的資訊科
+技與他人合作完成專
+題製作。 
+能整合資訊科技進行
+有效的溝通表達。 
+資料分析之基本概念
+與方法。 
+資訊科技對人與社會
+的影響與衝擊。 
+能源資源永
+續利用 
+環U13 了解環境成本、汙染者付
+費、綠色設計及清潔生產
+機制。 
+設k-V-3 
+ 
+ 
+設a-V-2 
+ 
+ 
+ 
+ 
+生S-V-1 
+ 
+生N-V-2 
+能分析、思辨與批判
+人與科技、社會、環境
+之間的關係。 
+能從關懷自然生態與
+社會人文的角度，思
+考科技的選用、關注
+科技倫理及永續發展
+議題。 
+科技與社會互動的省
+思。 
+工程、科技、科學、藝
+術與數學的統整與應
+用。 
+環U14 了解國際及我國對能源
+利用之相關法律制定與
+設k-V-1 
+ 
+能了解工程與工程設
+計的基本知識。",validated
+EVID_URUGUAI_Q03_UY_003_P0010_002,uruguai,Q03,"Se expresa en entornos digitales de manera respetuosa, empática y clara.","10
+CE2. Planifica, 
+evalúa, crea y 
+adapta soluciones 
+tecnológicas 
+con software o 
+hardware, de 
+forma individual o 
+grupal, con el fin de 
+resolver problemas 
+considerando 
+el impacto en la 
+comunidad y el 
+ambiente.
+Procesador de textos y 
+presentadores gráficos.
+Herramientas digitales para la 
+producción de contenidos en 
+distintos formatos.
+Software de gestión de 
+proyectos digitales.
+Planillas electrónicas.
+Programación de aplicaciones 
+sencillas integradas a 
+herramientas de ofimática o 
+servicios de software.
+Analiza y reflexiona sobre la 
+pertinencia e importancia 
+de presentar la información 
+usando distintos software y 
+formatos atendiendo a las 
+características de los usuarios.
+Construye documentos de 
+texto que incorporan una 
+estructura organizada y efectiva 
+(índices, tablas, secciones, etc.) 
+para presentar de forma clara 
+ideas o experiencias.
+Utiliza hojas de cálculo 
+electrónicas, de forma 
+individual o en equipo, de 
+manera efectiva para resolver 
+problemas, aplicando 
+funciones matemáticas, de 
+búsqueda, estadísticas simples 
+y funciones personalizadas 
+de acuerdo a las necesidades 
+específicas de la situación.
+Construye gráficas, tablas de 
+resúmenes, tablas dinámicas y 
+utiliza formatos condicionales 
+para representar datos y 
+situaciones de forma grupal o 
+individual.
+Realiza producciones creativas, 
+individual o grupalmente, 
+haciendo uso de recursos 
+digitales y tecnológicos 
+multimediales para comunicar 
+o potenciar proyectos.
+Utiliza herramientas de gestión 
+de proyectos como parte del 
+proceso de planificación de las 
+soluciones.",reformulated
+EVID_URUGUAI_Q08_UY_002_P0023_002,uruguai,Q08,Niños con necesidades especiales deben recibir las mismas o mejores oportunidades de acceso a información y conocimiento que los demás.,"25
+motivation of teachers, students and 
+parents, who form a triangle of key 
+beneficiaries of the programme. 
+Children with special needs should 
+receive the same or better 
+opportunities to access information and 
+knowledge than others. In the context 
+of Plan CEIBAL, it has been possible to 
+strengthen digital literacy and include a 
+blog on the work of students in 
+workshops, with the purpose of making 
+social interaction and labour 
+competencies more flexible. For 
+students with hearing disabilities, Plan 
+CEIBAL fosters social and family 
+participation in aspects of bilingualism. 
+A digital dictionary of Uruguayan sign 
+language which includes videotapes 
+from all the regions in Uruguay 
+encourages the acquisition of reading 
+and writing skills. In order to improve 
+these students’ capacity to write, chat 
+sessions are recommended in special 
+schools, as well as electronic games. 
+The picture dictionary which helps to 
+explain unknown concepts has been 
+another hit. Schools for students with 
+motor disabilities show to what extent 
+Plan CEIBAL laptops motivate children, 
+help them increase their self-esteem 
+and understand their own difficulties 
+better, as well as reduce hyperactivity 
+and inattention.
+ 
+Martín Pérez Burger refers to the 
+evaluation dimension with regard to 
+the educational and social impact of 
+Plan CEIBAL. Very often, this impact is 
+measured through the reduction of the 
+digital divide which indicates the social, 
+economic and cultural distance existing 
+between those who have and those 
+who lack access to ICT, its appropriate 
+use to communicate and to seek and 
+produce information. In this context, 
+the change in the daily lives of students 
+both inside and outside the school 
+environment brought about by the use 
+of ICTs represents a key indicator for 
+25",validated
+EVID_URUGUAI_Q08_UY_001_P0057_003,uruguai,Q08,"El acceso a la tecnología como su apropiación, es decir, su uso con sentido. En buena medida, ello termina significando una gran diferencia en el modo en que se desarrollan los diversos colectivos sociales y, por supuesto, no se puede perder de vista que la disponibilidad de contenidos y servicios digitales puede actuar inhibiendo o favoreciendo dicho desarrollo.","56
+En el camino del Plan CEIBAL
+procesos de globalización asociados 
+a ellas, es lo que se ha dado en llamar 
+integración curricular.
+Sin embargo, muchos de estos autores 
+sostienen que la brecha digital no 
+es más que otra de las formas que 
+asume la brecha social, cada vez con 
+mayor frecuencia cobran relevancia 
+tanto el acceso a la tecnología como 
+su apropiación, es decir, su uso con 
+sentido. En buena medida, ello termina 
+signiﬁ cando una gran diferencia en el 
+modo en que se desarrollan los diversos 
+colectivos sociales y, por supuesto, 
+no se puede perder de vista que la 
+disponibilidad de contenidos y servicios 
+digitales puede actuar inhibiendo o 
+favoreciendo dicho desarrollo.
+En este contexto corresponde 
+preguntarnos cómo reaccionan los 
+sistemas educativos y la sociedad toda 
+ante estos fenómenos, y cuál es el 
+papel que deben desempeñar de cara 
+a acortar la brecha digital y, por qué no, 
+también la social.
+En respuesta a ello, el Estado uruguayo 
+decidió implementar una estrategia de 
+promoción del uso asertivo de las TIC, 
+apostando a la equidad. Dicha estrategia 
+incluía una iniciativa francamente 
+revolucionaria que se dio en llamar, hace 
+poco más de dos años, Plan CEIBAL. 
+Desafío para la Educación
+En este marco histórico, la Educación se 
+ve enfrentada a un sinfín de desafíos, 
+entre los que se encuentra el de integrar 
+las TIC con el propósito de promover, 
+en los estudiantes, el desarrollo de las 
+capacidades necesarias para adquirir los 
+conocimientos y destrezas que les serán 
+útiles en el siglo XXI.  
+Hasta ahora, la presencialidad se 
+ha mostrado como el dispositivo 
+pedagógico por excelencia a la hora 
+de alcanzar la escolarización de la 
+totalidad de la población; las diversas 
+demandas que la sociedad actual le",validated
+EVID_URUGUAI_Q13_UY_003_P0010_001,uruguai,Q13,"CE2. Planifica, evalúa, crea y adapta soluciones tecnológicas con software o hardware, de forma individual o grupal, con el fin de resolver problemas considerando el impacto en la comunidad y el ambiente.","10
+CE2. Planifica, 
+evalúa, crea y 
+adapta soluciones 
+tecnológicas 
+con software o 
+hardware, de 
+forma individual o 
+grupal, con el fin de 
+resolver problemas 
+considerando 
+el impacto en la 
+comunidad y el 
+ambiente.
+Procesador de textos y 
+presentadores gráficos.
+Herramientas digitales para la 
+producción de contenidos en 
+distintos formatos.
+Software de gestión de 
+proyectos digitales.
+Planillas electrónicas.
+Programación de aplicaciones 
+sencillas integradas a 
+herramientas de ofimática o 
+servicios de software.
+Analiza y reflexiona sobre la 
+pertinencia e importancia 
+de presentar la información 
+usando distintos software y 
+formatos atendiendo a las 
+características de los usuarios.
+Construye documentos de 
+texto que incorporan una 
+estructura organizada y efectiva 
+(índices, tablas, secciones, etc.) 
+para presentar de forma clara 
+ideas o experiencias.
+Utiliza hojas de cálculo 
+electrónicas, de forma 
+individual o en equipo, de 
+manera efectiva para resolver 
+problemas, aplicando 
+funciones matemáticas, de 
+búsqueda, estadísticas simples 
+y funciones personalizadas 
+de acuerdo a las necesidades 
+específicas de la situación.
+Construye gráficas, tablas de 
+resúmenes, tablas dinámicas y 
+utiliza formatos condicionales 
+para representar datos y 
+situaciones de forma grupal o 
+individual.
+Realiza producciones creativas, 
+individual o grupalmente, 
+haciendo uso de recursos 
+digitales y tecnológicos 
+multimediales para comunicar 
+o potenciar proyectos.
+Utiliza herramientas de gestión 
+de proyectos como parte del 
+proceso de planificación de las 
+soluciones.",validated
+EVID_URUGUAI_Q13_UY_003_P0010_003,uruguai,Q13,"CE3. Incorpora y utiliza el desarrollo incremental en la construcción de soluciones asociadas a las tecnologías digitales de forma individual y colaborativamente, para la resolución de problemas.","10
+CE2. Planifica, 
+evalúa, crea y 
+adapta soluciones 
+tecnológicas 
+con software o 
+hardware, de 
+forma individual o 
+grupal, con el fin de 
+resolver problemas 
+considerando 
+el impacto en la 
+comunidad y el 
+ambiente.
+Procesador de textos y 
+presentadores gráficos.
+Herramientas digitales para la 
+producción de contenidos en 
+distintos formatos.
+Software de gestión de 
+proyectos digitales.
+Planillas electrónicas.
+Programación de aplicaciones 
+sencillas integradas a 
+herramientas de ofimática o 
+servicios de software.
+Analiza y reflexiona sobre la 
+pertinencia e importancia 
+de presentar la información 
+usando distintos software y 
+formatos atendiendo a las 
+características de los usuarios.
+Construye documentos de 
+texto que incorporan una 
+estructura organizada y efectiva 
+(índices, tablas, secciones, etc.) 
+para presentar de forma clara 
+ideas o experiencias.
+Utiliza hojas de cálculo 
+electrónicas, de forma 
+individual o en equipo, de 
+manera efectiva para resolver 
+problemas, aplicando 
+funciones matemáticas, de 
+búsqueda, estadísticas simples 
+y funciones personalizadas 
+de acuerdo a las necesidades 
+específicas de la situación.
+Construye gráficas, tablas de 
+resúmenes, tablas dinámicas y 
+utiliza formatos condicionales 
+para representar datos y 
+situaciones de forma grupal o 
+individual.
+Realiza producciones creativas, 
+individual o grupalmente, 
+haciendo uso de recursos 
+digitales y tecnológicos 
+multimediales para comunicar 
+o potenciar proyectos.
+Utiliza herramientas de gestión 
+de proyectos como parte del 
+proceso de planificación de las 
+soluciones.",reformulated
