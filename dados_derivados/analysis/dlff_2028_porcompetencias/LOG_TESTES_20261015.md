@@ -85,6 +85,8 @@ Os artefatos permanecem em `run_20261015_1033_english_validated/proximidade_pais
 
 O mapa de calor final, por apresentar diretamente percentuais de cobertura documental sem projeção de distâncias, está em `run_20261015_1033_english_validated/results/country_competence_heatmap.png`.
 
+O fluxograma foi atualizado para representar corretamente a rodada final: `source_text` é preservado para proveniência e `english_text` é usado como campo analítico pelo codebook em inglês.
+
 ## Observação metodológica
 
 As ocorrências produzidas são indicadores lexicais de busca. Não constituem validação semântica ou comprovação de que um currículo desenvolve determinada competência.

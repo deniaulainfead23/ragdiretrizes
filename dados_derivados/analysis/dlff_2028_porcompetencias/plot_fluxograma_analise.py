@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Create a visual flowchart of the exploratory DLGF analysis."""
+"""Create a visual flowchart of the final DLGF analysis."""
 from __future__ import annotations
 
 from pathlib import Path
@@ -57,7 +57,7 @@ def create_flowchart(output: Path) -> None:
     axis.text(
         5,
         19.45,
-        "Fluxograma da análise exploratória DLGF 2018",
+        "Fluxograma da análise final DLGF 2018",
         ha="center",
         va="center",
         fontsize=18,
@@ -76,7 +76,7 @@ def create_flowchart(output: Path) -> None:
 
     boxes = [
         (1.0, 17.65, 8.0, 0.85, "1. Entrada\nconteudos.jsonl\n8.099 registros de páginas", "#D9EAF7"),
-        (1.0, 16.25, 8.0, 0.85, "2. Seleção da base\nUsar explicitamente o campo source_text", "#D9EAF7"),
+        (1.0, 16.25, 8.0, 0.85, "2. Preparação linguística\nPreservar source_text e usar english_text validado\ncomo campo analítico", "#D9EAF7"),
         (1.0, 14.85, 8.0, 0.85, "3. Filtragem\nExcluir referências internacionais e registros não nacionais\n1.297 registros excluídos", "#FDECC8"),
         (1.0, 13.45, 8.0, 0.85, "4. Reunião das páginas\nAgrupar por country + document_id\n79 documentos em 22 países", "#D9EAD3"),
         (1.0, 12.05, 8.0, 0.85, "5. Codebook DLGF 2018\n26 competências específicas organizadas em CA0–CA6", "#E8DFF5"),
@@ -140,7 +140,7 @@ def create_flowchart(output: Path) -> None:
         0.55,
         8.0,
         1.05,
-        "Atenção metodológica da rodada\nO codebook está em inglês e foi aplicado a source_text.\nDocumentos em outros idiomas exigem tradução validada ou codebook específico.",
+        "Atenção metodológica da rodada\nO codebook em inglês foi aplicado a english_text.\nsource_text permanece preservado para auditoria e proveniência.",
         "#F8D7DA",
     )
     add_arrow(axis, (5, 2.25), (5, 1.6))
@@ -148,7 +148,7 @@ def create_flowchart(output: Path) -> None:
     figure.text(
         0.5,
         0.025,
-        "Rodada: run_20261015_0948 | Fonte: dados_intermediarios/data/conteudos.jsonl",
+        "Rodada: run_20261015_1033_english_validated | Fonte: dados_intermediarios/data/conteudos.jsonl",
         fontsize=8,
         color="#52606D",
     )

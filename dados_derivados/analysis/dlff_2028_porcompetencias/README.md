@@ -50,6 +50,8 @@ Cada gráfico apresenta a cobertura documental de cada uma das 26 competências 
 
 O mapa de calor [country_competence_heatmap.png](./run_20261015_1033_english_validated/results/country_competence_heatmap.png) apresenta diretamente a mesma matriz país × competência, com escala fixa de 0 a 100% e o número de documentos de cada país. Ele é preferível a uma projeção t-SNE para a apresentação descritiva porque não cria eixos ou distâncias artificiais.
 
+O [fluxograma da análise](./fluxograma_analise_exploratoria_dlgf.png) representa a rodada final: `source_text` é preservado como texto de origem e `english_text` é o campo validado usado pelo codebook em inglês.
+
 O dataset bilíngue completo da rodada final não é publicado neste repositório
 porque contém todos os textos originais do corpus. Ele pode ser disponibilizado
 privadamente à banca ou a avaliadores autorizados, mediante solicitação e
