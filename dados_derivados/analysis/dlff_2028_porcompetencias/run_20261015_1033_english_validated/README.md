@@ -62,3 +62,12 @@ contêm textos derivados do corpus e não são necessários para interpretar os
 CSVs, gráficos e manifesto publicados nesta versão. A publicação também não
 inclui os artefatos de t-SNE, PCA, distâncias ou agrupamento, explicitamente
 excluídos da interpretação final.
+
+## Disponibilização privada para avaliação
+
+O dataset bilíngue completo pode ser disponibilizado de forma privada à banca
+ou a avaliadores autorizados, mediante solicitação e controle de acesso. O
+arquivo contém todos os textos originais do corpus (`source_text`), além dos
+textos em inglês (`english_text`), e por isso não foi publicado no repositório
+público. A disponibilização privada deve preservar as condições de acesso e os
+direitos aplicáveis às fontes originais.

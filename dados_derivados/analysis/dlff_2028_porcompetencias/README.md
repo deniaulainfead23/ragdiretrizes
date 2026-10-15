@@ -50,6 +50,11 @@ Cada gráfico apresenta a cobertura documental de cada uma das 26 competências 
 
 O mapa de calor [country_competence_heatmap.png](./run_20261015_1033_english_validated/results/country_competence_heatmap.png) apresenta diretamente a mesma matriz país × competência, com escala fixa de 0 a 100% e o número de documentos de cada país. Ele é preferível a uma projeção t-SNE para a apresentação descritiva porque não cria eixos ou distâncias artificiais.
 
+O dataset bilíngue completo da rodada final não é publicado neste repositório
+porque contém todos os textos originais do corpus. Ele pode ser disponibilizado
+privadamente à banca ou a avaliadores autorizados, mediante solicitação e
+controle de acesso.
+
 ## Análise de proximidade — não utilizada
 
 Foi gerada uma versão técnica de t-SNE, PCA, distâncias e agrupamento hierárquico na pasta `proximidade_paises/`, mas ela está **explicitamente excluída dos resultados e das interpretações da pesquisa**. A disposição dos pontos depende de padronização, métrica, perplexidade, semente e outros parâmetros, podendo fazer distâncias globais parecerem significativas.
