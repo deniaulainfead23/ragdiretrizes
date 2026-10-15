@@ -20,7 +20,7 @@ A entrada é o arquivo `corpus/dataset_output/dataset_english.jsonl`. Cada regis
 São utilizadas duas unidades de análise:
 
 1. documento: permite identificar os termos mais relevantes de cada fonte;
-2. grupo: agrega os documentos de cada país e os seis documentos UNESCO para comparação internacional.
+2. grupo: agrega os documentos de cada país e os seis documentos UNESCO para comparação internacional. UNESCO e PISA/OCDE são grupos de referência, não países.
 
 A agregação por país não significa que todos os países tenham o mesmo número de documentos. Essa diferença deve ser registrada como limitação e considerada na interpretação dos resultados.
 
@@ -74,7 +74,7 @@ $$
 
 Valores próximos de 1 indicam maior proximidade lexical na representação utilizada. Valores próximos de 0 indicam vocabulários mais distintos. A medida não prova equivalência curricular nem relação causal; ela indica proximidade textual sob os parâmetros definidos.
 
-A UNESCO é mantida como grupo separado e pode ser comparada individualmente com cada país. O ranking de proximidade com UNESCO deve ser interpretado junto com os trechos recuperados pelo RAG e com a análise documental.
+A UNESCO é mantida como grupo de referência separado e pode ser comparada individualmente com cada país. Ela não entra na matriz de similaridade entre países. O ranking de proximidade com UNESCO deve ser interpretado junto com os trechos recuperados pelo RAG e com a análise documental.
 
 ## 6. Arquivos de saída
 
@@ -125,18 +125,9 @@ As conclusões devem distinguir:
 
 Somente a última dimensão permite afirmar algo sobre sentidos formativos, e ela depende da leitura crítica dos documentos.
 
-## 9. Relação com UNESCO e PISA
+## 9. Comparação pelo DLGF 2018
 
-A UNESCO funciona como linha de base normativa e formativa, especialmente para cidadania global, direitos humanos, inclusão, ética e responsabilidade social. O PISA/OCDE deve ser documentado como referencial internacional usado na seleção ou caracterização dos países e, quando seus dados forem cruzados com os resultados, deve ser tratado como contexto comparativo.
-
-O TF-IDF não deve ser apresentado como explicação do desempenho no PISA. A pesquisa pode observar relações e contrastes entre vocabulário curricular e indicadores internacionais, mas não deve afirmar causalidade sem desenho específico para esse propósito.
-
-O documento PISA 2022 presente em `corpus/pisa/` é tratado como grupo externo
-`PISA/OECD`. Ele contextualiza a seleção dos países e não deve ser agregado a um
-país nem usado como se fosse uma diretriz curricular. A comparação entre países
-com maior desempenho no PISA e maior proximidade da UNESCO pode ser apresentada
-como análise exploratória, desde que se declare que proximidade textual não prova
-que o desempenho decorra do currículo.
+O DLGF 2018 é a única matriz internacional usada para organizar evidências de competências digitais. O TF-IDF permanece exploratório: frequências e similaridades lexicais não provam correspondência curricular nem qualidade. A comparação final considera somente currículos e diretrizes oficiais nacionais incluídos e validados, com evidências conferidas por país, documento e página.
 
 ## 10. Limitações atuais
 
@@ -182,11 +173,84 @@ Esta etapa segue os princípios de Computação Aplicada às Humanidades Digitai
 
 Um ranking textual não deve ser apresentado como julgamento de qualidade curricular. Alta similaridade com a UNESCO não prova implementação efetiva; vocabulário diferente também não prova ausência de alinhamento.
 
-### Estado atual da execução
+## 13. Procedimento reproduzível para todos os países
 
-O corpus atual contém 91 documentos, incluindo seis documentos UNESCO e um
-documento PISA 2022. A tradução integral foi iniciada em blocos de 6.000
-caracteres e 92 blocos foram preservados no cache. Como a execução foi interrompida
-antes de concluir todos os documentos, o `dataset_english.jsonl` atual não deve ser
-usado para resultados finais. A execução deve ser retomada com o mesmo comando;
-os blocos já existentes no `translation_cache.json` serão reutilizados.
+Para comparar perfis lexicais de países com idiomas diferentes, a análise deve usar traduções para um idioma comum. O procedimento abaixo reutiliza a tradução em cache, valida a cobertura de todas as páginas antes do cálculo e ajusta o TF-IDF separadamente dentro de cada país. Os escores não são comparados numericamente entre países.
+
+Na raiz do projeto, com o ambiente virtual ativo e `OPENAI_API_KEY` disponível em `rag_project/.env` ou no ambiente, execute:
+
+```bash
+./.venv/Scripts/python -m rag_project.run_tfidf_all_countries \
+  --run-id todos_paises_exploratorio_20260927_01
+```
+
+No Linux/macOS, substitua o executável por `python`. O comando usa `dataset_original_pages.jsonl` como fonte, traduz as páginas com `gpt-4o-mini`, reutiliza `translation_cache.json` e não cria Vector Store nem índice FAISS. Se uma execução for interrompida, rode novamente com o mesmo `--run-id`: o arquivo inglês parcial é reconstruído desde a origem e as traduções concluídas são recuperadas da cache.
+
+Antes de calcular o TF-IDF, o comando exige que cada `content_id` da origem esteja representado por um ou mais segmentos ingleses, sem páginas ausentes, países divergentes ou segmentos sem status de tradução. Se a cobertura falhar, a execução para e registra estado parcial em `tfidf_run_manifest.json`; nenhum resultado é apresentado como completo.
+
+Cada execução cria uma nova pasta em `dados_intermediarios/analise_lexical/tfidf_all_countries_<timestamp>/`, contendo o dataset traduzido, relatório de tradução, manifesto da execução e subpasta `analysis/` com:
+
+- `country_profiles.csv`: um perfil/status por país e os principais termos;
+- `country_local_top_terms.csv`: pesos TF-IDF e documentos em que cada termo ocorre;
+- `country_local_frequency.csv`: frequências lexicais brutas, sem interpretação como competência;
+- `analysis_summary.json`: países, documentos, estados e limites do cálculo;
+- `top3_terms_by_country.png`: prancha com os três termos de cada país, em escalas independentes;
+- `countries/<país>_tfidf_top3.png`: um gráfico por país, inclusive painel informativo quando não há contraste IDF;
+- `tfidf_run_manifest.json`: hashes dos datasets/cache, cobertura por país, modelo, parâmetros, filtros, gráficos e caminhos dos artefatos.
+
+Uma cópia versionável da prancha e dos gráficos individuais é exportada para `assets/<nome-da-execução>/`. Os CSVs, datasets traduzidos e manifestos operacionais permanecem em `dados_intermediarios/` e `dados_derivados/`, que são saídas locais ignoradas pelo Git.
+
+O cálculo inclui os países presentes no dataset original e exige um perfil para cada um. Quando há apenas um documento, o vetor TF-IDF também é calculado e seus termos são exibidos, mas o perfil recebe `single_document_no_idf_contrast`: nesse caso, o IDF é 1 para todos os termos e o ranking é essencialmente uma frequência TF normalizada, sem contraste entre documentos. Traduções com japonês, chinês ou coreano passam pelo mesmo fluxo, pois o tokenizador recebe o texto traduzido para inglês; o texto original continua disponível no dataset-fonte e no campo `original_text` dos segmentos traduzidos.
+
+### Limpeza e filtros efetivamente aplicados
+
+Esta etapa **não remove cabeçalhos, rodapés, números de página ou elementos recorrentes do layout**. Se esses elementos estiverem no texto extraído, podem afetar frequência e pesos TF-IDF. O manifesto registra `header_footer_cleaning=false`; qualquer limpeza posterior deve ser feita em um campo derivado de análise, mantendo intacto o texto original para rastreabilidade.
+
+O tokenizador usa unigramas e bigramas, aceita sequências de pelo menos três caracteres (`token_pattern=\\b\\w{3,}\\b`), limita o vocabulário a 10.000 termos e remove as stopwords listadas em `rag_project/analyze_tfidf.py`. Neste procedimento intrapaís, `min_df=1` e `max_df=1.0`, portanto não há exclusão adicional por raridade ou por alta frequência documental. As stopwords são filtradas do cálculo, não apagadas dos textos de origem ou tradução.
+
+### Estado em 03/10/2026
+
+A execução multilíngue anterior usou 9.042 páginas originais de 22 países sem tradução comum; ela é exploratória e não deve ser tomada como TF-IDF comparável entre países. Em 03/10/2026, `run_tfidf_all_countries` traduziu as 9.042 páginas em 19.497 segmentos ingleses, verificou cobertura integral e gerou perfis para os 22 países. O Japão está incluído com 907 páginas. O resumo registrou 21 países em `within_country_only` e um país com um único documento (`single_document_no_idf_contrast`). A primeira tentativa parcial, com 507 segmentos só da África do Sul, foi substituída pela reconstrução completa a partir da origem e da cache.
+
+Na conferência dos termos japoneses, palavras funcionais inglesas ainda apareciam entre as mais relevantes. A lista de stopwords foi ampliada com `sklearn.feature_extraction.text.ENGLISH_STOP_WORDS` e os resultados finais foram regenerados em `tfidf_all_countries_20261003T161344Z`. No Japão, palavras como `that`, `will` e `should` deixaram de aparecer no top 20; termos como `students`, `learning`, `education`, `technology` e `data` permaneceram. Os Estados Unidos também aparecem com termos e status `single_document_no_idf_contrast`. A prancha geral e os 22 PNGs individuais foram exportados para `assets/tfidf_all_countries_20261003T161344Z/`. O manifesto registra a lista efetiva de stopwords e os hashes dos arquivos usados.
+
+### Execução exploratória em 27/09/2026
+
+O TF-IDF da rodada `todos_paises_exploratorio_20260927_01` foi calculado com
+`source_text` do dataset original em páginas, sem tradução para um idioma comum:
+
+```bash
+python -m rag_project.analyze_tfidf \
+  --input dados_intermediarios/pipeline_runs/todos_paises_exploratorio_20260927_01/datasets/dataset_original_pages.jsonl \
+  --text-field source_text \
+  --out dados_intermediarios/analise_lexical/todos_paises_exploratorio_20260927_01
+```
+
+A entrada continha 9.042 páginas de 93 documentos com texto nos 22 países; no
+manifesto da execução, 36 páginas estavam associadas a fontes `validated` e 9.006
+a fontes `pending_review`. Em 03/10/2026, a pesquisadora confirmou a validação
+humana dos 94 arquivos e o registro vigente foi reconciliado; os rótulos do
+manifesto permanecem como fotografia histórica daquela execução. As sete áreas
+do DLGF foram adicionadas separadamente como referência lexical, totalizando
+100 unidades documentais no cálculo. O JSONL não registra o idioma por página e
+preserva os idiomas originais. Portanto, os resultados são exploratórios: não
+devem ser interpretados como comparação lexical normalizada, ranking de países
+ou evidência de alinhamento curricular. Para comparação entre idiomas, use uma
+tradução consistente e registre o modelo, a cobertura e as falhas da tradução.
+
+## 14. TF-IDF somente em relação ao UNESCO DLGF 2018
+
+Para comparar os perfis nacionais somente com o referencial UNESCO, use o modo `--dlgf-only` sobre o dataset inglês completo:
+
+```bash
+./.venv/Scripts/python -m rag_project.analyze_tfidf \
+  --dlgf-only \
+  --input dados_intermediarios/pipeline_runs/todos_paises_exploratorio_20260927_01/datasets/dataset_english_pages_tfidf.jsonl \
+  --text-field english_text
+```
+
+O modo agrega documentos por país e compara o vetor médio de cada perfil com as sete áreas do `DLGF_2018`. Não calcula similaridade entre países nem inclui PISA ou outros frameworks. O vocabulário do TF-IDF é ajustado conjuntamente sobre os documentos nacionais em inglês e as sete representações das áreas. O CSV do DLGF do projeto contém termos em inglês e português; essa representação lexical bilíngue deve ser considerada na leitura dos valores.
+
+Cada execução gera uma pasta `tfidf_dlgf_only_<timestamp>/` com `country_dlgf_area_similarity.csv` (uma linha por país e área), `country_dlgf_area_similarity_matrix.csv`, `country_dlgf_area_similarity_heatmap.png` e `analysis_summary.json`. A figura é copiada para `assets/tfidf_dlgf_only_<timestamp>/`. O resumo registra hashes de entrada e framework, parâmetros, países incluídos e que nenhuma comparação país-país foi calculada.
+
+Os valores são similaridades lexicais exploratórias, não prova de adoção do DLGF, cobertura de competência ou alinhamento curricular. Não devem ser usados isoladamente como classificação ou ranking de países; cada correspondência exige leitura contextual e validação humana.

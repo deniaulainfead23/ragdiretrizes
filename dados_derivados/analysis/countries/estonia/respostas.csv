@@ -1,0 +1,55 @@
+question_id,question_text,country,response,evidence_ids,validation_status
+Q01,Como cada país define e organiza as competências de Computação e Educação Digital em seus documentos curriculares?,estonia,"```json
+{
+  ""question_id"": ""Q01"",
+  ""country"": ""estonia"",
+  ""response"": ""A Estônia organiza suas competências de Computação e Educação Digital em seus documentos curriculares através de um conjunto de habilidades que os alunos devem desenvolver, incluindo o uso de e-educação, proteção da identidade digital, criação e uso de conteúdos digitais, e compreensão dos princípios de segurança digital e ética. Estes tópicos são abordados de maneira integrada no currículo nacional. Os alunos aprendem sobre o funcionamento do estado digital da Estônia, como usar serviços e-estado e a importância da segurança na internet."",
+  ""evidence_ids"": [
+    {
+      ""document_id"": ""EU-EE-02__estonia_informatics_appendix_10_2023.pdf"",
+      ""document"": ""EU-EE-02__estonia_informatics_appendix_10_2023.pdf"",
+      ""page"": 1,
+      ""original_excerpt"": ""Eesti e-riik ja e-teenused. Isikutunnistuse kasutamine autentimisel ja digiallkirjastamisel. ... Turvalise ja eetilise internetikäitumise alused."",
+      ""classification"": ""Currículo"",
+      ""validation_status"": ""Validado""
+    },
+    {
+      ""document_id"": ""EU-EE-01__estonia_national_curriculum_basic_schools_2026.pdf"",
+      ""document"": ""EU-EE-01__estonia_national_curriculum_basic_schools_2026.pdf"",
+      ""page"": 2,
+      ""original_excerpt"": ""I kooliastme õppeteemad on 'Digiseade töövahendina', 'Digitaalne ohutus', 'Kood' ja 'Digikunst'."",
+      ""classification"": ""Currículo"",
+      ""validation_status"": ""Validado""
+    }
+  ],
+  ""evidence_classification"": ""Currículo"",
+  ""validation_status"": ""Validado""
+}
+```",,candidate
+Q06,"Quais evidências curriculares estão relacionadas à dimensão cognitiva da Educação para a Cidadania Global da UNESCO, especialmente pensamento crítico, compreensão de questões locais e globais, interdependência e resolução de problemas?",estonia,"```json
+{
+  ""question_id"": ""Q06"",
+  ""country"": ""estonia"",
+  ""response"": ""As evidências curriculares relacionadas à dimensão cognitiva da Educação para a Cidadania Global incluem o desenvolvimento de competências como pensamento crítico, a compreensão de questões locais e globais, a interdependência e a habilidade de resolver problemas. O currículo enfatiza a importância de formar cidadãos ativos e responsáveis, que se envolvem com a sociedade, respeitam a diversidade e utilizam o conhecimento para decisões informadas."",
+  ""evidence_ids"": [
+    {
+      ""document_id"": ""EU-EE-01__estonia_national_curriculum_basic_schools_2026.pdf"",
+      ""document"": ""EU-EE-01__estonia_national_curriculum_basic_schools_2026.pdf"",
+      ""page"": 2,
+      ""original_snippet"": ""on teadlik kodanik, kes on huvitatud oma kooli, kodukoha ja riigi demokraatlikust arengust."",
+      ""classification"": ""curricular"",
+      ""validation_status"": ""validated""
+    },
+    {
+      ""document_id"": ""EU-EE-01__estonia_national_curriculum_basic_schools_2026.pdf"",
+      ""document"": ""EU-EE-01__estonia_national_curriculum_basic_schools_2026.pdf"",
+      ""page"": 4,
+      ""original_snippet"": ""mõtleb süsteemselt, loovalt ja kriitiliselt, on avatud enesearendamisele."",
+      ""classification"": ""curricular"",
+      ""validation_status"": ""validated""
+    }
+  ],
+  ""evidence_classification"": ""curricular"",
+  ""validation_status"": ""validated""
+}
+```",,candidate

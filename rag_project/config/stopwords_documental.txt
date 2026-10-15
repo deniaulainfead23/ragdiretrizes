@@ -1,0 +1,23 @@
+# Stopwords documentais em português para reduzir ruído de linguagem institucional.
+# Lista mínima, versionada e rastreável.
+
+sobre
+todos
+documento
+currículo
+curriculo
+educação
+educacao
+país
+pais
+área
+area
+capítulo
+capitulo
+objetivo
+objetivos
+relação
+relações
+componente
+componentes
+

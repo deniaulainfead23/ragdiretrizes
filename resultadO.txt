@@ -1,0 +1,17 @@
+Corpus validado — 22
+paises
+
+Arquivo 1— fontes extraidas
+
+Perguntas executadas por
+pais
+
+Tabelas individuais por pais
+
+Validagao humana
+
+Arquivo 2 — perguntas e
+respostas
+
+Matriz agregada — uma
+coluna por pais

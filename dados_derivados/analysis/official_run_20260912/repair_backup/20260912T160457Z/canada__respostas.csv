@@ -1,0 +1,63 @@
+response_id,run_id,question_run_id,question_id,category_id,framework,country,question_text,response,evidence_ids,backend,question_version,prompt_version,run_date,validation_status,review_notes
+RESP_CANADA_Q01_20260912T141201Z,RUN_CANADA_20260912T141201Z,RUN_CANADA_20260912T141201Z_Q01,Q01,C01,COMPUTING_AND_DIGITAL_EDUCATION,canada,Como o país define e organiza as competências de Computação e Educação Digital em seus documentos curriculares?,"As competências de Computação e Educação Digital no Canadá são organizadas em documentos curriculares que abordam a resolução de problemas, a criatividade e a ética digital, refletindo uma mudança para uma aprendizagem mais prática e interativa.",EVID_CANADA_Q01_CA_001_P0002_001; EVID_CANADA_Q01_CA_001_P0002_002,openai,3.0,rag-country-v3.2,2026-09-12T14:12:01.973498+00:00,candidate,
+RESP_CANADA_Q02_20260912T141201Z,RUN_CANADA_20260912T141201Z,RUN_CANADA_20260912T141201Z_Q02,Q02,C02,COMPUTING_AND_DIGITAL_EDUCATION,canada,"Como o Pensamento Computacional é definido, desenvolvido ou incorporado ao currículo do país?","No currículo do Canadá, o Pensamento Computacional é definido e incorporado através de expectativas claras para que os alunos aprendam a resolver problemas que incluem codificação e algoritmos. Isso é uma atualização em relação ao currículo anterior, que não mencionava o pensamento computacional.",EVID_CANADA_Q02_CA_001_P0002_001,openai,3.0,rag-country-v3.2,2026-09-12T14:12:01.973498+00:00,candidate,
+RESP_CANADA_Q03_20260912T141201Z,RUN_CANADA_20260912T141201Z,RUN_CANADA_20260912T141201Z_Q03,Q03,C03,COMPUTING_AND_DIGITAL_EDUCATION,canada,"Como os documentos abordam cidadania digital, ética digital e letramento midiático?","{
+  ""question_id"": ""Q03"",
+  ""country"": ""canada"",
+  ""response"": ""Os documentos abordam cidadania digital, ética digital e letramento midiático dentro de um contexto centrado no usuário, enfatizando a inclusão e a transformação digital nas práticas governamentais. É resaltada a importância da participação dos cidadãos e da consideração das necessidades dos usuários na formulação de serviços e políticas públicas."",
+  ""evidences"": [
+    {
+      ""document_id"": ""CA_003"",
+      ""document_title"": ""CA_003__CA_003.md"",
+      ""page_start"": 12,
+      ""page_end"": 12,
+      ""chunk_id"": None,
+      ""source_language"": ""en"",
+      ""source_text"": ""A better digital service puts the person’s experience front and centre. A user-centred program also means that those who are not able to get online can also benefit from better offline services."",
+      ""translated_text_pt"": ""Um melhor serviço digital coloca a experiência da pessoa em primeiro plano. Um programa centrado no usuário também significa que aqueles que não conseguem acessar online também podem se beneficiar de melhores serviços offline."",
+      ""translation_status"": ""translated"",
+      ""semantic_score"": None,
+      ""evidence_classification"": ""support"",
+      ""validation_status"": ""candidate""
+    },
+    {
+      ""document_id"": ""CA_003"",
+      ""document_title"": ""CA_003__CA_003.md"",
+      ""page_start"": 11,
+      ""page_end"": 11,
+      ""chunk_id"": None,
+      ""source_language"": ""en"",
+      ""source_text"": ""By delivering. By being willing to try new approaches. By working out loud, and in the open, to share lessons learned and demonstrate change."",
+      ""translated_text_pt"": ""Entregando. Estando disposto a tentar novas abordagens. Trabalhando de forma transparente para compartilhar aprendizados e demonstrar mudanças."",
+      ""translation_status"": ""translated"",
+      ""semantic_score"": None,
+      ""evidence_classification"": ""support"",
+      ""validation_status"": ""candidate""
+    },
+    {
+      ""document_id"": ""CA_003"",
+      ""document_title"": ""CA_003__CA_003.md"",
+      ""page_start"": 33,
+      ""page_end"": 33,
+      ""chunk_id"": None,
+      ""source_language"": ""en"",
+      ""source_text"": ""Digital inclusion refers to ensuring that individuals, groups and communities—especially those that might be traditionally marginalized or excluded—can benefit from digital technologies in their lives."",
+      ""translated_text_pt"": ""A inclusão digital refere-se a garantir que indivíduos, grupos e comunidades—especialmente aqueles que podem ser tradicionalmente marginalizados ou excluídos—possam beneficiar-se das tecnologias digitais em suas vidas."",
+      ""translation_status"": ""translated"",
+      ""semantic_score"": None,
+      ""evidence_classification"": ""support"",
+      ""validation_status"": ""candidate""
+    }
+  ],
+  ""validation_status"": ""candidate""
+}",,openai,3.0,rag-country-v3.2,2026-09-12T14:12:01.973498+00:00,inconclusive,
+RESP_CANADA_Q04_20260912T141201Z,RUN_CANADA_20260912T141201Z,RUN_CANADA_20260912T141201Z_Q04,Q04,C04,OECD_PISA,canada,Que evidências apresentam convergência com princípios ou dimensões presentes nos referenciais UNESCO e OECD/PISA?,"As evidências indicam que os novos currículos de ciências para os alunos enfatizam a construção de conhecimento foundational e a inclusão de perspectivas diversas, com atenção a práticas agrícolas e conhecimento das Primeiras Nações, Métis e Inuit, alinhando-se aos referenciais da UNESCO e OECD/PISA.",EVID_CANADA_Q04_CA_002_P0001_001; EVID_CANADA_Q04_CA_002_P0001_002,openai,3.0,rag-country-v3.2,2026-09-12T14:12:01.973498+00:00,candidate,
+RESP_CANADA_Q05_20260912T141201Z,RUN_CANADA_20260912T141201Z,RUN_CANADA_20260912T141201Z_Q05,Q05,C05,COMPUTING_AND_DIGITAL_EDUCATION,canada,Quais competências associadas ao século XXI aparecem nos documentos curriculares?,"As competências associadas ao século XXI que aparecem nos documentos curriculares incluem o pensamento crítico, a criatividade e a colaboração em ambientes de aprendizagem.",EVID_CANADA_Q05_CA_002_P0001_001,openai,3.0,rag-country-v3.2,2026-09-12T14:12:01.973498+00:00,candidate,
+RESP_CANADA_Q06_20260912T141201Z,RUN_CANADA_20260912T141201Z,RUN_CANADA_20260912T141201Z_Q06,Q06,C06,COMPUTING_AND_DIGITAL_EDUCATION,canada,"Como colaboração, criatividade e resolução de problemas são incorporadas às competências e práticas curriculares?","A nova currícula de ciências do Canadá incorpora colaboração, criatividade e resolução de problemas ao enfatizar métodos científicos e a aprendizagem ativa.",EVID_CANADA_Q06_CA_002_P0001_001; EVID_CANADA_Q06_CA_001_P0003_002; EVID_CANADA_Q06_CA_001_P0003_003,openai,3.0,rag-country-v3.2,2026-09-12T14:12:01.973498+00:00,candidate,
+RESP_CANADA_Q07_20260912T141201Z,RUN_CANADA_20260912T141201Z,RUN_CANADA_20260912T141201Z_Q07,Q07,C07,COMPUTING_AND_DIGITAL_EDUCATION,canada,"Como os documentos abordam Inteligência Artificial, ética, privacidade, segurança e uso responsável das tecnologias digitais?","Os documentos abordam a Inteligência Artificial, ética, privacidade, segurança e uso responsável das tecnologias digitais principalmente garantindo que a privacidade e a segurança sejam incorporadas no design dos serviços digitais, adotando normas abertas e padrões comuns, e promovendo uma cultura digital que prioriza a inclusão.",EVID_CANADA_Q07_CA_003_P0018_001; EVID_CANADA_Q07_CA_003_P0018_002; EVID_CANADA_Q07_CA_003_P0006_003,openai,3.0,rag-country-v3.2,2026-09-12T14:12:01.973498+00:00,candidate,
+RESP_CANADA_Q08_20260912T141201Z,RUN_CANADA_20260912T141201Z,RUN_CANADA_20260912T141201Z_Q08,Q08,C08,COMPUTING_AND_DIGITAL_EDUCATION,canada,"Como inclusão, acessibilidade e equidade digital são tratadas nos documentos?","Ontario está trabalhando para alcançar a inclusão digital ao desenhar programas e serviços que sejam inclusivos e acessíveis desde o início, fechar lacunas de conexão em comunidades rurais e remotas, e tornar a Internet de alta qualidade e acessível em locais públicos. Além disso, busca desenvolver habilidades digitais essenciais e capacitar as pessoas a utilizar a tecnologia para resolver problemas locais em suas comunidades.",EVID_CANADA_Q08_CA_003_P0018_001,openai,3.0,rag-country-v3.2,2026-09-12T14:12:01.973498+00:00,candidate,
+RESP_CANADA_Q09_20260912T141201Z,RUN_CANADA_20260912T141201Z,RUN_CANADA_20260912T141201Z_Q09,Q09,C09,COMPUTING_AND_DIGITAL_EDUCATION,canada,"Que equilíbrio existe entre dimensões técnicas da Computação e dimensões sociais, culturais, éticas e humanas da Educação Digital?","O equilíbrio entre as dimensões técnicas da Computação e as dimensões sociais, culturais, éticas e humanas da Educação Digital é evidenciado pela necessidade de um enfoque centrado no usuário nas abordagens digitais. Isso implica projetar programas e serviços que não apenas integrem a tecnologia, mas que também levem em conta as necessidades e experiências humanas, promovendo inclusão e acessibilidade desde a concepção até a implementação. Em um ambiente digital, é crucial que a tecnologia seja utilizada como uma ferramenta para atender a problemas humanos, garantindo que soluções tecnológicas não sejam vistas como fins em si mesmas, mas como meios para promover melhor experiência e resultados para as pessoas.",EVID_CANADA_Q09_CA_003_P0005_001; EVID_CANADA_Q09_CA_003_P0017_002; EVID_CANADA_Q09_CA_003_P0014_003,openai,3.0,rag-country-v3.2,2026-09-12T14:12:01.973498+00:00,candidate,
+RESP_CANADA_Q10_20260912T141201Z,RUN_CANADA_20260912T141201Z,RUN_CANADA_20260912T141201Z_Q10,Q10,C10,COMPUTING_AND_DIGITAL_EDUCATION,canada,"Como pensamento crítico, autonomia e participação social são promovidos no currículo relacionado à Computação e Educação Digital?","O currículo relacionado à Computação e Educação Digital promove o pensamento crítico, autonomia e participação social por meio de metodologias que enfatizam a resolução de problemas, o engajamento do usuário, a experimentação e a aprendizagem ativa.",EVID_CANADA_Q10_CA_001_P0001_001; EVID_CANADA_Q10_CA_003_P0018_002; EVID_CANADA_Q10_CA_003_P0016_003,openai,3.0,rag-country-v3.2,2026-09-12T14:12:01.973498+00:00,candidate,
+RESP_CANADA_Q11_20260912T141201Z,RUN_CANADA_20260912T141201Z,RUN_CANADA_20260912T141201Z_Q11,Q11,C11,UNESCO_GCED_2015,canada,Que elementos relacionados à cidadania global aparecem nos documentos curriculares?,"Os documentos curriculares mencionam elementos como a responsabilidade compartilhada por nosso planeta, a exploração do ambiente através de perspectivas diversas e a utilização de métodos científicos.",EVID_CANADA_Q11_CA_002_P0001_001; EVID_CANADA_Q11_CA_001_P0001_002,openai,3.0,rag-country-v3.2,2026-09-12T14:12:01.973498+00:00,candidate,
+RESP_CANADA_Q12_20260912T141201Z,RUN_CANADA_20260912T141201Z,RUN_CANADA_20260912T141201Z_Q12,Q12,C12,COMPUTING_AND_DIGITAL_EDUCATION,canada,"Como a formação, atuação ou desenvolvimento profissional docente para Computação e Educação Digital são abordados?","A formação, atuação e desenvolvimento profissional docente em Computação e Educação Digital são abordados por meio da criação de novos pipelines e parcerias que injetam habilidades digitais no setor público. A equipe da Ontario Digital Service (ODS) aplica métodos de design e técnicas de pesquisa para trazer rapidamente ideias de produtos ou serviços à vida. O ODS também fornece ferramentas, processos e treinamento para apoiar as equipes do Serviço Público de Ontário na adoção de práticas digitais modernas em seu trabalho.",EVID_CANADA_Q12_CA_003_P0028_001; EVID_CANADA_Q12_CA_003_P0028_002,openai,3.0,rag-country-v3.2,2026-09-12T14:12:01.973498+00:00,candidate,
+RESP_CANADA_Q13_20260912T141201Z,RUN_CANADA_20260912T141201Z,RUN_CANADA_20260912T141201Z_Q13,Q13,C13,COMPUTING_AND_DIGITAL_EDUCATION,canada,"Quais eixos, conceitos e competências aparecem de forma recorrente nos documentos analisados do país?","Os eixos e conceitos recorrentes nos documentos analisados do Canadá incluem: a centralidade nas pessoas no design de serviços, a importância da inclusão, equidade e acesso, e a utilização de abordagens ágeis e centradas no usuário na entrega de serviços digitais.",EVID_CANADA_Q13_CA_003_P0001_001; EVID_CANADA_Q13_CA_003_P0004_002; EVID_CANADA_Q13_CA_003_P0037_003,openai,3.0,rag-country-v3.2,2026-09-12T14:12:01.973498+00:00,candidate,

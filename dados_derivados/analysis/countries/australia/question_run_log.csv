@@ -1,0 +1,3 @@
+run_id,question_id,country,timestamp,framework,category_id,question_version,status,number_of_hits
+australia-Q01-20260908T140701Z,Q01,australia,2026-09-08T14:07:01.787205+00:00,COMPUTING_AND_DIGITAL_EDUCATION,C01,2.0,executed,2
+australia-Q06-20260908T140712Z,Q06,australia,2026-09-08T14:07:12.116890+00:00,UNESCO_GCED_2015,F01,2.0,executed,5

@@ -1,0 +1,7 @@
+evidence_id,run_id,question_run_id,response_id,question_id,category_id,framework,country,document_id,document_title,page_start,page_end,chunk_id,source_text,translated_text,semantic_score,evidence_classification,validation_status,review_notes
+1,RUN_ESTONIA_20260912T042553Z,RUN_ESTONIA_20260912T042553Z_Q01,RESP_ESTONIA_Q01_20260912T042553Z,Q01,C01,COMPUTING_AND_DIGITAL_EDUCATION,estonia,EU-EE-01__EU-EE-01.md,EU-EE-01__EU-EE-01.md,6,6,0,"2. Ainekavad
+2.1. Õpitulemused ja õppesisu I kooliastmes
+Õpilane:  
+1) kirjeldab, kuidas toimib internet, mis on arvuti riistvara ja tarkvara, toob näiteid digitehnoloogia turvalisest ja oskuslikust kasutusest infoühiskonnas;
+3) loob, vormistab, salvestab, taasesitab nii individuaalselt kui ka koostöös eri liiki digitaalset sisu (tekst, pilt, esitlus, video, animatsioon jne) ja jagab seda, järgides hea tava ja digiohutuse nõudeid;",,0.95,curriculum_definition,confirmed,
+2,RUN_ESTONIA_20260912T042553Z,RUN_ESTONIA_20260912T042553Z_Q01,RESP_ESTONIA_Q01_20260912T042553Z,Q01,C01,COMPUTING_AND_DIGITAL_EDUCATION,estonia,EU-EE-02__EU-EE-02.md,EU-EE-02__EU-EE-02.md,2,2,3,"Õppeteema „Digitaalne ohutus” hõlmab elementaarseid turvanõudeid, privaatsuse ning tervisega seotud riske.",,0.9,curriculum_definition,confirmed,

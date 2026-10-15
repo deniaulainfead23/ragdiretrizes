@@ -1,0 +1,126 @@
+{
+  "question_id": "Q14",
+  "prompt_version": "q14-comparison-v1.1-strict",
+  "result": {
+    "question_id": "Q14",
+    "synthesis": "",
+    "major_convergences": [
+      {
+        "claim": "Diversos países reconhecem a importância de integrar competências digitais, cidadania digital e práticas colaborativas nos currículos.",
+        "countries": [
+          "africa-do-sul",
+          "australia",
+          "canada",
+          "finlandia",
+          "japao",
+          "quenia",
+          "suica",
+          "taiwan",
+          "uruguai"
+        ],
+        "source_questions": [
+          "Q01",
+          "Q03",
+          "Q05",
+          "Q10"
+        ]
+      },
+      {
+        "claim": "Vários documentos enfatizam a necessidade de abordar a ética digital e a responsabilidade no uso das tecnologias.",
+        "countries": [
+          "africa-do-sul",
+          "australia",
+          "canada",
+          "china",
+          "japao",
+          "suica"
+        ],
+        "source_questions": [
+          "Q07",
+          "Q03"
+        ]
+      }
+    ],
+    "major_differences": [
+      {
+        "claim": "Existem variações significativas na abordagem ao pensamento computacional, com alguns países focando mais em algoritmos e outros em resolução de problemas.",
+        "countries": [
+          "australia",
+          "gana",
+          "suica"
+        ],
+        "source_questions": [
+          "Q02",
+          "Q01"
+        ]
+      },
+      {
+        "claim": "O Brasil apresenta uma perspectiva mais ampla que inclui dimensões sociais e culturais, em contraste com outros países que priorizam enfoques técnicos.",
+        "countries": [
+          "brasil"
+        ],
+        "source_questions": [
+          "Q13"
+        ]
+      }
+    ],
+    "recurring_patterns": [
+      {
+        "claim": "A colaboração e o envolvimento ativo dos alunos são comumente promovidos em muitos currículos, refletindo uma abordagem de aprendizagem prática.",
+        "countries": [
+          "africa-do-sul",
+          "canada",
+          "japao",
+          "uruguai"
+        ],
+        "source_questions": [
+          "Q10",
+          "Q06"
+        ]
+      },
+      {
+        "claim": "A ênfase na necessidade de promover a inclusão e acessibilidade digital é uma característica recorrente entre os países analisados.",
+        "countries": [
+          "estonia",
+          "canada",
+          "suica",
+          "uruguai"
+        ],
+        "source_questions": [
+          "Q08",
+          "Q09"
+        ]
+      }
+    ],
+    "evidence_gaps": [
+      {
+        "claim": "Há falta de informações detalhadas sobre a aplicação do pensamento crítico nas práticas do currículo em diversos países.",
+        "countries": [
+          "ruanda",
+          "quenia"
+        ],
+        "source_questions": [
+          "Q10"
+        ]
+      },
+      {
+        "claim": "Existem lacunas nas evidências sobre como a cidadania digital é concreta nos currículos de muitos países, sem dados claros de aplicação.",
+        "countries": [
+          "todos os países"
+        ],
+        "source_questions": [
+          "Q11"
+        ]
+      }
+    ],
+    "limitations": [
+      "Heterogeneidade documental entre países.",
+      "Quantidade desigual de documentos disponíveis para análise.",
+      "Resultados inconclusivos e variantes na qualidade das evidências.",
+      "Ausência de evidências não equivale a ausência conceptual nos currículos.",
+      "Mediação por tradução e recuperação semântica pode limitar precisão.",
+      "Análise documental não mede a implementação ou impacto real em sala de aula."
+    ]
+  },
+  "raw_response": "```json\n{\n  \"question_id\": \"Q14\",\n  \"synthesis\": \"\",\n  \"major_convergences\": [\n    {\n      \"claim\": \"Diversos países reconhecem a importância de integrar competências digitais, cidadania digital e práticas colaborativas nos currículos.\",\n      \"countries\": [\"africa-do-sul\", \"australia\", \"canada\", \"finlandia\", \"japao\", \"quenia\", \"suica\", \"taiwan\", \"uruguai\"],\n      \"source_questions\": [\"Q01\", \"Q03\", \"Q05\", \"Q10\"]\n    },\n    {\n      \"claim\": \"Vários documentos enfatizam a necessidade de abordar a ética digital e a responsabilidade no uso das tecnologias.\",\n      \"countries\": [\"africa-do-sul\", \"australia\", \"canada\", \"china\", \"japao\", \"suica\"],\n      \"source_questions\": [\"Q07\", \"Q03\"]\n    }\n  ],\n  \"major_differences\": [\n    {\n      \"claim\": \"Existem variações significativas na abordagem ao pensamento computacional, com alguns países focando mais em algoritmos e outros em resolução de problemas.\",\n      \"countries\": [\"australia\", \"gana\", \"suica\"],\n      \"source_questions\": [\"Q02\", \"Q01\"]\n    },\n    {\n      \"claim\": \"O Brasil apresenta uma perspectiva mais ampla que inclui dimensões sociais e culturais, em contraste com outros países que priorizam enfoques técnicos.\",\n      \"countries\": [\"brasil\"],\n      \"source_questions\": [\"Q13\"]\n    }\n  ],\n  \"recurring_patterns\": [\n    {\n      \"claim\": \"A colaboração e o envolvimento ativo dos alunos são comumente promovidos em muitos currículos, refletindo uma abordagem de aprendizagem prática.\",\n      \"countries\": [\"africa-do-sul\", \"canada\", \"japao\", \"uruguai\"],\n      \"source_questions\": [\"Q10\", \"Q06\"]\n    },\n    {\n      \"claim\": \"A ênfase na necessidade de promover a inclusão e acessibilidade digital é uma característica recorrente entre os países analisados.\",\n      \"countries\": [\"estonia\", \"canada\", \"suica\", \"uruguai\"],\n      \"source_questions\": [\"Q08\", \"Q09\"]\n    }\n  ],\n  \"evidence_gaps\": [\n    {\n      \"claim\": \"Há falta de informações detalhadas sobre a aplicação do pensamento crítico nas práticas do currículo em diversos países.\",\n      \"countries\": [\"ruanda\", \"quenia\"],\n      \"source_questions\": [\"Q10\"]\n    },\n    {\n      \"claim\": \"Existem lacunas nas evidências sobre como a cidadania digital é concreta nos currículos de muitos países, sem dados claros de aplicação.\",\n      \"countries\": [\"todos os países\"],\n      \"source_questions\": [\"Q11\"]\n    }\n  ],\n  \"limitations\": [\n    \"Heterogeneidade documental entre países.\",\n    \"Quantidade desigual de documentos disponíveis para análise.\",\n    \"Resultados inconclusivos e variantes na qualidade das evidências.\",\n    \"Ausência de evidências não equivale a ausência conceptual nos currículos.\",\n    \"Mediação por tradução e recuperação semântica pode limitar precisão.\",\n    \"Análise documental não mede a implementação ou impacto real em sala de aula.\"\n  ]\n}\n```"
+}

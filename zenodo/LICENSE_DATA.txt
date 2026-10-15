@@ -1,0 +1,15 @@
+Data license notice
+
+Unless otherwise indicated, the original datasets, tables, metadata structures, analytical classifications, lexical indicators and other research outputs created by Denise Moraes in this repository are made available under the Creative Commons Attribution 4.0 International License (CC BY 4.0).
+
+License: https://creativecommons.org/licenses/by/4.0/
+
+IMPORTANT THIRD-PARTY MATERIAL NOTICE
+
+This license does NOT automatically apply to third-party curriculum documents, reports, standards, laws, PDFs, images or other materials included in or referenced by the research corpus. Those materials remain subject to the copyright and licensing terms of their respective authors, publishers, ministries, agencies or institutions.
+
+For third-party source documents, the public dataset should preferentially provide bibliographic metadata, official source URLs, access dates and cryptographic checksums rather than redistribute the original files, unless redistribution permission has been explicitly verified.
+
+Suggested attribution:
+
+MORAES, Denise. Comparative Dataset of Computing, Digital Education and Digital Citizenship Curricula in Basic Education. Version 1.0.0. 2026. Dataset. DOI to be assigned by Zenodo.

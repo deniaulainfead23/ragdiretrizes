@@ -1,0 +1,700 @@
+﻿question_id,model,prompt_version,run_date,raw_response,parsed_json
+Q01,gpt-4o-mini,q14-comparison-v1.0,2026-09-12T17:08:09.834047+00:00,"```json
+{
+  ""question_id"": ""Q01"",
+  ""theme"": ""Definição e organização de competências de Computação e Educação Digital"",
+  ""convergences"": [
+    {
+      ""claim"": ""Diversos países destacam a importância de competências práticas e teóricas na educação digital."",
+      ""countries"": [""africa-do-sul"", ""australia"", ""canada"", ""chile"", ""china"", ""coreia-do-sul"", ""estonia"", ""gana"", ""japao"", ""nova-zelandia"", ""quenia"", ""ruanda"", ""suica"", ""taiwan"", ""uruguai""]
+    },
+    {
+      ""claim"": ""A ênfase em criação e uso de algoritmos é uma característica comum em vários países."",
+      ""countries"": [""australia"", ""brasil"", ""taiwan"", ""suica""]
+    },
+    {
+      ""claim"": ""Os esforços para fomentar a ética digital e a segurança da informação são evidentes em múltiplos currículos."",
+      ""countries"": [""australia"", ""canada"", ""chen"", ""china"", ""suica"", ""taiwan""]
+    }
+  ],
+  ""differences"": [
+    {
+      ""claim"": ""A organização curricular varia entre países, com alguns adotando estruturas detalhadas e outros enfoques mais gerais."",
+      ""countries"": [""singapura"", ""australia"", ""nova-zelandia"", ""reino-unido"", ""brasil"", ""coreia-do-sul""]
+    },
+    {
+      ""claim"": ""A abordagem à literacia digital tem diferentes ênfases, com alguns países focando mais em habilidades interpessoais e outros em competências técnicas."",
+      ""countries"": [""gana"", ""quenia"", ""irlanda""]
+    }
+  ],
+  ""recurring_patterns"": [
+    {
+      ""claim"": ""A integração de tecnologias digitais no currículo é uma prática comum que visa preparar os alunos para a sociedade da informação."",
+      ""countries"": [""canada"", ""quenia"", ""suica"", ""japao"", ""estonia""]
+    }
+  ],
+  ""evidence_gaps"": [
+    {
+      ""claim"": ""Falta de evidências detalhadas sobre a avaliação dos resultados de aprendizagem em alguns países."",
+      ""countries"": [""africa-do-sul"", ""gana"", ""quenia""]
+    }
+  ],
+  ""methodological_note"": ""Os dados foram extraídos de respostas de diferentes países sobre a definição e organização das competências de Computação e Educação Digital em seus documentos curriculares.""
+}
+```","{""question_id"": ""Q01"", ""theme"": ""Definição e organização de competências de Computação e Educação Digital"", ""convergences"": [{""claim"": ""Diversos países destacam a importância de competências práticas e teóricas na educação digital."", ""countries"": [""africa-do-sul"", ""australia"", ""canada"", ""chile"", ""china"", ""coreia-do-sul"", ""estonia"", ""gana"", ""japao"", ""nova-zelandia"", ""quenia"", ""ruanda"", ""suica"", ""taiwan"", ""uruguai""]}, {""claim"": ""A ênfase em criação e uso de algoritmos é uma característica comum em vários países."", ""countries"": [""australia"", ""brasil"", ""taiwan"", ""suica""]}, {""claim"": ""Os esforços para fomentar a ética digital e a segurança da informação são evidentes em múltiplos currículos."", ""countries"": [""australia"", ""canada"", ""chen"", ""china"", ""suica"", ""taiwan""]}], ""differences"": [{""claim"": ""A organização curricular varia entre países, com alguns adotando estruturas detalhadas e outros enfoques mais gerais."", ""countries"": [""singapura"", ""australia"", ""nova-zelandia"", ""reino-unido"", ""brasil"", ""coreia-do-sul""]}, {""claim"": ""A abordagem à literacia digital tem diferentes ênfases, com alguns países focando mais em habilidades interpessoais e outros em competências técnicas."", ""countries"": [""gana"", ""quenia"", ""irlanda""]}], ""recurring_patterns"": [{""claim"": ""A integração de tecnologias digitais no currículo é uma prática comum que visa preparar os alunos para a sociedade da informação."", ""countries"": [""canada"", ""quenia"", ""suica"", ""japao"", ""estonia""]}], ""evidence_gaps"": [{""claim"": ""Falta de evidências detalhadas sobre a avaliação dos resultados de aprendizagem em alguns países."", ""countries"": [""africa-do-sul"", ""gana"", ""quenia""]}], ""methodological_note"": ""Os dados foram extraídos de respostas de diferentes países sobre a definição e organização das competências de Computação e Educação Digital em seus documentos curriculares.""}"
+Q02,gpt-4o-mini,q14-comparison-v1.0,2026-09-12T17:08:09.834047+00:00,"```json
+{
+  ""question_id"": ""Q02"",
+  ""theme"": ""Definição e incorporação do Pensamento Computacional no currículo"",
+  ""convergences"": [
+    {
+      ""claim"": ""O Pensamento Computacional é incorporado ao currículo educacional como uma competência a ser desenvolvida."",
+      ""countries"": [""brasil"", ""gana"", ""quenia"", ""uruguai"", ""coreia-do-sul"", ""suica""]
+    }
+  ],
+  ""differences"": [
+    {
+      ""claim"": ""O enfoque do Pensamento Computacional varia entre os países: alguns priorizam a codificação, enquanto outros enfatizam a resolução de problemas e a prática com tecnologia."",
+      ""countries"": [""australia"", ""hong-kong"", ""japao"", ""singapura"", ""finlandia""]
+    },
+    {
+      ""claim"": ""Alguns países incorporam o Pensamento Computacional em várias disciplinas, enquanto outros o fazem de maneira mais focada em tecnologia ou computação."",
+      ""countries"": [""estonia"", ""canada"", ""irlanda"", ""reino-unido""]
+    }
+  ],
+  ""recurring_patterns"": [
+    {
+      ""claim"": ""A maioria dos países associa o Pensamento Computacional ao desenvolvimento de competências digitais e de resolução de problemas."",
+      ""countries"": [""africa-do-sul"", ""china"", ""taiwan"", ""ruanda""]
+    },
+    {
+      ""claim"": ""Vários países afirmam que o Pensamento Computacional é integrado ao currículo como uma competência transversal."",
+      ""countries"": [""suica"", ""finlandia"", ""uruguai""]
+    }
+  ],
+  ""evidence_gaps"": [
+    {
+      ""claim"": ""Não há evidência suficiente sobre como a avaliação do Pensamento Computacional é realizada nos currículos dos países analisados."",
+      ""countries"": []
+    }
+  ],
+  ""methodological_note"": ""As comparações se baseiam apenas nas respostas fornecidas e não incluem análise de contextos externos ou dados adicionais.""
+}
+```","{""question_id"": ""Q02"", ""theme"": ""Definição e incorporação do Pensamento Computacional no currículo"", ""convergences"": [{""claim"": ""O Pensamento Computacional é incorporado ao currículo educacional como uma competência a ser desenvolvida."", ""countries"": [""brasil"", ""gana"", ""quenia"", ""uruguai"", ""coreia-do-sul"", ""suica""]}], ""differences"": [{""claim"": ""O enfoque do Pensamento Computacional varia entre os países: alguns priorizam a codificação, enquanto outros enfatizam a resolução de problemas e a prática com tecnologia."", ""countries"": [""australia"", ""hong-kong"", ""japao"", ""singapura"", ""finlandia""]}, {""claim"": ""Alguns países incorporam o Pensamento Computacional em várias disciplinas, enquanto outros o fazem de maneira mais focada em tecnologia ou computação."", ""countries"": [""estonia"", ""canada"", ""irlanda"", ""reino-unido""]}], ""recurring_patterns"": [{""claim"": ""A maioria dos países associa o Pensamento Computacional ao desenvolvimento de competências digitais e de resolução de problemas."", ""countries"": [""africa-do-sul"", ""china"", ""taiwan"", ""ruanda""]}, {""claim"": ""Vários países afirmam que o Pensamento Computacional é integrado ao currículo como uma competência transversal."", ""countries"": [""suica"", ""finlandia"", ""uruguai""]}], ""evidence_gaps"": [{""claim"": ""Não há evidência suficiente sobre como a avaliação do Pensamento Computacional é realizada nos currículos dos países analisados."", ""countries"": []}], ""methodological_note"": ""As comparações se baseiam apenas nas respostas fornecidas e não incluem análise de contextos externos ou dados adicionais.""}"
+Q03,gpt-4o-mini,q14-comparison-v1.0,2026-09-12T17:08:09.834047+00:00,"```json
+{
+  ""question_id"": ""Q03"",
+  ""theme"": ""Cidadania Digital, Ética Digital e Letramento Midiático"",
+  ""convergences"": [
+    {
+      ""claim"": ""Os documentos de vários países enfatizam a importância de um uso responsável das tecnologias digitais."",
+      ""countries"": [""africa-do-sul"", ""australia"", ""brasil"", ""chile"", ""gana"", ""irlanda"", ""japao"", ""ruanda"", ""suica"", ""taiwan"", ""uruguai""]
+    }
+  ],
+  ""differences"": [
+    {
+      ""claim"": ""A abordagem da cidadania digital é mais centrada no usuário no Canadá, enquanto a Finlandia foca em competências transversais."",
+      ""countries"": [""canada"", ""finlandia""]
+    },
+    {
+      ""claim"": ""A ênfase em letramento midiático é mais integrada no Brasil comparada às abordagens separadas de outros países como a Austrália."",
+      ""countries"": [""brasil"", ""australia""]
+    },
+    {
+      ""claim"": ""A Coreia do Sul destaca a inclusão e acesso à informação, enquanto países como o Japão enfatizam a responsabilidade e habilidades de comunicação."",
+      ""countries"": [""coreia-do-sul"", ""japao""]
+    }
+  ],
+  ""recurring_patterns"": [
+    {
+      ""claim"": ""Muitos países discutem a ética e responsabilidade associadas ao uso de tecnologias digitais."",
+      ""countries"": [""australia"", ""canada"", ""china"", ""estonia"", ""eua"", ""japao"", ""singapura"", ""taiwan"", ""uruguai""]
+    }
+  ],
+  ""evidence_gaps"": [
+    {
+      ""claim"": ""Há insuficiência de evidência sobre como a cidadania digital é abordada em países da Europa Oriental."",
+      ""countries"": []
+    },
+    {
+      ""claim"": ""Não foram encontrados dados conclusivos sobre a abordagem da ética digital em alguns países africanos além de Gana e Ruanda."",
+      ""countries"": [""kenia""]
+    }
+  ],
+  ""methodological_note"": ""As informações apresentadas são baseadas exclusivamente nos dados fornecidos, sem referencia a conhecimento externo ou interpretações adicionais.""
+}
+```","{""question_id"": ""Q03"", ""theme"": ""Cidadania Digital, Ética Digital e Letramento Midiático"", ""convergences"": [{""claim"": ""Os documentos de vários países enfatizam a importância de um uso responsável das tecnologias digitais."", ""countries"": [""africa-do-sul"", ""australia"", ""brasil"", ""chile"", ""gana"", ""irlanda"", ""japao"", ""ruanda"", ""suica"", ""taiwan"", ""uruguai""]}], ""differences"": [{""claim"": ""A abordagem da cidadania digital é mais centrada no usuário no Canadá, enquanto a Finlandia foca em competências transversais."", ""countries"": [""canada"", ""finlandia""]}, {""claim"": ""A ênfase em letramento midiático é mais integrada no Brasil comparada às abordagens separadas de outros países como a Austrália."", ""countries"": [""brasil"", ""australia""]}, {""claim"": ""A Coreia do Sul destaca a inclusão e acesso à informação, enquanto países como o Japão enfatizam a responsabilidade e habilidades de comunicação."", ""countries"": [""coreia-do-sul"", ""japao""]}], ""recurring_patterns"": [{""claim"": ""Muitos países discutem a ética e responsabilidade associadas ao uso de tecnologias digitais."", ""countries"": [""australia"", ""canada"", ""china"", ""estonia"", ""eua"", ""japao"", ""singapura"", ""taiwan"", ""uruguai""]}], ""evidence_gaps"": [{""claim"": ""Há insuficiência de evidência sobre como a cidadania digital é abordada em países da Europa Oriental."", ""countries"": []}, {""claim"": ""Não foram encontrados dados conclusivos sobre a abordagem da ética digital em alguns países africanos além de Gana e Ruanda."", ""countries"": [""kenia""]}], ""methodological_note"": ""As informações apresentadas são baseadas exclusivamente nos dados fornecidos, sem referencia a conhecimento externo ou interpretações adicionais.""}"
+Q04,gpt-4o-mini,q14-comparison-v1.0,2026-09-12T17:08:09.834047+00:00,"```json
+{
+  ""question_id"": ""Q04"",
+  ""theme"": ""Convergência com referenciais UNESCO e OECD/PISA"",
+  ""convergences"": [
+    {
+      ""claim"": ""Os países sustentam princípios que valorizam a aprendizagem ativa e a colaboração no uso de tecnologias."",
+      ""countries"": [""africa-do-sul"", ""australia"", ""gana"", ""quenia"", ""nova-zelandia""]
+    },
+    {
+      ""claim"": ""Todos os países analisados mencionam a necessidade de desenvolver competências para um mundo cada vez mais conectado e digital."",
+      ""countries"": [""brasil"", ""finlandia"", ""esua"", ""uruguai""]
+    }
+  ],
+  ""differences"": [
+    {
+      ""claim"": ""Alguns países enfatizam a inclusão de perspectivas culturais e sociais em seus currículos, enquanto outros se concentram em competências técnicas e digitais."",
+      ""countries"": [""canada"", ""coreia-do-sul"", ""japao""]
+    }
+  ],
+  ""recurring_patterns"": [
+    {
+      ""claim"": ""A ênfase em habilidades transversais, como pensamento crítico e resolução de problemas, é um padrão observado em vários países."",
+      ""countries"": [""irlanda"", ""suica"", ""ruanda""]
+    },
+    {
+      ""claim"": ""A promoção da igualdade e inclusão na educação aparece como um princípio comum entre os países."",
+      ""countries"": [""estonia"", ""finlandia"", ""hong-kong""]
+    }
+  ],
+  ""evidence_gaps"": [
+    {
+      ""claim"": ""Não foram encontradas evidências suficientes sobre a aplicação prática dos conceitos educativos nas escolas."",
+      ""countries"": [""japao"", ""taiwan""]
+    }
+  ],
+  ""methodological_note"": ""As comparações são baseadas unicamente nos dados fornecidos, sem interpretação externa ou ranking de países.""
+}
+```","{""question_id"": ""Q04"", ""theme"": ""Convergência com referenciais UNESCO e OECD/PISA"", ""convergences"": [{""claim"": ""Os países sustentam princípios que valorizam a aprendizagem ativa e a colaboração no uso de tecnologias."", ""countries"": [""africa-do-sul"", ""australia"", ""gana"", ""quenia"", ""nova-zelandia""]}, {""claim"": ""Todos os países analisados mencionam a necessidade de desenvolver competências para um mundo cada vez mais conectado e digital."", ""countries"": [""brasil"", ""finlandia"", ""esua"", ""uruguai""]}], ""differences"": [{""claim"": ""Alguns países enfatizam a inclusão de perspectivas culturais e sociais em seus currículos, enquanto outros se concentram em competências técnicas e digitais."", ""countries"": [""canada"", ""coreia-do-sul"", ""japao""]}], ""recurring_patterns"": [{""claim"": ""A ênfase em habilidades transversais, como pensamento crítico e resolução de problemas, é um padrão observado em vários países."", ""countries"": [""irlanda"", ""suica"", ""ruanda""]}, {""claim"": ""A promoção da igualdade e inclusão na educação aparece como um princípio comum entre os países."", ""countries"": [""estonia"", ""finlandia"", ""hong-kong""]}], ""evidence_gaps"": [{""claim"": ""Não foram encontradas evidências suficientes sobre a aplicação prática dos conceitos educativos nas escolas."", ""countries"": [""japao"", ""taiwan""]}], ""methodological_note"": ""As comparações são baseadas unicamente nos dados fornecidos, sem interpretação externa ou ranking de países.""}"
+Q05,gpt-4o-mini,q14-comparison-v1.0,2026-09-12T17:08:09.834047+00:00,"```json
+{
+  ""question_id"": ""Q05"",
+  ""theme"": ""Competências associadas ao século XXI nos documentos curriculares"",
+  ""convergences"": [
+    {
+      ""claim"": ""Vários países enfatizam a importância do pensamento crítico e da colaboração."",
+      ""countries"": [
+        ""canada"",
+        ""irlanda"",
+        ""gana"",
+        ""taiwan"",
+        ""ruanda"",
+        ""hong-kong"",
+        ""australia""
+      ]
+    },
+    {
+      ""claim"": ""Diversos países incluem competências relacionadas ao uso responsável da tecnologia."",
+      ""countries"": [
+        ""brasil"",
+        ""eua"",
+        ""reino-unido"",
+        ""suica""
+      ]
+    },
+    {
+      ""claim"": ""Vários documentos curriculares mencionam a alfabetização digital como uma competência fundamental."",
+      ""countries"": [
+        ""brasil"",
+        ""gana"",
+        ""uruguai"",
+        ""quenia"",
+        ""coreia-do-sul""
+      ]
+    }
+  ],
+  ""differences"": [
+    {
+      ""claim"": ""A ênfase em habilidades de programação e pensamento computacional aparece em alguns países e não em outros."",
+      ""countries"": [
+        ""eua"",
+        ""nova-zelandia"",
+        ""brasil""
+      ]
+    },
+    {
+      ""claim"": ""Alguns países destacam competências culturais e sociais, enquanto outros focam em habilidades técnicas."",
+      ""countries"": [
+        ""finlandia"",
+        ""estonia"",
+        ""china"",
+        ""chile""
+      ]
+    },
+    {
+      ""claim"": ""A capacidade de criar soluções tecnológicas é mencionada em alguns currículos, mas não em todos."",
+      ""countries"": [
+        ""australia"",
+        ""nova-zelandia"",
+        ""uruguai""
+      ]
+    }
+  ],
+  ""recurring_patterns"": [
+    {
+      ""claim"": ""A inclusão de competências como criatividade e inovação aparece em muitos países."",
+      ""countries"": [
+        ""gana"",
+        ""suica"",
+        ""taiwan"",
+        ""japao""
+      ]
+    },
+    {
+      ""claim"": ""A habilidade de resolver problemas é uma competência frequentemente mencionada."",
+      ""countries"": [
+        ""irlanda"",
+        ""ruanda"",
+        ""canada"",
+        ""africa-do-sul""
+      ]
+    }
+  ],
+  ""evidence_gaps"": [
+    {
+      ""claim"": ""Inadequação de informações sobre a integração de tecnologias emergentes no currículo."",
+      ""countries"": [
+        ""chile"",
+        ""uruguai""
+      ]
+    },
+    {
+      ""claim"": ""Falta de evidências sobre a abordagem de cidadania digital nos documentos curriculares."",
+      ""countries"": [
+        ""quenia"",
+        ""gana""
+      ]
+    }
+  ],
+  ""methodological_note"": ""Os resultados se baseiam nas respostas de cada país, sem considerar a comparação de quantidades ou níveis de implementação.""
+}
+```","{""question_id"": ""Q05"", ""theme"": ""Competências associadas ao século XXI nos documentos curriculares"", ""convergences"": [{""claim"": ""Vários países enfatizam a importância do pensamento crítico e da colaboração."", ""countries"": [""canada"", ""irlanda"", ""gana"", ""taiwan"", ""ruanda"", ""hong-kong"", ""australia""]}, {""claim"": ""Diversos países incluem competências relacionadas ao uso responsável da tecnologia."", ""countries"": [""brasil"", ""eua"", ""reino-unido"", ""suica""]}, {""claim"": ""Vários documentos curriculares mencionam a alfabetização digital como uma competência fundamental."", ""countries"": [""brasil"", ""gana"", ""uruguai"", ""quenia"", ""coreia-do-sul""]}], ""differences"": [{""claim"": ""A ênfase em habilidades de programação e pensamento computacional aparece em alguns países e não em outros."", ""countries"": [""eua"", ""nova-zelandia"", ""brasil""]}, {""claim"": ""Alguns países destacam competências culturais e sociais, enquanto outros focam em habilidades técnicas."", ""countries"": [""finlandia"", ""estonia"", ""china"", ""chile""]}, {""claim"": ""A capacidade de criar soluções tecnológicas é mencionada em alguns currículos, mas não em todos."", ""countries"": [""australia"", ""nova-zelandia"", ""uruguai""]}], ""recurring_patterns"": [{""claim"": ""A inclusão de competências como criatividade e inovação aparece em muitos países."", ""countries"": [""gana"", ""suica"", ""taiwan"", ""japao""]}, {""claim"": ""A habilidade de resolver problemas é uma competência frequentemente mencionada."", ""countries"": [""irlanda"", ""ruanda"", ""canada"", ""africa-do-sul""]}], ""evidence_gaps"": [{""claim"": ""Inadequação de informações sobre a integração de tecnologias emergentes no currículo."", ""countries"": [""chile"", ""uruguai""]}, {""claim"": ""Falta de evidências sobre a abordagem de cidadania digital nos documentos curriculares."", ""countries"": [""quenia"", ""gana""]}], ""methodological_note"": ""Os resultados se baseiam nas respostas de cada país, sem considerar a comparação de quantidades ou níveis de implementação.""}"
+Q06,gpt-4o-mini,q14-comparison-v1.0,2026-09-12T17:08:09.834047+00:00,"```json
+{
+  ""question_id"": ""Q06"",
+  ""theme"": ""Incorporação de colaboração, criatividade e resolução de problemas nas competências e práticas curriculares"",
+  ""convergences"": [
+    {
+      ""claim"": ""A colaboração, criatividade e resolução de problemas são promovidas por meio de estratégias práticas e envolvendo a tecnologia."",
+      ""countries"": [""africa-do-sul"", ""australia"", ""brasil"", ""canada"", ""chile"", ""china"", ""coreia-do-sul"", ""gana"", ""hong-kong"", ""irlanda"", ""japao"", ""nova-zelandia"", ""ruanda"", ""singapura"", ""suica"", ""taiwan"", ""uruguai""]
+    }
+  ],
+  ""differences"": [
+    {
+      ""claim"": ""O enfoque na tecnologia é variado, com países como a África do Sul, Brasil e Uruguai enfatizando práticas reflexivas em conjunto, enquanto países como Cingapura e Japão focam no pensamento computacional."",
+      ""countries"": [""africa-do-sul"", ""brasil"", ""uruguai"", ""singapura"", ""japao""]
+    }
+  ],
+  ""recurring_patterns"": [
+    {
+      ""claim"": ""Vários países enfatizam a importância do trabalho colaborativo como um método de aprendizado eficaz."",
+      ""countries"": [""africa-do-sul"", ""australia"", ""gana"", ""irlanda"", ""uruguai""]
+    }
+  ],
+  ""evidence_gaps"": [
+    {
+      ""claim"": ""A incorporação de resolução de problemas em contextos comunitários e reais é menos evidenciada em diversos países."",
+      ""countries"": [""brasil"", ""japao"", ""estonia""]
+    }
+  ],
+  ""methodological_note"": ""Todos os dados apresentados são baseados nas respostas fornecidas por cada país na pesquisa.""
+}
+```","{""question_id"": ""Q06"", ""theme"": ""Incorporação de colaboração, criatividade e resolução de problemas nas competências e práticas curriculares"", ""convergences"": [{""claim"": ""A colaboração, criatividade e resolução de problemas são promovidas por meio de estratégias práticas e envolvendo a tecnologia."", ""countries"": [""africa-do-sul"", ""australia"", ""brasil"", ""canada"", ""chile"", ""china"", ""coreia-do-sul"", ""gana"", ""hong-kong"", ""irlanda"", ""japao"", ""nova-zelandia"", ""ruanda"", ""singapura"", ""suica"", ""taiwan"", ""uruguai""]}], ""differences"": [{""claim"": ""O enfoque na tecnologia é variado, com países como a África do Sul, Brasil e Uruguai enfatizando práticas reflexivas em conjunto, enquanto países como Cingapura e Japão focam no pensamento computacional."", ""countries"": [""africa-do-sul"", ""brasil"", ""uruguai"", ""singapura"", ""japao""]}], ""recurring_patterns"": [{""claim"": ""Vários países enfatizam a importância do trabalho colaborativo como um método de aprendizado eficaz."", ""countries"": [""africa-do-sul"", ""australia"", ""gana"", ""irlanda"", ""uruguai""]}], ""evidence_gaps"": [{""claim"": ""A incorporação de resolução de problemas em contextos comunitários e reais é menos evidenciada em diversos países."", ""countries"": [""brasil"", ""japao"", ""estonia""]}], ""methodological_note"": ""Todos os dados apresentados são baseados nas respostas fornecidas por cada país na pesquisa.""}"
+Q07,gpt-4o-mini,q14-comparison-v1.0,2026-09-12T17:08:09.834047+00:00,"```json
+{
+  ""question_id"": ""Q07"",
+  ""theme"": ""Inteligência Artificial, ética, privacidade, segurança e uso responsável das tecnologias digitais"",
+  ""convergences"": [
+    {
+      ""claim"": ""Os documentos abordam a ética e o uso responsável das tecnologias digitais."",
+      ""countries"": [""africa-do-sul"", ""australia"", ""brasil"", ""canada"", ""china"", ""coreia-do-sul"", ""estonia"", ""eua"", ""finlandia"", ""gana"", ""hong-kong"", ""irlanda"", ""japao"", ""nova-zelandia"", ""singapura"", ""suica"", ""taiwan"", ""uruguai""]
+    }
+  ],
+  ""differences"": [
+    {
+      ""claim"": ""A abordagem da importância da proteção de dados e segurança é enfatizada em alguns países, enquanto outros focam mais na ética e nas implicações sociais da tecnologia."",
+      ""countries"": [""africa-do-sul"", ""australia"", ""brasil"", ""canada"", ""gana"", ""irlanda"", ""uua""]
+    },
+    {
+      ""claim"": ""Alguns documentos mencionam o impacto do uso excessivo da tecnologia na saúde mental, enquanto outros não."",
+      ""countries"": [""brasil""],
+      ""counters"": [""australia"", ""canada"", ""coreia-do-sul"", ""estonia"", ""japao""]
+    },
+    {
+      ""claim"": ""A ênfase em diretrizes e orientações para o uso responsável das tecnologias variam entre países."",
+      ""countries"": [""coreia-do-sul"", ""reino-unido"", ""uruguai""],
+      ""counters"": [""canada"", ""taiwan"", ""japao""]
+    }
+  ],
+  ""recurring_patterns"": [
+    {
+      ""claim"": ""Há uma ênfase na necessidade de considerar os aspectos éticos e de segurança ao lidar com tecnologias digitais em diversas nações."",
+      ""countries"": [""africa-do-sul"", ""australia"", ""canada"", ""coreia-do-sul"", ""estonia"", ""eua"", ""finlandia"", ""gana"", ""irlanda"", ""japao"", ""singapura"", ""suica"", ""taiwan""]
+    }
+  ],
+  ""evidence_gaps"": [
+    {
+      ""claim"": ""A evidência sobre o uso de Inteligência Artificial está ausente nos documentos de Ruanda."",
+      ""countries"": [""ruanda""]
+    }
+  ],
+  ""methodological_note"": ""Os dados foram analisados somente com informações nacionais sem a utilização de conhecimentos externos.""
+}
+```","{""question_id"": ""Q07"", ""theme"": ""Inteligência Artificial, ética, privacidade, segurança e uso responsável das tecnologias digitais"", ""convergences"": [{""claim"": ""Os documentos abordam a ética e o uso responsável das tecnologias digitais."", ""countries"": [""africa-do-sul"", ""australia"", ""brasil"", ""canada"", ""china"", ""coreia-do-sul"", ""estonia"", ""eua"", ""finlandia"", ""gana"", ""hong-kong"", ""irlanda"", ""japao"", ""nova-zelandia"", ""singapura"", ""suica"", ""taiwan"", ""uruguai""]}], ""differences"": [{""claim"": ""A abordagem da importância da proteção de dados e segurança é enfatizada em alguns países, enquanto outros focam mais na ética e nas implicações sociais da tecnologia."", ""countries"": [""africa-do-sul"", ""australia"", ""brasil"", ""canada"", ""gana"", ""irlanda"", ""uua""]}, {""claim"": ""Alguns documentos mencionam o impacto do uso excessivo da tecnologia na saúde mental, enquanto outros não."", ""countries"": [""brasil""], ""counters"": [""australia"", ""canada"", ""coreia-do-sul"", ""estonia"", ""japao""]}, {""claim"": ""A ênfase em diretrizes e orientações para o uso responsável das tecnologias variam entre países."", ""countries"": [""coreia-do-sul"", ""reino-unido"", ""uruguai""], ""counters"": [""canada"", ""taiwan"", ""japao""]}], ""recurring_patterns"": [{""claim"": ""Há uma ênfase na necessidade de considerar os aspectos éticos e de segurança ao lidar com tecnologias digitais em diversas nações."", ""countries"": [""africa-do-sul"", ""australia"", ""canada"", ""coreia-do-sul"", ""estonia"", ""eua"", ""finlandia"", ""gana"", ""irlanda"", ""japao"", ""singapura"", ""suica"", ""taiwan""]}], ""evidence_gaps"": [{""claim"": ""A evidência sobre o uso de Inteligência Artificial está ausente nos documentos de Ruanda."", ""countries"": [""ruanda""]}], ""methodological_note"": ""Os dados foram analisados somente com informações nacionais sem a utilização de conhecimentos externos.""}"
+Q08,gpt-4o-mini,q14-comparison-v1.0,2026-09-12T17:08:09.834047+00:00,"```json
+{
+  ""question_id"": ""Q08"",
+  ""theme"": ""Inclusão, Acessibilidade e Equidade Digital"",
+  ""convergences"": [
+    {
+      ""claim"": ""Todos os países abordam a inclusão, acessibilidade e equidade digital de alguma forma, com ênfase em políticas e práticas que promovem a integração da tecnologia na educação."",
+      ""countries"": [
+        ""africa-do-sul"",
+        ""australia"",
+        ""brasil"",
+        ""canada"",
+        ""chile"",
+        ""china"",
+        ""coreia-do-sul"",
+        ""estonia"",
+        ""eua"",
+        ""finlandia"",
+        ""gana"",
+        ""hong-kong"",
+        ""irlanda"",
+        ""japao"",
+        ""nova-zelandia"",
+        ""quenia"",
+        ""reino-unido"",
+        ""ruanda"",
+        ""singapura"",
+        ""taiwan"",
+        ""uruguai""
+      ]
+    }
+  ],
+  ""differences"": [
+    {
+      ""claim"": ""A abordagem quanto à definição de políticas e práticas específicas varia, com alguns países focando na ética e segurança digital, enquanto outros enfatizam o uso de tecnologias assistivas."",
+      ""countries"": [
+        ""africa-do-sul"",
+        ""australia"",
+        ""brasil"",
+        ""canada"",
+        ""coreia-do-sul"",
+        ""irlanda"",
+        ""japao"",
+        ""reino-unido"",
+        ""ruanda""
+      ]
+    }
+  ],
+  ""recurring_patterns"": [
+    {
+      ""claim"": ""A maioria dos países destaca a importância de desenvolver competências digitais como parte fundamental da inclusão e acessibilidade."",
+      ""countries"": [
+        ""nova-zelandia"",
+        ""quenia"",
+        ""taiwan""
+      ]
+    }
+  ],
+  ""evidence_gaps"": [
+    {
+      ""claim"": ""Não há evidências disponíveis que detalhem como a Suíça aborda as questões de inclusão, acessibilidade e equidade digital em seus documentos."",
+      ""countries"": [
+        ""suica""
+      ]
+    }
+  ],
+  ""methodological_note"": ""As comparações foram feitas com base nas respostas documentadas fornecidas pelos países na pesquisa, respeitando as diretrizes metodológicas estabelecidas.""
+}
+```","{""question_id"": ""Q08"", ""theme"": ""Inclusão, Acessibilidade e Equidade Digital"", ""convergences"": [{""claim"": ""Todos os países abordam a inclusão, acessibilidade e equidade digital de alguma forma, com ênfase em políticas e práticas que promovem a integração da tecnologia na educação."", ""countries"": [""africa-do-sul"", ""australia"", ""brasil"", ""canada"", ""chile"", ""china"", ""coreia-do-sul"", ""estonia"", ""eua"", ""finlandia"", ""gana"", ""hong-kong"", ""irlanda"", ""japao"", ""nova-zelandia"", ""quenia"", ""reino-unido"", ""ruanda"", ""singapura"", ""taiwan"", ""uruguai""]}], ""differences"": [{""claim"": ""A abordagem quanto à definição de políticas e práticas específicas varia, com alguns países focando na ética e segurança digital, enquanto outros enfatizam o uso de tecnologias assistivas."", ""countries"": [""africa-do-sul"", ""australia"", ""brasil"", ""canada"", ""coreia-do-sul"", ""irlanda"", ""japao"", ""reino-unido"", ""ruanda""]}], ""recurring_patterns"": [{""claim"": ""A maioria dos países destaca a importância de desenvolver competências digitais como parte fundamental da inclusão e acessibilidade."", ""countries"": [""nova-zelandia"", ""quenia"", ""taiwan""]}], ""evidence_gaps"": [{""claim"": ""Não há evidências disponíveis que detalhem como a Suíça aborda as questões de inclusão, acessibilidade e equidade digital em seus documentos."", ""countries"": [""suica""]}], ""methodological_note"": ""As comparações foram feitas com base nas respostas documentadas fornecidas pelos países na pesquisa, respeitando as diretrizes metodológicas estabelecidas.""}"
+Q09,gpt-4o-mini,q14-comparison-v1.0,2026-09-12T17:08:09.834047+00:00,"```json
+{
+  ""question_id"": ""Q09"",
+  ""theme"": ""Equilíbrio entre dimensões técnicas da Computação e dimensões sociais, culturais, éticas e humanas da Educação Digital"",
+  ""convergences"": [
+    {
+      ""claim"": ""Os países consideram a importância das dimensões sociais, culturais, éticas e humanas da Educação Digital em relação às dimensões técnicas da Computação."",
+      ""countries"": [""australia"", ""canada"", ""china"", ""chile"", ""gana"", ""hong-kong"", ""irlanda"", ""japao"", ""singapura"", ""suica"", ""taiwan""]
+    }
+  ],
+  ""differences"": [
+    {
+      ""claim"": ""Alguns países enfatizam a necessidade de um enfoque centrado no usuário nas abordagens digitais, enquanto outros focam na cidadania digital e na ética."",
+      ""countries"": [""canada"", ""brasil"", ""estonia"", ""reino-unido"", ""uruguai""]
+    },
+    {
+      ""claim"": ""A integração de tecnologias para promover um ensino mais acessível e inclusivo é um ponto destacado em alguns países, em contraste com um foco em habilidades técnicas."",
+      ""countries"": [""coreia-do-sul"", ""quenia"", ""finlandia"", ""nova-zelandia""]
+    }
+  ],
+  ""recurring_patterns"": [
+    {
+      ""claim"": ""A maioria dos países apresenta uma visão que integra competências técnicas e sociais, visando o desenvolvimento de cidadania digital."",
+      ""countries"": [""africa-do-sul"", ""brasil"", ""gana"", ""singapura"", ""suica""]
+    },
+    {
+      ""claim"": ""Vários países mencionam a importância de preparar os alunos para um mundo digital dinâmico, misturando habilidades técnicas e sociais."",
+      ""countries"": [""nueva-zelandia"", ""uruguai"", ""japao""]
+    }
+  ],
+  ""evidence_gaps"": [
+    {
+      ""claim"": ""Informações sobre o equilíbrio entre dimensões técnicas e sociais/humanas na Educação Digital em Ruanda não foram suficientes para suporte conclusivo."",
+      ""countries"": [""ruanda""]
+    }
+  ],
+  ""methodological_note"": ""As evidências foram analisadas apenas nos contextos apresentados para a pergunta em questão.""
+}
+```","{""question_id"": ""Q09"", ""theme"": ""Equilíbrio entre dimensões técnicas da Computação e dimensões sociais, culturais, éticas e humanas da Educação Digital"", ""convergences"": [{""claim"": ""Os países consideram a importância das dimensões sociais, culturais, éticas e humanas da Educação Digital em relação às dimensões técnicas da Computação."", ""countries"": [""australia"", ""canada"", ""china"", ""chile"", ""gana"", ""hong-kong"", ""irlanda"", ""japao"", ""singapura"", ""suica"", ""taiwan""]}], ""differences"": [{""claim"": ""Alguns países enfatizam a necessidade de um enfoque centrado no usuário nas abordagens digitais, enquanto outros focam na cidadania digital e na ética."", ""countries"": [""canada"", ""brasil"", ""estonia"", ""reino-unido"", ""uruguai""]}, {""claim"": ""A integração de tecnologias para promover um ensino mais acessível e inclusivo é um ponto destacado em alguns países, em contraste com um foco em habilidades técnicas."", ""countries"": [""coreia-do-sul"", ""quenia"", ""finlandia"", ""nova-zelandia""]}], ""recurring_patterns"": [{""claim"": ""A maioria dos países apresenta uma visão que integra competências técnicas e sociais, visando o desenvolvimento de cidadania digital."", ""countries"": [""africa-do-sul"", ""brasil"", ""gana"", ""singapura"", ""suica""]}, {""claim"": ""Vários países mencionam a importância de preparar os alunos para um mundo digital dinâmico, misturando habilidades técnicas e sociais."", ""countries"": [""nueva-zelandia"", ""uruguai"", ""japao""]}], ""evidence_gaps"": [{""claim"": ""Informações sobre o equilíbrio entre dimensões técnicas e sociais/humanas na Educação Digital em Ruanda não foram suficientes para suporte conclusivo."", ""countries"": [""ruanda""]}], ""methodological_note"": ""As evidências foram analisadas apenas nos contextos apresentados para a pergunta em questão.""}"
+Q10,gpt-4o-mini,q14-comparison-v1.0,2026-09-12T17:08:09.834047+00:00,"```json
+{
+  ""question_id"": ""Q10"",
+  ""theme"": ""Pensamento crítico, autonomia e participação social no currículo de Computação e Educação Digital"",
+  ""convergences"": [
+    {
+      ""claim"": ""Os currículos de Computação e Educação Digital promovem pensamento crítico, autonomia e participação social através de metodologias práticas e colaborativas."",
+      ""countries"": [
+        ""africa-do-sul"",
+        ""australia"",
+        ""canada"",
+        ""chile"",
+        ""coreia-do-sul"",
+        ""estonia"",
+        ""gana"",
+        ""hong-kong"",
+        ""irlanda"",
+        ""japao"",
+        ""nova-zelandia"",
+        ""quenia"",
+        ""reino-unido"",
+        ""ruanda"",
+        ""singapura"",
+        ""suica"",
+        ""taiwan"",
+        ""uruguai""
+      ]
+    }
+  ],
+  ""differences"": [
+    {
+      ""claim"": ""A forma como a autonomia é promovida no currículo varia entre os países; por exemplo, a Austrália enfatiza a justificativa de decisões com base em critérios de design, enquanto o Brasil menciona a integração da educação digital com projetos de vida personalizados."",
+      ""countries"": [
+        ""brasil"",
+        ""australia""
+      ]
+    },
+    {
+      ""claim"": ""A abordagem à cidadania digital é ressaltada especificamente no currículo do Brasil, enquanto outros países abordam o tema de maneira mais geral."",
+      ""countries"": [
+        ""brasil"",
+        ""africa-do-sul"",
+        ""canada""
+      ]
+    },
+    {
+      ""claim"": ""O desenvolvimento de raciocínio crítico através de atividades como web design é destacado no currículo de Ruanda, enquanto outros países mencionam abordagens mais gerais de pensamento crítico."",
+      ""countries"": [
+        ""ruanda"",
+        ""gana""
+      ]
+    }
+  ],
+  ""recurring_patterns"": [
+    {
+      ""claim"": ""A colaboração entre alunos é uma constante nas abordagens curriculares de vários países, com ênfase na aprendizagem ativa e na resolução de problemas em grupo."",
+      ""countries"": [
+        ""africa-do-sul"",
+        ""canada"",
+        ""chile"",
+        ""coreia-do-sul"",
+        ""gana"",
+        ""hong-kong"",
+        ""irlanda"",
+        ""japao"",
+        ""ruanda""
+      ]
+    },
+    {
+      ""claim"": ""Os currículos tendem a misturar competências digitais com habilidades sociais e éticas, abordando a importância da utilização responsável das tecnologias."",
+      ""countries"": [
+        ""suica"",
+        ""singapura"",
+        ""taiwan"",
+        ""estonia""
+      ]
+    }
+  ],
+  ""evidence_gaps"": [
+    {
+      ""claim"": ""Não há evidência que explique como o pensamento crítico, autonomia e participação social são promovidos na educação digital na China."",
+      ""countries"": [
+        ""china""
+      ]
+    }
+  ],
+  ""methodological_note"": ""Os dados foram coletados de respostas de diferentes países sobre a promoção do pensamento crítico, autonomia e participação social no currículo relacionado à Computação e Educação Digital. As comparações refletem informações disponíveis nas respostas e não implicam em interpretação externa.""
+}
+```","{""question_id"": ""Q10"", ""theme"": ""Pensamento crítico, autonomia e participação social no currículo de Computação e Educação Digital"", ""convergences"": [{""claim"": ""Os currículos de Computação e Educação Digital promovem pensamento crítico, autonomia e participação social através de metodologias práticas e colaborativas."", ""countries"": [""africa-do-sul"", ""australia"", ""canada"", ""chile"", ""coreia-do-sul"", ""estonia"", ""gana"", ""hong-kong"", ""irlanda"", ""japao"", ""nova-zelandia"", ""quenia"", ""reino-unido"", ""ruanda"", ""singapura"", ""suica"", ""taiwan"", ""uruguai""]}], ""differences"": [{""claim"": ""A forma como a autonomia é promovida no currículo varia entre os países; por exemplo, a Austrália enfatiza a justificativa de decisões com base em critérios de design, enquanto o Brasil menciona a integração da educação digital com projetos de vida personalizados."", ""countries"": [""brasil"", ""australia""]}, {""claim"": ""A abordagem à cidadania digital é ressaltada especificamente no currículo do Brasil, enquanto outros países abordam o tema de maneira mais geral."", ""countries"": [""brasil"", ""africa-do-sul"", ""canada""]}, {""claim"": ""O desenvolvimento de raciocínio crítico através de atividades como web design é destacado no currículo de Ruanda, enquanto outros países mencionam abordagens mais gerais de pensamento crítico."", ""countries"": [""ruanda"", ""gana""]}], ""recurring_patterns"": [{""claim"": ""A colaboração entre alunos é uma constante nas abordagens curriculares de vários países, com ênfase na aprendizagem ativa e na resolução de problemas em grupo."", ""countries"": [""africa-do-sul"", ""canada"", ""chile"", ""coreia-do-sul"", ""gana"", ""hong-kong"", ""irlanda"", ""japao"", ""ruanda""]}, {""claim"": ""Os currículos tendem a misturar competências digitais com habilidades sociais e éticas, abordando a importância da utilização responsável das tecnologias."", ""countries"": [""suica"", ""singapura"", ""taiwan"", ""estonia""]}], ""evidence_gaps"": [{""claim"": ""Não há evidência que explique como o pensamento crítico, autonomia e participação social são promovidos na educação digital na China."", ""countries"": [""china""]}], ""methodological_note"": ""Os dados foram coletados de respostas de diferentes países sobre a promoção do pensamento crítico, autonomia e participação social no currículo relacionado à Computação e Educação Digital. As comparações refletem informações disponíveis nas respostas e não implicam em interpretação externa.""}"
+Q11,gpt-4o-mini,q14-comparison-v1.0,2026-09-12T17:08:09.834047+00:00,"```json
+{
+  ""question_id"": ""Q11"",
+  ""theme"": ""Cidadania Global nos Currículos"",
+  ""convergences"": [
+    {
+      ""claim"": ""Vários países destacam a importância da educação em cidadania digital e ética no uso da tecnologia."",
+      ""countries"": [""africa-do-sul"", ""reino-unido"", ""ruanda"", ""coreia-do-sul"", ""uruguai""]
+    },
+    {
+      ""claim"": ""Os documentos curriculares de diversos países enfatizam a responsabilidade social e a consciência em relação a questões globais."",
+      ""countries"": [""canada"", ""japao"", ""taiwan"", ""australia"", ""gana""]
+    },
+    {
+      ""claim"": ""É evidente a promoção do respeito à diversidade cultural como parte da educação para a cidadania global."",
+      ""countries"": [""chile"", ""hong-kong"", ""estonia"", ""nova-zelandia""]
+    }
+  ],
+  ""differences"": [
+    {
+      ""claim"": ""O foco na cidadania digital é mais abrangente na Austrália e no Reino Unido do que em outros países."",
+      ""countries"": [""australia"", ""reino-unido""]
+    },
+    {
+      ""claim"": ""A abordagem da cidadania global no Japão inclui uma ênfase específica em valores humanos e comunicação eficaz, diferenciando-se de outros países."",
+      ""countries"": [""japao""]
+    },
+    {
+      ""claim"": ""O Brasil destaca a construção da cidadania como um exercício contínuo, enquanto outros países mencionam mais aspectos práticos ou éticos."",
+      ""countries"": [""brasil""]
+    }
+  ],
+  ""recurring_patterns"": [
+    {
+      ""claim"": ""A maioria dos países aponta a necessidade de uma consciência crítica em relação a questões sociais, éticas e ambientais."",
+      ""countries"": [""taiwan"", ""finlandia"", ""japao"", ""gana""]
+    },
+    {
+      ""claim"": ""Vários países mencionam a importância da participação ativa dos alunos na construção de uma sociedade melhor."",
+      ""countries"": [""nova-zelandia"", ""gana"", ""quenia""]
+    }
+  ],
+  ""evidence_gaps"": [
+    {
+      ""claim"": ""Não foi encontrado um relato específico sobre como a educação para a cidadania global é aplicada na prática em muitos documentos curriculares."",
+      ""countries"": [""todos os países""]
+    },
+    {
+      ""claim"": ""Falta de evidência sobre a integração de práticas sustentáveis na educação para a cidadania em muitos países, exceto na Austrália e na Nova Zelândia."",
+      ""countries"": [""africa-do-sul"", ""canada"", ""uruguai"", ""suica""]
+    }
+  ],
+  ""methodological_note"": ""As análises foram baseadas nas informações apresentadas nos documentos curriculares de cada país sem acesso a dados externos.""
+}
+```","{""question_id"": ""Q11"", ""theme"": ""Cidadania Global nos Currículos"", ""convergences"": [{""claim"": ""Vários países destacam a importância da educação em cidadania digital e ética no uso da tecnologia."", ""countries"": [""africa-do-sul"", ""reino-unido"", ""ruanda"", ""coreia-do-sul"", ""uruguai""]}, {""claim"": ""Os documentos curriculares de diversos países enfatizam a responsabilidade social e a consciência em relação a questões globais."", ""countries"": [""canada"", ""japao"", ""taiwan"", ""australia"", ""gana""]}, {""claim"": ""É evidente a promoção do respeito à diversidade cultural como parte da educação para a cidadania global."", ""countries"": [""chile"", ""hong-kong"", ""estonia"", ""nova-zelandia""]}], ""differences"": [{""claim"": ""O foco na cidadania digital é mais abrangente na Austrália e no Reino Unido do que em outros países."", ""countries"": [""australia"", ""reino-unido""]}, {""claim"": ""A abordagem da cidadania global no Japão inclui uma ênfase específica em valores humanos e comunicação eficaz, diferenciando-se de outros países."", ""countries"": [""japao""]}, {""claim"": ""O Brasil destaca a construção da cidadania como um exercício contínuo, enquanto outros países mencionam mais aspectos práticos ou éticos."", ""countries"": [""brasil""]}], ""recurring_patterns"": [{""claim"": ""A maioria dos países aponta a necessidade de uma consciência crítica em relação a questões sociais, éticas e ambientais."", ""countries"": [""taiwan"", ""finlandia"", ""japao"", ""gana""]}, {""claim"": ""Vários países mencionam a importância da participação ativa dos alunos na construção de uma sociedade melhor."", ""countries"": [""nova-zelandia"", ""gana"", ""quenia""]}], ""evidence_gaps"": [{""claim"": ""Não foi encontrado um relato específico sobre como a educação para a cidadania global é aplicada na prática em muitos documentos curriculares."", ""countries"": [""todos os países""]}, {""claim"": ""Falta de evidência sobre a integração de práticas sustentáveis na educação para a cidadania em muitos países, exceto na Austrália e na Nova Zelândia."", ""countries"": [""africa-do-sul"", ""canada"", ""uruguai"", ""suica""]}], ""methodological_note"": ""As análises foram baseadas nas informações apresentadas nos documentos curriculares de cada país sem acesso a dados externos.""}"
+Q12,gpt-4o-mini,q14-comparison-v1.0,2026-09-12T17:08:09.834047+00:00,"```json
+{
+  ""question_id"": ""Q12"",
+  ""theme"": ""Formação, atuação ou desenvolvimento profissional docente para Computação e Educação Digital"",
+  ""convergences"": [
+    {
+      ""claim"": ""A formação docente para Computação e Educação Digital envolve a utilização de tecnologias digitais e princípios de design."",
+      ""countries"": [
+        ""australia"",
+        ""canada"",
+        ""estonia"",
+        ""japao"",
+        ""suica""
+      ]
+    }
+  ],
+  ""differences"": [
+    {
+      ""claim"": ""Alguns países enfatizam mais a integração de competências digitais em diferentes áreas que outros."",
+      ""countries"": [
+        ""brasil"",
+        ""quenia"",
+        ""uruguai""
+      ]
+    },
+    {
+      ""claim"": ""A abordagem da formação docente para Computação e Educação Digital varia, com alguns países focando mais na colaboração e comunicação enquanto outros priorizam a autonomia dos alunos."",
+      ""countries"": [
+        ""hong-kong"",
+        ""china"",
+        ""finlandia""
+      ]
+    }
+  ],
+  ""recurring_patterns"": [
+    {
+      ""claim"": ""A integração de práticas teóricas e a aplicação de conhecimentos em contextos práticos é comum entre diversos países."",
+      ""countries"": [
+        ""irlanda"",
+        ""singapura"",
+        ""japao""
+      ]
+    },
+    {
+      ""claim"": ""Os programas de formação incluem metodologias que fazem uso intensivo de Tecnologias da Informação e Comunicação (TIC)."",
+      ""countries"": [
+        ""gana"",
+        ""coreia-do-sul"",
+        ""suica""
+      ]
+    }
+  ],
+  ""evidence_gaps"": [
+    {
+      ""claim"": ""Modelos específicos de avaliação da transformação digital nas competências docentes não foram suficientemente abordados."",
+      ""countries"": []
+    },
+    {
+      ""claim"": ""Informações sobre a eficiência e impacto das práticas de formação em Computação e Educação Digital não estão claras em alguns países."",
+      ""countries"": []
+    }
+  ],
+  ""methodological_note"": ""Os dados foram coletados de respostas de múltiplos países e não foram considerados comparativos diretos de desempenho individual.""
+}
+```","{""question_id"": ""Q12"", ""theme"": ""Formação, atuação ou desenvolvimento profissional docente para Computação e Educação Digital"", ""convergences"": [{""claim"": ""A formação docente para Computação e Educação Digital envolve a utilização de tecnologias digitais e princípios de design."", ""countries"": [""australia"", ""canada"", ""estonia"", ""japao"", ""suica""]}], ""differences"": [{""claim"": ""Alguns países enfatizam mais a integração de competências digitais em diferentes áreas que outros."", ""countries"": [""brasil"", ""quenia"", ""uruguai""]}, {""claim"": ""A abordagem da formação docente para Computação e Educação Digital varia, com alguns países focando mais na colaboração e comunicação enquanto outros priorizam a autonomia dos alunos."", ""countries"": [""hong-kong"", ""china"", ""finlandia""]}], ""recurring_patterns"": [{""claim"": ""A integração de práticas teóricas e a aplicação de conhecimentos em contextos práticos é comum entre diversos países."", ""countries"": [""irlanda"", ""singapura"", ""japao""]}, {""claim"": ""Os programas de formação incluem metodologias que fazem uso intensivo de Tecnologias da Informação e Comunicação (TIC)."", ""countries"": [""gana"", ""coreia-do-sul"", ""suica""]}], ""evidence_gaps"": [{""claim"": ""Modelos específicos de avaliação da transformação digital nas competências docentes não foram suficientemente abordados."", ""countries"": []}, {""claim"": ""Informações sobre a eficiência e impacto das práticas de formação em Computação e Educação Digital não estão claras em alguns países."", ""countries"": []}], ""methodological_note"": ""Os dados foram coletados de respostas de múltiplos países e não foram considerados comparativos diretos de desempenho individual.""}"
+Q13,gpt-4o-mini,q14-comparison-v1.0,2026-09-12T17:08:09.834047+00:00,"```json
+{
+  ""question_id"": ""Q13"",
+  ""theme"": """",
+  ""convergences"": [
+    {
+      ""claim"": ""Vários países mencionam a importância da tecnologia da informação e comunicação (TIC) em seus documentos educacionais."",
+      ""countries"": [""africa-do-sul"", ""ruanda"", ""coreia-do-sul"", ""china"", ""taiwan""]
+    }
+  ],
+  ""differences"": [
+    {
+      ""claim"": ""Os documentos do Brasil abordam uma ampla gama de eixos que incluem questões sociais e culturais, em contraste com a maioria dos outros países que focam mais em aspectos técnicos e competências digitais."",
+      ""countries"": [""brasil""]
+    },
+    {
+      ""claim"": ""Enquanto alguns países enfatizam a ética e a responsabilidade no uso da tecnologia, como a China e a Suíça, outros, como o Japão, focam mais na coleta e análise de dados."",
+      ""countries"": [""china"", ""suica"", ""japao""]
+    }
+  ],
+  ""recurring_patterns"": [
+    {
+      ""claim"": ""A presença de conceitos relacionados ao pensamento computacional é uma tendência recorrente em muitos países analisados."",
+      ""countries"": [""irlanda"", ""reino-unido"", ""nova-zelandia"", ""singapura"", ""taiwan""]
+    },
+    {
+      ""claim"": ""A ênfase em habilidades sociais como comunicação e colaboração é mencionada frequentemente por vários países."",
+      ""countries"": [""gana"", ""quenia"", ""hong-kong""]
+    },
+    {
+      ""claim"": ""A consideração pela inclusão e diversidade na educação é um tema recorrente em vários documentos, especialmente nos EUA e na Austrália."",
+      ""countries"": [""eua"", ""australia""]
+    }
+  ],
+  ""evidence_gaps"": [
+    {
+      ""claim"": ""A falta de evidências sobre o tratamento de tópicos relacionados à proteção de dados e direitos autorais em alguns países na análise."",
+      ""countries"": [""gana"", ""quenia""]
+    }
+  ],
+  ""methodological_note"": ""As comparações foram realizadas estritamente com base nos dados fornecidos, respeitando as regras metodológicas acordadas.""
+}
+```","{""question_id"": ""Q13"", ""theme"": """", ""convergences"": [{""claim"": ""Vários países mencionam a importância da tecnologia da informação e comunicação (TIC) em seus documentos educacionais."", ""countries"": [""africa-do-sul"", ""ruanda"", ""coreia-do-sul"", ""china"", ""taiwan""]}], ""differences"": [{""claim"": ""Os documentos do Brasil abordam uma ampla gama de eixos que incluem questões sociais e culturais, em contraste com a maioria dos outros países que focam mais em aspectos técnicos e competências digitais."", ""countries"": [""brasil""]}, {""claim"": ""Enquanto alguns países enfatizam a ética e a responsabilidade no uso da tecnologia, como a China e a Suíça, outros, como o Japão, focam mais na coleta e análise de dados."", ""countries"": [""china"", ""suica"", ""japao""]}], ""recurring_patterns"": [{""claim"": ""A presença de conceitos relacionados ao pensamento computacional é uma tendência recorrente em muitos países analisados."", ""countries"": [""irlanda"", ""reino-unido"", ""nova-zelandia"", ""singapura"", ""taiwan""]}, {""claim"": ""A ênfase em habilidades sociais como comunicação e colaboração é mencionada frequentemente por vários países."", ""countries"": [""gana"", ""quenia"", ""hong-kong""]}, {""claim"": ""A consideração pela inclusão e diversidade na educação é um tema recorrente em vários documentos, especialmente nos EUA e na Austrália."", ""countries"": [""eua"", ""australia""]}], ""evidence_gaps"": [{""claim"": ""A falta de evidências sobre o tratamento de tópicos relacionados à proteção de dados e direitos autorais em alguns países na análise."", ""countries"": [""gana"", ""quenia""]}], ""methodological_note"": ""As comparações foram realizadas estritamente com base nos dados fornecidos, respeitando as regras metodológicas acordadas.""}"

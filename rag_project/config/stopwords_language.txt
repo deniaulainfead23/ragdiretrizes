@@ -1,0 +1,29 @@
+# Stopwords em inglês para pré-processamento geral
+# Mantém lista mínima e rastreável para uso em análise documental.
+
+the
+and
+or
+of
+to
+in
+for
+on
+with
+as
+by
+is
+are
+be
+this
+that
+these
+those
+a
+an
+from
+at
+it
+its
+itself
+

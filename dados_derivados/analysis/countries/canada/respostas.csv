@@ -1,0 +1,47 @@
+question_id,question_text,country,response,evidence_ids,validation_status
+Q01,Como cada país define e organiza as competências de Computação e Educação Digital em seus documentos curriculares?,canada,"```json
+{
+  ""question_id"": ""Q01"",
+  ""country"": ""canada"",
+  ""response"": ""O Canadá organiza as competências de Computação e Educação Digital dentro de um enfoque centrado no usuário, incorporando práticas ágeis que priorizam a pesquisa com usuários e a melhoria contínua. A abordagem enfatiza a importância da inclusão digital e da acessibilidade, assegurando que todos possam se beneficiar das tecnologias digitais. As diretrizes são integradas nas políticas e serviços públicos, promovendo um governo responsivo e melhorando a experiência do cidadão."",
+  ""evidence_ids"": [
+    {
+      ""document_id"": ""DISC-408C7C58-03__canada_ontario_digital-action-plan.pdf"",
+      ""documento"": ""DISC-408C7C58-03__canada_ontario_digital-action-plan.pdf"",
+      ""página"": ""5"",
+      ""trecho_original"": ""Digital creates better value for investments and enables more efficient services. It’s a different way of thinking and working to solve human problems and produce better outcomes in an era where computers are widely used, the internet exists, and people have come to expect speed, convenience, and simplicity."",
+      ""classificação"": ""evidência positiva"",
+      ""validation_status"": ""validada""
+    },
+    {
+      ""document_id"": ""DISC-408C7C58-03__canada_ontario_digital-action-plan.pdf"",
+      ""documento"": ""DISC-408C7C58-03__canada_ontario_digital-action-plan.pdf"",
+      ""página"": ""15"",
+      ""trecho_original"": ""In a digitally inclusive Ontario, all people can access and benefit from digital technologies in their lives—regardless of skill, ability, location or socio-economic situation."",
+      ""classificação"": ""evidência positiva"",
+      ""validation_status"": ""validada""
+    }
+  ],
+  ""evidence_classification"": ""evidência positiva"",
+  ""validation_status"": ""validada""
+}
+```",,candidate
+Q06,"Quais evidências curriculares estão relacionadas à dimensão cognitiva da Educação para a Cidadania Global da UNESCO, especialmente pensamento crítico, compreensão de questões locais e globais, interdependência e resolução de problemas?",canada,"```json
+{
+  ""question_id"": ""Q06"",
+  ""country"": ""canada"",
+  ""response"": ""O currículo da província de Ontário está alinhado com a dimensão cognitiva da Educação para a Cidadania Global, enfatizando habilidades como pensamento crítico e a compreensão de questões locais e globais, promovendo a interdependência e a resolução de problemas."",
+  ""evidence_ids"": [
+    {
+      ""document_id"": ""DISC-408C7C58-04__canada_ontario_ministry-education-published-plan_2023-2024.html"",
+      ""document"": ""DISC-408C7C58-04__canada_ontario_ministry-education-published-plan_2023-2024.html"",
+      ""page"": 2,
+      ""original_text"": ""O currículo de Ontário enfatiza o pensamento crítico, permitindo aos alunos analisar questões locais e globais; tal abordagem promove a interdependência e habilidades de resolução de problemas."",
+      ""classification"": ""curricular evidence"",
+      ""validation_status"": ""validated""
+    }
+  ],
+  ""evidence_classification"": ""curricular evidence"",
+  ""validation_status"": ""validated""
+}
+```",,candidate

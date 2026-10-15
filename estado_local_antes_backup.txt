@@ -1,0 +1,51 @@
+ M corpus/INDICE_ATUALIZADO.md
+ M corpus/MANIFESTO.md
+ D "corpus/Unesco/381115por_UNESCO REIMAGINANDO A EDUCA\303\207\303\203O FUTURO_2021.pdf"
+ M corpus/baixar_curriculos.py
+ D corpus/chile/chile_bases-curriculares_educacion-basica_2012_FALHA_DOWNLOAD.txt
+ D corpus/chile/chile_tecnologia_programa_3-basico_FALHA_DOWNLOAD.txt
+ D corpus/chile/chile_tecnologia_programa_4-basico_FALHA_DOWNLOAD.txt
+ D corpus/chile/chile_tecnologia_programa_5-basico_FALHA_DOWNLOAD.txt
+ D corpus/chile/chile_tecnologia_programa_6-basico_FALHA_DOWNLOAD.txt
+ D "corpus/suica/EN33_PER_Education numerique_Su\303\255\303\247a franc\303\263fona \342\200\224 Plan d\342\200\231\303\251tudes romand, \303\211ducation num\303\251rique.pdf"
+ D corpus/suica/suica_lehrplan21_medien-und-informatik_web_INDISPONIVEL.txt
+ D docs/Dissertacao_UFRRJ_Denise_Moraes_corrigida_ABNT_com_comentarios_2808_ULTIMO.docx
+ M docs/ETAPA_TFIDF.md
+ D docs/QUESTION_REFACTORING_PLAN.md
+ M metadata/bibliographic_matrix.csv
+ M metadata/vector_store_manifest.json
+ M rag_project/README.md
+ M rag_project/analyze_tfidf.py
+ M rag_project/build_bibliographic_matrix.py
+ M rag_project/build_dataset.py
+ M rag_project/config/corpus_registry.yaml
+ M rag_project/corpus_registry.py
+ M rag_project/openai_vector_store.py
+ M rag_project/plot_csv_analysis.py
+ D rag_project/questions.txt
+ M rag_project/rag/indexer.py
+ M rag_project/run_questions_by_country.py
+?? analysis/consolidado/
+?? analysis/countries/
+?? "corpus - Copia/"
+?? corpus/README_CORPUS.md
+?? "corpus/Unesco/381115por_unesco reimaginando a educa\303\247\303\243o futuro_2021.pdf"
+?? corpus/manifest.csv
+?? corpus/sha256sums.txt
+?? "corpus/suica/en33_per_education numerique_su\303\255\303\247a franc\303\263fona \342\200\224 plan d\342\200\231\303\251tudes romand, \303\251ducation num\303\251rique.pdf"
+?? docs/Dissertacao_UFRRJ_Denise_Moraes_COM_RESULTADOSvf.docx
+?? estado_local_antes_backup.txt
+?? historico-versoes/
+?? mermaid-diagram.png
+?? metadata/corpus_manifest.csv
+?? metadata/country_selection.csv
+?? pesquisaRodando/
+?? rag_project/audit_corpus_registry.py
+?? rag_project/consolidate_country_responses.py
+?? rag_project/extrai_trechos_tfidf.py
+?? rag_project/generate_question_country_matrix.py
+?? resultadO.txt
+?? resultadol.txt
+?? run_logs/
+?? tests/test_consolidate_country_responses.py
+?? tests/test_corpus_registry.py

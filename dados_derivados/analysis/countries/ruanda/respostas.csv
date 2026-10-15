@@ -1,0 +1,58 @@
+question_id,question_text,country,response,evidence_ids,validation_status
+Q01,Como cada país define e organiza as competências de Computação e Educação Digital em seus documentos curriculares?,ruanda,"```json
+{
+  ""question_id"": ""Q01"",
+  ""country"": ""ruanda"",
+  ""response"": ""Em Ruanda, as competências de Computação e Educação Digital são organizadas em um currículo baseado em competências, que atende as necessidades dos alunos e é alinhado com o desenvolvimento socioeconômico do país. O currículo de TIC (Tecnologias da Informação e Comunicação) visa equipar os alunos com conhecimentos, habilidades e valores relevantes para o mercado de trabalho, bem como promover o pensamento crítico e a resolução de problemas."",
+  ""evidence_ids"": [
+    {
+      ""document_id"": ""DISC-03A30163-01__ruanda_ict-syllabus.pdf"",
+      ""page"": 1,
+      ""original_text"": ""With the review of the ICT syllabus, these factors have been aligned with the competence-based curriculum for general education. This implies equipping students with relevant knowledge, skills, attitude and values necessary to make them competitive on local, regional and global job market."",
+      ""classification"": ""curricular framework"",
+      ""validation_status"": ""validated""
+    },
+    {
+      ""document_id"": ""DISC-03A30163-01__ruanda_ict-syllabus.pdf"",
+      ""page"": 2,
+      ""original_text"": ""The ICT syllabus guides the interaction between the Teacher and students in the learning processes and highlights the competences a student should acquire during and at the end of each unit of learning."",
+      ""classification"": ""curricular framework"",
+      ""validation_status"": ""validated""
+    },
+    {
+      ""document_id"": ""DISC-03A30163-01__ruanda_ict-syllabus.pdf"",
+      ""page"": 3,
+      ""original_text"": ""ICT in education is to be used to enhance teaching and learning and prepare citizens who will adapt in this newly created environment."",
+      ""classification"": ""educational strategy"",
+      ""validation_status"": ""validated""
+    }
+  ],
+  ""evidence_classification"": ""curriculum analysis"",
+  ""validation_status"": ""validated""
+}
+```",,candidate
+Q06,"Quais evidências curriculares estão relacionadas à dimensão cognitiva da Educação para a Cidadania Global da UNESCO, especialmente pensamento crítico, compreensão de questões locais e globais, interdependência e resolução de problemas?",ruanda,"```json
+{
+  ""question_id"": ""Q06"",
+  ""country"": ""ruanda"",
+  ""response"": ""As evidências curriculares relacionadas à dimensão cognitiva da Educação para a Cidadania Global da UNESCO incluem o desenvolvimento do pensamento crítico, habilidades de comunicação e resolução de problemas por meio do uso de tecnologia da informação e comunicação (TIC). O currículo enfatiza a importância de desenvolver competências como pensamento crítico, habilidades de inovação e pesquisa em grupo para compreender questões locais e globais."",
+  ""evidence_ids"": [
+    {
+      ""document_id"": ""DISC-03A30163-01__ruanda_ict-syllabus.pdf"",
+      ""pagina"": 2,
+      ""trecho_original"": ""Develop critical thinking and logical reasoning through computer web designing as to come up with possible solutions in order to address different issues related to service delivery in the country and the region."",
+      ""classificacao"": ""Evidência curricular"",
+      ""validation_status"": ""Valido""
+    },
+    {
+      ""document_id"": ""DISC-03A30163-01__ruanda_ict-syllabus.pdf"",
+      ""pagina"": 1,
+      ""trecho_original"": ""Through observations, applying ICT skills, and presentation of information acquired during the learning process, the student will not only develop different ICT skills but also deductive and inductive skills, creativity and innovation skills, cooperation and communication, critical thinking and problem solving skills."",
+      ""classificacao"": ""Evidência curricular"",
+      ""validation_status"": ""Valido""
+    }
+  ],
+  ""evidence_classification"": ""Curricular"",
+  ""validation_status"": ""Valido""
+}
+```",,candidate

@@ -1,0 +1,56 @@
+file,column,description,type,required,notes
+bibliographic_matrix.csv,document_id,Identificador persistente interno do documento,string,yes,Não reutilizar IDs entre documentos
+bibliographic_matrix.csv,country,País ou jurisdição do documento,string,yes,UNESCO e OECD devem ser tratados como referências internacionais quando aplicável
+bibliographic_matrix.csv,title_original,Título do documento na fonte original,string,yes,Preservar grafia oficial
+bibliographic_matrix.csv,title_translated,Título traduzido para apoio à análise,string,no,Não substituir o título oficial
+bibliographic_matrix.csv,institution,Instituição responsável pela publicação,string,yes,Ministério agência conselho ou organismo
+bibliographic_matrix.csv,publication_year_original,Ano da publicação original,integer,no,Deixar vazio quando não verificado
+bibliographic_matrix.csv,document_type,Tipo documental,string,yes,Exemplos: curricular_base curriculum framework policy syllabus
+bibliographic_matrix.csv,education_level,Nível de ensino abrangido,string,no,
+bibliographic_matrix.csv,curricular_area,Área curricular ou temática,string,no,
+bibliographic_matrix.csv,language_original,Idioma original,string,no,Preferir código ISO quando possível
+bibliographic_matrix.csv,language_analysis,Idioma usado na análise computacional,string,no,
+bibliographic_matrix.csv,official_source_url,URL oficial do documento,string,yes,Usar fonte institucional primária sempre que possível
+bibliographic_matrix.csv,landing_page_url,Página institucional que descreve o recurso,string,no,
+bibliographic_matrix.csv,access_date,Data de acesso à fonte,date,yes,ISO 8601 recomendado
+bibliographic_matrix.csv,doi,DOI do documento original,string,no,Não inventar
+bibliographic_matrix.csv,isbn,ISBN do documento original,string,no,Não inventar
+bibliographic_matrix.csv,file_name,Nome local do arquivo,string,no,
+bibliographic_matrix.csv,relative_path,Caminho relativo no corpus,string,no,
+bibliographic_matrix.csv,file_size,Tamanho do arquivo em bytes,integer,no,
+bibliographic_matrix.csv,sha256,Hash SHA-256 do arquivo,string,no,Permite verificar identidade do documento
+bibliographic_matrix.csv,ocr_used,Indica uso de OCR,boolean,yes,
+bibliographic_matrix.csv,ocr_engine,Ferramenta de OCR,string,no,
+bibliographic_matrix.csv,translation_used,Indica uso de tradução para análise,boolean,yes,
+bibliographic_matrix.csv,translation_tool,Ferramenta de tradução,string,no,
+bibliographic_matrix.csv,translation_model,Modelo usado na tradução,string,no,
+bibliographic_matrix.csv,source_verified,Indica verificação manual ou institucional da fonte,boolean,yes,
+bibliographic_matrix.csv,source_confidence,Nível de confiança da proveniência,string,no,Definir escala no README metodológico
+source_registry.csv,document_id,Identificador que conecta a fonte à matriz bibliográfica,string,yes,
+source_registry.csv,official_url,URL oficial reconciliada,string,yes,
+source_registry.csv,source_status,Situação da fonte,string,yes,OK OK_EXISTENTE FALHA_DOWNLOAD INDISPONIVEL ou equivalente
+source_registry.csv,redistribution_status,Situação da redistribuição,string,yes,permitted metadata_only unknown restricted
+source_registry.csv,citation_abnt,Referência ABNT gerada somente quando houver metadados suficientes,string,no,Revisão humana obrigatória
+source_registry.csv,citation_apa7,Referência APA 7 gerada somente quando houver metadados suficientes,string,no,Revisão humana obrigatória
+evidence_matrix_validated.csv,document_id,Documento de origem da evidência,string,yes,
+evidence_matrix_validated.csv,country,País ou jurisdição,string,yes,
+evidence_matrix_validated.csv,framework_id,Framework analítico,string,yes,
+evidence_matrix_validated.csv,dimension_code,Código da dimensão,string,yes,
+evidence_matrix_validated.csv,dimension_name,Nome da dimensão,string,yes,
+evidence_matrix_validated.csv,matched_keyword,Palavra ou expressão associada à recuperação,string,no,
+evidence_matrix_validated.csv,matched_text,Trecho textual legível usado como evidência,string,yes,Não pode conter bytes ou estrutura PDF bruta
+evidence_matrix_validated.csv,evidence_classification,Classificação analítica da evidência,string,yes,
+evidence_matrix_validated.csv,evidence_status,Status da validação,string,yes,Somente registros efetivamente validados no arquivo público
+evidence_matrix_validated.csv,validation_notes,Notas de validação,string,no,
+evidence_matrix_validated.csv,source_file,Arquivo de origem,string,yes,
+lexical_group_tfidf.csv,group,País ou grupo textual,string,yes,
+lexical_group_tfidf.csv,rank,Posição do termo no grupo,integer,yes,
+lexical_group_tfidf.csv,term,Termo ou n-grama,string,yes,
+lexical_group_tfidf.csv,tfidf,Peso TF-IDF,float,yes,Indicador exploratório
+lexical_group_frequency.csv,group,País ou grupo textual,string,yes,
+lexical_group_frequency.csv,rank,Posição por frequência,integer,yes,
+lexical_group_frequency.csv,term,Termo,string,yes,
+lexical_group_frequency.csv,frequency,Frequência absoluta,integer,yes,
+lexical_group_similarity.csv,group_a,Primeiro grupo comparado,string,yes,
+lexical_group_similarity.csv,group_b,Segundo grupo comparado,string,yes,
+lexical_group_similarity.csv,similarity,Similaridade cosseno entre vetores TF-IDF,float,yes,Não equivale a alinhamento curricular

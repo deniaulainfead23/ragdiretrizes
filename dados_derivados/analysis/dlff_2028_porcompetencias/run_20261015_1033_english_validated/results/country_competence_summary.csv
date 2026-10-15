@@ -1,0 +1,573 @@
+﻿country,framework_id,area_code,area_name,competence_code,competence_name,documents_in_country,documents_with_lexical_hit,document_coverage_percent,total_occurrences,total_words,pooled_occurrences_per_10000_words,mean_document_rate_per_10000_words,interpretation
+africa-do-sul,DLGF_2018,CA0,Devices and software operations,0.1,Physical operations of digital devices,2,2,100.0,74,35954,20.581855,20.504156,lexical_indicator_only
+africa-do-sul,DLGF_2018,CA0,Devices and software operations,0.2,Software operations in digital devices,2,2,100.0,31,35954,8.622128,8.652469,lexical_indicator_only
+africa-do-sul,DLGF_2018,CA1,Information and data literacy,1.1,Browsing searching and filtering data information and digital content,2,2,100.0,38,35954,10.56906,10.59311,lexical_indicator_only
+africa-do-sul,DLGF_2018,CA1,Information and data literacy,1.2,Evaluating data information and digital content,2,2,100.0,3,35954,0.8344,0.827226,lexical_indicator_only
+africa-do-sul,DLGF_2018,CA1,Information and data literacy,1.3,Managing data information and digital content,2,2,100.0,50,35954,13.906659,13.823667,lexical_indicator_only
+africa-do-sul,DLGF_2018,CA2,Communication and collaboration,2.1,Interacting through digital technologies,2,2,100.0,17,35954,4.728264,4.692838,lexical_indicator_only
+africa-do-sul,DLGF_2018,CA2,Communication and collaboration,2.2,Sharing through digital technologies,2,1,50.0,3,35954,0.8344,0.811557,lexical_indicator_only
+africa-do-sul,DLGF_2018,CA2,Communication and collaboration,2.3,Engaging in citizenship through digital technologies,2,0,0.0,0,35954,0.0,0.0,lexical_indicator_only
+africa-do-sul,DLGF_2018,CA2,Communication and collaboration,2.4,Collaborating through digital technologies,2,0,0.0,0,35954,0.0,0.0,lexical_indicator_only
+africa-do-sul,DLGF_2018,CA2,Communication and collaboration,2.5,Netiquette,2,2,100.0,9,35954,2.503199,2.513018,lexical_indicator_only
+africa-do-sul,DLGF_2018,CA2,Communication and collaboration,2.6,Managing digital identity,2,1,50.0,1,35954,0.278133,0.270519,lexical_indicator_only
+africa-do-sul,DLGF_2018,CA3,Digital content creation,3.1,Developing digital content,2,0,0.0,0,35954,0.0,0.0,lexical_indicator_only
+africa-do-sul,DLGF_2018,CA3,Digital content creation,3.2,Integrating and re-elaborating digital content,2,0,0.0,0,35954,0.0,0.0,lexical_indicator_only
+africa-do-sul,DLGF_2018,CA3,Digital content creation,3.3,Copyright and licences,2,2,100.0,18,35954,5.006397,4.947687,lexical_indicator_only
+africa-do-sul,DLGF_2018,CA3,Digital content creation,3.4,Programming,2,2,100.0,69,35954,19.191189,19.73134,lexical_indicator_only
+africa-do-sul,DLGF_2018,CA4,Safety,4.1,Protecting devices,2,1,50.0,5,35954,1.390666,1.352594,lexical_indicator_only
+africa-do-sul,DLGF_2018,CA4,Safety,4.2,Protecting personal data and privacy,2,2,100.0,6,35954,1.668799,1.654453,lexical_indicator_only
+africa-do-sul,DLGF_2018,CA4,Safety,4.3,Protecting health and well-being,2,1,50.0,1,35954,0.278133,0.270519,lexical_indicator_only
+africa-do-sul,DLGF_2018,CA4,Safety,4.4,Protecting the environment,2,2,100.0,6,35954,1.668799,1.670122,lexical_indicator_only
+africa-do-sul,DLGF_2018,CA5,Problem-solving,5.1,Solving technical problems,2,2,100.0,21,35954,5.840797,5.712235,lexical_indicator_only
+africa-do-sul,DLGF_2018,CA5,Problem-solving,5.2,Identifying needs and technological responses,2,0,0.0,0,35954,0.0,0.0,lexical_indicator_only
+africa-do-sul,DLGF_2018,CA5,Problem-solving,5.3,Creatively using digital technologies,2,0,0.0,0,35954,0.0,0.0,lexical_indicator_only
+africa-do-sul,DLGF_2018,CA5,Problem-solving,5.4,Identifying digital competence gaps,2,0,0.0,0,35954,0.0,0.0,lexical_indicator_only
+africa-do-sul,DLGF_2018,CA5,Problem-solving,5.5,Computational thinking,2,2,100.0,80,35954,22.250654,22.832404,lexical_indicator_only
+africa-do-sul,DLGF_2018,CA6,Career-related competences,6.1,Operating specialised digital technologies for a particular field,2,0,0.0,0,35954,0.0,0.0,lexical_indicator_only
+africa-do-sul,DLGF_2018,CA6,Career-related competences,6.2,Interpreting and manipulating data information and digital content for a particular field,2,0,0.0,0,35954,0.0,0.0,lexical_indicator_only
+australia,DLGF_2018,CA0,Devices and software operations,0.1,Physical operations of digital devices,2,2,100.0,9,2959,30.415681,33.127347,lexical_indicator_only
+australia,DLGF_2018,CA0,Devices and software operations,0.2,Software operations in digital devices,2,1,50.0,1,2959,3.37952,4.444445,lexical_indicator_only
+australia,DLGF_2018,CA1,Information and data literacy,1.1,Browsing searching and filtering data information and digital content,2,0,0.0,0,2959,0.0,0.0,lexical_indicator_only
+australia,DLGF_2018,CA1,Information and data literacy,1.2,Evaluating data information and digital content,2,0,0.0,0,2959,0.0,0.0,lexical_indicator_only
+australia,DLGF_2018,CA1,Information and data literacy,1.3,Managing data information and digital content,2,1,50.0,2,2959,6.75904,8.888889,lexical_indicator_only
+australia,DLGF_2018,CA2,Communication and collaboration,2.1,Interacting through digital technologies,2,0,0.0,0,2959,0.0,0.0,lexical_indicator_only
+australia,DLGF_2018,CA2,Communication and collaboration,2.2,Sharing through digital technologies,2,0,0.0,0,2959,0.0,0.0,lexical_indicator_only
+australia,DLGF_2018,CA2,Communication and collaboration,2.3,Engaging in citizenship through digital technologies,2,0,0.0,0,2959,0.0,0.0,lexical_indicator_only
+australia,DLGF_2018,CA2,Communication and collaboration,2.4,Collaborating through digital technologies,2,0,0.0,0,2959,0.0,0.0,lexical_indicator_only
+australia,DLGF_2018,CA2,Communication and collaboration,2.5,Netiquette,2,0,0.0,0,2959,0.0,0.0,lexical_indicator_only
+australia,DLGF_2018,CA2,Communication and collaboration,2.6,Managing digital identity,2,2,100.0,7,2959,23.656641,24.238459,lexical_indicator_only
+australia,DLGF_2018,CA3,Digital content creation,3.1,Developing digital content,2,0,0.0,0,2959,0.0,0.0,lexical_indicator_only
+australia,DLGF_2018,CA3,Digital content creation,3.2,Integrating and re-elaborating digital content,2,0,0.0,0,2959,0.0,0.0,lexical_indicator_only
+australia,DLGF_2018,CA3,Digital content creation,3.3,Copyright and licences,2,0,0.0,0,2959,0.0,0.0,lexical_indicator_only
+australia,DLGF_2018,CA3,Digital content creation,3.4,Programming,2,2,100.0,5,2959,16.897601,17.067733,lexical_indicator_only
+australia,DLGF_2018,CA4,Safety,4.1,Protecting devices,2,2,100.0,5,2959,16.897601,17.067733,lexical_indicator_only
+australia,DLGF_2018,CA4,Safety,4.2,Protecting personal data and privacy,2,2,100.0,6,2959,20.277121,19.794015,lexical_indicator_only
+australia,DLGF_2018,CA4,Safety,4.3,Protecting health and well-being,2,0,0.0,0,2959,0.0,0.0,lexical_indicator_only
+australia,DLGF_2018,CA4,Safety,4.4,Protecting the environment,2,0,0.0,0,2959,0.0,0.0,lexical_indicator_only
+australia,DLGF_2018,CA5,Problem-solving,5.1,Solving technical problems,2,0,0.0,0,2959,0.0,0.0,lexical_indicator_only
+australia,DLGF_2018,CA5,Problem-solving,5.2,Identifying needs and technological responses,2,0,0.0,0,2959,0.0,0.0,lexical_indicator_only
+australia,DLGF_2018,CA5,Problem-solving,5.3,Creatively using digital technologies,2,0,0.0,0,2959,0.0,0.0,lexical_indicator_only
+australia,DLGF_2018,CA5,Problem-solving,5.4,Identifying digital competence gaps,2,0,0.0,0,2959,0.0,0.0,lexical_indicator_only
+australia,DLGF_2018,CA5,Problem-solving,5.5,Computational thinking,2,2,100.0,19,2959,64.210882,68.980976,lexical_indicator_only
+australia,DLGF_2018,CA6,Career-related competences,6.1,Operating specialised digital technologies for a particular field,2,0,0.0,0,2959,0.0,0.0,lexical_indicator_only
+australia,DLGF_2018,CA6,Career-related competences,6.2,Interpreting and manipulating data information and digital content for a particular field,2,0,0.0,0,2959,0.0,0.0,lexical_indicator_only
+brasil,DLGF_2018,CA0,Devices and software operations,0.1,Physical operations of digital devices,20,10,50.0,101,485959,2.078365,4.42916,lexical_indicator_only
+brasil,DLGF_2018,CA0,Devices and software operations,0.2,Software operations in digital devices,20,5,25.0,24,485959,0.493869,0.535385,lexical_indicator_only
+brasil,DLGF_2018,CA1,Information and data literacy,1.1,Browsing searching and filtering data information and digital content,20,12,60.0,151,485959,3.107258,3.167621,lexical_indicator_only
+brasil,DLGF_2018,CA1,Information and data literacy,1.2,Evaluating data information and digital content,20,7,35.0,22,485959,0.452713,0.995518,lexical_indicator_only
+brasil,DLGF_2018,CA1,Information and data literacy,1.3,Managing data information and digital content,20,8,40.0,31,485959,0.637914,2.279507,lexical_indicator_only
+brasil,DLGF_2018,CA2,Communication and collaboration,2.1,Interacting through digital technologies,20,6,30.0,7,485959,0.144045,0.258371,lexical_indicator_only
+brasil,DLGF_2018,CA2,Communication and collaboration,2.2,Sharing through digital technologies,20,9,45.0,31,485959,0.637914,0.605265,lexical_indicator_only
+brasil,DLGF_2018,CA2,Communication and collaboration,2.3,Engaging in citizenship through digital technologies,20,10,50.0,62,485959,1.275828,4.558284,lexical_indicator_only
+brasil,DLGF_2018,CA2,Communication and collaboration,2.4,Collaborating through digital technologies,20,2,10.0,2,485959,0.041156,0.006511,lexical_indicator_only
+brasil,DLGF_2018,CA2,Communication and collaboration,2.5,Netiquette,20,3,15.0,6,485959,0.123467,0.400909,lexical_indicator_only
+brasil,DLGF_2018,CA2,Communication and collaboration,2.6,Managing digital identity,20,3,15.0,3,485959,0.061734,0.200455,lexical_indicator_only
+brasil,DLGF_2018,CA3,Digital content creation,3.1,Developing digital content,20,5,25.0,5,485959,0.102889,0.250092,lexical_indicator_only
+brasil,DLGF_2018,CA3,Digital content creation,3.2,Integrating and re-elaborating digital content,20,2,10.0,2,485959,0.041156,0.13388,lexical_indicator_only
+brasil,DLGF_2018,CA3,Digital content creation,3.3,Copyright and licences,20,8,40.0,83,485959,1.707963,3.434527,lexical_indicator_only
+brasil,DLGF_2018,CA3,Digital content creation,3.4,Programming,20,14,70.0,154,485959,3.168992,7.551461,lexical_indicator_only
+brasil,DLGF_2018,CA4,Safety,4.1,Protecting devices,20,5,25.0,37,485959,0.761381,1.148868,lexical_indicator_only
+brasil,DLGF_2018,CA4,Safety,4.2,Protecting personal data and privacy,20,12,60.0,75,485959,1.54334,3.466157,lexical_indicator_only
+brasil,DLGF_2018,CA4,Safety,4.3,Protecting health and well-being,20,10,50.0,30,485959,0.617336,1.127842,lexical_indicator_only
+brasil,DLGF_2018,CA4,Safety,4.4,Protecting the environment,20,3,15.0,3,485959,0.061734,0.070171,lexical_indicator_only
+brasil,DLGF_2018,CA5,Problem-solving,5.1,Solving technical problems,20,6,30.0,10,485959,0.205779,0.479502,lexical_indicator_only
+brasil,DLGF_2018,CA5,Problem-solving,5.2,Identifying needs and technological responses,20,4,20.0,4,485959,0.082311,0.426962,lexical_indicator_only
+brasil,DLGF_2018,CA5,Problem-solving,5.3,Creatively using digital technologies,20,0,0.0,0,485959,0.0,0.0,lexical_indicator_only
+brasil,DLGF_2018,CA5,Problem-solving,5.4,Identifying digital competence gaps,20,0,0.0,0,485959,0.0,0.0,lexical_indicator_only
+brasil,DLGF_2018,CA5,Problem-solving,5.5,Computational thinking,20,13,65.0,452,485959,9.301196,12.856779,lexical_indicator_only
+brasil,DLGF_2018,CA6,Career-related competences,6.1,Operating specialised digital technologies for a particular field,20,1,5.0,2,485959,0.041156,0.041068,lexical_indicator_only
+brasil,DLGF_2018,CA6,Career-related competences,6.2,Interpreting and manipulating data information and digital content for a particular field,20,0,0.0,0,485959,0.0,0.0,lexical_indicator_only
+canada,DLGF_2018,CA0,Devices and software operations,0.1,Physical operations of digital devices,4,1,25.0,1,39020,0.256279,0.291036,lexical_indicator_only
+canada,DLGF_2018,CA0,Devices and software operations,0.2,Software operations in digital devices,4,2,50.0,12,39020,3.075346,1.887367,lexical_indicator_only
+canada,DLGF_2018,CA1,Information and data literacy,1.1,Browsing searching and filtering data information and digital content,4,2,50.0,32,39020,8.200923,3.294157,lexical_indicator_only
+canada,DLGF_2018,CA1,Information and data literacy,1.2,Evaluating data information and digital content,4,2,50.0,2,39020,0.512558,3.637745,lexical_indicator_only
+canada,DLGF_2018,CA1,Information and data literacy,1.3,Managing data information and digital content,4,0,0.0,0,39020,0.0,0.0,lexical_indicator_only
+canada,DLGF_2018,CA2,Communication and collaboration,2.1,Interacting through digital technologies,4,0,0.0,0,39020,0.0,0.0,lexical_indicator_only
+canada,DLGF_2018,CA2,Communication and collaboration,2.2,Sharing through digital technologies,4,1,25.0,1,39020,0.256279,0.291036,lexical_indicator_only
+canada,DLGF_2018,CA2,Communication and collaboration,2.3,Engaging in citizenship through digital technologies,4,0,0.0,0,39020,0.0,0.0,lexical_indicator_only
+canada,DLGF_2018,CA2,Communication and collaboration,2.4,Collaborating through digital technologies,4,1,25.0,1,39020,0.256279,0.291036,lexical_indicator_only
+canada,DLGF_2018,CA2,Communication and collaboration,2.5,Netiquette,4,0,0.0,0,39020,0.0,0.0,lexical_indicator_only
+canada,DLGF_2018,CA2,Communication and collaboration,2.6,Managing digital identity,4,1,25.0,1,39020,0.256279,0.291036,lexical_indicator_only
+canada,DLGF_2018,CA3,Digital content creation,3.1,Developing digital content,4,0,0.0,0,39020,0.0,0.0,lexical_indicator_only
+canada,DLGF_2018,CA3,Digital content creation,3.2,Integrating and re-elaborating digital content,4,0,0.0,0,39020,0.0,0.0,lexical_indicator_only
+canada,DLGF_2018,CA3,Digital content creation,3.3,Copyright and licences,4,1,25.0,4,39020,1.025115,0.361611,lexical_indicator_only
+canada,DLGF_2018,CA3,Digital content creation,3.4,Programming,4,4,100.0,19,39020,4.869298,15.443114,lexical_indicator_only
+canada,DLGF_2018,CA4,Safety,4.1,Protecting devices,4,1,25.0,1,39020,0.256279,0.291036,lexical_indicator_only
+canada,DLGF_2018,CA4,Safety,4.2,Protecting personal data and privacy,4,1,25.0,2,39020,0.512558,0.582072,lexical_indicator_only
+canada,DLGF_2018,CA4,Safety,4.3,Protecting health and well-being,4,0,0.0,0,39020,0.0,0.0,lexical_indicator_only
+canada,DLGF_2018,CA4,Safety,4.4,Protecting the environment,4,0,0.0,0,39020,0.0,0.0,lexical_indicator_only
+canada,DLGF_2018,CA5,Problem-solving,5.1,Solving technical problems,4,0,0.0,0,39020,0.0,0.0,lexical_indicator_only
+canada,DLGF_2018,CA5,Problem-solving,5.2,Identifying needs and technological responses,4,1,25.0,1,39020,0.256279,0.291036,lexical_indicator_only
+canada,DLGF_2018,CA5,Problem-solving,5.3,Creatively using digital technologies,4,0,0.0,0,39020,0.0,0.0,lexical_indicator_only
+canada,DLGF_2018,CA5,Problem-solving,5.4,Identifying digital competence gaps,4,0,0.0,0,39020,0.0,0.0,lexical_indicator_only
+canada,DLGF_2018,CA5,Problem-solving,5.5,Computational thinking,4,3,75.0,7,39020,1.793952,10.845216,lexical_indicator_only
+canada,DLGF_2018,CA6,Career-related competences,6.1,Operating specialised digital technologies for a particular field,4,0,0.0,0,39020,0.0,0.0,lexical_indicator_only
+canada,DLGF_2018,CA6,Career-related competences,6.2,Interpreting and manipulating data information and digital content for a particular field,4,0,0.0,0,39020,0.0,0.0,lexical_indicator_only
+chile,DLGF_2018,CA0,Devices and software operations,0.1,Physical operations of digital devices,5,2,40.0,5,309543,0.161528,0.120623,lexical_indicator_only
+chile,DLGF_2018,CA0,Devices and software operations,0.2,Software operations in digital devices,5,2,40.0,6,309543,0.193834,0.517276,lexical_indicator_only
+chile,DLGF_2018,CA1,Information and data literacy,1.1,Browsing searching and filtering data information and digital content,5,4,80.0,95,309543,3.06904,2.715041,lexical_indicator_only
+chile,DLGF_2018,CA1,Information and data literacy,1.2,Evaluating data information and digital content,5,4,80.0,24,309543,0.775337,0.797933,lexical_indicator_only
+chile,DLGF_2018,CA1,Information and data literacy,1.3,Managing data information and digital content,5,3,60.0,11,309543,0.355363,1.237021,lexical_indicator_only
+chile,DLGF_2018,CA2,Communication and collaboration,2.1,Interacting through digital technologies,5,1,20.0,2,309543,0.064611,0.051264,lexical_indicator_only
+chile,DLGF_2018,CA2,Communication and collaboration,2.2,Sharing through digital technologies,5,3,60.0,6,309543,0.193834,0.142146,lexical_indicator_only
+chile,DLGF_2018,CA2,Communication and collaboration,2.3,Engaging in citizenship through digital technologies,5,2,40.0,11,309543,0.355363,0.322897,lexical_indicator_only
+chile,DLGF_2018,CA2,Communication and collaboration,2.4,Collaborating through digital technologies,5,0,0.0,0,309543,0.0,0.0,lexical_indicator_only
+chile,DLGF_2018,CA2,Communication and collaboration,2.5,Netiquette,5,0,0.0,0,309543,0.0,0.0,lexical_indicator_only
+chile,DLGF_2018,CA2,Communication and collaboration,2.6,Managing digital identity,5,0,0.0,0,309543,0.0,0.0,lexical_indicator_only
+chile,DLGF_2018,CA3,Digital content creation,3.1,Developing digital content,5,1,20.0,1,309543,0.032306,0.049445,lexical_indicator_only
+chile,DLGF_2018,CA3,Digital content creation,3.2,Integrating and re-elaborating digital content,5,1,20.0,2,309543,0.064611,0.051264,lexical_indicator_only
+chile,DLGF_2018,CA3,Digital content creation,3.3,Copyright and licences,5,4,80.0,15,309543,0.484585,0.90227,lexical_indicator_only
+chile,DLGF_2018,CA3,Digital content creation,3.4,Programming,5,4,80.0,242,309543,7.817977,14.382714,lexical_indicator_only
+chile,DLGF_2018,CA4,Safety,4.1,Protecting devices,5,2,40.0,2,309543,0.064611,0.07679,lexical_indicator_only
+chile,DLGF_2018,CA4,Safety,4.2,Protecting personal data and privacy,5,2,40.0,9,309543,0.290751,0.278313,lexical_indicator_only
+chile,DLGF_2018,CA4,Safety,4.3,Protecting health and well-being,5,0,0.0,0,309543,0.0,0.0,lexical_indicator_only
+chile,DLGF_2018,CA4,Safety,4.4,Protecting the environment,5,0,0.0,0,309543,0.0,0.0,lexical_indicator_only
+chile,DLGF_2018,CA5,Problem-solving,5.1,Solving technical problems,5,0,0.0,0,309543,0.0,0.0,lexical_indicator_only
+chile,DLGF_2018,CA5,Problem-solving,5.2,Identifying needs and technological responses,5,1,20.0,2,309543,0.064611,0.036192,lexical_indicator_only
+chile,DLGF_2018,CA5,Problem-solving,5.3,Creatively using digital technologies,5,0,0.0,0,309543,0.0,0.0,lexical_indicator_only
+chile,DLGF_2018,CA5,Problem-solving,5.4,Identifying digital competence gaps,5,1,20.0,1,309543,0.032306,0.049445,lexical_indicator_only
+chile,DLGF_2018,CA5,Problem-solving,5.5,Computational thinking,5,5,100.0,406,309543,13.11611,40.399937,lexical_indicator_only
+chile,DLGF_2018,CA6,Career-related competences,6.1,Operating specialised digital technologies for a particular field,5,0,0.0,0,309543,0.0,0.0,lexical_indicator_only
+chile,DLGF_2018,CA6,Career-related competences,6.2,Interpreting and manipulating data information and digital content for a particular field,5,0,0.0,0,309543,0.0,0.0,lexical_indicator_only
+china,DLGF_2018,CA0,Devices and software operations,0.1,Physical operations of digital devices,2,1,50.0,92,25221,36.477539,22.190062,lexical_indicator_only
+china,DLGF_2018,CA0,Devices and software operations,0.2,Software operations in digital devices,2,0,0.0,0,25221,0.0,0.0,lexical_indicator_only
+china,DLGF_2018,CA1,Information and data literacy,1.1,Browsing searching and filtering data information and digital content,2,1,50.0,16,25221,6.34392,3.859141,lexical_indicator_only
+china,DLGF_2018,CA1,Information and data literacy,1.2,Evaluating data information and digital content,2,1,50.0,1,25221,0.396495,0.241197,lexical_indicator_only
+china,DLGF_2018,CA1,Information and data literacy,1.3,Managing data information and digital content,2,1,50.0,7,25221,2.775465,1.688374,lexical_indicator_only
+china,DLGF_2018,CA2,Communication and collaboration,2.1,Interacting through digital technologies,2,1,50.0,4,25221,1.58598,0.964785,lexical_indicator_only
+china,DLGF_2018,CA2,Communication and collaboration,2.2,Sharing through digital technologies,2,1,50.0,2,25221,0.79299,0.482393,lexical_indicator_only
+china,DLGF_2018,CA2,Communication and collaboration,2.3,Engaging in citizenship through digital technologies,2,0,0.0,0,25221,0.0,0.0,lexical_indicator_only
+china,DLGF_2018,CA2,Communication and collaboration,2.4,Collaborating through digital technologies,2,1,50.0,2,25221,0.79299,0.482393,lexical_indicator_only
+china,DLGF_2018,CA2,Communication and collaboration,2.5,Netiquette,2,1,50.0,7,25221,2.775465,1.688374,lexical_indicator_only
+china,DLGF_2018,CA2,Communication and collaboration,2.6,Managing digital identity,2,1,50.0,6,25221,2.37897,1.447178,lexical_indicator_only
+china,DLGF_2018,CA3,Digital content creation,3.1,Developing digital content,2,0,0.0,0,25221,0.0,0.0,lexical_indicator_only
+china,DLGF_2018,CA3,Digital content creation,3.2,Integrating and re-elaborating digital content,2,0,0.0,0,25221,0.0,0.0,lexical_indicator_only
+china,DLGF_2018,CA3,Digital content creation,3.3,Copyright and licences,2,1,50.0,8,25221,3.17196,1.929571,lexical_indicator_only
+china,DLGF_2018,CA3,Digital content creation,3.4,Programming,2,1,50.0,43,25221,17.049284,10.371443,lexical_indicator_only
+china,DLGF_2018,CA4,Safety,4.1,Protecting devices,2,1,50.0,4,25221,1.58598,0.964785,lexical_indicator_only
+china,DLGF_2018,CA4,Safety,4.2,Protecting personal data and privacy,2,1,50.0,19,25221,7.533405,4.582731,lexical_indicator_only
+china,DLGF_2018,CA4,Safety,4.3,Protecting health and well-being,2,1,50.0,1,25221,0.396495,0.241197,lexical_indicator_only
+china,DLGF_2018,CA4,Safety,4.4,Protecting the environment,2,0,0.0,0,25221,0.0,0.0,lexical_indicator_only
+china,DLGF_2018,CA5,Problem-solving,5.1,Solving technical problems,2,0,0.0,0,25221,0.0,0.0,lexical_indicator_only
+china,DLGF_2018,CA5,Problem-solving,5.2,Identifying needs and technological responses,2,0,0.0,0,25221,0.0,0.0,lexical_indicator_only
+china,DLGF_2018,CA5,Problem-solving,5.3,Creatively using digital technologies,2,1,50.0,2,25221,0.79299,0.482393,lexical_indicator_only
+china,DLGF_2018,CA5,Problem-solving,5.4,Identifying digital competence gaps,2,0,0.0,0,25221,0.0,0.0,lexical_indicator_only
+china,DLGF_2018,CA5,Problem-solving,5.5,Computational thinking,2,1,50.0,83,25221,32.909084,20.019295,lexical_indicator_only
+china,DLGF_2018,CA6,Career-related competences,6.1,Operating specialised digital technologies for a particular field,2,0,0.0,0,25221,0.0,0.0,lexical_indicator_only
+china,DLGF_2018,CA6,Career-related competences,6.2,Interpreting and manipulating data information and digital content for a particular field,2,0,0.0,0,25221,0.0,0.0,lexical_indicator_only
+coreia-do-sul,DLGF_2018,CA0,Devices and software operations,0.1,Physical operations of digital devices,1,1,100.0,7,75080,0.932339,0.932339,lexical_indicator_only
+coreia-do-sul,DLGF_2018,CA0,Devices and software operations,0.2,Software operations in digital devices,1,1,100.0,4,75080,0.532765,0.532765,lexical_indicator_only
+coreia-do-sul,DLGF_2018,CA1,Information and data literacy,1.1,Browsing searching and filtering data information and digital content,1,1,100.0,35,75080,4.661694,4.661694,lexical_indicator_only
+coreia-do-sul,DLGF_2018,CA1,Information and data literacy,1.2,Evaluating data information and digital content,1,0,0.0,0,75080,0.0,0.0,lexical_indicator_only
+coreia-do-sul,DLGF_2018,CA1,Information and data literacy,1.3,Managing data information and digital content,1,1,100.0,10,75080,1.331913,1.331913,lexical_indicator_only
+coreia-do-sul,DLGF_2018,CA2,Communication and collaboration,2.1,Interacting through digital technologies,1,0,0.0,0,75080,0.0,0.0,lexical_indicator_only
+coreia-do-sul,DLGF_2018,CA2,Communication and collaboration,2.2,Sharing through digital technologies,1,1,100.0,2,75080,0.266383,0.266383,lexical_indicator_only
+coreia-do-sul,DLGF_2018,CA2,Communication and collaboration,2.3,Engaging in citizenship through digital technologies,1,1,100.0,8,75080,1.06553,1.06553,lexical_indicator_only
+coreia-do-sul,DLGF_2018,CA2,Communication and collaboration,2.4,Collaborating through digital technologies,1,0,0.0,0,75080,0.0,0.0,lexical_indicator_only
+coreia-do-sul,DLGF_2018,CA2,Communication and collaboration,2.5,Netiquette,1,0,0.0,0,75080,0.0,0.0,lexical_indicator_only
+coreia-do-sul,DLGF_2018,CA2,Communication and collaboration,2.6,Managing digital identity,1,0,0.0,0,75080,0.0,0.0,lexical_indicator_only
+coreia-do-sul,DLGF_2018,CA3,Digital content creation,3.1,Developing digital content,1,0,0.0,0,75080,0.0,0.0,lexical_indicator_only
+coreia-do-sul,DLGF_2018,CA3,Digital content creation,3.2,Integrating and re-elaborating digital content,1,0,0.0,0,75080,0.0,0.0,lexical_indicator_only
+coreia-do-sul,DLGF_2018,CA3,Digital content creation,3.3,Copyright and licences,1,1,100.0,46,75080,6.126798,6.126798,lexical_indicator_only
+coreia-do-sul,DLGF_2018,CA3,Digital content creation,3.4,Programming,1,1,100.0,14,75080,1.864678,1.864678,lexical_indicator_only
+coreia-do-sul,DLGF_2018,CA4,Safety,4.1,Protecting devices,1,1,100.0,8,75080,1.06553,1.06553,lexical_indicator_only
+coreia-do-sul,DLGF_2018,CA4,Safety,4.2,Protecting personal data and privacy,1,1,100.0,56,75080,7.458711,7.458711,lexical_indicator_only
+coreia-do-sul,DLGF_2018,CA4,Safety,4.3,Protecting health and well-being,1,1,100.0,11,75080,1.465104,1.465104,lexical_indicator_only
+coreia-do-sul,DLGF_2018,CA4,Safety,4.4,Protecting the environment,1,0,0.0,0,75080,0.0,0.0,lexical_indicator_only
+coreia-do-sul,DLGF_2018,CA5,Problem-solving,5.1,Solving technical problems,1,1,100.0,2,75080,0.266383,0.266383,lexical_indicator_only
+coreia-do-sul,DLGF_2018,CA5,Problem-solving,5.2,Identifying needs and technological responses,1,0,0.0,0,75080,0.0,0.0,lexical_indicator_only
+coreia-do-sul,DLGF_2018,CA5,Problem-solving,5.3,Creatively using digital technologies,1,0,0.0,0,75080,0.0,0.0,lexical_indicator_only
+coreia-do-sul,DLGF_2018,CA5,Problem-solving,5.4,Identifying digital competence gaps,1,0,0.0,0,75080,0.0,0.0,lexical_indicator_only
+coreia-do-sul,DLGF_2018,CA5,Problem-solving,5.5,Computational thinking,1,1,100.0,2,75080,0.266383,0.266383,lexical_indicator_only
+coreia-do-sul,DLGF_2018,CA6,Career-related competences,6.1,Operating specialised digital technologies for a particular field,1,0,0.0,0,75080,0.0,0.0,lexical_indicator_only
+coreia-do-sul,DLGF_2018,CA6,Career-related competences,6.2,Interpreting and manipulating data information and digital content for a particular field,1,1,100.0,6,75080,0.799148,0.799148,lexical_indicator_only
+estonia,DLGF_2018,CA0,Devices and software operations,0.1,Physical operations of digital devices,2,1,50.0,19,18298,10.383648,19.285425,lexical_indicator_only
+estonia,DLGF_2018,CA0,Devices and software operations,0.2,Software operations in digital devices,2,1,50.0,4,18298,2.186031,4.06009,lexical_indicator_only
+estonia,DLGF_2018,CA1,Information and data literacy,1.1,Browsing searching and filtering data information and digital content,2,1,50.0,10,18298,5.465078,10.150223,lexical_indicator_only
+estonia,DLGF_2018,CA1,Information and data literacy,1.2,Evaluating data information and digital content,2,1,50.0,2,18298,1.093016,2.030044,lexical_indicator_only
+estonia,DLGF_2018,CA1,Information and data literacy,1.3,Managing data information and digital content,2,1,50.0,1,18298,0.546508,1.015022,lexical_indicator_only
+estonia,DLGF_2018,CA2,Communication and collaboration,2.1,Interacting through digital technologies,2,1,50.0,5,18298,2.732539,5.075112,lexical_indicator_only
+estonia,DLGF_2018,CA2,Communication and collaboration,2.2,Sharing through digital technologies,2,1,50.0,1,18298,0.546508,0.373916,lexical_indicator_only
+estonia,DLGF_2018,CA2,Communication and collaboration,2.3,Engaging in citizenship through digital technologies,2,0,0.0,0,18298,0.0,0.0,lexical_indicator_only
+estonia,DLGF_2018,CA2,Communication and collaboration,2.4,Collaborating through digital technologies,2,0,0.0,0,18298,0.0,0.0,lexical_indicator_only
+estonia,DLGF_2018,CA2,Communication and collaboration,2.5,Netiquette,2,1,50.0,2,18298,1.093016,2.030044,lexical_indicator_only
+estonia,DLGF_2018,CA2,Communication and collaboration,2.6,Managing digital identity,2,2,100.0,6,18298,3.279047,5.449027,lexical_indicator_only
+estonia,DLGF_2018,CA3,Digital content creation,3.1,Developing digital content,2,1,50.0,1,18298,0.546508,0.373916,lexical_indicator_only
+estonia,DLGF_2018,CA3,Digital content creation,3.2,Integrating and re-elaborating digital content,2,0,0.0,0,18298,0.0,0.0,lexical_indicator_only
+estonia,DLGF_2018,CA3,Digital content creation,3.3,Copyright and licences,2,1,50.0,12,18298,6.558094,12.180268,lexical_indicator_only
+estonia,DLGF_2018,CA3,Digital content creation,3.4,Programming,2,1,50.0,18,18298,9.837141,18.270402,lexical_indicator_only
+estonia,DLGF_2018,CA4,Safety,4.1,Protecting devices,2,1,50.0,6,18298,3.279047,6.090134,lexical_indicator_only
+estonia,DLGF_2018,CA4,Safety,4.2,Protecting personal data and privacy,2,2,100.0,4,18298,2.186031,3.418982,lexical_indicator_only
+estonia,DLGF_2018,CA4,Safety,4.3,Protecting health and well-being,2,1,50.0,4,18298,2.186031,4.06009,lexical_indicator_only
+estonia,DLGF_2018,CA4,Safety,4.4,Protecting the environment,2,0,0.0,0,18298,0.0,0.0,lexical_indicator_only
+estonia,DLGF_2018,CA5,Problem-solving,5.1,Solving technical problems,2,1,50.0,3,18298,1.639523,3.045067,lexical_indicator_only
+estonia,DLGF_2018,CA5,Problem-solving,5.2,Identifying needs and technological responses,2,1,50.0,1,18298,0.546508,1.015022,lexical_indicator_only
+estonia,DLGF_2018,CA5,Problem-solving,5.3,Creatively using digital technologies,2,0,0.0,0,18298,0.0,0.0,lexical_indicator_only
+estonia,DLGF_2018,CA5,Problem-solving,5.4,Identifying digital competence gaps,2,0,0.0,0,18298,0.0,0.0,lexical_indicator_only
+estonia,DLGF_2018,CA5,Problem-solving,5.5,Computational thinking,2,1,50.0,14,18298,7.651109,14.210313,lexical_indicator_only
+estonia,DLGF_2018,CA6,Career-related competences,6.1,Operating specialised digital technologies for a particular field,2,0,0.0,0,18298,0.0,0.0,lexical_indicator_only
+estonia,DLGF_2018,CA6,Career-related competences,6.2,Interpreting and manipulating data information and digital content for a particular field,2,0,0.0,0,18298,0.0,0.0,lexical_indicator_only
+eua,DLGF_2018,CA0,Devices and software operations,0.1,Physical operations of digital devices,1,1,100.0,68,100516,6.765092,6.765092,lexical_indicator_only
+eua,DLGF_2018,CA0,Devices and software operations,0.2,Software operations in digital devices,1,1,100.0,15,100516,1.4923,1.4923,lexical_indicator_only
+eua,DLGF_2018,CA1,Information and data literacy,1.1,Browsing searching and filtering data information and digital content,1,1,100.0,21,100516,2.08922,2.08922,lexical_indicator_only
+eua,DLGF_2018,CA1,Information and data literacy,1.2,Evaluating data information and digital content,1,1,100.0,1,100516,0.099487,0.099487,lexical_indicator_only
+eua,DLGF_2018,CA1,Information and data literacy,1.3,Managing data information and digital content,1,1,100.0,9,100516,0.89538,0.89538,lexical_indicator_only
+eua,DLGF_2018,CA2,Communication and collaboration,2.1,Interacting through digital technologies,1,1,100.0,2,100516,0.198973,0.198973,lexical_indicator_only
+eua,DLGF_2018,CA2,Communication and collaboration,2.2,Sharing through digital technologies,1,1,100.0,7,100516,0.696407,0.696407,lexical_indicator_only
+eua,DLGF_2018,CA2,Communication and collaboration,2.3,Engaging in citizenship through digital technologies,1,1,100.0,13,100516,1.293326,1.293326,lexical_indicator_only
+eua,DLGF_2018,CA2,Communication and collaboration,2.4,Collaborating through digital technologies,1,1,100.0,2,100516,0.198973,0.198973,lexical_indicator_only
+eua,DLGF_2018,CA2,Communication and collaboration,2.5,Netiquette,1,0,0.0,0,100516,0.0,0.0,lexical_indicator_only
+eua,DLGF_2018,CA2,Communication and collaboration,2.6,Managing digital identity,1,0,0.0,0,100516,0.0,0.0,lexical_indicator_only
+eua,DLGF_2018,CA3,Digital content creation,3.1,Developing digital content,1,0,0.0,0,100516,0.0,0.0,lexical_indicator_only
+eua,DLGF_2018,CA3,Digital content creation,3.2,Integrating and re-elaborating digital content,1,0,0.0,0,100516,0.0,0.0,lexical_indicator_only
+eua,DLGF_2018,CA3,Digital content creation,3.3,Copyright and licences,1,1,100.0,9,100516,0.89538,0.89538,lexical_indicator_only
+eua,DLGF_2018,CA3,Digital content creation,3.4,Programming,1,1,100.0,291,100516,28.950615,28.950615,lexical_indicator_only
+eua,DLGF_2018,CA4,Safety,4.1,Protecting devices,1,1,100.0,33,100516,3.283059,3.283059,lexical_indicator_only
+eua,DLGF_2018,CA4,Safety,4.2,Protecting personal data and privacy,1,1,100.0,6,100516,0.59692,0.59692,lexical_indicator_only
+eua,DLGF_2018,CA4,Safety,4.3,Protecting health and well-being,1,1,100.0,8,100516,0.795893,0.795893,lexical_indicator_only
+eua,DLGF_2018,CA4,Safety,4.4,Protecting the environment,1,0,0.0,0,100516,0.0,0.0,lexical_indicator_only
+eua,DLGF_2018,CA5,Problem-solving,5.1,Solving technical problems,1,1,100.0,28,100516,2.785626,2.785626,lexical_indicator_only
+eua,DLGF_2018,CA5,Problem-solving,5.2,Identifying needs and technological responses,1,1,100.0,1,100516,0.099487,0.099487,lexical_indicator_only
+eua,DLGF_2018,CA5,Problem-solving,5.3,Creatively using digital technologies,1,0,0.0,0,100516,0.0,0.0,lexical_indicator_only
+eua,DLGF_2018,CA5,Problem-solving,5.4,Identifying digital competence gaps,1,0,0.0,0,100516,0.0,0.0,lexical_indicator_only
+eua,DLGF_2018,CA5,Problem-solving,5.5,Computational thinking,1,1,100.0,317,100516,31.537268,31.537268,lexical_indicator_only
+eua,DLGF_2018,CA6,Career-related competences,6.1,Operating specialised digital technologies for a particular field,1,1,100.0,1,100516,0.099487,0.099487,lexical_indicator_only
+eua,DLGF_2018,CA6,Career-related competences,6.2,Interpreting and manipulating data information and digital content for a particular field,1,0,0.0,0,100516,0.0,0.0,lexical_indicator_only
+finlandia,DLGF_2018,CA0,Devices and software operations,0.1,Physical operations of digital devices,1,0,0.0,0,1069,0.0,0.0,lexical_indicator_only
+finlandia,DLGF_2018,CA0,Devices and software operations,0.2,Software operations in digital devices,1,0,0.0,0,1069,0.0,0.0,lexical_indicator_only
+finlandia,DLGF_2018,CA1,Information and data literacy,1.1,Browsing searching and filtering data information and digital content,1,0,0.0,0,1069,0.0,0.0,lexical_indicator_only
+finlandia,DLGF_2018,CA1,Information and data literacy,1.2,Evaluating data information and digital content,1,0,0.0,0,1069,0.0,0.0,lexical_indicator_only
+finlandia,DLGF_2018,CA1,Information and data literacy,1.3,Managing data information and digital content,1,0,0.0,0,1069,0.0,0.0,lexical_indicator_only
+finlandia,DLGF_2018,CA2,Communication and collaboration,2.1,Interacting through digital technologies,1,0,0.0,0,1069,0.0,0.0,lexical_indicator_only
+finlandia,DLGF_2018,CA2,Communication and collaboration,2.2,Sharing through digital technologies,1,0,0.0,0,1069,0.0,0.0,lexical_indicator_only
+finlandia,DLGF_2018,CA2,Communication and collaboration,2.3,Engaging in citizenship through digital technologies,1,0,0.0,0,1069,0.0,0.0,lexical_indicator_only
+finlandia,DLGF_2018,CA2,Communication and collaboration,2.4,Collaborating through digital technologies,1,0,0.0,0,1069,0.0,0.0,lexical_indicator_only
+finlandia,DLGF_2018,CA2,Communication and collaboration,2.5,Netiquette,1,0,0.0,0,1069,0.0,0.0,lexical_indicator_only
+finlandia,DLGF_2018,CA2,Communication and collaboration,2.6,Managing digital identity,1,0,0.0,0,1069,0.0,0.0,lexical_indicator_only
+finlandia,DLGF_2018,CA3,Digital content creation,3.1,Developing digital content,1,0,0.0,0,1069,0.0,0.0,lexical_indicator_only
+finlandia,DLGF_2018,CA3,Digital content creation,3.2,Integrating and re-elaborating digital content,1,0,0.0,0,1069,0.0,0.0,lexical_indicator_only
+finlandia,DLGF_2018,CA3,Digital content creation,3.3,Copyright and licences,1,0,0.0,0,1069,0.0,0.0,lexical_indicator_only
+finlandia,DLGF_2018,CA3,Digital content creation,3.4,Programming,1,0,0.0,0,1069,0.0,0.0,lexical_indicator_only
+finlandia,DLGF_2018,CA4,Safety,4.1,Protecting devices,1,0,0.0,0,1069,0.0,0.0,lexical_indicator_only
+finlandia,DLGF_2018,CA4,Safety,4.2,Protecting personal data and privacy,1,0,0.0,0,1069,0.0,0.0,lexical_indicator_only
+finlandia,DLGF_2018,CA4,Safety,4.3,Protecting health and well-being,1,0,0.0,0,1069,0.0,0.0,lexical_indicator_only
+finlandia,DLGF_2018,CA4,Safety,4.4,Protecting the environment,1,0,0.0,0,1069,0.0,0.0,lexical_indicator_only
+finlandia,DLGF_2018,CA5,Problem-solving,5.1,Solving technical problems,1,0,0.0,0,1069,0.0,0.0,lexical_indicator_only
+finlandia,DLGF_2018,CA5,Problem-solving,5.2,Identifying needs and technological responses,1,0,0.0,0,1069,0.0,0.0,lexical_indicator_only
+finlandia,DLGF_2018,CA5,Problem-solving,5.3,Creatively using digital technologies,1,0,0.0,0,1069,0.0,0.0,lexical_indicator_only
+finlandia,DLGF_2018,CA5,Problem-solving,5.4,Identifying digital competence gaps,1,0,0.0,0,1069,0.0,0.0,lexical_indicator_only
+finlandia,DLGF_2018,CA5,Problem-solving,5.5,Computational thinking,1,0,0.0,0,1069,0.0,0.0,lexical_indicator_only
+finlandia,DLGF_2018,CA6,Career-related competences,6.1,Operating specialised digital technologies for a particular field,1,0,0.0,0,1069,0.0,0.0,lexical_indicator_only
+finlandia,DLGF_2018,CA6,Career-related competences,6.2,Interpreting and manipulating data information and digital content for a particular field,1,0,0.0,0,1069,0.0,0.0,lexical_indicator_only
+gana,DLGF_2018,CA0,Devices and software operations,0.1,Physical operations of digital devices,2,2,100.0,29,40087,7.234265,7.776724,lexical_indicator_only
+gana,DLGF_2018,CA0,Devices and software operations,0.2,Software operations in digital devices,2,2,100.0,3,40087,0.748372,0.784016,lexical_indicator_only
+gana,DLGF_2018,CA1,Information and data literacy,1.1,Browsing searching and filtering data information and digital content,2,2,100.0,35,40087,8.73101,8.96695,lexical_indicator_only
+gana,DLGF_2018,CA1,Information and data literacy,1.2,Evaluating data information and digital content,2,2,100.0,5,40087,1.247287,1.23473,lexical_indicator_only
+gana,DLGF_2018,CA1,Information and data literacy,1.3,Managing data information and digital content,2,2,100.0,3,40087,0.748372,0.784016,lexical_indicator_only
+gana,DLGF_2018,CA2,Communication and collaboration,2.1,Interacting through digital technologies,2,0,0.0,0,40087,0.0,0.0,lexical_indicator_only
+gana,DLGF_2018,CA2,Communication and collaboration,2.2,Sharing through digital technologies,2,2,100.0,6,40087,1.496745,1.568033,lexical_indicator_only
+gana,DLGF_2018,CA2,Communication and collaboration,2.3,Engaging in citizenship through digital technologies,2,0,0.0,0,40087,0.0,0.0,lexical_indicator_only
+gana,DLGF_2018,CA2,Communication and collaboration,2.4,Collaborating through digital technologies,2,0,0.0,0,40087,0.0,0.0,lexical_indicator_only
+gana,DLGF_2018,CA2,Communication and collaboration,2.5,Netiquette,2,1,50.0,1,40087,0.249457,0.27933,lexical_indicator_only
+gana,DLGF_2018,CA2,Communication and collaboration,2.6,Managing digital identity,2,2,100.0,8,40087,1.995659,2.018747,lexical_indicator_only
+gana,DLGF_2018,CA3,Digital content creation,3.1,Developing digital content,2,0,0.0,0,40087,0.0,0.0,lexical_indicator_only
+gana,DLGF_2018,CA3,Digital content creation,3.2,Integrating and re-elaborating digital content,2,0,0.0,0,40087,0.0,0.0,lexical_indicator_only
+gana,DLGF_2018,CA3,Digital content creation,3.3,Copyright and licences,2,1,50.0,4,40087,0.99783,0.901429,lexical_indicator_only
+gana,DLGF_2018,CA3,Digital content creation,3.4,Programming,2,2,100.0,34,40087,8.481553,8.525703,lexical_indicator_only
+gana,DLGF_2018,CA4,Safety,4.1,Protecting devices,2,1,50.0,1,40087,0.249457,0.27933,lexical_indicator_only
+gana,DLGF_2018,CA4,Safety,4.2,Protecting personal data and privacy,2,1,50.0,5,40087,1.247287,1.396648,lexical_indicator_only
+gana,DLGF_2018,CA4,Safety,4.3,Protecting health and well-being,2,1,50.0,5,40087,1.247287,1.126786,lexical_indicator_only
+gana,DLGF_2018,CA4,Safety,4.4,Protecting the environment,2,1,50.0,1,40087,0.249457,0.225357,lexical_indicator_only
+gana,DLGF_2018,CA5,Problem-solving,5.1,Solving technical problems,2,0,0.0,0,40087,0.0,0.0,lexical_indicator_only
+gana,DLGF_2018,CA5,Problem-solving,5.2,Identifying needs and technological responses,2,0,0.0,0,40087,0.0,0.0,lexical_indicator_only
+gana,DLGF_2018,CA5,Problem-solving,5.3,Creatively using digital technologies,2,0,0.0,0,40087,0.0,0.0,lexical_indicator_only
+gana,DLGF_2018,CA5,Problem-solving,5.4,Identifying digital competence gaps,2,0,0.0,0,40087,0.0,0.0,lexical_indicator_only
+gana,DLGF_2018,CA5,Problem-solving,5.5,Computational thinking,2,2,100.0,33,40087,8.232095,7.598705,lexical_indicator_only
+gana,DLGF_2018,CA6,Career-related competences,6.1,Operating specialised digital technologies for a particular field,2,0,0.0,0,40087,0.0,0.0,lexical_indicator_only
+gana,DLGF_2018,CA6,Career-related competences,6.2,Interpreting and manipulating data information and digital content for a particular field,2,0,0.0,0,40087,0.0,0.0,lexical_indicator_only
+hong-kong,DLGF_2018,CA0,Devices and software operations,0.1,Physical operations of digital devices,2,1,50.0,13,79417,1.636929,2.237522,lexical_indicator_only
+hong-kong,DLGF_2018,CA0,Devices and software operations,0.2,Software operations in digital devices,2,1,50.0,4,79417,0.50367,0.688468,lexical_indicator_only
+hong-kong,DLGF_2018,CA1,Information and data literacy,1.1,Browsing searching and filtering data information and digital content,2,2,100.0,48,79417,6.044046,6.149093,lexical_indicator_only
+hong-kong,DLGF_2018,CA1,Information and data literacy,1.2,Evaluating data information and digital content,2,1,50.0,1,79417,0.125918,0.099271,lexical_indicator_only
+hong-kong,DLGF_2018,CA1,Information and data literacy,1.3,Managing data information and digital content,2,2,100.0,4,79417,0.50367,0.615622,lexical_indicator_only
+hong-kong,DLGF_2018,CA2,Communication and collaboration,2.1,Interacting through digital technologies,2,0,0.0,0,79417,0.0,0.0,lexical_indicator_only
+hong-kong,DLGF_2018,CA2,Communication and collaboration,2.2,Sharing through digital technologies,2,1,50.0,3,79417,0.377753,0.516351,lexical_indicator_only
+hong-kong,DLGF_2018,CA2,Communication and collaboration,2.3,Engaging in citizenship through digital technologies,2,0,0.0,0,79417,0.0,0.0,lexical_indicator_only
+hong-kong,DLGF_2018,CA2,Communication and collaboration,2.4,Collaborating through digital technologies,2,1,50.0,14,79417,1.762847,2.409638,lexical_indicator_only
+hong-kong,DLGF_2018,CA2,Communication and collaboration,2.5,Netiquette,2,0,0.0,0,79417,0.0,0.0,lexical_indicator_only
+hong-kong,DLGF_2018,CA2,Communication and collaboration,2.6,Managing digital identity,2,0,0.0,0,79417,0.0,0.0,lexical_indicator_only
+hong-kong,DLGF_2018,CA3,Digital content creation,3.1,Developing digital content,2,0,0.0,0,79417,0.0,0.0,lexical_indicator_only
+hong-kong,DLGF_2018,CA3,Digital content creation,3.2,Integrating and re-elaborating digital content,2,0,0.0,0,79417,0.0,0.0,lexical_indicator_only
+hong-kong,DLGF_2018,CA3,Digital content creation,3.3,Copyright and licences,2,2,100.0,51,79417,6.421799,7.029673,lexical_indicator_only
+hong-kong,DLGF_2018,CA3,Digital content creation,3.4,Programming,2,2,100.0,107,79417,13.473186,15.648387,lexical_indicator_only
+hong-kong,DLGF_2018,CA4,Safety,4.1,Protecting devices,2,1,50.0,4,79417,0.50367,0.688468,lexical_indicator_only
+hong-kong,DLGF_2018,CA4,Safety,4.2,Protecting personal data and privacy,2,2,100.0,7,79417,0.881423,0.913436,lexical_indicator_only
+hong-kong,DLGF_2018,CA4,Safety,4.3,Protecting health and well-being,2,1,50.0,4,79417,0.50367,0.397085,lexical_indicator_only
+hong-kong,DLGF_2018,CA4,Safety,4.4,Protecting the environment,2,0,0.0,0,79417,0.0,0.0,lexical_indicator_only
+hong-kong,DLGF_2018,CA5,Problem-solving,5.1,Solving technical problems,2,0,0.0,0,79417,0.0,0.0,lexical_indicator_only
+hong-kong,DLGF_2018,CA5,Problem-solving,5.2,Identifying needs and technological responses,2,0,0.0,0,79417,0.0,0.0,lexical_indicator_only
+hong-kong,DLGF_2018,CA5,Problem-solving,5.3,Creatively using digital technologies,2,0,0.0,0,79417,0.0,0.0,lexical_indicator_only
+hong-kong,DLGF_2018,CA5,Problem-solving,5.4,Identifying digital competence gaps,2,0,0.0,0,79417,0.0,0.0,lexical_indicator_only
+hong-kong,DLGF_2018,CA5,Problem-solving,5.5,Computational thinking,2,2,100.0,76,79417,9.569739,11.769673,lexical_indicator_only
+hong-kong,DLGF_2018,CA6,Career-related competences,6.1,Operating specialised digital technologies for a particular field,2,0,0.0,0,79417,0.0,0.0,lexical_indicator_only
+hong-kong,DLGF_2018,CA6,Career-related competences,6.2,Interpreting and manipulating data information and digital content for a particular field,2,0,0.0,0,79417,0.0,0.0,lexical_indicator_only
+irlanda,DLGF_2018,CA0,Devices and software operations,0.1,Physical operations of digital devices,1,1,100.0,9,10726,8.390826,8.390826,lexical_indicator_only
+irlanda,DLGF_2018,CA0,Devices and software operations,0.2,Software operations in digital devices,1,1,100.0,2,10726,1.864628,1.864628,lexical_indicator_only
+irlanda,DLGF_2018,CA1,Information and data literacy,1.1,Browsing searching and filtering data information and digital content,1,1,100.0,4,10726,3.729256,3.729256,lexical_indicator_only
+irlanda,DLGF_2018,CA1,Information and data literacy,1.2,Evaluating data information and digital content,1,1,100.0,1,10726,0.932314,0.932314,lexical_indicator_only
+irlanda,DLGF_2018,CA1,Information and data literacy,1.3,Managing data information and digital content,1,1,100.0,1,10726,0.932314,0.932314,lexical_indicator_only
+irlanda,DLGF_2018,CA2,Communication and collaboration,2.1,Interacting through digital technologies,1,0,0.0,0,10726,0.0,0.0,lexical_indicator_only
+irlanda,DLGF_2018,CA2,Communication and collaboration,2.2,Sharing through digital technologies,1,0,0.0,0,10726,0.0,0.0,lexical_indicator_only
+irlanda,DLGF_2018,CA2,Communication and collaboration,2.3,Engaging in citizenship through digital technologies,1,0,0.0,0,10726,0.0,0.0,lexical_indicator_only
+irlanda,DLGF_2018,CA2,Communication and collaboration,2.4,Collaborating through digital technologies,1,0,0.0,0,10726,0.0,0.0,lexical_indicator_only
+irlanda,DLGF_2018,CA2,Communication and collaboration,2.5,Netiquette,1,0,0.0,0,10726,0.0,0.0,lexical_indicator_only
+irlanda,DLGF_2018,CA2,Communication and collaboration,2.6,Managing digital identity,1,0,0.0,0,10726,0.0,0.0,lexical_indicator_only
+irlanda,DLGF_2018,CA3,Digital content creation,3.1,Developing digital content,1,0,0.0,0,10726,0.0,0.0,lexical_indicator_only
+irlanda,DLGF_2018,CA3,Digital content creation,3.2,Integrating and re-elaborating digital content,1,0,0.0,0,10726,0.0,0.0,lexical_indicator_only
+irlanda,DLGF_2018,CA3,Digital content creation,3.3,Copyright and licences,1,0,0.0,0,10726,0.0,0.0,lexical_indicator_only
+irlanda,DLGF_2018,CA3,Digital content creation,3.4,Programming,1,1,100.0,31,10726,28.901734,28.901734,lexical_indicator_only
+irlanda,DLGF_2018,CA4,Safety,4.1,Protecting devices,1,0,0.0,0,10726,0.0,0.0,lexical_indicator_only
+irlanda,DLGF_2018,CA4,Safety,4.2,Protecting personal data and privacy,1,0,0.0,0,10726,0.0,0.0,lexical_indicator_only
+irlanda,DLGF_2018,CA4,Safety,4.3,Protecting health and well-being,1,0,0.0,0,10726,0.0,0.0,lexical_indicator_only
+irlanda,DLGF_2018,CA4,Safety,4.4,Protecting the environment,1,0,0.0,0,10726,0.0,0.0,lexical_indicator_only
+irlanda,DLGF_2018,CA5,Problem-solving,5.1,Solving technical problems,1,0,0.0,0,10726,0.0,0.0,lexical_indicator_only
+irlanda,DLGF_2018,CA5,Problem-solving,5.2,Identifying needs and technological responses,1,0,0.0,0,10726,0.0,0.0,lexical_indicator_only
+irlanda,DLGF_2018,CA5,Problem-solving,5.3,Creatively using digital technologies,1,0,0.0,0,10726,0.0,0.0,lexical_indicator_only
+irlanda,DLGF_2018,CA5,Problem-solving,5.4,Identifying digital competence gaps,1,0,0.0,0,10726,0.0,0.0,lexical_indicator_only
+irlanda,DLGF_2018,CA5,Problem-solving,5.5,Computational thinking,1,1,100.0,47,10726,43.818758,43.818758,lexical_indicator_only
+irlanda,DLGF_2018,CA6,Career-related competences,6.1,Operating specialised digital technologies for a particular field,1,0,0.0,0,10726,0.0,0.0,lexical_indicator_only
+irlanda,DLGF_2018,CA6,Career-related competences,6.2,Interpreting and manipulating data information and digital content for a particular field,1,0,0.0,0,10726,0.0,0.0,lexical_indicator_only
+japao,DLGF_2018,CA0,Devices and software operations,0.1,Physical operations of digital devices,2,2,100.0,48,321491,1.493043,2.412376,lexical_indicator_only
+japao,DLGF_2018,CA0,Devices and software operations,0.2,Software operations in digital devices,2,2,100.0,9,321491,0.279946,0.530586,lexical_indicator_only
+japao,DLGF_2018,CA1,Information and data literacy,1.1,Browsing searching and filtering data information and digital content,2,2,100.0,14,321491,0.435471,0.633441,lexical_indicator_only
+japao,DLGF_2018,CA1,Information and data literacy,1.2,Evaluating data information and digital content,2,2,100.0,3,321491,0.093315,0.104894,lexical_indicator_only
+japao,DLGF_2018,CA1,Information and data literacy,1.3,Managing data information and digital content,2,2,100.0,41,321491,1.275308,2.138838,lexical_indicator_only
+japao,DLGF_2018,CA2,Communication and collaboration,2.1,Interacting through digital technologies,2,1,50.0,1,321491,0.031105,0.063752,lexical_indicator_only
+japao,DLGF_2018,CA2,Communication and collaboration,2.2,Sharing through digital technologies,2,2,100.0,11,321491,0.342156,0.355823,lexical_indicator_only
+japao,DLGF_2018,CA2,Communication and collaboration,2.3,Engaging in citizenship through digital technologies,2,0,0.0,0,321491,0.0,0.0,lexical_indicator_only
+japao,DLGF_2018,CA2,Communication and collaboration,2.4,Collaborating through digital technologies,2,0,0.0,0,321491,0.0,0.0,lexical_indicator_only
+japao,DLGF_2018,CA2,Communication and collaboration,2.5,Netiquette,2,0,0.0,0,321491,0.0,0.0,lexical_indicator_only
+japao,DLGF_2018,CA2,Communication and collaboration,2.6,Managing digital identity,2,0,0.0,0,321491,0.0,0.0,lexical_indicator_only
+japao,DLGF_2018,CA3,Digital content creation,3.1,Developing digital content,2,0,0.0,0,321491,0.0,0.0,lexical_indicator_only
+japao,DLGF_2018,CA3,Digital content creation,3.2,Integrating and re-elaborating digital content,2,0,0.0,0,321491,0.0,0.0,lexical_indicator_only
+japao,DLGF_2018,CA3,Digital content creation,3.3,Copyright and licences,2,2,100.0,72,321491,2.239565,3.078803,lexical_indicator_only
+japao,DLGF_2018,CA3,Digital content creation,3.4,Programming,2,2,100.0,173,321491,5.381177,9.172299,lexical_indicator_only
+japao,DLGF_2018,CA4,Safety,4.1,Protecting devices,2,2,100.0,48,321491,1.493043,2.714644,lexical_indicator_only
+japao,DLGF_2018,CA4,Safety,4.2,Protecting personal data and privacy,2,2,100.0,44,321491,1.368623,2.286912,lexical_indicator_only
+japao,DLGF_2018,CA4,Safety,4.3,Protecting health and well-being,2,0,0.0,0,321491,0.0,0.0,lexical_indicator_only
+japao,DLGF_2018,CA4,Safety,4.4,Protecting the environment,2,0,0.0,0,321491,0.0,0.0,lexical_indicator_only
+japao,DLGF_2018,CA5,Problem-solving,5.1,Solving technical problems,2,0,0.0,0,321491,0.0,0.0,lexical_indicator_only
+japao,DLGF_2018,CA5,Problem-solving,5.2,Identifying needs and technological responses,2,0,0.0,0,321491,0.0,0.0,lexical_indicator_only
+japao,DLGF_2018,CA5,Problem-solving,5.3,Creatively using digital technologies,2,0,0.0,0,321491,0.0,0.0,lexical_indicator_only
+japao,DLGF_2018,CA5,Problem-solving,5.4,Identifying digital competence gaps,2,0,0.0,0,321491,0.0,0.0,lexical_indicator_only
+japao,DLGF_2018,CA5,Problem-solving,5.5,Computational thinking,2,2,100.0,69,321491,2.14625,3.707986,lexical_indicator_only
+japao,DLGF_2018,CA6,Career-related competences,6.1,Operating specialised digital technologies for a particular field,2,0,0.0,0,321491,0.0,0.0,lexical_indicator_only
+japao,DLGF_2018,CA6,Career-related competences,6.2,Interpreting and manipulating data information and digital content for a particular field,2,0,0.0,0,321491,0.0,0.0,lexical_indicator_only
+nova-zelandia,DLGF_2018,CA0,Devices and software operations,0.1,Physical operations of digital devices,2,1,50.0,1,5238,1.909126,1.166589,lexical_indicator_only
+nova-zelandia,DLGF_2018,CA0,Devices and software operations,0.2,Software operations in digital devices,2,0,0.0,0,5238,0.0,0.0,lexical_indicator_only
+nova-zelandia,DLGF_2018,CA1,Information and data literacy,1.1,Browsing searching and filtering data information and digital content,2,1,50.0,1,5238,1.909126,1.166589,lexical_indicator_only
+nova-zelandia,DLGF_2018,CA1,Information and data literacy,1.2,Evaluating data information and digital content,2,0,0.0,0,5238,0.0,0.0,lexical_indicator_only
+nova-zelandia,DLGF_2018,CA1,Information and data literacy,1.3,Managing data information and digital content,2,0,0.0,0,5238,0.0,0.0,lexical_indicator_only
+nova-zelandia,DLGF_2018,CA2,Communication and collaboration,2.1,Interacting through digital technologies,2,0,0.0,0,5238,0.0,0.0,lexical_indicator_only
+nova-zelandia,DLGF_2018,CA2,Communication and collaboration,2.2,Sharing through digital technologies,2,0,0.0,0,5238,0.0,0.0,lexical_indicator_only
+nova-zelandia,DLGF_2018,CA2,Communication and collaboration,2.3,Engaging in citizenship through digital technologies,2,1,50.0,1,5238,1.909126,1.166589,lexical_indicator_only
+nova-zelandia,DLGF_2018,CA2,Communication and collaboration,2.4,Collaborating through digital technologies,2,0,0.0,0,5238,0.0,0.0,lexical_indicator_only
+nova-zelandia,DLGF_2018,CA2,Communication and collaboration,2.5,Netiquette,2,0,0.0,0,5238,0.0,0.0,lexical_indicator_only
+nova-zelandia,DLGF_2018,CA2,Communication and collaboration,2.6,Managing digital identity,2,0,0.0,0,5238,0.0,0.0,lexical_indicator_only
+nova-zelandia,DLGF_2018,CA3,Digital content creation,3.1,Developing digital content,2,0,0.0,0,5238,0.0,0.0,lexical_indicator_only
+nova-zelandia,DLGF_2018,CA3,Digital content creation,3.2,Integrating and re-elaborating digital content,2,0,0.0,0,5238,0.0,0.0,lexical_indicator_only
+nova-zelandia,DLGF_2018,CA3,Digital content creation,3.3,Copyright and licences,2,1,50.0,1,5238,1.909126,1.166589,lexical_indicator_only
+nova-zelandia,DLGF_2018,CA3,Digital content creation,3.4,Programming,2,0,0.0,0,5238,0.0,0.0,lexical_indicator_only
+nova-zelandia,DLGF_2018,CA4,Safety,4.1,Protecting devices,2,0,0.0,0,5238,0.0,0.0,lexical_indicator_only
+nova-zelandia,DLGF_2018,CA4,Safety,4.2,Protecting personal data and privacy,2,0,0.0,0,5238,0.0,0.0,lexical_indicator_only
+nova-zelandia,DLGF_2018,CA4,Safety,4.3,Protecting health and well-being,2,0,0.0,0,5238,0.0,0.0,lexical_indicator_only
+nova-zelandia,DLGF_2018,CA4,Safety,4.4,Protecting the environment,2,0,0.0,0,5238,0.0,0.0,lexical_indicator_only
+nova-zelandia,DLGF_2018,CA5,Problem-solving,5.1,Solving technical problems,2,0,0.0,0,5238,0.0,0.0,lexical_indicator_only
+nova-zelandia,DLGF_2018,CA5,Problem-solving,5.2,Identifying needs and technological responses,2,0,0.0,0,5238,0.0,0.0,lexical_indicator_only
+nova-zelandia,DLGF_2018,CA5,Problem-solving,5.3,Creatively using digital technologies,2,1,50.0,1,5238,1.909126,1.166589,lexical_indicator_only
+nova-zelandia,DLGF_2018,CA5,Problem-solving,5.4,Identifying digital competence gaps,2,0,0.0,0,5238,0.0,0.0,lexical_indicator_only
+nova-zelandia,DLGF_2018,CA5,Problem-solving,5.5,Computational thinking,2,2,100.0,13,5238,24.818633,31.507703,lexical_indicator_only
+nova-zelandia,DLGF_2018,CA6,Career-related competences,6.1,Operating specialised digital technologies for a particular field,2,0,0.0,0,5238,0.0,0.0,lexical_indicator_only
+nova-zelandia,DLGF_2018,CA6,Career-related competences,6.2,Interpreting and manipulating data information and digital content for a particular field,2,0,0.0,0,5238,0.0,0.0,lexical_indicator_only
+quenia,DLGF_2018,CA0,Devices and software operations,0.1,Physical operations of digital devices,2,1,50.0,6,61751,0.971644,0.51767,lexical_indicator_only
+quenia,DLGF_2018,CA0,Devices and software operations,0.2,Software operations in digital devices,2,0,0.0,0,61751,0.0,0.0,lexical_indicator_only
+quenia,DLGF_2018,CA1,Information and data literacy,1.1,Browsing searching and filtering data information and digital content,2,2,100.0,6,61751,0.971644,2.977384,lexical_indicator_only
+quenia,DLGF_2018,CA1,Information and data literacy,1.2,Evaluating data information and digital content,2,1,50.0,1,61751,0.161941,0.086278,lexical_indicator_only
+quenia,DLGF_2018,CA1,Information and data literacy,1.3,Managing data information and digital content,2,0,0.0,0,61751,0.0,0.0,lexical_indicator_only
+quenia,DLGF_2018,CA2,Communication and collaboration,2.1,Interacting through digital technologies,2,1,50.0,1,61751,0.161941,0.086278,lexical_indicator_only
+quenia,DLGF_2018,CA2,Communication and collaboration,2.2,Sharing through digital technologies,2,1,50.0,2,61751,0.323881,2.632271,lexical_indicator_only
+quenia,DLGF_2018,CA2,Communication and collaboration,2.3,Engaging in citizenship through digital technologies,2,0,0.0,0,61751,0.0,0.0,lexical_indicator_only
+quenia,DLGF_2018,CA2,Communication and collaboration,2.4,Collaborating through digital technologies,2,0,0.0,0,61751,0.0,0.0,lexical_indicator_only
+quenia,DLGF_2018,CA2,Communication and collaboration,2.5,Netiquette,2,0,0.0,0,61751,0.0,0.0,lexical_indicator_only
+quenia,DLGF_2018,CA2,Communication and collaboration,2.6,Managing digital identity,2,0,0.0,0,61751,0.0,0.0,lexical_indicator_only
+quenia,DLGF_2018,CA3,Digital content creation,3.1,Developing digital content,2,0,0.0,0,61751,0.0,0.0,lexical_indicator_only
+quenia,DLGF_2018,CA3,Digital content creation,3.2,Integrating and re-elaborating digital content,2,0,0.0,0,61751,0.0,0.0,lexical_indicator_only
+quenia,DLGF_2018,CA3,Digital content creation,3.3,Copyright and licences,2,1,50.0,1,61751,0.161941,1.316136,lexical_indicator_only
+quenia,DLGF_2018,CA3,Digital content creation,3.4,Programming,2,1,50.0,1,61751,0.161941,0.086278,lexical_indicator_only
+quenia,DLGF_2018,CA4,Safety,4.1,Protecting devices,2,0,0.0,0,61751,0.0,0.0,lexical_indicator_only
+quenia,DLGF_2018,CA4,Safety,4.2,Protecting personal data and privacy,2,0,0.0,0,61751,0.0,0.0,lexical_indicator_only
+quenia,DLGF_2018,CA4,Safety,4.3,Protecting health and well-being,2,0,0.0,0,61751,0.0,0.0,lexical_indicator_only
+quenia,DLGF_2018,CA4,Safety,4.4,Protecting the environment,2,0,0.0,0,61751,0.0,0.0,lexical_indicator_only
+quenia,DLGF_2018,CA5,Problem-solving,5.1,Solving technical problems,2,1,50.0,4,61751,0.647763,0.345113,lexical_indicator_only
+quenia,DLGF_2018,CA5,Problem-solving,5.2,Identifying needs and technological responses,2,0,0.0,0,61751,0.0,0.0,lexical_indicator_only
+quenia,DLGF_2018,CA5,Problem-solving,5.3,Creatively using digital technologies,2,0,0.0,0,61751,0.0,0.0,lexical_indicator_only
+quenia,DLGF_2018,CA5,Problem-solving,5.4,Identifying digital competence gaps,2,0,0.0,0,61751,0.0,0.0,lexical_indicator_only
+quenia,DLGF_2018,CA5,Problem-solving,5.5,Computational thinking,2,1,50.0,1,61751,0.161941,0.086278,lexical_indicator_only
+quenia,DLGF_2018,CA6,Career-related competences,6.1,Operating specialised digital technologies for a particular field,2,0,0.0,0,61751,0.0,0.0,lexical_indicator_only
+quenia,DLGF_2018,CA6,Career-related competences,6.2,Interpreting and manipulating data information and digital content for a particular field,2,0,0.0,0,61751,0.0,0.0,lexical_indicator_only
+reino-unido,DLGF_2018,CA0,Devices and software operations,0.1,Physical operations of digital devices,2,2,100.0,3,1273,23.566379,24.869765,lexical_indicator_only
+reino-unido,DLGF_2018,CA0,Devices and software operations,0.2,Software operations in digital devices,2,0,0.0,0,1273,0.0,0.0,lexical_indicator_only
+reino-unido,DLGF_2018,CA1,Information and data literacy,1.1,Browsing searching and filtering data information and digital content,2,2,100.0,2,1273,15.710919,15.941194,lexical_indicator_only
+reino-unido,DLGF_2018,CA1,Information and data literacy,1.2,Evaluating data information and digital content,2,0,0.0,0,1273,0.0,0.0,lexical_indicator_only
+reino-unido,DLGF_2018,CA1,Information and data literacy,1.3,Managing data information and digital content,2,0,0.0,0,1273,0.0,0.0,lexical_indicator_only
+reino-unido,DLGF_2018,CA2,Communication and collaboration,2.1,Interacting through digital technologies,2,0,0.0,0,1273,0.0,0.0,lexical_indicator_only
+reino-unido,DLGF_2018,CA2,Communication and collaboration,2.2,Sharing through digital technologies,2,0,0.0,0,1273,0.0,0.0,lexical_indicator_only
+reino-unido,DLGF_2018,CA2,Communication and collaboration,2.3,Engaging in citizenship through digital technologies,2,0,0.0,0,1273,0.0,0.0,lexical_indicator_only
+reino-unido,DLGF_2018,CA2,Communication and collaboration,2.4,Collaborating through digital technologies,2,0,0.0,0,1273,0.0,0.0,lexical_indicator_only
+reino-unido,DLGF_2018,CA2,Communication and collaboration,2.5,Netiquette,2,0,0.0,0,1273,0.0,0.0,lexical_indicator_only
+reino-unido,DLGF_2018,CA2,Communication and collaboration,2.6,Managing digital identity,2,1,50.0,1,1273,7.85546,7.012622,lexical_indicator_only
+reino-unido,DLGF_2018,CA3,Digital content creation,3.1,Developing digital content,2,0,0.0,0,1273,0.0,0.0,lexical_indicator_only
+reino-unido,DLGF_2018,CA3,Digital content creation,3.2,Integrating and re-elaborating digital content,2,0,0.0,0,1273,0.0,0.0,lexical_indicator_only
+reino-unido,DLGF_2018,CA3,Digital content creation,3.3,Copyright and licences,2,2,100.0,5,1273,39.277298,36.979062,lexical_indicator_only
+reino-unido,DLGF_2018,CA3,Digital content creation,3.4,Programming,2,2,100.0,4,1273,31.421838,29.966439,lexical_indicator_only
+reino-unido,DLGF_2018,CA4,Safety,4.1,Protecting devices,2,0,0.0,0,1273,0.0,0.0,lexical_indicator_only
+reino-unido,DLGF_2018,CA4,Safety,4.2,Protecting personal data and privacy,2,1,50.0,1,1273,7.85546,8.928572,lexical_indicator_only
+reino-unido,DLGF_2018,CA4,Safety,4.3,Protecting health and well-being,2,0,0.0,0,1273,0.0,0.0,lexical_indicator_only
+reino-unido,DLGF_2018,CA4,Safety,4.4,Protecting the environment,2,0,0.0,0,1273,0.0,0.0,lexical_indicator_only
+reino-unido,DLGF_2018,CA5,Problem-solving,5.1,Solving technical problems,2,0,0.0,0,1273,0.0,0.0,lexical_indicator_only
+reino-unido,DLGF_2018,CA5,Problem-solving,5.2,Identifying needs and technological responses,2,0,0.0,0,1273,0.0,0.0,lexical_indicator_only
+reino-unido,DLGF_2018,CA5,Problem-solving,5.3,Creatively using digital technologies,2,0,0.0,0,1273,0.0,0.0,lexical_indicator_only
+reino-unido,DLGF_2018,CA5,Problem-solving,5.4,Identifying digital competence gaps,2,0,0.0,0,1273,0.0,0.0,lexical_indicator_only
+reino-unido,DLGF_2018,CA5,Problem-solving,5.5,Computational thinking,2,2,100.0,11,1273,86.410055,86.718593,lexical_indicator_only
+reino-unido,DLGF_2018,CA6,Career-related competences,6.1,Operating specialised digital technologies for a particular field,2,0,0.0,0,1273,0.0,0.0,lexical_indicator_only
+reino-unido,DLGF_2018,CA6,Career-related competences,6.2,Interpreting and manipulating data information and digital content for a particular field,2,0,0.0,0,1273,0.0,0.0,lexical_indicator_only
+ruanda,DLGF_2018,CA0,Devices and software operations,0.1,Physical operations of digital devices,1,1,100.0,8,10539,7.590853,7.590853,lexical_indicator_only
+ruanda,DLGF_2018,CA0,Devices and software operations,0.2,Software operations in digital devices,1,1,100.0,8,10539,7.590853,7.590853,lexical_indicator_only
+ruanda,DLGF_2018,CA1,Information and data literacy,1.1,Browsing searching and filtering data information and digital content,1,1,100.0,20,10539,18.977133,18.977133,lexical_indicator_only
+ruanda,DLGF_2018,CA1,Information and data literacy,1.2,Evaluating data information and digital content,1,0,0.0,0,10539,0.0,0.0,lexical_indicator_only
+ruanda,DLGF_2018,CA1,Information and data literacy,1.3,Managing data information and digital content,1,0,0.0,0,10539,0.0,0.0,lexical_indicator_only
+ruanda,DLGF_2018,CA2,Communication and collaboration,2.1,Interacting through digital technologies,1,0,0.0,0,10539,0.0,0.0,lexical_indicator_only
+ruanda,DLGF_2018,CA2,Communication and collaboration,2.2,Sharing through digital technologies,1,1,100.0,3,10539,2.84657,2.84657,lexical_indicator_only
+ruanda,DLGF_2018,CA2,Communication and collaboration,2.3,Engaging in citizenship through digital technologies,1,0,0.0,0,10539,0.0,0.0,lexical_indicator_only
+ruanda,DLGF_2018,CA2,Communication and collaboration,2.4,Collaborating through digital technologies,1,0,0.0,0,10539,0.0,0.0,lexical_indicator_only
+ruanda,DLGF_2018,CA2,Communication and collaboration,2.5,Netiquette,1,0,0.0,0,10539,0.0,0.0,lexical_indicator_only
+ruanda,DLGF_2018,CA2,Communication and collaboration,2.6,Managing digital identity,1,0,0.0,0,10539,0.0,0.0,lexical_indicator_only
+ruanda,DLGF_2018,CA3,Digital content creation,3.1,Developing digital content,1,0,0.0,0,10539,0.0,0.0,lexical_indicator_only
+ruanda,DLGF_2018,CA3,Digital content creation,3.2,Integrating and re-elaborating digital content,1,0,0.0,0,10539,0.0,0.0,lexical_indicator_only
+ruanda,DLGF_2018,CA3,Digital content creation,3.3,Copyright and licences,1,0,0.0,0,10539,0.0,0.0,lexical_indicator_only
+ruanda,DLGF_2018,CA3,Digital content creation,3.4,Programming,1,1,100.0,5,10539,4.744283,4.744283,lexical_indicator_only
+ruanda,DLGF_2018,CA4,Safety,4.1,Protecting devices,1,0,0.0,0,10539,0.0,0.0,lexical_indicator_only
+ruanda,DLGF_2018,CA4,Safety,4.2,Protecting personal data and privacy,1,0,0.0,0,10539,0.0,0.0,lexical_indicator_only
+ruanda,DLGF_2018,CA4,Safety,4.3,Protecting health and well-being,1,0,0.0,0,10539,0.0,0.0,lexical_indicator_only
+ruanda,DLGF_2018,CA4,Safety,4.4,Protecting the environment,1,0,0.0,0,10539,0.0,0.0,lexical_indicator_only
+ruanda,DLGF_2018,CA5,Problem-solving,5.1,Solving technical problems,1,1,100.0,2,10539,1.897713,1.897713,lexical_indicator_only
+ruanda,DLGF_2018,CA5,Problem-solving,5.2,Identifying needs and technological responses,1,0,0.0,0,10539,0.0,0.0,lexical_indicator_only
+ruanda,DLGF_2018,CA5,Problem-solving,5.3,Creatively using digital technologies,1,0,0.0,0,10539,0.0,0.0,lexical_indicator_only
+ruanda,DLGF_2018,CA5,Problem-solving,5.4,Identifying digital competence gaps,1,0,0.0,0,10539,0.0,0.0,lexical_indicator_only
+ruanda,DLGF_2018,CA5,Problem-solving,5.5,Computational thinking,1,0,0.0,0,10539,0.0,0.0,lexical_indicator_only
+ruanda,DLGF_2018,CA6,Career-related competences,6.1,Operating specialised digital technologies for a particular field,1,0,0.0,0,10539,0.0,0.0,lexical_indicator_only
+ruanda,DLGF_2018,CA6,Career-related competences,6.2,Interpreting and manipulating data information and digital content for a particular field,1,0,0.0,0,10539,0.0,0.0,lexical_indicator_only
+singapura,DLGF_2018,CA0,Devices and software operations,0.1,Physical operations of digital devices,18,8,44.4444,65,175484,3.704041,4.767546,lexical_indicator_only
+singapura,DLGF_2018,CA0,Devices and software operations,0.2,Software operations in digital devices,18,1,5.5556,2,175484,0.113971,0.067145,lexical_indicator_only
+singapura,DLGF_2018,CA1,Information and data literacy,1.1,Browsing searching and filtering data information and digital content,18,11,61.1111,66,175484,3.761027,6.96462,lexical_indicator_only
+singapura,DLGF_2018,CA1,Information and data literacy,1.2,Evaluating data information and digital content,18,2,11.1111,3,175484,0.170956,0.255389,lexical_indicator_only
+singapura,DLGF_2018,CA1,Information and data literacy,1.3,Managing data information and digital content,18,7,38.8889,34,175484,1.937499,2.113441,lexical_indicator_only
+singapura,DLGF_2018,CA2,Communication and collaboration,2.1,Interacting through digital technologies,18,1,5.5556,1,175484,0.056985,0.094772,lexical_indicator_only
+singapura,DLGF_2018,CA2,Communication and collaboration,2.2,Sharing through digital technologies,18,4,22.2222,7,175484,0.398897,0.235043,lexical_indicator_only
+singapura,DLGF_2018,CA2,Communication and collaboration,2.3,Engaging in citizenship through digital technologies,18,0,0.0,0,175484,0.0,0.0,lexical_indicator_only
+singapura,DLGF_2018,CA2,Communication and collaboration,2.4,Collaborating through digital technologies,18,0,0.0,0,175484,0.0,0.0,lexical_indicator_only
+singapura,DLGF_2018,CA2,Communication and collaboration,2.5,Netiquette,18,4,22.2222,4,175484,0.227941,0.302719,lexical_indicator_only
+singapura,DLGF_2018,CA2,Communication and collaboration,2.6,Managing digital identity,18,0,0.0,0,175484,0.0,0.0,lexical_indicator_only
+singapura,DLGF_2018,CA3,Digital content creation,3.1,Developing digital content,18,2,11.1111,2,175484,0.113971,0.124956,lexical_indicator_only
+singapura,DLGF_2018,CA3,Digital content creation,3.2,Integrating and re-elaborating digital content,18,0,0.0,0,175484,0.0,0.0,lexical_indicator_only
+singapura,DLGF_2018,CA3,Digital content creation,3.3,Copyright and licences,18,12,66.6667,58,175484,3.305145,5.506509,lexical_indicator_only
+singapura,DLGF_2018,CA3,Digital content creation,3.4,Programming,18,7,38.8889,217,175484,12.3658,17.759324,lexical_indicator_only
+singapura,DLGF_2018,CA4,Safety,4.1,Protecting devices,18,7,38.8889,14,175484,0.797794,1.820385,lexical_indicator_only
+singapura,DLGF_2018,CA4,Safety,4.2,Protecting personal data and privacy,18,13,72.2222,57,175484,3.248159,4.439796,lexical_indicator_only
+singapura,DLGF_2018,CA4,Safety,4.3,Protecting health and well-being,18,2,11.1111,4,175484,0.227941,0.048537,lexical_indicator_only
+singapura,DLGF_2018,CA4,Safety,4.4,Protecting the environment,18,0,0.0,0,175484,0.0,0.0,lexical_indicator_only
+singapura,DLGF_2018,CA5,Problem-solving,5.1,Solving technical problems,18,4,22.2222,5,175484,0.284926,0.287923,lexical_indicator_only
+singapura,DLGF_2018,CA5,Problem-solving,5.2,Identifying needs and technological responses,18,0,0.0,0,175484,0.0,0.0,lexical_indicator_only
+singapura,DLGF_2018,CA5,Problem-solving,5.3,Creatively using digital technologies,18,0,0.0,0,175484,0.0,0.0,lexical_indicator_only
+singapura,DLGF_2018,CA5,Problem-solving,5.4,Identifying digital competence gaps,18,0,0.0,0,175484,0.0,0.0,lexical_indicator_only
+singapura,DLGF_2018,CA5,Problem-solving,5.5,Computational thinking,18,8,44.4444,325,175484,18.520207,25.259295,lexical_indicator_only
+singapura,DLGF_2018,CA6,Career-related competences,6.1,Operating specialised digital technologies for a particular field,18,0,0.0,0,175484,0.0,0.0,lexical_indicator_only
+singapura,DLGF_2018,CA6,Career-related competences,6.2,Interpreting and manipulating data information and digital content for a particular field,18,0,0.0,0,175484,0.0,0.0,lexical_indicator_only
+suica,DLGF_2018,CA0,Devices and software operations,0.1,Physical operations of digital devices,3,2,66.6667,2,8912,2.244165,3.745217,lexical_indicator_only
+suica,DLGF_2018,CA0,Devices and software operations,0.2,Software operations in digital devices,3,2,66.6667,7,8912,7.854578,5.081315,lexical_indicator_only
+suica,DLGF_2018,CA1,Information and data literacy,1.1,Browsing searching and filtering data information and digital content,3,3,100.0,17,8912,19.075404,25.191498,lexical_indicator_only
+suica,DLGF_2018,CA1,Information and data literacy,1.2,Evaluating data information and digital content,3,2,66.6667,3,8912,3.366248,6.863396,lexical_indicator_only
+suica,DLGF_2018,CA1,Information and data literacy,1.3,Managing data information and digital content,3,0,0.0,0,8912,0.0,0.0,lexical_indicator_only
+suica,DLGF_2018,CA2,Communication and collaboration,2.1,Interacting through digital technologies,3,1,33.3333,2,8912,2.244165,6.236358,lexical_indicator_only
+suica,DLGF_2018,CA2,Communication and collaboration,2.2,Sharing through digital technologies,3,0,0.0,0,8912,0.0,0.0,lexical_indicator_only
+suica,DLGF_2018,CA2,Communication and collaboration,2.3,Engaging in citizenship through digital technologies,3,1,33.3333,2,8912,2.244165,6.236358,lexical_indicator_only
+suica,DLGF_2018,CA2,Communication and collaboration,2.4,Collaborating through digital technologies,3,1,33.3333,1,8912,1.122083,3.118179,lexical_indicator_only
+suica,DLGF_2018,CA2,Communication and collaboration,2.5,Netiquette,3,1,33.3333,1,8912,1.122083,0.627038,lexical_indicator_only
+suica,DLGF_2018,CA2,Communication and collaboration,2.6,Managing digital identity,3,1,33.3333,1,8912,1.122083,3.118179,lexical_indicator_only
+suica,DLGF_2018,CA3,Digital content creation,3.1,Developing digital content,3,0,0.0,0,8912,0.0,0.0,lexical_indicator_only
+suica,DLGF_2018,CA3,Digital content creation,3.2,Integrating and re-elaborating digital content,3,0,0.0,0,8912,0.0,0.0,lexical_indicator_only
+suica,DLGF_2018,CA3,Digital content creation,3.3,Copyright and licences,3,2,66.6667,4,8912,4.48833,4.5843,lexical_indicator_only
+suica,DLGF_2018,CA3,Digital content creation,3.4,Programming,3,3,100.0,7,8912,7.854578,10.063597,lexical_indicator_only
+suica,DLGF_2018,CA4,Safety,4.1,Protecting devices,3,1,33.3333,1,8912,1.122083,1.319087,lexical_indicator_only
+suica,DLGF_2018,CA4,Safety,4.2,Protecting personal data and privacy,3,2,66.6667,6,8912,6.732496,6.530424,lexical_indicator_only
+suica,DLGF_2018,CA4,Safety,4.3,Protecting health and well-being,3,2,66.6667,3,8912,3.366248,4.372255,lexical_indicator_only
+suica,DLGF_2018,CA4,Safety,4.4,Protecting the environment,3,1,33.3333,1,8912,1.122083,3.118179,lexical_indicator_only
+suica,DLGF_2018,CA5,Problem-solving,5.1,Solving technical problems,3,0,0.0,0,8912,0.0,0.0,lexical_indicator_only
+suica,DLGF_2018,CA5,Problem-solving,5.2,Identifying needs and technological responses,3,0,0.0,0,8912,0.0,0.0,lexical_indicator_only
+suica,DLGF_2018,CA5,Problem-solving,5.3,Creatively using digital technologies,3,0,0.0,0,8912,0.0,0.0,lexical_indicator_only
+suica,DLGF_2018,CA5,Problem-solving,5.4,Identifying digital competence gaps,3,0,0.0,0,8912,0.0,0.0,lexical_indicator_only
+suica,DLGF_2018,CA5,Problem-solving,5.5,Computational thinking,3,3,100.0,13,8912,14.587074,16.594021,lexical_indicator_only
+suica,DLGF_2018,CA6,Career-related competences,6.1,Operating specialised digital technologies for a particular field,3,0,0.0,0,8912,0.0,0.0,lexical_indicator_only
+suica,DLGF_2018,CA6,Career-related competences,6.2,Interpreting and manipulating data information and digital content for a particular field,3,0,0.0,0,8912,0.0,0.0,lexical_indicator_only
+taiwan,DLGF_2018,CA0,Devices and software operations,0.1,Physical operations of digital devices,1,1,100.0,4,21711,1.842384,1.842384,lexical_indicator_only
+taiwan,DLGF_2018,CA0,Devices and software operations,0.2,Software operations in digital devices,1,1,100.0,1,21711,0.460596,0.460596,lexical_indicator_only
+taiwan,DLGF_2018,CA1,Information and data literacy,1.1,Browsing searching and filtering data information and digital content,1,1,100.0,15,21711,6.90894,6.90894,lexical_indicator_only
+taiwan,DLGF_2018,CA1,Information and data literacy,1.2,Evaluating data information and digital content,1,1,100.0,1,21711,0.460596,0.460596,lexical_indicator_only
+taiwan,DLGF_2018,CA1,Information and data literacy,1.3,Managing data information and digital content,1,0,0.0,0,21711,0.0,0.0,lexical_indicator_only
+taiwan,DLGF_2018,CA2,Communication and collaboration,2.1,Interacting through digital technologies,1,1,100.0,2,21711,0.921192,0.921192,lexical_indicator_only
+taiwan,DLGF_2018,CA2,Communication and collaboration,2.2,Sharing through digital technologies,1,0,0.0,0,21711,0.0,0.0,lexical_indicator_only
+taiwan,DLGF_2018,CA2,Communication and collaboration,2.3,Engaging in citizenship through digital technologies,1,1,100.0,4,21711,1.842384,1.842384,lexical_indicator_only
+taiwan,DLGF_2018,CA2,Communication and collaboration,2.4,Collaborating through digital technologies,1,1,100.0,8,21711,3.684768,3.684768,lexical_indicator_only
+taiwan,DLGF_2018,CA2,Communication and collaboration,2.5,Netiquette,1,0,0.0,0,21711,0.0,0.0,lexical_indicator_only
+taiwan,DLGF_2018,CA2,Communication and collaboration,2.6,Managing digital identity,1,0,0.0,0,21711,0.0,0.0,lexical_indicator_only
+taiwan,DLGF_2018,CA3,Digital content creation,3.1,Developing digital content,1,0,0.0,0,21711,0.0,0.0,lexical_indicator_only
+taiwan,DLGF_2018,CA3,Digital content creation,3.2,Integrating and re-elaborating digital content,1,0,0.0,0,21711,0.0,0.0,lexical_indicator_only
+taiwan,DLGF_2018,CA3,Digital content creation,3.3,Copyright and licences,1,1,100.0,2,21711,0.921192,0.921192,lexical_indicator_only
+taiwan,DLGF_2018,CA3,Digital content creation,3.4,Programming,1,1,100.0,92,21711,42.374833,42.374833,lexical_indicator_only
+taiwan,DLGF_2018,CA4,Safety,4.1,Protecting devices,1,0,0.0,0,21711,0.0,0.0,lexical_indicator_only
+taiwan,DLGF_2018,CA4,Safety,4.2,Protecting personal data and privacy,1,1,100.0,5,21711,2.30298,2.30298,lexical_indicator_only
+taiwan,DLGF_2018,CA4,Safety,4.3,Protecting health and well-being,1,1,100.0,1,21711,0.460596,0.460596,lexical_indicator_only
+taiwan,DLGF_2018,CA4,Safety,4.4,Protecting the environment,1,0,0.0,0,21711,0.0,0.0,lexical_indicator_only
+taiwan,DLGF_2018,CA5,Problem-solving,5.1,Solving technical problems,1,1,100.0,3,21711,1.381788,1.381788,lexical_indicator_only
+taiwan,DLGF_2018,CA5,Problem-solving,5.2,Identifying needs and technological responses,1,0,0.0,0,21711,0.0,0.0,lexical_indicator_only
+taiwan,DLGF_2018,CA5,Problem-solving,5.3,Creatively using digital technologies,1,0,0.0,0,21711,0.0,0.0,lexical_indicator_only
+taiwan,DLGF_2018,CA5,Problem-solving,5.4,Identifying digital competence gaps,1,0,0.0,0,21711,0.0,0.0,lexical_indicator_only
+taiwan,DLGF_2018,CA5,Problem-solving,5.5,Computational thinking,1,1,100.0,110,21711,50.665561,50.665561,lexical_indicator_only
+taiwan,DLGF_2018,CA6,Career-related competences,6.1,Operating specialised digital technologies for a particular field,1,1,100.0,3,21711,1.381788,1.381788,lexical_indicator_only
+taiwan,DLGF_2018,CA6,Career-related competences,6.2,Interpreting and manipulating data information and digital content for a particular field,1,0,0.0,0,21711,0.0,0.0,lexical_indicator_only
+uruguai,DLGF_2018,CA0,Devices and software operations,0.1,Physical operations of digital devices,3,3,100.0,18,150713,1.194323,3.572547,lexical_indicator_only
+uruguai,DLGF_2018,CA0,Devices and software operations,0.2,Software operations in digital devices,3,2,66.6667,4,150713,0.265405,0.182439,lexical_indicator_only
+uruguai,DLGF_2018,CA1,Information and data literacy,1.1,Browsing searching and filtering data information and digital content,3,3,100.0,105,150713,6.966884,6.85107,lexical_indicator_only
+uruguai,DLGF_2018,CA1,Information and data literacy,1.2,Evaluating data information and digital content,3,1,33.3333,1,150713,0.066351,0.733568,lexical_indicator_only
+uruguai,DLGF_2018,CA1,Information and data literacy,1.3,Managing data information and digital content,3,2,66.6667,2,150713,0.132703,0.091219,lexical_indicator_only
+uruguai,DLGF_2018,CA2,Communication and collaboration,2.1,Interacting through digital technologies,3,3,100.0,11,150713,0.729864,1.189925,lexical_indicator_only
+uruguai,DLGF_2018,CA2,Communication and collaboration,2.2,Sharing through digital technologies,3,1,33.3333,1,150713,0.066351,0.04548,lexical_indicator_only
+uruguai,DLGF_2018,CA2,Communication and collaboration,2.3,Engaging in citizenship through digital technologies,3,3,100.0,18,150713,1.194323,10.452392,lexical_indicator_only
+uruguai,DLGF_2018,CA2,Communication and collaboration,2.4,Collaborating through digital technologies,3,0,0.0,0,150713,0.0,0.0,lexical_indicator_only
+uruguai,DLGF_2018,CA2,Communication and collaboration,2.5,Netiquette,3,0,0.0,0,150713,0.0,0.0,lexical_indicator_only
+uruguai,DLGF_2018,CA2,Communication and collaboration,2.6,Managing digital identity,3,1,33.3333,1,150713,0.066351,0.733568,lexical_indicator_only
+uruguai,DLGF_2018,CA3,Digital content creation,3.1,Developing digital content,3,2,66.6667,2,150713,0.132703,0.091219,lexical_indicator_only
+uruguai,DLGF_2018,CA3,Digital content creation,3.2,Integrating and re-elaborating digital content,3,0,0.0,0,150713,0.0,0.0,lexical_indicator_only
+uruguai,DLGF_2018,CA3,Digital content creation,3.3,Copyright and licences,3,1,33.3333,1,150713,0.066351,0.733568,lexical_indicator_only
+uruguai,DLGF_2018,CA3,Digital content creation,3.4,Programming,3,3,100.0,8,150713,0.53081,3.116711,lexical_indicator_only
+uruguai,DLGF_2018,CA4,Safety,4.1,Protecting devices,3,1,33.3333,1,150713,0.066351,0.733568,lexical_indicator_only
+uruguai,DLGF_2018,CA4,Safety,4.2,Protecting personal data and privacy,3,3,100.0,10,150713,0.663513,1.143925,lexical_indicator_only
+uruguai,DLGF_2018,CA4,Safety,4.3,Protecting health and well-being,3,1,33.3333,1,150713,0.066351,0.733568,lexical_indicator_only
+uruguai,DLGF_2018,CA4,Safety,4.4,Protecting the environment,3,0,0.0,0,150713,0.0,0.0,lexical_indicator_only
+uruguai,DLGF_2018,CA5,Problem-solving,5.1,Solving technical problems,3,0,0.0,0,150713,0.0,0.0,lexical_indicator_only
+uruguai,DLGF_2018,CA5,Problem-solving,5.2,Identifying needs and technological responses,3,0,0.0,0,150713,0.0,0.0,lexical_indicator_only
+uruguai,DLGF_2018,CA5,Problem-solving,5.3,Creatively using digital technologies,3,1,33.3333,1,150713,0.066351,0.04548,lexical_indicator_only
+uruguai,DLGF_2018,CA5,Problem-solving,5.4,Identifying digital competence gaps,3,0,0.0,0,150713,0.0,0.0,lexical_indicator_only
+uruguai,DLGF_2018,CA5,Problem-solving,5.5,Computational thinking,3,1,33.3333,8,150713,0.53081,5.868545,lexical_indicator_only
+uruguai,DLGF_2018,CA6,Career-related competences,6.1,Operating specialised digital technologies for a particular field,3,0,0.0,0,150713,0.0,0.0,lexical_indicator_only
+uruguai,DLGF_2018,CA6,Career-related competences,6.2,Interpreting and manipulating data information and digital content for a particular field,3,0,0.0,0,150713,0.0,0.0,lexical_indicator_only

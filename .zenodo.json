@@ -1,0 +1,32 @@
+{
+  "title": "Comparative Dataset of Computing, Digital Education and Digital Citizenship Curricula in Basic Education",
+  "description": "Comparative dataset derived from official curriculum documents related to Computing, Digital Education, Computational Thinking and Digital Citizenship in Basic Education. It includes bibliographic and provenance metadata, lexical indicators derived through TF-IDF and cosine similarity, and validated documentary evidence. Original third-party curriculum documents are referenced through official sources and checksums and are not redistributed unless their licensing conditions permit it.",
+  "upload_type": "dataset",
+  "creators": [
+    {
+      "name": "Moraes, Denise"
+    }
+  ],
+  "keywords": [
+    "digital education",
+    "computational thinking",
+    "computing education",
+    "digital citizenship",
+    "comparative education",
+    "curriculum",
+    "natural language processing",
+    "digital humanities",
+    "retrieval-augmented generation"
+  ],
+  "license": "cc-by-4.0",
+  "version": "1.0.0",
+  "language": "eng",
+  "related_identifiers": [
+    {
+      "identifier": "https://github.com/deniaulainfead23/ragdiretrizes",
+      "relation": "isSupplementTo",
+      "scheme": "url"
+    }
+  ],
+  "notes": "The CC BY 4.0 license applies only to original research data and derived outputs produced by the author. Third-party curriculum documents remain subject to their original copyright and licensing terms."
+}

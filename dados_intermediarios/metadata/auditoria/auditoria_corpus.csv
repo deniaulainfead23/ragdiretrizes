@@ -1,0 +1,86 @@
+arquivo,pais,paginas,paginas_problematicas,percentual_problematico,status
+"/content/corpus/suica/tecnologie-e-media-modello-di-competenza_cantão do ticino — piano di studio, tecnologie e media.pdf",suica,9,1,11.11111111111111,OK_COM_ATENCAO
+"/content/corpus/suica/zh_de_modul_mi_suíça alemã — lehrplan 21, medien und informatik.pdf",suica,19,1,5.263157894736842,OK_COM_ATENCAO
+"/content/corpus/suica/en33_per_education numerique_suíça francófona — plan d’études romand, éducation numérique.pdf",suica,7,0,0.0,OK
+/content/corpus/Unesco/234132poreducação técnica.pdf,Unesco,231,1,0.4329004329004329,OK
+/content/corpus/Unesco/371391porum guia para formuladores de políticas.pdf,Unesco,71,5,7.042253521126761,OK_COM_ATENCAO
+/content/corpus/Unesco/375503porum guia para professores da educação secundária.pdf,Unesco,84,4,4.761904761904762,OK
+/content/corpus/Unesco/381115por_unesco reimaginando a educação futuro_2021.pdf,Unesco,189,0,0.0,OK
+/content/corpus/Unesco/374309eng.pdf,Unesco,161,1,0.6211180124223602,OK
+/content/corpus/Unesco/244826poreducação para a cidadania global2015.pdf,Unesco,70,4,5.714285714285714,OK_COM_ATENCAO
+/content/corpus/nova-zelandia/nova-zelandia_now-underway-dt-implementation_2020.pdf,nova-zelandia,2,0,0.0,OK
+/content/corpus/nova-zelandia/nova-zelandia_dt-implementation-support-tool_2020.pdf,nova-zelandia,16,0,0.0,OK
+/content/corpus/brasil/brasil_bncc-computacao_complemento-bncc_2022.pdf,brasil,75,5,6.666666666666667,OK_COM_ATENCAO
+/content/corpus/brasil/brasil_nota-tecnica-cieb-27_competencias-digitais-professores_2025.pdf,brasil,13,0,0.0,OK
+/content/corpus/brasil/brasil_resolucao-cne-cp-2_bncc_2017.pdf,brasil,12,0,0.0,OK
+/content/corpus/brasil/brasil_resolucao-cne-ceb-2_diretrizes-dispositivos-digitais-educacao-digital-midiatica_2025.pdf,brasil,13,0,0.0,OK
+/content/corpus/brasil/brasil_parecer-cne-cp-15_bncc_2017.pdf,brasil,58,0,0.0,OK
+/content/corpus/brasil/brasil_curriculo-referencia-tecnologia-computacao-cieb_2018.pdf,brasil,35,7,20.0,OK_COM_ATENCAO
+/content/corpus/brasil/brasil_bncc-computacao_anexo-parecer-cneceb-2_2022.pdf,brasil,75,5,6.666666666666667,OK_COM_ATENCAO
+/content/corpus/brasil/brasil_politica-nacional-educacao-digital-lei-14533_2023.pdf,brasil,7,0,0.0,OK
+/content/corpus/brasil/brasil_cieb-itinerario-formativo-tecnologia-computacao_2021.pdf,brasil,76,0,0.0,OK
+/content/corpus/brasil/brasil_referencial-saberes-digitais-docentes_2024.pdf,brasil,30,4,13.333333333333334,OK_COM_ATENCAO
+/content/corpus/brasil/brasil_ldb-lei-9394_compilada_1996-atualizada.pdf,brasil,36,0,0.0,OK
+/content/corpus/brasil/brasil_bncc_educacao-infantil-ensino-fundamental_2018.pdf,brasil,600,26,4.333333333333334,OK
+/content/corpus/brasil/brasil_parecer-cne-ceb-2_bncc-computacao_2022.pdf,brasil,34,0,0.0,OK
+/content/corpus/brasil/brasil_restricao-celulares-escolas-lei-15010_2025.pdf,brasil,1,0,0.0,OK
+/content/corpus/brasil/brasil_parecer-cne-cp-7_bncc_2022.pdf,brasil,15,0,0.0,OK
+/content/corpus/brasil/brasil_guia-educacao-digital-midiatica_2025.pdf,brasil,56,1,1.7857142857142856,OK
+/content/corpus/brasil/brasil_matriz-saberes-digitais-docentes_2024.pdf,brasil,30,4,13.333333333333334,OK_COM_ATENCAO
+/content/corpus/brasil/brasil_bncc_educacao-basica_completa_2018.pdf,brasil,600,26,4.333333333333334,OK
+/content/corpus/brasil/brasil_guia-complemento-computacao-bncc_2023.pdf,brasil,11,0,0.0,OK
+/content/corpus/brasil/brasil_resolucao-cne-ceb-1_bncc-computacao_2022.pdf,brasil,1,0,0.0,OK
+/content/corpus/africa-do-sul/africa-do-sul_caps_computer-applications-technology_grades-10-12.pdf,africa-do-sul,62,0,0.0,OK
+/content/corpus/africa-do-sul/africa-do-sul_caps_information-technology_grades-10-12.pdf,africa-do-sul,59,1,1.694915254237288,OK
+/content/corpus/china/china_compulsory_education_curriculum_plan_2022.pdf,china,23,23,100.0,OCR_NEEDED
+/content/corpus/china/china_information_technology_curriculum_standard_2022.pdf,china,74,74,100.0,OCR_NEEDED
+/content/corpus/taiwan/taiwan_technology-domain-information-technology_2019.pdf,taiwan,54,2,3.7037037037037033,OK
+/content/corpus/quenia/quenia_standards-digital-content-course-materials_cbc_2018.pdf,quenia,25,0,0.0,OK
+/content/corpus/quenia/quenia_basic-education-curriculum-framework_2017.pdf,quenia,145,0,0.0,OK
+/content/corpus/irlanda/irlanda_computer-science-curriculum-specification_2018.pdf,irlanda,36,3,8.333333333333332,OK_COM_ATENCAO
+/content/corpus/coreia-do-sul/coreia-do-sul_keris-white-paper-software-education_2018.pdf,coreia-do-sul,323,13,4.024767801857585,OK
+/content/corpus/reino-unido/reino-unido_computing-curriculum_ks1-ks2_2014.pdf,reino-unido,2,0,0.0,OK
+/content/corpus/reino-unido/reino-unido_computing-curriculum_ks3-ks4_2014.pdf,reino-unido,3,0,0.0,OK
+/content/corpus/hong-kong/hong-kong_general-studies-curriculum-guide_coding-stem_2017.pdf,hong-kong,226,15,6.637168141592921,OK_COM_ATENCAO
+/content/corpus/hong-kong/hong-kong_ict-curriculum-and-assessment-guide_2017.pdf,hong-kong,131,12,9.16030534351145,OK_COM_ATENCAO
+/content/corpus/gana/gana_computing-common-core-programme-curriculum_2023.pdf,gana,95,0,0.0,OK
+/content/corpus/gana/gana_computing-primary-b4-b6_2019.pdf,gana,76,0,0.0,OK
+/content/corpus/uruguai/uruguai_en-el-camino-del-plan-ceibal_2009.pdf,uruguai,322,25,7.763975155279502,OK_COM_ATENCAO
+/content/corpus/uruguai/uruguai_plan-ceibal-in-uruguay.pdf,uruguai,316,20,6.329113924050633,OK_COM_ATENCAO
+/content/corpus/uruguai/uruguai_tecnologias-digitales_2023.pdf,uruguai,16,1,6.25,OK_COM_ATENCAO
+/content/corpus/singapura/nel framework 2022_v2_singapura.pdf,singapura,91,1,1.098901098901099,OK
+/content/corpus/singapura/singapura_o-level-computing-syllabus_2021.pdf,singapura,51,3,5.88235294117647,OK_COM_ATENCAO
+/content/corpus/singapura/7155_y25_sy.pdf,singapura,19,0,0.0,OK
+/content/corpus/singapura/moeict guidelines_final_edited_singapura.pdf,singapura,43,1,2.3255813953488373,OK
+/content/corpus/singapura/inteligência artificial na educação _ moe_singapura.pdf,singapura,4,0,0.0,OK
+/content/corpus/singapura/nel framework 2022_v2_curriculo_singapura_2022.pdf,singapura,91,1,1.098901098901099,OK
+/content/corpus/singapura/denitradu_olevelcomputingteach.pdf,singapura,28,0,0.0,OK
+/content/corpus/singapura/framework and guidelines _ moe - nurturing early learners portal_singapura rever.pdf,singapura,8,0,0.0,OK
+/content/corpus/singapura/mext_ visão geral_.pdf,singapura,5,0,0.0,OK
+/content/corpus/singapura/singapura_g3-computing-syllabus_2024.pdf,singapura,34,0,0.0,OK
+/content/corpus/singapura/pdpc _ singapore’s approach to ai governance_singapura.pdf,singapura,8,0,0.0,OK
+/content/corpus/singapura/singapura_h2-computing-syllabus.pdf,singapura,28,0,0.0,OK
+/content/corpus/singapura/o modelo 'linha dura' de educação que pôs um pequeno país asiático no topo de ranking mundial - bbc news brasil_singapura.pdf,singapura,10,0,0.0,OK
+/content/corpus/singapura/moeict guidelines_final_edited_tecnologia_singapura.pdf,singapura,43,1,2.3255813953488373,OK
+/content/corpus/singapura/singapura_e_brasil_diretrizes_de_computação.pdf,singapura,13,13,100.0,OCR_NEEDED
+/content/corpus/singapura/sgmodelaigovframework2_singapura.pdf,singapura,70,2,2.857142857142857,OK
+/content/corpus/singapura/o-level-computing-teaching-and-learning-syllabus.pdf,singapura,34,0,0.0,OK
+/content/corpus/singapura/ethos da profissão de ensino_singapura.pdf,singapura,4,0,0.0,OK
+/content/corpus/australia/australia_digital-technologies-v9_sequence-content_2022.pdf,australia,4,0,0.0,OK
+/content/corpus/australia/australia_digital-technologies-v9_sequence-achievement_2022.pdf,australia,4,0,0.0,OK
+/content/corpus/eua/eua_k12-computer-science-framework_2016.pdf,eua,307,31,10.097719869706841,OK_COM_ATENCAO
+/content/corpus/chile/ds_po_3_2025_tiskarna-66-82.pdf,chile,414,136,32.850241545893724,LAYOUT_COMPLEXO
+/content/corpus/chile/articles-91414_bases.pdf,chile,372,98,26.344086021505376,LAYOUT_COMPLEXO
+/content/corpus/chile/articles-140146_programa_feb_2021_final_s_disegno.pdf,chile,167,1,0.5988023952095809,OK
+/content/corpus/chile/articles-37136_bases.pdf,chile,402,6,1.4925373134328357,OK
+/content/corpus/chile/recurso_2_rota do pensamento computacional.pdf,chile,36,1,2.7777777777777777,OK
+/content/corpus/estonia/estonia_national_curriculum_basic_schools_2026.pdf,estonia,18,0,0.0,OK
+/content/corpus/estonia/estonia_informatics_appendix_10_2023.pdf,estonia,10,0,0.0,OK
+/content/corpus/canada/canada_alberta_draft-k6-science-update_2022.pdf,canada,4,0,0.0,OK
+/content/corpus/canada/canada_alberta_k6-science-curriculum-computer-science_2023.pdf,canada,4,0,0.0,OK
+/content/corpus/canada/canada_ontario_digital-action-plan.pdf,canada,40,1,2.5,OK
+/content/corpus/japao/japao_high-school-curriculum-guidelines_2022.pdf,japao,608,9,1.4802631578947367,OK
+/content/corpus/japao/japao_high-school-information-commentary_2022.pdf,japao,195,3,1.5384615384615385,OK
+/content/corpus/ruanda/ruanda_ict-syllabus.pdf,ruanda,49,0,0.0,OK
+/content/corpus/finlandia/finlandia_new-national-core-curriculum-basic-education_2016.pdf,finlandia,2,0,0.0,OK
+/content/corpus/pisa/53f23881-en.pdf,pisa,492,1,0.2032520325203252,OK

@@ -1,0 +1,21 @@
+# Entidades e termos que devem ser descartados da análise documental
+# Mantidos em arquivo separado para rastreabilidade e revisão metodológica.
+
+documento
+documentos
+currículo
+curriculo
+educação
+educacao
+país
+pais
+área
+area
+capítulo
+capitulo
+objetivo
+objetivos
+relação
+relações
+componente
+componentes

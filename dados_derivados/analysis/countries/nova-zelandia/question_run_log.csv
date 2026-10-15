@@ -1,0 +1,3 @@
+run_id,question_id,country,timestamp,framework,category_id,question_version,status,number_of_hits
+nova-zelandia-Q01-20260908T141636Z,Q01,nova-zelandia,2026-09-08T14:16:36.913053+00:00,COMPUTING_AND_DIGITAL_EDUCATION,C01,2.0,executed,2
+nova-zelandia-Q06-20260908T141643Z,Q06,nova-zelandia,2026-09-08T14:16:43.308639+00:00,UNESCO_GCED_2015,F01,2.0,executed,2

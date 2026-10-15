@@ -1,0 +1,150 @@
+{
+  "question_id": "Q14",
+  "model": "gpt-4o-mini",
+  "prompt_version": "q14-comparison-v1.0",
+  "run_date": "2026-09-12T17:08:09.834047+00:00",
+  "result": {
+    "question_id": "Q14",
+    "synthesis": "A análise das 13 comparações temáticas evidencia convergências significativas na educação digital entre os países, além de diferenças marcantes e lacunas de evidência em certas áreas.",
+    "major_convergences": [
+      {
+        "claim": "Vários países destacam a importância de competências digitais, cidadania digital e uso responsável das tecnologias.",
+        "countries": [
+          "africa-do-sul",
+          "australia",
+          "brasil",
+          "canada",
+          "gana",
+          "japao",
+          "ruanda",
+          "suica",
+          "taiwan",
+          "uruguai"
+        ],
+        "source_questions": [
+          "Q01",
+          "Q03",
+          "Q08",
+          "Q10"
+        ]
+      },
+      {
+        "claim": "O Pensamento Computacional é incorporado ao currículo educacional como uma competência a ser desenvolvida em diversos contextos.",
+        "countries": [
+          "brasil",
+          "gana",
+          "quenia",
+          "uruguai",
+          "coreia-do-sul",
+          "suica"
+        ],
+        "source_questions": [
+          "Q02"
+        ]
+      },
+      {
+        "claim": "A ênfase em habilidades sociais, críticas e colaborativas é recorrente na formação e prática docente em Computação e Educação Digital.",
+        "countries": [
+          "australia",
+          "canada",
+          "gana",
+          "japao",
+          "quenia",
+          "ruanda",
+          "suica",
+          "taiwan"
+        ],
+        "source_questions": [
+          "Q06",
+          "Q10",
+          "Q12"
+        ]
+      }
+    ],
+    "major_differences": [
+      {
+        "claim": "As abordagens e enfoques na integração de tecnologias variam amplamente, com alguns países mais focados em aspectos técnicos e outros em valores sociais e éticos.",
+        "countries": [
+          "canada",
+          "brasil",
+          "coreia-do-sul",
+          "japao"
+        ],
+        "source_questions": [
+          "Q09",
+          "Q11"
+        ]
+      },
+      {
+        "claim": "A maneira como a cidadania digital é abordada difere entre os países, com alguns países apresentando perspectivas mais práticas do que outros.",
+        "countries": [
+          "brasil",
+          "australia",
+          "reino-unido"
+        ],
+        "source_questions": [
+          "Q11"
+        ]
+      }
+    ],
+    "recurring_patterns": [
+      {
+        "claim": "A integração de competências técnicas e sociais é essencial para a educação digital, promovendo a cidadania digital e a responsabilidade social.",
+        "countries": [
+          "africa-do-sul",
+          "canada",
+          "gana",
+          "japao",
+          "ruanda",
+          "suica"
+        ],
+        "source_questions": [
+          "Q09",
+          "Q11"
+        ]
+      },
+      {
+        "claim": "A presença de conceitos relacionados ao pensamento crítico e à colaboração como práticas essenciais na educação digital é uma tendência comum.",
+        "countries": [
+          "africa-do-sul",
+          "australia",
+          "brasil",
+          "canada",
+          "gana"
+        ],
+        "source_questions": [
+          "Q10",
+          "Q12"
+        ]
+      }
+    ],
+    "evidence_gaps": [
+      {
+        "claim": "Falta de evidências claras sobre a forma como a ética digital e a cidadania digital são efetivamente abordadas em diversos países.",
+        "countries": [
+          "kenia",
+          "ruanda",
+          "quenia"
+        ],
+        "source_questions": [
+          "Q03",
+          "Q11"
+        ]
+      },
+      {
+        "claim": "A ausência de dados sobre a efetividade da formação docente e a aplicação prática das competências digitais em sala de aula é notável.",
+        "countries": [
+          "brasil",
+          "gana",
+          "uruguai"
+        ],
+        "source_questions": [
+          "Q07",
+          "Q12"
+        ]
+      }
+    ],
+    "limitations": []
+  },
+  "raw_response": "```json\n{\n  \"question_id\": \"Q14\",\n  \"synthesis\": \"A análise das 13 comparações temáticas evidencia convergências significativas na educação digital entre os países, além de diferenças marcantes e lacunas de evidência em certas áreas.\",\n  \"major_convergences\": [\n    {\n      \"claim\": \"Vários países destacam a importância de competências digitais, cidadania digital e uso responsável das tecnologias.\",\n      \"countries\": [\"africa-do-sul\", \"australia\", \"brasil\", \"canada\", \"gana\", \"japao\", \"ruanda\", \"suica\", \"taiwan\", \"uruguai\"],\n      \"source_questions\": [\"Q01\", \"Q03\", \"Q08\", \"Q10\"]\n    },\n    {\n      \"claim\": \"O Pensamento Computacional é incorporado ao currículo educacional como uma competência a ser desenvolvida em diversos contextos.\",\n      \"countries\": [\"brasil\", \"gana\", \"quenia\", \"uruguai\", \"coreia-do-sul\", \"suica\"],\n      \"source_questions\": [\"Q02\"]\n    },\n    {\n      \"claim\": \"A ênfase em habilidades sociais, críticas e colaborativas é recorrente na formação e prática docente em Computação e Educação Digital.\",\n      \"countries\": [\"australia\", \"canada\", \"gana\", \"japao\", \"quenia\", \"ruanda\", \"suica\", \"taiwan\"],\n      \"source_questions\": [\"Q06\", \"Q10\", \"Q12\"]\n    }\n  ],\n  \"major_differences\": [\n    {\n      \"claim\": \"As abordagens e enfoques na integração de tecnologias variam amplamente, com alguns países mais focados em aspectos técnicos e outros em valores sociais e éticos.\",\n      \"countries\": [\"canada\", \"brasil\", \"coreia-do-sul\", \"japao\"],\n      \"source_questions\": [\"Q09\", \"Q11\"]\n    },\n    {\n      \"claim\": \"A maneira como a cidadania digital é abordada difere entre os países, com alguns países apresentando perspectivas mais práticas do que outros.\",\n      \"countries\": [\"brasil\", \"australia\", \"reino-unido\"],\n      \"source_questions\": [\"Q11\"]\n    }\n  ],\n  \"recurring_patterns\": [\n    {\n      \"claim\": \"A integração de competências técnicas e sociais é essencial para a educação digital, promovendo a cidadania digital e a responsabilidade social.\",\n      \"countries\": [\"africa-do-sul\", \"canada\", \"gana\", \"japao\", \"ruanda\", \"suica\"],\n      \"source_questions\": [\"Q09\", \"Q11\"]\n    },\n    {\n      \"claim\": \"A presença de conceitos relacionados ao pensamento crítico e à colaboração como práticas essenciais na educação digital é uma tendência comum.\",\n      \"countries\": [\"africa-do-sul\", \"australia\", \"brasil\", \"canada\", \"gana\"],\n      \"source_questions\": [\"Q10\", \"Q12\"]\n    }\n  ],\n  \"evidence_gaps\": [\n    {\n      \"claim\": \"Falta de evidências claras sobre a forma como a ética digital e a cidadania digital são efetivamente abordadas em diversos países.\",\n      \"countries\": [\"kenia\", \"ruanda\", \"quenia\"],\n      \"source_questions\": [\"Q03\", \"Q11\"]\n    },\n    {\n      \"claim\": \"A ausência de dados sobre a efetividade da formação docente e a aplicação prática das competências digitais em sala de aula é notável.\",\n      \"countries\": [\"brasil\", \"gana\", \"uruguai\"],\n      \"source_questions\": [\"Q07\", \"Q12\"]\n    }\n  ],\n  \"limitations\": []\n}\n```"
+}

@@ -1,0 +1,79 @@
+question_id,question_text,country,response,evidence_ids,validation_status
+Q01,Como cada país define e organiza as competências de Computação e Educação Digital em seus documentos curriculares?,hong-kong,"```json
+{
+  ""question_id"": ""Q01"",
+  ""country"": ""hong-kong"",
+  ""response"": ""As definido nos documentos curriculares de Hong Kong, as competências de Computação e Educação Digital são organizadas em várias áreas com ênfase em sistemas de informação, processamento de dados, design de algoritmos, e implicações sociais do uso de TIC. O currículo inclui módulos sobre 'Processamento de Informação', 'Organização e Controle de Dados', e 'Representação de Dados', entre outros. Os estudantes aprendem a manipular e analisar dados, compreender conceitos fundamentais de sistemas de informação e discutir questões éticas relacionadas ao uso de TIC."",
+  ""evidence_ids"": [
+    {
+      ""document_id"": ""DISCM-DISC-F59372F7-02__hong-kong_ict-curriculum-and-assessment-guide_2017.pdf"",
+      ""documento"": ""DISC-F59372F7-02__hong-kong_ict-curriculum-and-assessment-guide_2017.pdf"",
+      ""pagina"": 9,
+      ""trecho_original"": ""The ICT curriculum presents the overall aims, major targets and content of the curriculum. For each module or option, the following information is also provided: ..."",
+      ""classificacao"": ""curricular"",
+      ""validation_status"": ""validada""
+    },
+    {
+      ""document_id"": ""DISCM-DISC-F59372F7-02__hong-kong_ict-curriculum-and-assessment-guide_2017.pdf"",
+      ""documento"": ""DISC-F59372F7-02__hong-kong_ict-curriculum-and-assessment-guide_2017.pdf"",
+      ""pagina"": 33,
+      ""trecho_original"": ""This module provides students with an understanding, and ethical analysis, of various issues arising from the use of ICT. These issues have economic, legal, social, ethical and security consequences."",
+      ""classificacao"": ""curricular"",
+      ""validation_status"": ""validada""
+    },
+    {
+      ""document_id"": ""DISCM-DISC-F59372F7-02__hong-kong_ict-curriculum-and-assessment-guide_2017.pdf"",
+      ""documento"": ""DISC-F59372F7-02__hong-kong_ict-curriculum-and-assessment-guide_2017.pdf"",
+      ""pagina"": 29,
+      ""trecho_original"": ""The Compulsory Part comprises five modules: A. Information Processing ... Students will learn about: information systems and processes in real-life contexts; the difference between information and data; ..."",
+      ""classificacao"": ""curricular"",
+      ""validation_status"": ""validada""
+    }
+  ],
+  ""evidence_classification"": ""curricular"",
+  ""validation_status"": ""validada""
+}
+```",,candidate
+Q06,"Quais evidências curriculares estão relacionadas à dimensão cognitiva da Educação para a Cidadania Global da UNESCO, especialmente pensamento crítico, compreensão de questões locais e globais, interdependência e resolução de problemas?",hong-kong,"```json
+{
+  ""question_id"": ""Q06"",
+  ""country"": ""hong-kong"",
+  ""response"": ""As evidências curriculares relacionadas à dimensão cognitiva da Educação para a Cidadania Global da UNESCO em Hong Kong incluem o desenvolvimento de habilidades de pensamento crítico, a compreensão de questões locais e globais, a interdependência e a resolução de problemas através de atividades de aprendizado integradas, abordagens colaborativas e discussões sobre temas relevantes."",
+  ""evidence_ids"": [
+    {
+      ""document_id"": ""DISC-F59372F7-01__hong-kong_general-studies-curriculum-guide_coding-stem_2017.pdf"",
+      ""documento"": ""DISC-F59372F7-01__hong-kong_general-studies-curriculum-guide_coding-stem_2017.pdf"",
+      ""página"": 104,
+      ""trecho_original"": ""Progressive deepening of values education can be achieved by learning through life events, or case studies. This also develops students’ critical thinking skills."",
+      ""classificação"": ""evidence"",
+      ""validation_status"": ""validated""
+    },
+    {
+      ""document_id"": ""DISC-F59372F7-01__hong-kong_general-studies-curriculum-guide_coding-stem_2017.pdf"",
+      ""documento"": ""DISC-F59372F7-01__hong-kong_general-studies-curriculum-guide_coding-stem_2017.pdf"",
+      ""página"": 46,
+      ""trecho_original"": ""global issues that are the common concerns of mankind (e.g. population problem, climate change issues)... the interdependence of different parts of the world (e.g. trade and cooperation agreements)"",
+      ""classificação"": ""evidence"",
+      ""validation_status"": ""validated""
+    },
+    {
+      ""document_id"": ""DISC-F59372F7-01__hong-kong_general-studies-curriculum-guide_coding-stem_2017.pdf"",
+      ""documento"": ""DISC-F59372F7-01__hong-kong_general-studies-curriculum-guide_coding-stem_2017.pdf"",
+      ""página"": 17,
+      ""trecho_original"": ""Collaborative Problem Solving skills refers to students’ abilities to solve problems with synergised efforts..."",
+      ""classificação"": ""evidence"",
+      ""validation_status"": ""validated""
+    },
+    {
+      ""document_id"": ""DISC-F59372F7-01__hong-kong_general-studies-curriculum-guide_coding-stem_2017.pdf"",
+      ""documento"": ""DISC-F59372F7-01__hong-kong_general-studies-curriculum-guide_coding-stem_2017.pdf"",
+      ""página"": 17,
+      ""trecho_original"": ""Critical thinking skills, creativity and problem solving skills are conventionally categorised as higher order thinking skills."",
+      ""classificação"": ""evidence"",
+      ""validation_status"": ""validated""
+    }
+  ],
+  ""evidence_classification"": ""curricular"",
+  ""validation_status"": ""confirmed""
+}
+```",,candidate
